@@ -136,3 +136,4 @@ h1,.structure-title{letter-spacing:.01em!important}
 .region-grid button.active{background:#e3efed;border-color:#458a8566;color:#24524f;font-weight:600}.region-clear{font-size:12px;min-height:40px;border:1px solid #18253618;border-radius:9px}
 .top-actions button.active{background:#263b48;color:#fff;border-color:#263b48}
 @media(max-width:767px){.top-actions button span{display:none}}
+@media(max-width:420px){.bottom-dock .dock-reset span,.bottom-dock .dock-layers span{display:none}.bottom-dock .dock-reset,.bottom-dock .dock-layers{min-width:40px;justify-content:center}.tool-tabs button{padding:4px 7px}}

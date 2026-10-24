@@ -1,0 +1,60 @@
+{
+  "note": "Manual peel layers by muscle name (lowercase, without left/right); they replace the computed layer. Textbook layers for the muscle groups physical therapy uses most; everything else keeps the computed layer.",
+  "layers": {
+    "platysma": 1, "sternocleidomastoid": 2, "sternohyoid": 2, "omohyoid": 2, "sternothyroid": 3, "thyrohyoid": 3,
+    "scalenus anterior": 3, "scalenus medius": 3, "scalenus posterior": 3,
+
+    "descending part of trapezius": 1, "transverse part of trapezius": 1, "ascending part of trapezius": 1,
+    "acromial part of deltoid": 1, "clavicular part of deltoid": 1, "spinal part of deltoid": 1,
+    "clavicular part of pectoralis major": 1, "sternocostal part of pectoralis major": 1, "abdominal part of pectoralis major": 1,
+    "teres major": 1, "pectoralis minor": 2, "serratus anterior": 2, "subclavius": 3,
+    "supraspinatus": 2, "infraspinatus muscle": 2, "teres minor": 2, "subscapularis": 3,
+    "rhomboid major": 2, "rhomboid minor": 2, "levator scapulae": 2,
+
+    "splenius capitis": 2, "splenius cervicis": 3, "serratus posterior superior": 3, "serratus posterior inferior": 3,
+    "iliocostalis cervicis": 3, "iliocostalis thoracis": 3, "iliocostalis lumborum": 3,
+    "longissimus capitis": 3, "longissimus cervicis": 3, "longissimus thoracis": 3, "spinalis": 3, "spinalis thoracis": 3,
+    "semispinalis capitis": 4, "semispinalis cervicis": 4, "semispinalis thoracis": 4,
+    "rectus capitis posterior major": 4, "rectus capitis posterior minor": 4, "obliquus capitis superior": 4, "obliquus capitis inferior": 4,
+    "cervical rotator": 5, "thoracic rotator": 5, "lumbar rotator": 5, "interspinalis thoracis": 5,
+    "set of interspinales cervicis": 5, "set of interspinales lumborum": 5,
+    "set of anterior cervical intertransversarii": 5, "set of posterior cervical intertransversarii": 5,
+    "lateral lumbar intertransversarius": 5, "medial lumbar intertransversarius": 5,
+    "set of levatores costarum breves": 5, "set of levatores costarum longi": 5,
+
+    "external oblique": 1, "external intercostal muscle": 3, "internal intercostal muscle": 4, "innermost intercostal muscle": 5, "transversus thoracis": 5,
+    "diaphragm": 4, "psoas major": 3, "iliacus": 3,
+
+    "long head of biceps brachii": 1, "short head of biceps brachii": 1, "brachialis": 2, "coracobrachialis": 2,
+    "long head of triceps brachii": 1, "lateral head of triceps brachii": 1, "medial head of triceps brachii": 2, "anconeus": 1,
+
+    "humeral head of pronator teres": 1, "ulnar head of pronator teres": 1, "flexor carpi radialis": 1, "palmaris longus": 1,
+    "humeral head of flexor carpi ulnaris": 1, "ulnar head of flexor carpi ulnaris": 1,
+    "flexor digitorum superficialis": 2, "flexor digitorum profundus": 3, "flexor pollicis longus": 3, "pronator quadratus": 3,
+    "brachioradialis": 1, "extensor carpi radialis longus": 1, "extensor carpi radialis brevis": 1, "extensor digitorum": 1,
+    "extensor digiti minimi": 1, "extensor carpi ulnaris": 1,
+    "supinator": 2, "abductor pollicis longus": 2, "extensor pollicis brevis": 2, "extensor pollicis longus": 2, "extensor indicis": 2,
+
+    "abductor pollicis brevis": 1, "superficial head of flexor pollicis brevis": 1, "abductor digiti minimi of hand": 1, "flexor digiti minimi brevis of hand": 1,
+    "opponens pollicis": 2, "opponens digiti minimi of hand": 2, "oblique head of adductor pollicis": 2, "transverse head of adductor pollicis": 2, "set of lumbricals of hand": 2,
+    "set of palmar interossei of hand": 3, "set of dorsal interossei of hand": 3,
+
+    "gluteus maximus": 1, "tensor fasciae latae": 1, "gluteus medius": 2, "gluteus minimus": 3,
+    "piriformis": 3, "gemellus superior": 3, "gemellus inferior": 3, "obturator internus": 3, "quadratus femoris": 3, "obturator externus": 4,
+
+    "sartorius": 1, "rectus femoris": 1, "vastus lateralis": 1, "vastus medialis": 1, "vastus intermedius": 2,
+    "gracilis": 1, "adductor longus": 1, "pectineus": 1, "adductor brevis": 2, "adductor magnus": 2, "adductor minimus": 3,
+    "long head of biceps femoris": 1, "semitendinosus": 1, "semimembranosus": 2, "short head of biceps femoris": 2,
+
+    "tibialis anterior": 1, "extensor digitorum longus": 1, "extensor hallucis longus": 2, "fibularis longus": 1, "fibularis brevis": 2, "fibularis tertius": 2,
+    "lateral head of gastrocnemius": 1, "medial head of gastrocnemius": 1, "plantaris": 2, "soleus": 2,
+    "popliteus": 3, "tibialis posterior": 3, "flexor digitorum longus": 3, "flexor hallucis longus": 3,
+
+    "extensor hallucis brevis": 1,
+    "abductor hallucis": 1, "flexor digitorum brevis": 1, "abductor digiti minimi of foot": 1,
+    "flexor accessorius": 2, "first lumbrical of foot": 2, "second lumbrical of foot": 2, "third lumbrical of foot": 2, "fourth lumbrical of foot": 2,
+    "lateral head of flexor hallucis brevis": 3, "medial head of flexor hallucis brevis": 3, "oblique head of adductor hallucis": 3, "transverse head of adductor hallucis": 3,
+    "flexor digiti minimi brevis of foot": 3, "opponens digiti minimi of foot": 3,
+    "first plantar interosseous of foot": 4, "second plantar interosseous of foot": 4, "third plantar interosseous of foot": 4
+  }
+}

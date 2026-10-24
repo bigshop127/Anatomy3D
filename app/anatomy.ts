@@ -41,7 +41,7 @@ export function visibilityTest(s:SceneState){
  return (p:Part)=>{
   if(selection.has(p.id))return true;
   if(s.isolate||!visible.has(p.system)||hidden.has(p.id))return false;
-  if(p.system==='muscular'&&s.peel>0&&(p.layer??1)<=s.peel)return false;
+  if(p.layer&&p.layer<=s.peel)return false;
   return !s.region||overlaps(p.bounds as Box,s.region.box);
  };
 }

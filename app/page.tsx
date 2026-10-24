@@ -13,12 +13,16 @@ import {asset} from './model-download';
 import {createNamer,type NameData} from './names';
 import nameData from './names.zh-TW.json';
 import {REGIONS,regionBox,regionLook,type RegionId,type Side} from './regions';
+import {fixSystems} from './system-fixes';
+import muscleLayers from './muscle-layers.json';
 import {DEFAULT_VISIBLE,SYSTEMS,explanation,hasExplanation,visibilityTest,type Atlas,type Concept,type SceneState,type SectionAxis,type SystemId,type View} from './anatomy';
 const namer=createNamer(nameData as NameData);
 const SUGGESTED=['heart','brain','vertebral column','scapula','humerus','pelvis','femur','skull','liver','stomach'];
 const VIEWS:{id:View;short:string;name:string}[]=[{id:'three-quarter',short:'斜',name:'斜前方'},{id:'front',short:'前',name:'正面'},{id:'side',short:'側',name:'側面'},{id:'back',short:'後',name:'背面'}];
-type Tool='explode'|'xray'|'section';
-const TOOLS:{id:Tool;name:string}[]=[{id:'explode',name:'拆開'},{id:'xray',name:'透視'},{id:'section',name:'剖面'}];
+type Tool='explode'|'xray'|'section'|'peel';
+const TOOLS:{id:Tool;name:string}[]=[{id:'explode',name:'拆開'},{id:'xray',name:'透視'},{id:'section',name:'剖面'},{id:'peel',name:'剝層'}];
+const LAYERS=muscleLayers.layers as Record<string,number>,DEEPEST=Math.max(...Object.values(LAYERS));
+const PEEL_TEXT=['全部肌肉','去掉淺層肌','去掉到第 2 層','去掉到第 3 層','去掉到第 4 層','肌肉全部去掉'];
 const AXES:{id:SectionAxis;name:string;ends:[string,string]}[]=[{id:'sagittal',name:'矢狀',ends:['右側','左側']},{id:'coronal',name:'冠狀',ends:['背側','前側']},{id:'transverse',name:'水平',ends:['下方','上方']}];
 const XRAY_DEFAULT=.7;
 const initial:SceneState={explode:0,visible:DEFAULT_VISIBLE,selected:[],isolate:false,view:'three-quarter',rotate:false,reset:0,hidden:[],xray:0,section:null,region:null,peel:0,pins:[]};
@@ -32,7 +36,7 @@ export default function Home(){
  // Panels above the dock follow its real height, which changes with the active tool. The detail sheet lives in a portal, so the value goes on the root element.
  const dock=useRef<HTMLDivElement>(null);
  useEffect(()=>{const d=dock.current;if(!d)return;const observer=new ResizeObserver(()=>document.documentElement.style.setProperty('--dock-h',`${d.offsetHeight}px`));observer.observe(d);return()=>observer.disconnect();},[]);
- useEffect(()=>{const abort=new AbortController();setProgress(0);setError('');setAtlas(null);setChosen(null);setDetails(false);setState({...initial,visible:DEFAULT_VISIBLE});fetch(asset('models/atlas.json'),{signal:abort.signal}).then(r=>{if(!r.ok)throw new Error('人體構造目錄載入失敗。');return r.json();}).then(data=>{const loaded=data as Atlas;loaded.parts.forEach(p=>{p.label=namer.label(p.name);});loaded.concepts.forEach(c=>{c.label=namer.label(c.name);});setAtlas(loaded);}).catch(e=>{if(e.name!=='AbortError')setError(e.message);});return()=>abort.abort();},[]);
+ useEffect(()=>{const abort=new AbortController();setProgress(0);setError('');setAtlas(null);setChosen(null);setDetails(false);setState({...initial,visible:DEFAULT_VISIBLE});fetch(asset('models/atlas.json'),{signal:abort.signal}).then(r=>{if(!r.ok)throw new Error('人體構造目錄載入失敗。');return r.json();}).then(data=>{const loaded=data as Atlas;fixSystems(loaded);loaded.parts.forEach(p=>{p.label=namer.label(p.name);p.layer=LAYERS[p.id];});loaded.concepts.forEach(c=>{c.label=namer.label(c.name);});setAtlas(loaded);}).catch(e=>{if(e.name!=='AbortError')setError(e.message);});return()=>abort.abort();},[]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='/'&&!(e.target instanceof HTMLInputElement)&&!(e.target instanceof HTMLTextAreaElement)){e.preventDefault();setPanel('search');setDetails(false);}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key);},[]);
  const parts=useMemo(()=>new Map(atlas?.parts.map(p=>[p.id,p])),[atlas]);
  const counts=useMemo(()=>Object.fromEntries(SYSTEMS.map(s=>[s.id,atlas?.parts.filter(p=>p.system===s.id).length??0])),[atlas]);
@@ -75,7 +79,7 @@ export default function Home(){
  const openPanel=(next:'layers'|'search'|'regions')=>{setDetails(false);setPanel(p=>p===next?null:next);};
  const setSection=(axis:SectionAxis|null)=>setState(s=>({...s,explode:0,section:axis?{axis,position:s.section?.axis===axis?s.section.position:.5,flip:s.section?.flip??false}:null}));
  const sectionAxis=AXES.find(a=>a.id===state.section?.axis),cutting=!!state.section||!!state.region;
- const toolValue=tool==='explode'?`${Math.round(state.explode*100)}`:tool==='xray'?(state.xray?`${Math.round(state.xray*100)}`:'關'):state.section?`${Math.round(state.section.position*100)}`:'關';
+ const toolValue=tool==='explode'?`${Math.round(state.explode*100)}`:tool==='xray'?(state.xray?`${Math.round(state.xray*100)}`:'關'):tool==='peel'?`${state.peel}/${DEEPEST}`:state.section?`${Math.round(state.section.position*100)}`:'關';
  return <main className="studio">
   {atlas&&<AnatomyScene atlas={atlas} state={{...state,inspectorOpen:details&&selectedParts.length>0}} onSelect={choosePart} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
   <div className="vignette"/>
@@ -93,12 +97,13 @@ export default function Home(){
   {state.hidden.length>0?<div className="hidden-chip glass" role="status"><EyeOff size={14}/><span>已隱藏 {state.hidden.length} 個</span><Button variant="ghost" disabled={!undo.length} onClick={undoHide}><Undo2 size={14}/>復原</Button><Button variant="ghost" onClick={showAll}>全部顯示</Button></div>
   :<div className="scene-caption"><span className="caption-line"/><span>{state.isolate?(chosen?.label??'已選構造'):region?`部位：${regionName}`:multi?'多選模式':state.section?`${sectionAxis?.name}切面`:state.explode>.95?'全部構造一覽':state.explode>.05?'拆開檢視':'成年男性'}</span><span className="caption-line"/></div>}
   <div className="bottom-dock glass" ref={dock}>
-   <div className="dock-row"><Button variant="ghost" className="mobile-only dock-layers" onClick={()=>openPanel('layers')} aria-label="開啟系統面板"><Layers3 size={18}/><span>系統</span></Button><div className="tool-tabs" role="tablist" aria-label="工具">{TOOLS.map(t=><button key={t.id} type="button" role="tab" aria-selected={tool===t.id} className={tool===t.id?'active':''} onClick={()=>setTool(t.id)}>{t.name}</button>)}</div><output className="tool-value">{toolValue}{/^[0-9]/.test(toolValue)&&<span>%</span>}</output><Button variant="ghost" className="dock-reset" onClick={reset} aria-label="全部重設"><RotateCcw size={17}/><span>重設</span></Button></div>
+   <div className="dock-row"><Button variant="ghost" className="mobile-only dock-layers" onClick={()=>openPanel('layers')} aria-label="開啟系統面板"><Layers3 size={18}/><span>系統</span></Button><div className="tool-tabs" role="tablist" aria-label="工具">{TOOLS.map(t=><button key={t.id} type="button" role="tab" aria-selected={tool===t.id} className={tool===t.id?'active':''} onClick={()=>setTool(t.id)}>{t.name}</button>)}</div><output className="tool-value">{toolValue}{/^[0-9]+$/.test(toolValue)&&<span>%</span>}</output><Button variant="ghost" className="dock-reset" onClick={reset} aria-label="全部重設"><RotateCcw size={17}/><span>重設</span></Button></div>
    <div className="explode-control">
     {tool==='explode'&&<><Slider aria-label="拆開構造" disabled={cutting} min={0} max={100} step={1} value={[state.explode*100]} onValueChange={v=>{const n=sliderValue(v);setState(s=>({...s,explode:n/100,view:n>80?'front':s.view,rotate:false}));}}/><div className="slider-endpoints"><span>{cutting?'剖面或部位模式時不能拆開':'組合'}</span><span>{cutting?'':'全部攤開'}</span></div></>}
     {tool==='xray'&&<><Slider aria-label="周圍透明度" min={0} max={95} step={1} value={[state.xray*100]} onValueChange={v=>setXray(sliderValue(v)/100)}/><div className="slider-endpoints"><span>關</span><span>{state.selected.length?'沒選到的構造變透明':'全部變透明'}</span></div></>}
     {tool==='section'&&<><div className="section-axes" role="group" aria-label="切面方向"><button type="button" aria-pressed={!state.section} className={!state.section?'active':''} onClick={()=>setSection(null)}>關</button>{AXES.map(a=><button key={a.id} type="button" aria-pressed={state.section?.axis===a.id} className={state.section?.axis===a.id?'active':''} onClick={()=>setSection(a.id)}>{a.name}</button>)}<button type="button" className="flip" disabled={!state.section} title="保留另一側" aria-label="保留另一側" onClick={()=>setState(s=>s.section?{...s,section:{...s.section,flip:!s.section.flip}}:s)}><FlipHorizontal2 size={15}/>換邊</button></div>
      {state.section&&sectionAxis&&<><Slider aria-label="切面位置" min={0} max={100} step={1} value={[state.section.position*100]} onValueChange={v=>{const n=sliderValue(v);setState(s=>s.section?{...s,section:{...s.section,position:n/100}}:s);}}/><div className="slider-endpoints"><span>{sectionAxis.ends[0]}</span><span>保留{state.section.flip?sectionAxis.ends[1]:sectionAxis.ends[0]}</span><span>{sectionAxis.ends[1]}</span></div></>}</>}
+    {tool==='peel'&&<><Slider aria-label='肌肉剝層' min={0} max={DEEPEST} step={1} value={[state.peel]} onValueChange={v=>setState(s=>({...s,peel:sliderValue(v)}))}/><div className="slider-endpoints"><span>淺層</span><span>{PEEL_TEXT[state.peel]??`去掉到第 ${state.peel} 層`}</span><span>深層</span></div></>}
    </div>
   </div>
   <footer className="studio-footer"><span>{state.explode>.8?'拖曳平移':'拖曳旋轉'} <b>·</b> 雙指縮放 <b>·</b> {multi?'點一下加入／移除':'點一下查看'}</span><Button variant="ghost" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}>資料來源與授權 <ArrowUpRight size={12}/></Button></footer>
