@@ -128,3 +128,11 @@ h1,.structure-title{letter-spacing:.01em!important}
  .section-axes{flex-wrap:nowrap;margin-bottom:4px}.section-axes button{padding:5px 9px}
 }
 @media(max-height:600px) and (orientation:landscape){.hidden-chip{bottom:calc(22px + var(--dock-h,90px) + 8px)}.detail-sheet{bottom:12px!important}.layers-panel.mobile-open{bottom:12px!important}}
+
+/* Region picker. */
+.region-panel{display:flex;flex-direction:column;gap:12px}.side-switch{display:flex;align-items:center;gap:4px;font-size:11px;color:#7c8793}
+.side-switch button{font-size:12px;padding:5px 12px;border-radius:7px;border:1px solid #18253618;color:#5d6a77;min-height:32px}.side-switch button.active{background:#263b48;border-color:#263b48;color:#fff}.side-switch span{margin-left:6px}
+.region-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}.region-grid button{font-size:13px;min-height:42px;border-radius:9px;border:1px solid #18253614;background:#f7f9fa;color:#394957}
+.region-grid button.active{background:#e3efed;border-color:#458a8566;color:#24524f;font-weight:600}.region-clear{font-size:12px;min-height:40px;border:1px solid #18253618;border-radius:9px}
+.top-actions button.active{background:#263b48;color:#fff;border-color:#263b48}
+@media(max-width:767px){.top-actions button span{display:none}}

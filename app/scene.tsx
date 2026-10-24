@@ -142,7 +142,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   };
   renderer.domElement.addEventListener('pointerdown',down);renderer.domElement.addEventListener('pointermove',move);renderer.domElement.addEventListener('pointerup',up);renderer.domElement.addEventListener('pointercancel',cancel);
   const updateClipping=(s:SceneState)=>{
-   const next=clippingPlanes(s.section,s.region,body),recompile=next.length!==planes.length;planes=next;
+   const next=clippingPlanes(s.section,s.region?.box??null,body),recompile=next.length!==planes.length;planes=next;
    partMaterials.forEach(m=>{m.clippingPlanes=planes.length?planes:null;if(recompile)m.needsUpdate=true;});
    outline.visible=!!s.section;
    if(s.section){const i=AXES[s.section.axis],plane=planes[0],c=-plane.constant*plane.normal.getComponent(i),[a,b]=[0,1,2].filter(k=>k!==i),pos=outlineGeometry.attributes.position as T.BufferAttribute;
@@ -191,10 +191,10 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    if(s.view!==lastView||s.reset!==lastReset){cam.clearViewOffset();lastFocus='';if(!s.region)fit(s.view,amount);lastView=s.view;lastReset=s.reset;}
    if(moving&&!s.isolate&&!s.region)fit(amount>.5?'front':s.view,Math.max(0,(amount-.3)/.7));
    // Isolating a structure or choosing a body region frames the camera on it.
-   const focusKey=s.isolate?'i:'+s.selected.join(',')+':'+s.reset+':'+s.inspectorOpen+':'+cam.aspect:s.region?'r:'+s.region.flat().join(',')+':'+s.reset+':'+cam.aspect:'';
+   const focusKey=s.isolate?'i:'+s.selected.join(',')+':'+s.reset+':'+s.inspectorOpen+':'+cam.aspect:s.region?'r:'+s.region.box.flat().join(',')+':'+s.reset+':'+cam.aspect:'';
    if(focusKey!==lastFocus||(s.isolate&&moving)){
     if(s.isolate){const box=new T.Box3();atlas.parts.forEach((p,i)=>{if(s.selected.includes(p.id))box.union(bounds[i].clone().translate(new T.Vector3(data[i*4],data[i*4+1],data[i*4+2])));});if(!box.isEmpty())frameBox(box,!!s.inspectorOpen,new T.Vector3(.2,.1,1));}
-    else if(s.region){const box=new T.Box3(new T.Vector3().fromArray(s.region[0]),new T.Vector3().fromArray(s.region[1]));const center=box.getCenter(new T.Vector3());frameBox(box,false,new T.Vector3(center.x*1.5,.15,1));}
+    else if(s.region){const box=new T.Box3(new T.Vector3().fromArray(s.region.box[0]),new T.Vector3().fromArray(s.region.box[1]));frameBox(box,false,new T.Vector3().fromArray(s.region.look));}
     else if(lastFocus){cam.clearViewOffset();fit(s.view,amount);}
     lastFocus=focusKey;
    }

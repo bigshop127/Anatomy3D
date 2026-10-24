@@ -30,7 +30,8 @@ export interface CameraPose {position:number[];target:number[]}
 export interface SceneState {inspectorOpen?:boolean;explode:number;visible:SystemId[];selected:string[];isolate:boolean;view:View;rotate:boolean;reset:number;
  /** Parts the user hid one by one. */ hidden:string[];
  /** Transparency of everything outside the selection, 0 turns X-ray off. */ xray:number;
- section:Section|null;region:Box|null;
+ section:Section|null;
+ /** Body region cut out by a clipping box; look is the camera direction for framing it. */ region:{box:Box;look:number[]}|null;
  /** Number of muscle layers peeled away from the surface. */ peel:number;
  pins:Pin[];camera?:{pose:CameraPose;n:number}}
 export const overlaps=(a:Box,b:Box)=>a[0].every((v,i)=>v<=b[1][i]&&a[1][i]>=b[0][i]);
@@ -41,7 +42,7 @@ export function visibilityTest(s:SceneState){
   if(selection.has(p.id))return true;
   if(s.isolate||!visible.has(p.system)||hidden.has(p.id))return false;
   if(p.system==='muscular'&&s.peel>0&&(p.layer??1)<=s.peel)return false;
-  return !s.region||overlaps(p.bounds as Box,s.region);
+  return !s.region||overlaps(p.bounds as Box,s.region.box);
  };
 }
 export const DEFAULT_VISIBLE:SystemId[] = ['cardiac','sensory','skeletal','muscular','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','connective'];

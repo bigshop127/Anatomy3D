@@ -1,7 +1,7 @@
 import {flushSync} from 'react-dom';
 import {registerAtlasTools} from './agent-tools';
 import {useEffect,useMemo,useRef,useState} from 'react';
-import {Activity,ArrowUpRight,ChevronRight,EyeOff,FlipHorizontal2,Focus,Ghost,Info,Layers3,Pause,RotateCcw,RotateCw,Search,SquareStack,Undo2,X} from 'lucide-react';
+import {Activity,ArrowUpRight,ChevronRight,EyeOff,FlipHorizontal2,Focus,Ghost,Info,Layers3,Pause,PersonStanding,RotateCcw,RotateCw,Search,SquareStack,Undo2,X} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Badge} from '@/components/ui/badge';
 import {Slider} from '@/components/ui/slider';
@@ -12,6 +12,7 @@ import AnatomyScene from './scene';
 import {asset} from './model-download';
 import {createNamer,type NameData} from './names';
 import nameData from './names.zh-TW.json';
+import {REGIONS,regionBox,regionLook,type RegionId,type Side} from './regions';
 import {DEFAULT_VISIBLE,SYSTEMS,explanation,hasExplanation,visibilityTest,type Atlas,type Concept,type SceneState,type SectionAxis,type SystemId,type View} from './anatomy';
 const namer=createNamer(nameData as NameData);
 const SUGGESTED=['heart','brain','vertebral column','scapula','humerus','pelvis','femur','skull','liver','stomach'];
@@ -24,7 +25,8 @@ const initial:SceneState={explode:0,visible:DEFAULT_VISIBLE,selected:[],isolate:
 const sliderValue=(v:number|readonly number[])=>Array.isArray(v)?v[0]:v as number;
 export default function Home(){
  const detailTitle=useRef<HTMLHeadingElement>(null),autoXray=useRef(false),lastXray=useRef(XRAY_DEFAULT),current=useRef(initial);
- const [atlas,setAtlas]=useState<Atlas|null>(null),[state,setState]=useState(initial),[progress,setProgress]=useState(0),[error,setError]=useState(''),[panel,setPanel]=useState<'layers'|'search'|null>(null),[details,setDetails]=useState(false),[about,setAbout]=useState(false),[query,setQuery]=useState(''),[chosen,setChosen]=useState<Concept|null>(null);
+ const [atlas,setAtlas]=useState<Atlas|null>(null),[state,setState]=useState(initial),[progress,setProgress]=useState(0),[error,setError]=useState(''),[panel,setPanel]=useState<'layers'|'search'|'regions'|null>(null),[details,setDetails]=useState(false),[about,setAbout]=useState(false),[query,setQuery]=useState(''),[chosen,setChosen]=useState<Concept|null>(null);
+ const [region,setRegion]=useState<{id:RegionId;side:Side}|null>(null),[side,setSide]=useState<Side>('right');
  const [tool,setTool]=useState<Tool>('explode'),[multi,setMulti]=useState(false),[undo,setUndo]=useState<string[][]>([]);
  current.current=state;
  // Panels above the dock follow its real height, which changes with the active tool. The detail sheet lives in a portal, so the value goes on the root element.
@@ -66,8 +68,11 @@ export default function Home(){
  const undoHide=()=>{const previous=undo.at(-1);if(!previous)return;setUndo(u=>u.slice(0,-1));setState(s=>({...s,hidden:previous}));};
  const showAll=()=>{setUndo(u=>[...u,state.hidden]);setState(s=>({...s,hidden:[]}));};
  const toggle=(id:SystemId)=>{setDetails(false);setState(s=>({...s,selected:[],isolate:false,visible:s.visible.includes(id)?s.visible.filter(x=>x!==id):[...s.visible,id]}));};
- const reset=()=>{setState(s=>({...initial,visible:DEFAULT_VISIBLE,reset:s.reset+1}));autoXray.current=false;setUndo([]);setChosen(null);setDetails(false);setPanel(null);};
- const openPanel=(next:'layers'|'search')=>{setDetails(false);setPanel(p=>p===next?null:next);};
+ const reset=()=>{setState(s=>({...initial,visible:DEFAULT_VISIBLE,reset:s.reset+1}));setRegion(null);autoXray.current=false;setUndo([]);setChosen(null);setDetails(false);setPanel(null);};
+ const chooseRegion=(id:RegionId,regionSide=side)=>{if(!atlas)return;const box=regionBox(atlas,id,regionSide);if(!box)return;setRegion({id,side:regionSide});setState(s=>({...s,region:{box,look:regionLook(id,regionSide)},explode:0,isolate:false,rotate:false}));setPanel(null);};
+ const clearRegion=()=>{setRegion(null);setState(s=>({...s,region:null}));setPanel(null);};
+ const regionName=region?`${REGIONS.find(r=>r.id===region.id)?.sided?(region.side==='left'?'左':'右'):''}${REGIONS.find(r=>r.id===region.id)?.name}`:'';
+ const openPanel=(next:'layers'|'search'|'regions')=>{setDetails(false);setPanel(p=>p===next?null:next);};
  const setSection=(axis:SectionAxis|null)=>setState(s=>({...s,explode:0,section:axis?{axis,position:s.section?.axis===axis?s.section.position:.5,flip:s.section?.flip??false}:null}));
  const sectionAxis=AXES.find(a=>a.id===state.section?.axis),cutting=!!state.section||!!state.region;
  const toolValue=tool==='explode'?`${Math.round(state.explode*100)}`:tool==='xray'?(state.xray?`${Math.round(state.xray*100)}`:'關'):state.section?`${Math.round(state.section.position*100)}`:'關';
@@ -75,7 +80,7 @@ export default function Home(){
   {atlas&&<AnatomyScene atlas={atlas} state={{...state,inspectorOpen:details&&selectedParts.length>0}} onSelect={choosePart} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
   <div className="vignette"/>
   <header className="identity"><div className="eyebrow"><span className="status-dot"/> 互動解剖圖譜</div><h1>人體解剖<Badge variant="outline" className="edition">3D</Badge></h1><div className="identity-meta">{atlas?atlas.parts.length.toLocaleString():'2,234'} 個部件 <span>·</span> BodyParts3D</div></header>
-  <nav className="top-actions" aria-label="功能面板"><Button variant="ghost" className={panel==='search'?'active':''} onClick={()=>openPanel('search')} aria-label="搜尋構造"><Search size={18}/><span>找構造</span><kbd>/</kbd></Button><Button variant="ghost" className="icon-button" aria-label="關於這個 App" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}><Info size={18}/></Button></nav>
+  <nav className="top-actions" aria-label="功能面板"><Button variant="ghost" className={panel==='regions'||region?'active':''} onClick={()=>openPanel('regions')} aria-label="選擇部位"><PersonStanding size={18}/><span>{region?regionName:'部位'}</span></Button><Button variant="ghost" className={panel==='search'?'active':''} onClick={()=>openPanel('search')} aria-label="搜尋構造"><Search size={18}/><span>找構造</span><kbd>/</kbd></Button><Button variant="ghost" className="icon-button" aria-label="關於這個 App" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}><Info size={18}/></Button></nav>
   <section className={`layers-panel glass ${panel==='layers'?'mobile-open':''}`} aria-label="解剖系統">
    <div className="panel-heading"><span>系統</span><Button variant="ghost" className="mobile-only icon-button" onClick={()=>setPanel(null)} aria-label="關閉系統面板"><X size={18}/></Button><Badge variant="secondary" className="desktop-only small-number">{activeSystems.length}</Badge></div>
    <div className="layer-presets"><Button variant="ghost" aria-pressed={activeSystems.every(x=>state.visible.includes(x.id))} onClick={()=>setState(s=>({...s,selected:[],isolate:false,visible:activeSystems.map(x=>x.id)}))}>全部</Button><Button variant="ghost" aria-pressed={state.visible.length===1&&state.visible[0]==='skeletal'} onClick={()=>setState(s=>({...s,selected:[],isolate:false,visible:['skeletal']}))}>骨骼</Button><Button variant="ghost" aria-pressed={state.visible.length===6&&['cardiac','respiratory','digestive','urinary','endocrine','reproductive'].every(id=>state.visible.includes(id as SystemId))} onClick={()=>setState(s=>({...s,selected:[],isolate:false,visible:['cardiac','respiratory','digestive','urinary','endocrine','reproductive']}))}>器官</Button></div>
@@ -83,9 +88,10 @@ export default function Home(){
    <div className="panel-foot"><span>顯示 {visibleCount.toLocaleString()} 個部件</span><Button variant="ghost" onClick={()=>setState(s=>({...s,visible:[],selected:[],isolate:false}))}>全部隱藏</Button></div>
   </section>
   {panel==='search'&&<section className="search-panel glass" aria-label="搜尋構造"><div className="panel-heading"><span>找構造</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉搜尋"><X size={18}/></Button></div><Combobox<Concept> items={results} value={null} onValueChange={value=>{if(value)choose(value);}} inputValue={query} onInputValueChange={setQuery} itemToStringLabel={c=>c.label??c.name} filter={null} open onOpenChange={open=>{if(!open)setPanel(null);}}><ComboboxInput autoFocus placeholder="中文或英文：心臟、股骨、femur…" aria-label="用中文或英文名稱搜尋構造" showTrigger={false}/><ComboboxContent className="anatomy-search-results"><ComboboxEmpty>找不到符合的構造。</ComboboxEmpty><ComboboxList>{(c:Concept)=><ComboboxItem key={c.id} value={c}><span className="search-result-name">{c.label??c.name}{c.label&&c.label!==c.name&&<small>{c.name}</small>}</span><span className="small-number">{c.elements.length} 件</span></ComboboxItem>}</ComboboxList></ComboboxContent></Combobox><p className="search-note">{query?'最多顯示 80 筆，打得更精確可以找到更小的構造。':'先從常用的構造開始，或輸入任何中英文名稱。'}</p></section>}
+  {panel==='regions'&&<section className="search-panel region-panel glass" aria-label="選擇部位"><div className="panel-heading"><span>部位</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉部位"><X size={18}/></Button></div><div className="side-switch" role="group" aria-label="左右側">{(['right','left'] as Side[]).map(v=><button key={v} type="button" aria-pressed={side===v} className={side===v?'active':''} onClick={()=>{setSide(v);if(region&&REGIONS.find(r=>r.id===region.id)?.sided)chooseRegion(region.id,v);}}>{v==='right'?'右側':'左側'}</button>)}<span>肩、肘、腕、髖、膝、踝用</span></div><div className="region-grid">{REGIONS.map(r=><button key={r.id} type="button" aria-pressed={region?.id===r.id} className={region?.id===r.id?'active':''} onClick={()=>chooseRegion(r.id)}>{r.name}</button>)}</div><Button variant="ghost" className="region-clear" disabled={!region} onClick={clearRegion}>回到全身</Button></section>}
   <nav className="view-controls glass" aria-label="視角控制">{VIEWS.map(v=><Button variant="ghost" key={v.id} className={state.view===v.id?'active':''} aria-pressed={state.view===v.id} disabled={state.explode>.8&&v.id!=='front'} onClick={()=>setState(s=>({...s,view:v.id,reset:s.reset+1,rotate:false}))} title={`${v.name}視角`} aria-label={`${v.name}視角`}><span>{v.short}</span></Button>)}<i/><Button variant="ghost" aria-pressed={multi} className={multi?'active':''} title="多選：點一下加入或移除" aria-label={multi?'關閉多選':'開啟多選'} onClick={()=>setMulti(m=>!m)}><SquareStack size={17}/></Button><Button variant="ghost" disabled={state.explode>=.4} aria-label={state.rotate?'暫停旋轉':'自動旋轉'} title="自動旋轉" className={state.rotate?'active':''} onClick={()=>setState(s=>({...s,rotate:!s.rotate}))}>{state.rotate?<Pause size={17}/>:<RotateCw size={18}/>}</Button><Button variant="ghost" aria-label="全部重設" title="全部重設" onClick={reset}><RotateCcw size={17}/></Button></nav>
   {state.hidden.length>0?<div className="hidden-chip glass" role="status"><EyeOff size={14}/><span>已隱藏 {state.hidden.length} 個</span><Button variant="ghost" disabled={!undo.length} onClick={undoHide}><Undo2 size={14}/>復原</Button><Button variant="ghost" onClick={showAll}>全部顯示</Button></div>
-  :<div className="scene-caption"><span className="caption-line"/><span>{state.isolate?(chosen?.label??'已選構造'):multi?'多選模式':state.section?`${sectionAxis?.name}切面`:state.explode>.95?'全部構造一覽':state.explode>.05?'拆開檢視':'成年男性'}</span><span className="caption-line"/></div>}
+  :<div className="scene-caption"><span className="caption-line"/><span>{state.isolate?(chosen?.label??'已選構造'):region?`部位：${regionName}`:multi?'多選模式':state.section?`${sectionAxis?.name}切面`:state.explode>.95?'全部構造一覽':state.explode>.05?'拆開檢視':'成年男性'}</span><span className="caption-line"/></div>}
   <div className="bottom-dock glass" ref={dock}>
    <div className="dock-row"><Button variant="ghost" className="mobile-only dock-layers" onClick={()=>openPanel('layers')} aria-label="開啟系統面板"><Layers3 size={18}/><span>系統</span></Button><div className="tool-tabs" role="tablist" aria-label="工具">{TOOLS.map(t=><button key={t.id} type="button" role="tab" aria-selected={tool===t.id} className={tool===t.id?'active':''} onClick={()=>setTool(t.id)}>{t.name}</button>)}</div><output className="tool-value">{toolValue}{/^[0-9]/.test(toolValue)&&<span>%</span>}</output><Button variant="ghost" className="dock-reset" onClick={reset} aria-label="全部重設"><RotateCcw size={17}/><span>重設</span></Button></div>
    <div className="explode-control">
