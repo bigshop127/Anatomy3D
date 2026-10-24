@@ -17,11 +17,33 @@ export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[
  {id:'integumentary',name:'體表',color:'#ba9b7d',description:'體表提供外觀參考。皮膚系統形成保護屏障，也參與感覺與體溫調節。'},
  {id:'connective',name:'結締組織',color:'#aec3bb',description:'軟骨、韌帶等結締組織負責支撐、連接與分隔各構造，穩定關節並分散力學負荷。'},
 ];
-export interface Part {id:string;name:string;label?:string;conceptId:string;system:SystemId;chunk:number;positions:number;normals:number;indices:number;vertexCount:number;indexCount:number;bounds:[number[],number[]]}
+export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;chunk:number;positions:number;normals:number;indices:number;vertexCount:number;indexCount:number;bounds:[number[],number[]]}
 export interface Concept {id:string;name:string;label?:string;elements:string[]}
 export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
 export type View = 'three-quarter'|'front'|'back'|'side';
-export interface SceneState {inspectorOpen?:boolean;explode:number;visible:SystemId[];selected:string[];isolate:boolean;view:View;rotate:boolean;reset:number}
+export type SectionAxis = 'sagittal'|'coronal'|'transverse';
+/** position places the cut along the axis (0 = right/back/bottom, 1 = left/front/top); the lower side is kept unless flip. */
+export interface Section {axis:SectionAxis;position:number;flip:boolean}
+export type Box = [number[],number[]];
+export interface Pin {id:string;part:string;label:string;point:number[]}
+export interface CameraPose {position:number[];target:number[]}
+export interface SceneState {inspectorOpen?:boolean;explode:number;visible:SystemId[];selected:string[];isolate:boolean;view:View;rotate:boolean;reset:number;
+ /** Parts the user hid one by one. */ hidden:string[];
+ /** Transparency of everything outside the selection, 0 turns X-ray off. */ xray:number;
+ section:Section|null;region:Box|null;
+ /** Number of muscle layers peeled away from the surface. */ peel:number;
+ pins:Pin[];camera?:{pose:CameraPose;n:number}}
+export const overlaps=(a:Box,b:Box)=>a[0].every((v,i)=>v<=b[1][i]&&a[1][i]>=b[0][i]);
+/** One rule for what is drawn, shared by the scene and the counts in the interface. */
+export function visibilityTest(s:SceneState){
+ const visible=new Set(s.visible),selection=new Set(s.selected),hidden=new Set(s.hidden);
+ return (p:Part)=>{
+  if(selection.has(p.id))return true;
+  if(s.isolate||!visible.has(p.system)||hidden.has(p.id))return false;
+  if(p.system==='muscular'&&s.peel>0&&(p.layer??1)<=s.peel)return false;
+  return !s.region||overlaps(p.bounds as Box,s.region);
+ };
+}
 export const DEFAULT_VISIBLE:SystemId[] = ['cardiac','sensory','skeletal','muscular','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','connective'];
 export const EXPLANATIONS:Record<string,string> = {
  'heart':'位於胸腔的肌肉幫浦。右半邊把血液送到肺，左半邊把血液送往全身。',

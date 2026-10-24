@@ -93,3 +93,38 @@ h1,.structure-title{letter-spacing:.01em!important}
 .unreviewed{text-transform:none;font-size:10px;line-height:1;padding:3px 6px;border-radius:999px;border:1px solid #c9a96e66;color:#8a6d33;background:#f7efdf}
 .search-result-name small{display:block;font-size:11px;line-height:1.4;color:#87929d}
 .app-version{font-size:12px;color:#87929d}
+
+/* Tools: tabs in the dock, section axes, hidden chip, detail actions and pinned labels. */
+.explode-label{gap:10px}.tool-tabs{display:flex;gap:2px;background:#edf0f2;border-radius:9px;padding:3px}
+.tool-tabs button{font-size:12px;font-weight:500;color:#697582;padding:4px 10px;border-radius:6px;min-height:26px}.tool-tabs button.active{background:#fff;color:#233644;box-shadow:0 1px 3px #18253612}
+.section-axes{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}.section-axes button{font-size:12px;padding:5px 10px;border-radius:7px;border:1px solid #18253618;color:#5d6a77;min-height:30px;display:inline-flex;align-items:center;gap:4px}
+.section-axes button.active{background:#263b48;border-color:#263b48;color:#fff}.section-axes .flip{margin-left:auto}
+.hidden-chip{position:absolute;bottom:160px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:4px 6px 4px 12px;border-radius:999px;font-size:12px;color:#394957;white-space:nowrap;z-index:3}
+.hidden-chip button{font-size:12px;height:30px;padding:0 10px;border-radius:999px;display:inline-flex;gap:4px;align-items:center;color:#263b48}
+.detail-tools{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}.detail-tools button{font-size:12px;height:34px;padding:0 10px;border-radius:8px;border:1px solid #18253614;color:#4b5967;display:inline-flex;gap:5px;align-items:center}
+.detail-tools button.active{background:#e3efed;border-color:#458a8555;color:#24524f}
+.view-controls button.active svg{color:inherit}
+.pin-layer{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}.pin-lines{position:absolute;inset:0;width:100%;height:100%}
+.pin-lines line{stroke:#263b48;stroke-width:1.2;opacity:.65}.pin-lines circle{fill:#fff;stroke:#263b48;stroke-width:1.6}
+.pin-label{position:absolute;left:0;top:0;display:flex;align-items:center;gap:2px;height:26px;padding:0 3px 0 10px;border-radius:999px;background:#ffffffee;border:1px solid #18253620;box-shadow:0 2px 8px #18253612;font-size:12px;color:#26313c;white-space:nowrap;pointer-events:auto}
+.pin-label button{width:22px;height:22px;border-radius:50%;color:#7c8793;font-size:15px;line-height:1}.pin-label[hidden]{display:none}
+@media(max-width:767px){
+ .hidden-chip{bottom:calc(150px + env(safe-area-inset-bottom))}
+ .tool-tabs button{padding:4px 8px;min-height:30px}.section-axes button{padding:5px 8px;min-height:34px}
+ .detail-tools button{height:40px}
+}
+
+/* Two-row dock: tool tabs on top, the active tool below. Everything above the dock follows --dock-h. */
+.bottom-dock{flex-direction:column;align-items:stretch;gap:10px;padding:12px 16px 14px}
+.dock-row{display:flex;align-items:center;gap:8px;min-width:0}.tool-value{margin-left:auto;background:#edf1f3;border:1px solid #18253608;border-radius:6px;padding:3px 7px;font-size:12px;min-width:46px;text-align:center;color:#263b48;font-variant-numeric:tabular-nums}.tool-value span{font-size:10px;margin-left:2px;color:#73818e}
+.bottom-dock .dock-reset,.bottom-dock .dock-layers{flex-direction:row;gap:5px;border:0;padding:0 8px;min-height:32px;height:32px;font-size:12px;color:#5d6a77;border-radius:8px}
+.scene-caption{bottom:calc(54px + var(--dock-h,110px) + 10px)}.hidden-chip{bottom:calc(54px + var(--dock-h,110px) + 8px)}
+.detail-sheet{bottom:calc(54px + var(--dock-h,110px) + 14px)!important}
+@media(max-width:767px){
+ .bottom-dock{padding:10px 12px 12px;gap:8px}.bottom-dock .dock-reset,.bottom-dock .dock-layers{min-height:40px;height:40px;padding:0 6px}
+ .scene-caption,.hidden-chip{bottom:calc(30px + env(safe-area-inset-bottom) + var(--dock-h,110px) + 8px)}
+ .detail-sheet,.layers-panel.mobile-open{bottom:calc(30px + env(safe-area-inset-bottom) + var(--dock-h,110px) + 8px)!important}
+ .detail-sheet{max-height:min(48dvh,calc(100dvh - 30px - var(--dock-h,110px) - 120px))}
+ .section-axes{flex-wrap:nowrap;margin-bottom:4px}.section-axes button{padding:5px 9px}
+}
+@media(max-height:600px) and (orientation:landscape){.hidden-chip{bottom:calc(22px + var(--dock-h,90px) + 8px)}.detail-sheet{bottom:12px!important}.layers-panel.mobile-open{bottom:12px!important}}
