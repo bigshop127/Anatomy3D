@@ -137,3 +137,20 @@ h1,.structure-title{letter-spacing:.01em!important}
 .top-actions button.active{background:#263b48;color:#fff;border-color:#263b48}
 @media(max-width:767px){.top-actions button span{display:none}}
 @media(max-width:420px){.bottom-dock .dock-reset span,.bottom-dock .dock-layers span{display:none}.bottom-dock .dock-reset,.bottom-dock .dock-layers{min-width:40px;justify-content:center}.tool-tabs button{padding:4px 7px}}
+
+/* Status chips, bookmarks and sharing. */
+.status-chips{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(54px + var(--dock-h,110px) + 8px);display:flex;gap:6px;z-index:3;max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+.status-chips .hidden-chip{position:static;transform:none}
+.bookmark-panel{display:flex;flex-direction:column;gap:10px}.share-link{justify-content:flex-start;gap:8px;min-height:42px;border:1px solid #18253618;border-radius:9px;font-size:13px}
+.share-url{width:100%;font-size:12px;padding:8px 10px;border:1px solid #18253622;border-radius:8px;background:#f7f9fa}
+.bookmark-save{display:flex;gap:6px}.bookmark-save input{flex:1;min-width:0;font-size:14px;padding:8px 10px;border:1px solid #18253622;border-radius:8px;background:#fff}.bookmark-save button{gap:5px;border:1px solid #18253618;border-radius:8px;font-size:13px;min-height:40px}
+.share-note{font-size:12px;color:#24524f;margin:0}
+.bookmark-list{list-style:none;margin:0;padding:0;max-height:min(320px,40dvh);overflow-y:auto;display:flex;flex-direction:column;gap:4px}
+.bookmark-list li{display:flex;align-items:center;gap:4px}.bookmark-list li>button:first-child{flex:1;min-width:0;text-align:left;padding:8px 10px;border-radius:8px;border:1px solid #18253612;background:#f7f9fa;display:flex;flex-direction:column;gap:2px;min-height:44px}
+.bookmark-list li>button:first-child span{font-size:13px;color:#26313c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bookmark-list small{font-size:11px;color:#87929d}
+.bookmark-list .remove{width:36px;height:36px;border-radius:8px;color:#87929d;display:inline-flex;align-items:center;justify-content:center}
+@media(max-width:767px){.status-chips{bottom:calc(30px + env(safe-area-inset-bottom) + var(--dock-h,110px) + 8px)}.bookmark-save input{font-size:16px}}
+@media(max-height:600px) and (orientation:landscape){.status-chips{bottom:calc(22px + var(--dock-h,90px) + 8px)}}
+@media(max-width:420px){.tool-tabs button{white-space:nowrap;padding:4px 6px}.tool-value{min-width:0;padding:3px 5px}.dock-row{gap:6px}}
+@media(max-width:400px){h1 .edition{display:none}}
+.bookmark-panel .search-note{display:block}

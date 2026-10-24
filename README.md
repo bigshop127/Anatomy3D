@@ -49,6 +49,14 @@ push 到 `main` 就會由 `.github/workflows/deploy.yml` 自動檢查、建置�
 
 改完跑 `node scripts/validate-names.mjs`，它會檢查每個構造都有中文、沒有殘留英文、沒有沒用到的詞條。
 
+## 肌肉分層
+
+「剝層」工具用的層次在 `app/muscle-layers.json`，由 `npm run layers`（`scripts/compute-muscle-layers.mjs`）產生：在每塊肌肉表面取樣往外射線，沒被其他肌肉、骨頭、內臟擋住的算最淺層，剝掉再算下一層。物理治療常用肌群照教科書分層，寫在 `scripts/muscle-layer-overrides.json`（名稱用英文小寫、不含 left/right），改完重跑 `npm run layers`。上游把幾塊肌肉歸錯系統，修正表在 `app/system-fixes.ts`。
+
+## 部位
+
+部位快捷的裁切框在 `app/regions.ts`，由各部位的骨頭範圍自動算出，`scripts/validate-regions.mjs` 檢查大小與左右側。
+
 ## 3D 資料
 
 使用 **BodyParts3D 4.0**（成年男性參考模型），2,234 個可個別點選的網格、3,432 個名稱概念、約 229 萬個三角面，壓縮後約 33 MB。轉檔流程見 `scripts/`，完整出處與改動說明見 [public/ATTRIBUTION.md](public/ATTRIBUTION.md)。
