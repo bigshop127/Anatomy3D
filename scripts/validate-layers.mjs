@@ -16,4 +16,4 @@ const byName=new Map();for(const p of muscles){const n=p.name.toLowerCase().repl
 const uneven=[...byName].filter(([,ls])=>new Set(ls).size>1).map(([n])=>n);
 assert.deepEqual(uneven,[],`Left and right sides in different layers: ${uneven.join(', ')}`);
 const counts={};for(const l of Object.values(layers))counts[l]=(counts[l]??0)+1;
-console.log(`Muscle layers: ${muscles.length} muscle parts (${fixed} moved to muscles from other systems) in layers ${JSON.stringify(counts)}.`);
+console.log(`Muscle layers: ${muscles.length} muscle parts (${fixed} parts reclassified by app/system-fixes.ts) in layers ${JSON.stringify(counts)}.`);

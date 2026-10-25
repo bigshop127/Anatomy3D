@@ -49,6 +49,8 @@ push 到 `main` 就會由 `.github/workflows/deploy.yml` 自動檢查、建置�
 
 改完跑 `node scripts/validate-names.mjs`，它會檢查每個構造都有中文、沒有殘留英文、沒有沒用到的詞條。
 
+人工校對用 `scripts/review-sheets.mjs`：`npm run review -- export <資料夾>` 依部位產生校對頁（Markdown 表格「英文名｜目前中文｜你的修改｜備註」，已填的修改重產時會保留），`npm run review -- apply <資料夾>` 把修改寫回譯名表，狀態改成「已校對」的頁面整頁加進 `reviewed`；「你的修改」以 `?` 開頭的是問題，不會套用。校對頁放在使用者自己的筆記裡，不進 repo。
+
 ## 肌肉分層
 
 「剝層」工具用的層次在 `app/muscle-layers.json`，由 `npm run layers`（`scripts/compute-muscle-layers.mjs`）產生：在每塊肌肉表面取樣往外射線，沒被其他肌肉、骨頭、內臟擋住的算最淺層，剝掉再算下一層。物理治療常用肌群照教科書分層，寫在 `scripts/muscle-layer-overrides.json`（名稱用英文小寫、不含 left/right），改完重跑 `npm run layers`。上游把幾塊肌肉歸錯系統，修正表在 `app/system-fixes.ts`。
@@ -56,6 +58,8 @@ push 到 `main` 就會由 `.github/workflows/deploy.yml` 自動檢查、建置�
 ## 部位
 
 部位快捷的裁切框在 `app/regions.ts`，由各部位的骨頭範圍自動算出，`scripts/validate-regions.mjs` 檢查大小與左右側。
+
+每個構造屬於哪些部位記在 `app/region-members.json`，由 `npm run members`（`scripts/compute-region-members.mjs`）產生：骨頭屬於它定義的部位；肌肉、韌帶、椎間盤、軟骨屬於它實際碰到（4 mm 內）的那些部位骨頭所在的部位，所以跨兩個關節的肌肉兩邊都算；其他構造看包圍盒有沒有一半以上在部位框裡。算不到的教科書歸屬補在 `scripts/region-member-overrides.json`。校對頁和之後的測驗範圍都用這份。改了模型或部位定義要重跑。
 
 ## 3D 資料
 

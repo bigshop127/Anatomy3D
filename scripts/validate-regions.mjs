@@ -17,3 +17,12 @@ for(const region of REGIONS)for(const side of region.sided?['left','right']:['le
  lines.push(`${region.name}${region.sided?(side==='left'?'(左)':'(右)'):''} ${size.map(s=>(s*100).toFixed(0)).join('×')}cm ${parts} parts`);
 }
 console.log(`Regions: ${lines.join(' · ')}`);
+
+// Region membership (app/region-members.json): known parts and regions, defining bones inside their regions, and textbook spot checks.
+const {members}=JSON.parse(await readFile(new URL('../app/region-members.json',import.meta.url)));
+const byName=new Map(atlas.parts.map(p=>[p.name.toLowerCase(),p])),ids=new Set(atlas.parts.map(p=>p.id)),regionIds=new Set(REGIONS.map(r=>r.id));
+for(const [id,list] of Object.entries(members)){assert.ok(ids.has(id),`Region members name an unknown part ${id} (rerun npm run members)`);assert.ok(list.length&&list.every(r=>regionIds.has(r)),`${id} has unknown regions ${list}`);}
+const expect={'right femur':['hip','knee'],'right sternocleidomastoid':['neck'],'right supraspinatus':['shoulder'],'right gluteus medius':['hip'],
+ 'right vastus medialis':['knee'],'right tibialis anterior':['knee','ankle'],'right flexor digitorum profundus':['elbow','wrist'],'fifth lumbar vertebra':['lumbar']};
+for(const [name,regions] of Object.entries(expect)){const p=byName.get(name);assert.ok(p,`Missing ${name}`);for(const r of regions)assert.ok(members[p.id]?.includes(r),`${name} should belong to ${r} (has ${members[p.id]})`);}
+console.log(`Region members: ${Object.keys(members).length} parts belong to at least one region; spot checks passed.`);

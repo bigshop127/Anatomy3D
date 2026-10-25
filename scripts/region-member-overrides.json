@@ -1,0 +1,6 @@
+{
+  "note": "Regions to add to a structure (name in lowercase, without left/right) when touching the region's defining bones does not find it. Used by scripts/compute-region-members.mjs.",
+  "add": {
+    "sternocleidomastoid": ["neck"]
+  }
+}

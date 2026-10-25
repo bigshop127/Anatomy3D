@@ -31,14 +31,20 @@ const RECIPES:Record<RegionId,{landmarks:Landmark[];pad:number[]}>={
  knee:{landmarks:[{pick:named('femur'),bottom:.16},{pick:named('tibia','fibula'),top:.16},{pick:named('patella')}],pad:[.035,.015,.035]},
  ankle:{landmarks:[{pick:term=>FOOT.includes(term)||/metatarsal bone$|phalanx of (big toe|second toe|third toe|fourth toe|little toe)$/.test(term)},{pick:named('tibia','fibula'),bottom:.14}],pad:[.02,.02,.02]},
 };
-export function regionBox(atlas:Atlas,id:RegionId,side:Side):Box|null{
- const recipe=RECIPES[id],sided=REGIONS.find(r=>r.id===id)!.sided,min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
- for(const landmark of recipe.landmarks)for(const p of atlas.parts){
+/** The bones that define a region, each with the part of its bounds (top or bottom fraction) that counts. */
+export function regionLandmarks(atlas:Atlas,id:RegionId,side:Side):{part:Part;box:Box}[]{
+ const sided=REGIONS.find(r=>r.id===id)!.sided,found:{part:Part;box:Box}[]=[];
+ for(const landmark of RECIPES[id].landmarks)for(const p of atlas.parts){
   if(!landmark.pick(termKey(p.name)))continue;const s=sideOf(p);if(sided&&s!==side)continue;
   const lo=[...p.bounds[0]],hi=[...p.bounds[1]],height=hi[1]-lo[1];
   if(landmark.top)lo[1]=hi[1]-height*landmark.top;if(landmark.bottom)hi[1]=lo[1]+height*landmark.bottom;
-  for(let i=0;i<3;i++){min[i]=Math.min(min[i],lo[i]);max[i]=Math.max(max[i],hi[i]);}
+  found.push({part:p,box:[lo,hi]});
  }
+ return found;
+}
+export function regionBox(atlas:Atlas,id:RegionId,side:Side):Box|null{
+ const pad=RECIPES[id].pad,min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
+ for(const {box:[lo,hi]} of regionLandmarks(atlas,id,side))for(let i=0;i<3;i++){min[i]=Math.min(min[i],lo[i]);max[i]=Math.max(max[i],hi[i]);}
  if(!Number.isFinite(min[0]))return null;
- return [min.map((v,i)=>+(v-recipe.pad[i]).toFixed(4)),max.map((v,i)=>+(v+recipe.pad[i]).toFixed(4))];
+ return [min.map((v,i)=>+(v-pad[i]).toFixed(4)),max.map((v,i)=>+(v+pad[i]).toFixed(4))];
 }
