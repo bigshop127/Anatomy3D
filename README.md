@@ -80,6 +80,19 @@ npm run layers && npm run members && npm run validate
 
 人工校對用 `scripts/review-sheets.mjs`：`npm run review -- export <資料夾>` 依部位產生校對頁（Markdown 表格「英文名｜目前中文｜你的修改｜備註」，已填的修改重產時會保留），`npm run review -- apply <資料夾>` 把修改寫回譯名表，狀態改成「已校對」的頁面整頁加進 `reviewed`；「你的修改」以 `?` 開頭的是問題，不會套用。校對頁放在使用者自己的筆記裡，不進 repo。
 
+## 肌肉卡
+
+物理治療常用的 147 條肌肉（頸、肩、肘、腕手、胸腰、髖、膝、踝足、顳顎）各有一張卡：起點、止點、主要／次要作用、神經支配與神經根、血液供應、觸診提示、出處、備註；之後要加的徒手肌力測試、伸展、激痛點與轉移痛、常見損傷已在格式裡預留（`app/muscle-cards.ts`）。
+
+卡片的正本是使用者筆記裡的 Markdown 頁（每個部位一頁，不進 repo），內容是自己寫的中文摘要並標出處（主要是 Neumann《Kinesiology of the Musculoskeletal System》第 3 版的附錄與表格頁碼），不整段抄原文書。每張卡是 `## 中文名 english name` 加上 `- **欄位**：內容` 的清單，`3D 模型` 那行用反引號列出對應的模型肌肉（英文小寫、不含 left/right）。
+
+```sh
+npm run cards -- check <資料夾>   # 檢查格式、模型肌肉、神經根寫法，列出待回答的意見、模型裡沒有的神經、還沒有卡片的肌肉
+npm run cards -- apply <資料夾>   # 把核對過的卡寫進 app/muscle-cards.json
+```
+
+頁面狀態改成「已核對」（或單張卡標題後加 ✔）的卡才會寫進 `app/muscle-cards.json`；「你的意見」還沒清掉的先不放。神經名稱跟模型的中文名一致時會記下模型的神經（`term`），之後可以從神經找到它支配的肌肉。`scripts/validate-cards.mjs` 檢查這份檔案（也在 `npm run validate` 裡）。
+
 ## 肌肉分層
 
 「剝層」工具用的層次在 `app/muscle-layers.json`，由 `npm run layers`（`scripts/compute-muscle-layers.mjs`）產生：在每塊肌肉表面取樣往外射線，沒被其他肌肉、骨頭、內臟擋住的算最淺層，剝掉再算下一層。物理治療常用肌群照教科書分層，寫在 `scripts/muscle-layer-overrides.json`（名稱用英文小寫、不含 left/right），改完重跑 `npm run layers`。上游把幾塊肌肉歸錯系統，修正表在 `app/system-fixes.ts`。

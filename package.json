@@ -9,11 +9,12 @@
     "dev": "vite --port 3016",
     "build": "vite build",
     "check": "tsc --noEmit",
-    "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs",
+    "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs && node scripts/validate-cards.mjs",
     "atlas": "node scripts/build-atlas.mjs",
     "layers": "node scripts/compute-muscle-layers.mjs",
     "members": "node scripts/compute-region-members.mjs",
-    "review": "node scripts/review-sheets.mjs"
+    "review": "node scripts/review-sheets.mjs",
+    "cards": "node scripts/muscle-cards.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
