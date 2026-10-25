@@ -37,7 +37,15 @@ npm exec vite preview   # 用正式站的路徑看 build 結果：http://localho
 
 push 到 `main` 就會由 `.github/workflows/deploy.yml` 自動檢查、建置、發布到 GitHub Pages。網站放在 `/Anatomy3D/` 底下，程式裡的檔案路徑一律用 `asset()`（`app/model-download.ts`）加上這個前綴。
 
-離線快取在 `public/sw.js`：頁面和目錄檔每次先連網、斷網才用快取；模型檔先用快取。**改了 `public/models/*.bin` 就要把 `sw.js` 裡的 `MODELS` 版本加一**，否則裝過的手機會繼續用舊模型。
+離線快取在 `public/sw.js`：頁面和目錄檔每次先連網、斷網才用快取；模型檔先用快取。模型檔名是內容指紋，`MODELS` 快取名稱由 `npm run atlas` 依模型內容自動換，裝過的手機下次打開就會換成新模型。
+
+## 模型
+
+`public/models/atlas.json` 是構造目錄（名稱、系統、圖譜概念、外框），幾何在 `m-<內容指紋>.bin`（另有 .gz）。格式 `meshopt-1`：每個部件的位置以 0.05 mm 為一格存成 16 位元整數（加上部件自己的原點）、法線 8 位元八面體編碼、三角形重排後編碼，再用 meshoptimizer 壓縮；App 用 `app/model-decode.ts` 解開。
+
+改模型一律跑 `npm run atlas`（`scripts/build-atlas.mjs`）：讀現在的模型、套用 `scripts/source-fixes.json` 的上游資料修正（左右標反、改名、拿掉重複），寫出新的模型檔和目錄、刪掉沒用到的舊檔、更新 `sw.js` 的快取名稱。已經編碼過的部件會原封不動複製，所以重跑結果不變、也不會越壓越糊。改完要重跑 `npm run layers`、`npm run members`，再跑 `npm run validate`。
+
+給 Blender 腳本用的原始幾何：`node scripts/dump-atlas-geometry.mjs` 輸出到 `work/atlas-raw/`（不進版控）。BodyParts3D 原始 OBJ 的轉檔程式是 `scripts/convert-anatomy.py`（v0.7.0 以前的格式，留作來源紀錄）。
 
 ## 中文名稱
 

@@ -3,6 +3,8 @@
   "layers": {
     "platysma": 1, "sternocleidomastoid": 2, "sternohyoid": 2, "omohyoid": 2, "sternothyroid": 3, "thyrohyoid": 3,
     "scalenus anterior": 3, "scalenus medius": 3, "scalenus posterior": 3,
+    "longus capitis": 4, "inferior oblique part of longus colli": 5, "superior oblique part of longus colli": 5, "vertical intermediate part of longus colli": 5,
+    "rectus capitis anterior": 5, "rectus capitis lateralis": 5,
 
     "descending part of trapezius": 1, "transverse part of trapezius": 1, "ascending part of trapezius": 1,
     "acromial part of deltoid": 1, "clavicular part of deltoid": 1, "spinal part of deltoid": 1,

@@ -6,17 +6,15 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import * as T from 'three';
 import {MeshBVH} from 'three-mesh-bvh';
-import {fixSystems} from '../app/system-fixes.ts';
+import {loadAtlas,loadGeometry,root} from './lib/atlas-geometry.mjs';
 
-const root=new URL('..',import.meta.url),report=process.argv.includes('--report');
-const atlas=JSON.parse(await readFile(new URL('public/models/atlas.json',root)));fixSystems(atlas);
+const report=process.argv.includes('--report');
+const atlas=await loadAtlas(),geometryOf=await loadGeometry(atlas);
 const overrides=JSON.parse(await readFile(new URL('scripts/muscle-layer-overrides.json',root),'utf8'));
-const buffers=await Promise.all(atlas.chunks.map(c=>readFile(new URL('public'+c.url,root))));
 const SAMPLES=48,FAR=.6,THRESHOLD=Number(process.argv.find(a=>a.startsWith('--threshold='))?.slice(12)??.15),CONE=Math.PI/9,MAX_LAYERS=5;
 // Organs block rays too, so muscles behind the viscera (psoas, iliacus, diaphragm) count as deep.
 const SOLID=['skeletal','digestive','respiratory','urinary','cardiac','reproductive','endocrine'];
 
-const geometryOf=p=>{const b=buffers[p.chunk],ab=b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);return {position:new Float32Array(ab,p.positions,p.vertexCount*3),normal:new Int16Array(ab,p.normals,p.vertexCount*3),index:new Uint32Array(ab,p.indices,p.indexCount)};};
 const muscles=atlas.parts.map((p,i)=>({p,i})).filter(({p})=>p.system==='muscular');
 const bones=atlas.parts.map((p,i)=>({p,i})).filter(({p})=>SOLID.includes(p.system));
 const geo=new Map([...muscles,...bones].map(({p,i})=>[i,geometryOf(p)]));
@@ -33,6 +31,8 @@ function buildOccluders(indices){
  // MeshBVH reorders the index, so ownership is looked up through the vertex of each hit triangle.
  return {bvh:new MeshBVH(geometry),index:geometry.index.array,owner};
 }
+// Samples are seeded by part id, so adding or removing other parts leaves a muscle's samples unchanged.
+const seedOf=id=>{let h=2166136261;for(const ch of id)h=Math.imul(h^ch.charCodeAt(0),16777619);return h;};
 function random(seed){return ()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};}
 const directionsAround=n=>{
  const tangent=new T.Vector3(Math.abs(n.x)<.9?1:0,Math.abs(n.x)<.9?0:1,0).cross(n).normalize(),bitangent=n.clone().cross(tangent);
@@ -40,7 +40,7 @@ const directionsAround=n=>{
  return out;
 };
 function exposure(i,occ){
- const g=geo.get(i),rand=random(i+1),areas=[],a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3();let total=0;
+ const g=geo.get(i),rand=random(seedOf(atlas.parts[i].id)),areas=[],a=new T.Vector3(),b=new T.Vector3(),c=new T.Vector3();let total=0;
  for(let t=0;t<g.index.length;t+=3){a.fromArray(g.position,g.index[t]*3);b.fromArray(g.position,g.index[t+1]*3);c.fromArray(g.position,g.index[t+2]*3);total+=b.sub(a).cross(c.sub(a)).length()/2;areas.push(total);}
  const ray=new T.Ray(),point=new T.Vector3(),normal=new T.Vector3(),na=new T.Vector3(),nb=new T.Vector3(),nc=new T.Vector3();let escaped=0,rays=0;
  for(let s=0;s<SAMPLES;s++){

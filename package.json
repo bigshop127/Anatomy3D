@@ -1,6 +1,6 @@
 {
   "name": "anatomy3d",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -10,6 +10,7 @@
     "build": "vite build",
     "check": "tsc --noEmit",
     "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs",
+    "atlas": "node scripts/build-atlas.mjs",
     "layers": "node scripts/compute-muscle-layers.mjs",
     "members": "node scripts/compute-region-members.mjs",
     "review": "node scripts/review-sheets.mjs"
@@ -20,6 +21,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "1.31.0",
+    "meshoptimizer": "^1.2.0",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "tailwind-merge": "3.6.0",
@@ -32,7 +34,6 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
-    "meshoptimizer": "^1.2.0",
     "tailwindcss": "4.2.1",
     "three-mesh-bvh": "^0.8.3",
     "typescript": "5.9.3",

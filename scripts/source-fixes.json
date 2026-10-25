@@ -1,0 +1,20 @@
+{
+  "note": "Corrections to the BodyParts3D source data, applied by scripts/build-atlas.mjs on every build. Each fix can be applied again without changing the result. swapSides: left/right names that contradict where the mesh sits; the pair's names and conceptIds are exchanged (and their single-side concepts), only while the first id is still on the wrong side. rename: a new name; concept adds a search concept for it, like copies the concept memberships of the mirrored part. remove: source parts left out of the atlas (the concepts that listed them keep their other parts).",
+  "swapSides": [
+    ["FJ1469", "FJ1469M"],
+    ["FJ1735", "FJ1736"],
+    ["FJ2742", "FJ2754"],
+    ["FJ3493", "FJ3589"]
+  ],
+  "rename": [
+    {"id": "FJ3211", "name": "Intervertebral disk of twelfth thoracic vertebra", "concept": "A3D:intervertebral-disk-T12", "why": "Unnamed disk between T12 and L1, the only one missing from the series."},
+    {"id": "FJ2190", "name": "Set of perforating veins", "like": "FJ2192", "why": "Named right fibular vein, but it sits in the left thigh and mirrors FJ2192 (the other perforating vein sets carry no side either)."}
+  ],
+  "remove": [
+    {"id": "FJ2013", "why": "The same mesh as FJ1846 (celiac artery), listed twice."},
+    {"id": "FJ2386", "why": "The same mesh as FJ1916 (caudate lobe branch of right hepatic artery), listed twice."},
+    {"id": "FJ2394", "why": "The same mesh as FJ1924 (right lobe branch of right hepatic artery), listed twice."},
+    {"id": "FJ2769", "why": "The same mesh as FJ2440 (cricoid cartilage), listed twice."},
+    {"id": "FJ3201", "why": "The same mesh as FJ2772 (hyoid bone), listed twice."}
+  ]
+}

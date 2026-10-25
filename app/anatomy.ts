@@ -17,9 +17,11 @@ export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[
  {id:'integumentary',name:'體表',color:'#ba9b7d',description:'體表提供外觀參考。皮膚系統形成保護屏障，也參與感覺與體溫調節。'},
  {id:'connective',name:'結締組織',color:'#aec3bb',description:'軟骨、韌帶等結締組織負責支撐、連接與分隔各構造，穩定關節並分散力學負荷。'},
 ];
-export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;chunk:number;positions:number;normals:number;indices:number;vertexCount:number;indexCount:number;bounds:[number[],number[]]}
+/** streams: byte offset of the part in its chunk, then the encoded sizes of its positions, normals and indices (see model-decode.ts). */
+export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;source:string;chunk:number;streams:[number,number,number,number];origin:[number,number,number];vertexCount:number;indexCount:number;bounds:[number[],number[]]}
 export interface Concept {id:string;name:string;label?:string;elements:string[]}
-export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
+export interface ModelSource {name:string;license:string;url:string}
+export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;encoding:{format:'meshopt-1';grid:number};sources:Record<string,ModelSource>;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
 export type View = 'three-quarter'|'front'|'back'|'side';
 export type SectionAxis = 'sagittal'|'coronal'|'transverse';
 /** position places the cut along the axis (0 = right/back/bottom, 1 = left/front/top); the lower side is kept unless flip. */
