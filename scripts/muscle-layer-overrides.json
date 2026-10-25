@@ -5,11 +5,13 @@
     "scalenus anterior": 3, "scalenus medius": 3, "scalenus posterior": 3,
     "longus capitis": 4, "inferior oblique part of longus colli": 5, "superior oblique part of longus colli": 5, "vertical intermediate part of longus colli": 5,
     "rectus capitis anterior": 5, "rectus capitis lateralis": 5,
+    "temporalis": 1, "superficial part of masseter": 1, "deep part of masseter": 2,
+    "medial pterygoid": 3, "superior head of lateral pterygoid": 3, "inferior head of lateral pterygoid": 3,
 
     "descending part of trapezius": 1, "transverse part of trapezius": 1, "ascending part of trapezius": 1,
     "acromial part of deltoid": 1, "clavicular part of deltoid": 1, "spinal part of deltoid": 1,
     "clavicular part of pectoralis major": 1, "sternocostal part of pectoralis major": 1, "abdominal part of pectoralis major": 1,
-    "teres major": 1, "pectoralis minor": 2, "serratus anterior": 2, "subclavius": 3,
+    "teres major": 1, "latissimus dorsi": 1, "pectoralis minor": 2, "serratus anterior": 2, "subclavius": 3,
     "supraspinatus": 2, "infraspinatus muscle": 2, "teres minor": 2, "subscapularis": 3,
     "rhomboid major": 2, "rhomboid minor": 2, "levator scapulae": 2,
 
@@ -18,13 +20,14 @@
     "longissimus capitis": 3, "longissimus cervicis": 3, "longissimus thoracis": 3, "spinalis": 3, "spinalis thoracis": 3,
     "semispinalis capitis": 4, "semispinalis cervicis": 4, "semispinalis thoracis": 4,
     "rectus capitis posterior major": 4, "rectus capitis posterior minor": 4, "obliquus capitis superior": 4, "obliquus capitis inferior": 4,
-    "cervical rotator": 5, "thoracic rotator": 5, "lumbar rotator": 5, "interspinalis thoracis": 5,
+    "multifidus cervicis": 5, "multifidus thoracis": 5, "multifidus lumborum": 5, "set of rotatores": 5, "interspinalis thoracis": 5,
     "set of interspinales cervicis": 5, "set of interspinales lumborum": 5,
     "set of anterior cervical intertransversarii": 5, "set of posterior cervical intertransversarii": 5,
     "lateral lumbar intertransversarius": 5, "medial lumbar intertransversarius": 5,
     "set of levatores costarum breves": 5, "set of levatores costarum longi": 5,
 
-    "external oblique": 1, "external intercostal muscle": 3, "internal intercostal muscle": 4, "innermost intercostal muscle": 5, "transversus thoracis": 5,
+    "external oblique": 1, "rectus abdominis": 1, "pyramidalis": 1, "internal oblique": 2, "transversus abdominis": 3, "quadratus lumborum": 4,
+    "external intercostal muscle": 3, "internal intercostal muscle": 4, "innermost intercostal muscle": 5, "transversus thoracis": 5,
     "diaphragm": 4, "psoas major": 3, "iliacus": 3,
 
     "long head of biceps brachii": 1, "short head of biceps brachii": 1, "brachialis": 2, "coracobrachialis": 2,
@@ -52,11 +55,12 @@
     "lateral head of gastrocnemius": 1, "medial head of gastrocnemius": 1, "plantaris": 2, "soleus": 2,
     "popliteus": 3, "tibialis posterior": 3, "flexor digitorum longus": 3, "flexor hallucis longus": 3,
 
-    "extensor hallucis brevis": 1,
+    "extensor hallucis brevis": 1, "extensor digitorum brevis": 1,
     "abductor hallucis": 1, "flexor digitorum brevis": 1, "abductor digiti minimi of foot": 1,
     "flexor accessorius": 2, "first lumbrical of foot": 2, "second lumbrical of foot": 2, "third lumbrical of foot": 2, "fourth lumbrical of foot": 2,
     "lateral head of flexor hallucis brevis": 3, "medial head of flexor hallucis brevis": 3, "oblique head of adductor hallucis": 3, "transverse head of adductor hallucis": 3,
     "flexor digiti minimi brevis of foot": 3, "opponens digiti minimi of foot": 3,
-    "first plantar interosseous of foot": 4, "second plantar interosseous of foot": 4, "third plantar interosseous of foot": 4
+    "first plantar interosseous of foot": 4, "second plantar interosseous of foot": 4, "third plantar interosseous of foot": 4,
+    "set of dorsal interossei of foot": 4
   }
 }

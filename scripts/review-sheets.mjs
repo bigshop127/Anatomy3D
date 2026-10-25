@@ -18,11 +18,11 @@ const {members}=JSON.parse(await readFile(new URL('app/region-members.json',root
 // Physical therapy order first, then the remaining regions; structures in no region go on the last page.
 const ORDER=['neck','shoulder','lumbar','hip','knee','ankle','tmj','thoracic','elbow','wrist','other'];
 const TITLE=id=>REGIONS.find(r=>r.id===id)?.name??'其他';
-const SECTIONS=[['skeletal','骨骼'],['muscular','肌肉'],['connective','韌帶、軟骨與筋膜'],['nervous','神經']];
+const SECTIONS=[['skeletal','骨骼'],['muscular','肌肉'],['connective','韌帶、關節囊、滑囊與腱鞘'],['fascia','筋膜'],['nervous','神經']];
 const DONE='已校對',TODO='待校對';
 const file=id=>`${String(ORDER.indexOf(id)+1).padStart(2,'0')} ${TITLE(id)}.md`;
 // Brain structures are not proofread here; nerves, ganglia and the cord are.
-const included=p=>SECTIONS.some(([s])=>s===p.system)&&(p.system!=='nervous'||/nerve|ganglion|plexus|spinal cord|cauda equina|ramus|root of/i.test(p.name));
+const included=p=>SECTIONS.some(([s])=>s===p.system)&&(p.system!=='nervous'||/nerve|ganglion|plexus|spinal cord|cauda equina|ramus|root of|chorda tympani|spinal dura|sympathetic/i.test(p.name));
 const center=b=>b[0].map((v,i)=>(v+b[1][i])/2);
 
 /** Terms of the proofread systems with the regions of their left, right and midline parts. */

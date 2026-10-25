@@ -1,5 +1,5 @@
 {
-  "note": "Corrections to the BodyParts3D source data, applied by scripts/build-atlas.mjs on every build. Each fix can be applied again without changing the result. swapSides: left/right names that contradict where the mesh sits; the pair's names and conceptIds are exchanged (and their single-side concepts), only while the first id is still on the wrong side. rename: a new name; concept adds a search concept for it, like copies the concept memberships of the mirrored part. remove: source parts left out of the atlas (the concepts that listed them keep their other parts).",
+  "note": "Corrections to the BodyParts3D source data, applied by scripts/build-atlas.mjs on every build. Each fix can be applied again without changing the result. swapSides: left/right names that contradict where the mesh sits; the pair's names and conceptIds are exchanged (and their single-side concepts), only while the first id is still on the wrong side. rename: a new name; concept adds a search concept for it, like copies the concept memberships of the mirrored part. remove: source parts left out of the atlas, duplicates and the three rotator meshes Z-Anatomy replaces (the concepts that listed them keep their other parts).",
   "swapSides": [
     ["FJ1469", "FJ1469M"],
     ["FJ1735", "FJ1736"],
@@ -15,6 +15,12 @@
     {"id": "FJ2386", "why": "The same mesh as FJ1916 (caudate lobe branch of right hepatic artery), listed twice."},
     {"id": "FJ2394", "why": "The same mesh as FJ1924 (right lobe branch of right hepatic artery), listed twice."},
     {"id": "FJ2769", "why": "The same mesh as FJ2440 (cricoid cartilage), listed twice."},
-    {"id": "FJ3201", "why": "The same mesh as FJ2772 (hyoid bone), listed twice."}
+    {"id": "FJ3201", "why": "The same mesh as FJ2772 (hyoid bone), listed twice."},
+    {"id": "FJ1522", "why": "Right lumbar rotator: shaped and placed like the multifidus; Z-Anatomy's multifidus and rotatores take its place."},
+    {"id": "FJ1522M", "why": "Left lumbar rotator, as FJ1522."},
+    {"id": "FJ1524", "why": "Right cervical rotator, as FJ1522."},
+    {"id": "FJ1524M", "why": "Left cervical rotator, as FJ1522."},
+    {"id": "FJ1525", "why": "Right thoracic rotator, as FJ1522."},
+    {"id": "FJ1525M", "why": "Left thoracic rotator, as FJ1522."}
   ]
 }

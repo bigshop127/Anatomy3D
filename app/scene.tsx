@@ -137,9 +137,24 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   const up=(e:PointerEvent)=>{
    const validTap=tap.up(e.pointerId,e.clientX,e.clientY);if(!validTap||!ready)return;const rect=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,cam);
    let nearest=Infinity,found=-1,point:number[]|undefined;const hasSolid=atlas.parts.some((p,i)=>p.system!=='integumentary'&&data[i*4+3]>.5);
-   pickers.forEach((mesh,i)=>{if(!mesh||data[i*4+3]<.5||(hasSolid&&atlas.parts[i].system==='integumentary'))return;worldBox.copy(bounds[i]).translate(mesh.position);if(!raycaster.ray.intersectBox(worldBox,hitPoint))return;
-    // Hits on geometry the section or region cut away do not count.
-    const hit=raycaster.intersectObject(mesh,false).find(h=>kept(h.point));if(hit&&hit.distance<nearest){nearest=hit.distance;found=i;point=hit.point.clone().sub(mesh.position).toArray().map(v=>+v.toFixed(4));}});
+   type Hit={i:number;distance:number;point:number[]};
+   const cast=(only?:(i:number)=>boolean):Hit|null=>{let best:Hit|null=null;
+    for(let i=0;i<pickers.length;i++){const mesh=pickers[i];if(!mesh||data[i*4+3]<.5||(hasSolid&&atlas.parts[i].system==='integumentary')||(only&&!only(i)))continue;worldBox.copy(bounds[i]).translate(mesh.position);if(!raycaster.ray.intersectBox(worldBox,hitPoint))continue;
+     // Hits on geometry the section or region cut away do not count.
+     const hit=raycaster.intersectObject(mesh,false).find(h=>kept(h.point));if(hit&&(!best||hit.distance<best.distance))best={i,distance:hit.distance,point:hit.point.clone().sub(mesh.position).toArray().map(v=>+v.toFixed(4))};}
+    return best;};
+   const centre=cast();if(centre){nearest=centre.distance;found=centre.i;point=centre.point;}
+   // Nerves are only millimetres thick: a tap just beside one that lies in front of what the tap hit picks the nerve.
+   if(found<0||atlas.parts[found].system!=='nervous'){
+    const reach=e.pointerType==='touch'?10:5,x=e.clientX-rect.left,y=e.clientY-rect.top,nerve=(i:number)=>atlas.parts[i].system==='nervous';
+    let nerveHit:Hit|null=null;
+    for(let k=0;k<16;k++){
+     const r=k<8?reach/2:reach,a=k*Math.PI/4+(k<8?0:Math.PI/8);
+     pointer.set((x+r*Math.cos(a))/rect.width*2-1,-(y+r*Math.sin(a))/rect.height*2+1);raycaster.setFromCamera(pointer,cam);
+     const hit=cast(nerve);if(hit&&hit.distance<=nearest+.002&&(!nerveHit||hit.distance<nerveHit.distance))nerveHit=hit;
+    }
+    if(nerveHit){found=nerveHit.i;point=nerveHit.point;}
+   }
    if(found<0&&amount>.45){found=findTarget(e.clientX-rect.left,e.clientY-rect.top,e.pointerType==='touch'?24:16);point=undefined;}if(found>=0){hover.hidden=true;select.current(atlas.parts[found].id,point);}
   };
   renderer.domElement.addEventListener('pointerdown',down);renderer.domElement.addEventListener('pointermove',move);renderer.domElement.addEventListener('pointerup',up);renderer.domElement.addEventListener('pointercancel',cancel);

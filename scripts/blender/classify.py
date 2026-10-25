@@ -1,7 +1,8 @@
 """Sort the Z-Anatomy structures into 'already in the app' and 'missing', after warping them onto the app's bones.
   blender -b -Y work/zanatomy/source/Startup.blend --python-exit-code 1 --python scripts/blender/classify.py -- work/atlas-raw work/zanatomy
-Writes work/zanatomy/candidates.json. A structure counts as already present when most of it lies on app parts of the same kind
-that in turn lie on it (two-way coverage within 3 mm); everything else is a candidate to add.
+Writes work/zanatomy/candidates.json with each structure's warped bounds. A structure counts as already present when most of it
+lies on app parts of the same kind that in turn lie on it (two-way coverage within 3 mm); everything else is a candidate to add.
+scripts/zanatomy-select.mjs makes the final choice, by name first.
 """
 import sys, os, re, json
 import numpy as np
@@ -86,6 +87,7 @@ for ob in sorted(bpy.data.objects, key=lambda o: o.name):
             if back >= 0.3:
                 hit_counter |= close
                 counterparts.append([p['name'], round(float(close.mean()), 2), round(back, 2)])
+        rec['bounds'] = [wv.min(0).round(4).tolist(), wv.max(0).round(4).tolist()]
         rec.update({'coverAll': round(float(hit_all.mean()), 2), 'coverCounterparts': round(float(hit_counter.mean()), 2),
                     'counterparts': sorted(counterparts, key=lambda c: -c[1])[:4]})
         rec['present'] = rec['coverCounterparts'] >= 0.6

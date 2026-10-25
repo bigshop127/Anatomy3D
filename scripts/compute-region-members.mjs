@@ -1,6 +1,7 @@
 // Which body regions each structure belongs to, for proofreading pages and region-limited quizzes.
 // Bones belong to the regions they define. Muscles, ligaments, discs and cartilages belong to every region whose defining bones
-// they touch inside that region (so a muscle crossing two joints is in both). Anything else belongs where its bounds sit inside a region box.
+// they touch inside that region (so a muscle crossing two joints is in both). Nerves belong to the regions holding a fifth of them or more.
+// Anything else belongs where its bounds sit inside a region box.
 // Usage: node scripts/compute-region-members.mjs   → writes app/region-members.json
 import {readFile,writeFile} from 'node:fs/promises';
 import * as T from 'three';
@@ -10,7 +11,7 @@ import {termKey} from '../app/names.ts';
 import {loadAtlas,loadGeometry,root} from './lib/atlas-geometry.mjs';
 
 const atlas=await loadAtlas(),geometryOf=await loadGeometry(atlas);
-const TOUCH=.004,PAD=.01,MIN_CONTACTS=3,SAMPLES=2500,INSIDE=.5;
+const TOUCH=.004,PAD=.01,MIN_CONTACTS=3,SAMPLES=2500,INSIDE=.5,NERVE_SHARE=.2;
 const sideOf=p=>/\bleft\b/i.test(p.name)?'left':/\bright\b/i.test(p.name)?'right':null;
 const bvhs=new Map();
 const bvhOf=p=>{let b=bvhs.get(p.id);if(!b){const g=geometryOf(p),geometry=new T.BufferGeometry();geometry.setAttribute('position',new T.BufferAttribute(g.position,3));geometry.setIndex(new T.BufferAttribute(g.index,1));b=new MeshBVH(geometry);bvhs.set(p.id,b);}return b;};
@@ -32,8 +33,8 @@ const members={},point=new T.Vector3(),target={};
 for(const p of atlas.parts){
  const found=new Set();
  if(landmarkBones.has(p)){for(const r of regions)if(sideMatches(p,r)&&r.landmarks.some(l=>l.part===p))found.add(r.id);}
- // Muscles, ligaments, discs and cartilages: the regions whose defining bones they touch.
- else if(['skeletal','muscular','connective'].includes(p.system)){
+ // Muscles, ligaments, fasciae, discs and cartilages: the regions whose defining bones they touch.
+ else if(['skeletal','muscular','connective','fascia'].includes(p.system)){
   const candidates=[];for(const r of regions)if(sideMatches(p,r))for(const l of r.landmarks)if(near(p.bounds,l.box,PAD+TOUCH))candidates.push({region:r,landmark:l});
   if(candidates.length){
    const g=geometryOf(p),step=Math.max(1,Math.floor(p.vertexCount/SAMPLES)),counts=new Map();
@@ -45,6 +46,15 @@ for(const p of atlas.parts){
     }
    }
    for(const [id,n] of counts)if(n>=MIN_CONTACTS)found.add(id);
+  }
+ }
+ // Peripheral nerves run through several regions without attaching to bone: a nerve belongs where a fifth of it lies or more.
+ else if(p.system==='nervous'){
+  const g=geometryOf(p),step=Math.max(1,Math.floor(p.vertexCount/SAMPLES)),samples=Math.ceil(p.vertexCount/step);
+  for(const r of regions){
+   if(!sideMatches(p,r)||!near(p.bounds,r.box,0))continue;
+   let n=0;for(let v=0;v<p.vertexCount;v+=step)if(within([g.position[v*3],g.position[v*3+1],g.position[v*3+2]],r.box,0))n++;
+   if(n/samples>=NERVE_SHARE)found.add(r.id);
   }
  }
  // Structures without a bony attachment found above fall back to where they sit.

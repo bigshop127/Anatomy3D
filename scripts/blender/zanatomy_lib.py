@@ -79,11 +79,12 @@ def collection_paths():
 
 
 class AppAtlas:
-    """The app's BodyParts3D parts as dumped by scripts/dump-atlas-geometry.mjs."""
+    """The app's BodyParts3D parts as dumped by scripts/dump-atlas-geometry.mjs (parts already taken from Z-Anatomy, whose
+    ids start with Z, are left out)."""
     def __init__(self, raw_dir):
-        self.parts = json.load(open(raw_dir + '/parts.json', encoding='utf8'))['parts']
+        self.parts = [p for p in json.load(open(raw_dir + '/parts.json', encoding='utf8'))['parts'] if not p['id'].startswith('Z')]
         self.blob = open(raw_dir + '/geometry.bin', 'rb').read()
-        self.by_name = {p['name'].lower(): p for p in self.parts}
+        self.by_key = {app_key(p['name']): p for p in self.parts}
         self._bvh = {}
 
     def mesh(self, p):
@@ -100,12 +101,19 @@ class AppAtlas:
         return b
 
 
+def app_key(name):
+    """BodyParts3D name → (side, name without the side), lowercase. The side can sit anywhere ('Distal phalanx of left big toe')."""
+    n = name.lower()
+    m = re.search(r'\b(left|right)\b', n)
+    return (m.group(1) if m else ''), re.sub(r'\s+', ' ', re.sub(r'\b(left|right) ', '', n)).strip()
+
+
 def app_bone_name(z_name):
-    """Z-Anatomy bone name ('Femur.r', 'Vertebra L4', 'Distal phalanx of first finger of foot.l') → BodyParts3D name, lowercase."""
+    """Z-Anatomy bone name ('Femur.r', 'Vertebra L4', 'Distal phalanx of first finger of foot.l') → BodyParts3D key (see app_key)."""
     side, n = '', z_name
     m = SIDE.search(n)
     if m:
-        side, n = {'r': 'right ', 'l': 'left '}[m.group(1)], n[:m.start()]
+        side, n = {'r': 'right', 'l': 'left'}[m.group(1)], n[:m.start()]
     m = re.match(r'^Vertebra ([CTL])(\d+)$', n)
     if m:
         n = f"{ORD[int(m.group(2)) - 1]} {dict(C='cervical', T='thoracic', L='lumbar')[m.group(1)]} vertebra"
@@ -118,16 +126,23 @@ def app_bone_name(z_name):
     if m:
         n = f"{m.group(1).lower()} phalanx of {DIGITS[m.group(3)][ORD.index(m.group(2))]}"
     n = re.sub(r'^(Capitate|Hamate|Lunate|Pisiform|Scaphoid|Trapezium|Trapezoid) bone$', lambda x: x.group(1), n)
-    return (side + n).lower()
+    return side, n.lower()
 
 
-def bone_pairs(app):
+# Z-Anatomy draws the foot's sesamoids as one mesh that does not match the BodyParts3D pair (fits turned about 70 degrees),
+# so they do not steer the warp; the metatarsals and phalanges around them do.
+UNPAIRED = re.compile(r'^Sesamoid bones of foot')
+
+
+def bone_pairs(app, unmatched=None):
     pairs = []
     for ob in bpy.data.collections['1: Skeletal system'].all_objects:
-        if ob.type == 'MESH' and not ANCHOR.search(ob.name):
-            p = app.by_name.get(app_bone_name(ob.name))
+        if ob.type == 'MESH' and not ANCHOR.search(ob.name) and not UNPAIRED.match(ob.name):
+            p = app.by_key.get(app_bone_name(ob.name))
             if p and p['system'] == 'skeletal':
                 pairs.append((ob, p))
+            elif unmatched is not None:
+                unmatched.append(ob.name)
     return pairs
 
 
@@ -148,9 +163,11 @@ def nearest_points(bvh, pts, limit=1.0):
     return out, dist
 
 
-def fit_bone(z, bvh, iterations=40):
-    """Rigid ICP of Z-Anatomy bone vertices onto a BodyParts3D bone; returns rotation, translation and RMS residual."""
-    r, t, cur = np.eye(3), np.zeros(3), z.copy()
+def fit_bone(z, bvh, init=None, iterations=40):
+    """Rigid ICP of Z-Anatomy bone vertices onto a BodyParts3D bone, starting from init (rotation, translation) or the identity;
+    returns rotation, translation and RMS residual."""
+    r, t = init if init is not None else (np.eye(3), np.zeros(3))
+    cur = z @ r.T + t
     for _ in range(iterations):
         q, d = nearest_points(bvh, cur)
         ok = np.isfinite(d)
@@ -185,14 +202,26 @@ class Warp:
 
     @staticmethod
     def build(pairs, app, depsgraph, samples=600, report=None):
-        src, dst = [], []
+        """Bones are fitted largest first. A smaller bone is also fitted starting from the fit of the nearest bone already fitted: phalanges and
+        sesamoids are smaller than the 2-3 cm offset between the skeletons, and started from where they are, ICP can lock onto
+        a neighbour or turn them end over end. The closer of the two fits is kept."""
+        src, dst, fitted = [], [], []
+        bones = []
         for ob, p in pairs:
             z, _ = evaluated(ob, depsgraph)
-            if len(z) < 10:
-                continue
+            if len(z) >= 10:
+                bones.append((ob, p, z))
+        bones.sort(key=lambda b: -float(np.prod(b[2].max(0) - b[2].min(0))))
+        for ob, p, z in bones:
             z = z[np.linspace(0, len(z) - 1, min(len(z), samples)).astype(int)]
             bvh = app.bvh(p)
+            centre = z.mean(0)
             r, t, rms = fit_bone(z, bvh)
+            if fitted:
+                near = fit_bone(z, bvh, min(fitted, key=lambda f: np.linalg.norm(f[0] - centre))[1])
+                if near[2] < rms:
+                    r, t, rms = near
+            fitted.append((centre, (r, t)))
             y = z @ r.T + t
             # Remaining shape difference: towards the nearest app bone surface, smoothed over the bone and capped at 12 mm.
             q, d = nearest_points(bvh, y, 0.012)
@@ -220,22 +249,26 @@ class Warp:
 
 
 class BoneSurfaces:
-    """App bones for inside/outside tests and pushing warped soft tissue back out of bone."""
-    def __init__(self, app):
-        self.items = [(np.array(p['bounds']), app.bvh(p)) for p in app.parts if p['system'] == 'skeletal']
+    """App bones (or other closed parts: system) for inside/outside tests and pushing warped soft tissue back out of them.
+    Methods take the parts to consider, usually near(...) of the structure at hand, since testing them all for every vertex is slow."""
+    def __init__(self, app, system='skeletal'):
+        self.items = [(np.array(p['bounds']), app.bvh(p)) for p in app.parts if p['system'] == system]
 
-    def _nearest(self, pt):
+    def near(self, lo, hi, pad=0.02):
+        return [(b, bvh) for b, bvh in self.items if np.all(b[0] <= hi + pad) and np.all(b[1] >= lo - pad)]
+
+    def nearest(self, pt, items=None, limit=0.02):
         best = (math.inf, None, None)
-        for bounds, bvh in self.items:
-            if np.any(pt < bounds[0] - 0.02) or np.any(pt > bounds[1] + 0.02):
+        for bounds, bvh in self.items if items is None else items:
+            if np.any(pt < bounds[0] - limit) or np.any(pt > bounds[1] + limit):
                 continue
-            loc, nrm, idx, d = bvh.find_nearest(Vector(pt), 0.02)
+            loc, nrm, idx, d = bvh.find_nearest(Vector(pt), limit)
             if loc is not None and d < best[0]:
                 best = (d, bvh, np.array(loc))
         return best
 
     @staticmethod
-    def _inside(bvh, pt):
+    def inside(bvh, pt):
         hits, origin, direction = 0, Vector(pt), Vector((0.31, 0.83, 0.47)).normalized()
         while hits < 64:
             loc, nrm, idx, d = bvh.ray_cast(origin, direction)
@@ -245,21 +278,45 @@ class BoneSurfaces:
             origin = loc + direction * 1e-5
         return hits % 2 == 1
 
-    def signed_distance(self, pts):
+    def signed_distance(self, pts, items=None):
         out = np.full(len(pts), 0.02)
         for n, pt in enumerate(pts):
-            d, bvh, q = self._nearest(pt)
+            d, bvh, q = self.nearest(pt, items)
             if bvh is not None:
-                out[n] = -d if self._inside(bvh, pt) else d
+                out[n] = -d if self.inside(bvh, pt) else d
         return out
 
-    def push_out(self, pts, depth=0.001, gap=0.0003):
+    def push_out(self, pts, depth=0.001, gap=0.0003, items=None):
         """Moves vertices more than `depth` inside a bone to just outside its surface; returns how many moved."""
         moved = 0
         for n, pt in enumerate(pts):
-            d, bvh, q = self._nearest(pt)
-            if bvh is None or d <= depth or not self._inside(bvh, pt):
+            d, bvh, q = self.nearest(pt, items)
+            if bvh is None or d <= depth or not self.inside(bvh, pt):
                 continue
             pts[n] = q + (q - pt) / d * gap
             moved += 1
         return moved
+
+    def containing(self, pt, items, depth):
+        """The first of the parts that holds pt more than depth inside, with the nearest point on its surface."""
+        for bounds, bvh in items:
+            if np.any(pt < bounds[0]) or np.any(pt > bounds[1]) or not self.inside(bvh, pt):
+                continue
+            loc, nrm, idx, d = bvh.find_nearest(Vector(pt))
+            if loc is not None and d > depth:
+                return np.array(loc), d
+        return None
+
+    def push_out_all(self, pts, depth, gap, items, passes=2):
+        """Moves vertices lying inside any of the parts to just outside it. Parts can touch, so it runs again for vertices
+        pushed into a neighbour; returns how many moves were made."""
+        moved = 0
+        for _ in range(passes):
+            for n, pt in enumerate(pts):
+                hit = self.containing(pt, items, depth)
+                if hit:
+                    q, d = hit
+                    pts[n] = q + (q - pt) / d * gap
+                    moved += 1
+        return moved
+

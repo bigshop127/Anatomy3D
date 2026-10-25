@@ -1,5 +1,5 @@
 import {termKey} from './names';
-export type SystemId = 'skeletal'|'muscular'|'arterial'|'venous'|'nervous'|'digestive'|'respiratory'|'urinary'|'reproductive'|'lymphatic'|'endocrine'|'integumentary'|'connective'|'sensory'|'cardiac';
+export type SystemId = 'skeletal'|'muscular'|'arterial'|'venous'|'nervous'|'digestive'|'respiratory'|'urinary'|'reproductive'|'lymphatic'|'endocrine'|'integumentary'|'connective'|'fascia'|'sensory'|'cardiac';
 export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[] = [
  {id:'skeletal',name:'骨骼',color:'#e2d9ba',description:'骨骼構成身體的支架，保護內臟，並提供肌肉附著點。骨內組織也負責儲存礦物質和製造血球。'},
  {id:'muscular',name:'肌肉',color:'#a85b50',description:'骨骼肌收縮時拉動附著點而產生動作。肌肉與肌腱一起帶動關節、維持姿勢，並產生熱量。'},
@@ -15,7 +15,8 @@ export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[
  {id:'endocrine',name:'內分泌',color:'#c5a09a',description:'內分泌器官把荷爾蒙釋放到血液中，協調代謝、生長、壓力反應與生殖等功能。'},
  {id:'reproductive',name:'生殖',color:'#bda098',description:'這裡呈現的男性生殖構造負責精子的生成、成熟與輸送，以及性荷爾蒙的分泌。'},
  {id:'integumentary',name:'體表',color:'#ba9b7d',description:'體表提供外觀參考。皮膚系統形成保護屏障，也參與感覺與體溫調節。'},
- {id:'connective',name:'結締組織',color:'#aec3bb',description:'軟骨、韌帶等結締組織負責支撐、連接與分隔各構造，穩定關節並分散力學負荷。'},
+ {id:'connective',name:'結締組織',color:'#aec3bb',description:'韌帶、關節囊、關節盤、滑囊、腱鞘等結締組織負責支撐、連接與分隔各構造，穩定關節並分散力學負荷。'},
+ {id:'fascia',name:'筋膜',color:'#d8d0bd',description:'筋膜與腱膜包覆肌肉、分隔肌群，並把肌肉的力量傳到骨頭。打開後會蓋住下面的肌肉，所以預設不顯示。'},
 ];
 /** streams: byte offset of the part in its chunk, then the encoded sizes of its positions, normals and indices (see model-decode.ts). */
 export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;source:string;chunk:number;streams:[number,number,number,number];origin:[number,number,number];vertexCount:number;indexCount:number;bounds:[number[],number[]]}
@@ -47,6 +48,7 @@ export function visibilityTest(s:SceneState){
   return !s.region||overlaps(p.bounds as Box,s.region.box);
  };
 }
+/** Fascia is left out: it wraps the muscles and would hide them. */
 export const DEFAULT_VISIBLE:SystemId[] = ['cardiac','sensory','skeletal','muscular','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','connective'];
 export const EXPLANATIONS:Record<string,string> = {
  'heart':'位於胸腔的肌肉幫浦。右半邊把血液送到肺，左半邊把血液送往全身。',
