@@ -28,7 +28,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
  const host=useRef<HTMLDivElement>(null),latest=useRef(state),select=useRef(onSelect),camera=useRef(onCamera),removePin=useRef(onPinRemove),selectPatch=useRef(onSelectPatch),marksFailed=useRef(onMarksFailed);
  latest.current=state;select.current=onSelect;camera.current=onCamera;removePin.current=onPinRemove;selectPatch.current=onSelectPatch;marksFailed.current=onMarksFailed;
  useEffect(()=>{
-  const el=host.current!;let disposed=false,frame=0,dirty=true,ready=false,lastView='',lastReset=-1,lastFocus='',layoutKey='',amount=0,lastCameraN=-1;
+  const el=host.current!;let disposed=false,frame=0,dirty=true,ready=false,lastView='',lastReset=-1,lastFocus='',layoutKey='',amount=0,lastCameraN=-1,lastFrameN=-1;
   let lastState:SceneState|null=null;
   const abort=new AbortController();
   let renderer:T.WebGLRenderer;
@@ -172,13 +172,24 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   const freeArea=(inspectorOpen:boolean)=>{
    const w=el.clientWidth,h=el.clientHeight,mobile=w<768,landscape=w>h&&h<=600;let left=20,right=w-20,top=mobile?175:110,bottom=h-170;
    if(inspectorOpen){if(landscape){right=w-335;top=100;bottom=h-125;}else if(mobile){const sheet=document.querySelector('.detail-sheet')?.getBoundingClientRect(),header=document.querySelector('.identity')?.getBoundingClientRect();top=(header?.bottom??94)+16;bottom=(sheet?.top??h*.58-139)-16;}else{right=w-370;left=w>1100?285:25;}}
+   // The quiz card sits above the dock (beside the model on a landscape phone); the top is free below whatever header still shows.
+   const quiz=document.querySelector('.quiz-card')?.getBoundingClientRect();
+   if(quiz?.height){
+    const box=el.getBoundingClientRect(),shown=['.identity','.top-actions','.view-controls'].map(q=>document.querySelector(q)?.getBoundingClientRect()).filter(r=>r&&r.height&&r.top<120);
+    top=Math.max(20,...shown.map(r=>r!.bottom-box.top+12));if(landscape)right=Math.min(right,quiz.left-box.left-16);else bottom=Math.min(bottom,quiz.top-box.top-16);
+   }
    return {left,right,top,bottom,offset:[w/2-(left+right)/2,h/2-(top+bottom)/2]};
   };
-  const frameBox=(box:T.Box3,inspectorOpen:boolean,direction:T.Vector3)=>{
+  /** Where the camera goes to frame a box: position, target and the view offset that centres it in the free space. */
+  const boxPose=(box:T.Box3,inspectorOpen:boolean,direction:T.Vector3)=>{
    const center=box.getCenter(new T.Vector3()),size=box.getSize(new T.Vector3());const w=el.clientWidth,h=el.clientHeight,{left,right,top,bottom,offset}=freeArea(inspectorOpen);
-   const availableWidth=Math.max(150,right-left),availableHeight=Math.max(40,bottom-top);cam.setViewOffset(w,h,offset[0],offset[1],w,h);
+   const availableWidth=Math.max(150,right-left),availableHeight=Math.max(40,bottom-top);
    const distance=Math.max(.07,Math.max(size.y*h/availableHeight,size.x*w/availableWidth/cam.aspect,size.z)/(2*Math.tan(T.MathUtils.degToRad(cam.fov/2)))*1.35);
-   controls.maxDistance=Math.max(40,distance*2);controls.target.copy(center);cam.position.copy(center).add(direction.clone().normalize().multiplyScalar(distance));controls.update();dirty=true;
+   controls.maxDistance=Math.max(40,distance*2);return {target:center,position:center.clone().add(direction.clone().normalize().multiplyScalar(distance)),offset};
+  };
+  const frameBox=(box:T.Box3,inspectorOpen:boolean,direction:T.Vector3)=>{
+   const pose=boxPose(box,inspectorOpen,direction);cam.setViewOffset(el.clientWidth,el.clientHeight,pose.offset[0],pose.offset[1],el.clientWidth,el.clientHeight);
+   controls.target.copy(pose.target);cam.position.copy(pose.position);controls.update();dirty=true;
   };
   const resize=()=>{layoutKey='';lastState=null;lastFocus='';renderer.setPixelRatio(Math.min(devicePixelRatio,el.clientWidth<768||el.clientHeight<600?1.5:2));cam.aspect=el.clientWidth/el.clientHeight;cam.updateProjectionMatrix();renderer.setSize(el.clientWidth,el.clientHeight);if(!latest.current.isolate&&!latest.current.region)fit(latest.current.view,amount);};const observer=new ResizeObserver(resize);observer.observe(el);
   const raycaster=new T.Raycaster(),pointer=new T.Vector2(),tap=new PointerTap(),doubleTap=new DoubleTap(),pinch=new Pinch(),worldBox=new T.Box3(),hitPoint=new T.Vector3();
@@ -201,6 +212,11 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    const from=cam.view?.enabled?[cam.view.offsetX,cam.view.offsetY]:[0,0];
    flight={position:[cam.position.clone(),point.clone().addScaledVector(back,next)],target:[controls.target.clone(),point.clone()],offset:[from,freeArea(!!latest.current.inspectorOpen).offset],start:performance.now()};dirty=true;
   };
+  /** Flies to frame a box, the way a double tap flies to a point. */
+  const flyToBox=(box:T.Box3,direction:T.Vector3)=>{
+   const pose=boxPose(box,!!latest.current.inspectorOpen,direction),from=cam.view?.enabled?[cam.view.offsetX,cam.view.offsetY]:[0,0];
+   flight={position:[cam.position.clone(),pose.position],target:[controls.target.clone(),pose.target],offset:[from,pose.offset],start:performance.now()};dirty=true;
+  };
   /** Frames the whole view again: the isolated structure, the region, or the body. */
   const frameAgain=()=>{flight=null;const s=latest.current;if(s.isolate||s.region)lastFocus='';else{cam.clearViewOffset();fit(amount>.5?'front':s.view,Math.max(0,(amount-.3)/.7));}};
   // Wheel and pinch zoom toward a point: the visible surface under the cursor or between the fingers, or the point at the
@@ -218,7 +234,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   let wheelAt={x:0,y:0,time:-Infinity};
   const wheel=(e:WheelEvent)=>{e.preventDefault();const now=performance.now();if(now-wheelAt.time>350||Math.hypot(e.clientX-wheelAt.x,e.clientY-wheelAt.y)>6)startZoom(e.clientX,e.clientY);wheelAt={x:e.clientX,y:e.clientY,time:now};zoomBy(wheelScale(e));};
   const down=(e:PointerEvent)=>{hover.hidden=true;flight=null;tap.down(e.pointerId,e.clientX,e.clientY,e.pointerType==='touch'?12:5);if(e.pointerType==='touch'){const middle=pinch.down(e.pointerId,e.clientX,e.clientY);if(middle)startZoom(middle.x,middle.y);}};
-  const move=(e:PointerEvent)=>{tap.move(e.pointerId,e.clientX,e.clientY);if(e.pointerType==='touch'){const scale=pinch.move(e.pointerId,e.clientX,e.clientY);if(scale)zoomBy(scale);}if(e.buttons||amount<.5||e.pointerType==='touch'){hover.hidden=true;return;}const rect=el.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,index=findTarget(x,y,12);hover.hidden=index<0;renderer.domElement.style.cursor=index<0?'grab':'pointer';if(index>=0){hover.textContent=atlas.parts[index].label??atlas.parts[index].name;hover.style.left=`${Math.max(8,Math.min(x+14,el.clientWidth-260))}px`;hover.style.top=`${Math.max(8,Math.min(y+18,el.clientHeight-55))}px`;}};
+  const move=(e:PointerEvent)=>{tap.move(e.pointerId,e.clientX,e.clientY);if(e.pointerType==='touch'){const scale=pinch.move(e.pointerId,e.clientX,e.clientY);if(scale)zoomBy(scale);}if(e.buttons||amount<.5||e.pointerType==='touch'||latest.current.hideNames){hover.hidden=true;return;}const rect=el.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,index=findTarget(x,y,12);hover.hidden=index<0;renderer.domElement.style.cursor=index<0?'grab':'pointer';if(index>=0){hover.textContent=atlas.parts[index].label??atlas.parts[index].name;hover.style.left=`${Math.max(8,Math.min(x+14,el.clientWidth-260))}px`;hover.style.top=`${Math.max(8,Math.min(y+18,el.clientHeight-55))}px`;}};
   const cancel=(e:PointerEvent)=>{tap.cancel(e.pointerId);pinch.up(e.pointerId);};
   const up=(e:PointerEvent)=>{
    pinch.up(e.pointerId);
@@ -319,6 +335,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     lastFocus=focusKey;
    }
    if(s.camera&&s.camera.n!==lastCameraN){lastCameraN=s.camera.n;flight=null;cam.clearViewOffset();cam.position.fromArray(s.camera.pose.position);controls.target.fromArray(s.camera.pose.target);controls.update();dirty=true;}
+   if(s.frame&&s.frame.n!==lastFrameN){lastFrameN=s.frame.n;flyToBox(new T.Box3(new T.Vector3().fromArray(s.frame.box[0]),new T.Vector3().fromArray(s.frame.box[1])),s.frame.look?new T.Vector3().fromArray(s.frame.look):cam.position.clone().sub(controls.target));}
    if(flight){
     const t=Math.min(1,(performance.now()-flight.start)/450),k=1-(1-t)**3,[[x0,y0],[x1,y1]]=flight.offset;
     cam.position.lerpVectors(flight.position[0],flight.position[1],k);controls.target.lerpVectors(flight.target[0],flight.target[1],k);

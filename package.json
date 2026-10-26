@@ -1,6 +1,6 @@
 {
   "name": "anatomy3d",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -9,7 +9,7 @@
     "dev": "vite --port 3016",
     "build": "vite build",
     "check": "tsc --noEmit",
-    "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs && node scripts/validate-cards.mjs && node scripts/validate-attachments.mjs",
+    "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs && node scripts/validate-cards.mjs && node scripts/validate-attachments.mjs && node scripts/validate-quiz.mjs",
     "atlas": "node scripts/build-atlas.mjs",
     "layers": "node scripts/compute-muscle-layers.mjs",
     "members": "node scripts/compute-region-members.mjs && node scripts/compute-area-members.mjs",

@@ -40,7 +40,9 @@ export interface SceneState {inspectorOpen?:boolean;explode:number;visible:Syste
  pins:Pin[];camera?:{pose:CameraPose;n:number};
  /** Muscle attachment patches to draw (ids from attachments.json); markThrough draws the selected muscles see-through so the
   * patches under them show. */ marks?:string[];markThrough?:boolean;
- /** Parts shown along with an isolated selection: the bones its attachment patches lie on. */ companions?:string[]}
+ /** Parts shown along with an isolated selection: the bones its attachment patches lie on. */ companions?:string[];
+ /** A box to fly the camera to, looking from look (or the current direction); n counts requests. */ frame?:{box:Box;look?:number[];n:number};
+ /** No names on hover (a quiz question is open). */ hideNames?:boolean}
 export const overlaps=(a:Box,b:Box)=>a[0].every((v,i)=>v<=b[1][i]&&a[1][i]>=b[0][i]);
 /** One rule for what is drawn, shared by the scene and the counts in the interface. */
 export function visibilityTest(s:SceneState){
