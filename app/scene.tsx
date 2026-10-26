@@ -7,7 +7,8 @@ import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {createExplosionLayout} from './explosion-layout';
 import {asset,decodeModelResponse} from './model-download';
 import {decodePart} from './model-decode';
-import {PointerTap} from './pointer-tap';
+import {DoubleTap,PointerTap} from './pointer-tap';
+import {Pinch,targetToDepth,wheelScale,zoomAbout} from './camera-zoom';
 import {END_COLOR,loadAttachments} from './attachments';
 import {SYSTEMS,visibilityTest,type Atlas,type Box,type CameraPose,type Pin,type SceneState,type Section} from './anatomy';
 interface Props {atlas:Atlas;state:SceneState;onSelect:(id:string,point?:number[])=>void;onProgress:(n:number)=>void;onError:(s:string)=>void;onCamera?:(pose:CameraPose)=>void;onPinRemove?:(id:string)=>void;
@@ -33,10 +34,12 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   let renderer:T.WebGLRenderer;
   try{renderer=new T.WebGLRenderer({antialias:true,alpha:false,powerPreference:'high-performance'});}catch{onError('這個瀏覽器無法啟動 3D 檢視器，請改用支援 WebGL 的瀏覽器。');return;}
   renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<768?1.5:2));renderer.setClearColor('#f2f3f3');renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.12;renderer.localClippingEnabled=true;el.appendChild(renderer.domElement);
-  renderer.domElement.setAttribute('aria-label','互動人體解剖模型。拖曳旋轉、雙指或滾輪縮放，點一下構造可以查看。');
+  renderer.domElement.setAttribute('aria-label','互動人體解剖模型。拖曳旋轉；雙指或滾輪縮放，會對準手指或游標所在處；點兩下對準那一點；點一下構造可以查看。');
   const scene=new T.Scene(),cam=new T.PerspectiveCamera(34,1,.005,100),controls=new OrbitControls(cam,renderer.domElement);
   let cameraTimer=0;const reportCamera=()=>{clearTimeout(cameraTimer);cameraTimer=window.setTimeout(()=>camera.current?.({position:cam.position.toArray().map(v=>+v.toFixed(4)),target:controls.target.toArray().map(v=>+v.toFixed(4))}),300);};
-  cam.position.set(1.4,1.05,3.6);controls.target.set(0,.85,0);controls.enableDamping=true;controls.dampingFactor=.085;controls.minDistance=.07;controls.maxDistance=40;controls.maxPolarAngle=Math.PI*.96;controls.addEventListener('change',()=>{dirty=true;reportCamera();});
+  cam.position.set(1.4,1.05,3.6);controls.target.set(0,.85,0);controls.enableDamping=true;controls.dampingFactor=.085;controls.minDistance=.025;controls.maxDistance=40;
+  // Wheel and pinch zoom are done below, toward the point under the cursor or fingers; the controls still rotate and pan.
+  controls.enableZoom=false;controls.maxPolarAngle=Math.PI*.96;controls.addEventListener('change',()=>{dirty=true;reportCamera();});
   const pmrem=new T.PMREMGenerator(renderer),room=new RoomEnvironment(),env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
   scene.add(new T.HemisphereLight(0xffffff,0xa7acb2,1.05));
   const key=new T.DirectionalLight(0xfffaf4,2.3);key.position.set(-2,4,3);scene.add(key);
@@ -165,29 +168,73 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    controls.target.set(extent>.1&&el.clientWidth>767?-packingWidth*.12:0,extent>.1||mobile?.85:.68,0);cam.position.copy(controls.target).addScaledVector(direction,distance);controls.update();dirty=true;
   };
   /** Frame a box in the space left free by the panels, looking from the given direction. */
-  const frameBox=(box:T.Box3,inspectorOpen:boolean,direction:T.Vector3)=>{
-   const center=box.getCenter(new T.Vector3()),size=box.getSize(new T.Vector3());const w=el.clientWidth,h=el.clientHeight,mobile=w<768,landscape=w>h&&h<=600;let left=20,right=w-20,top=mobile?175:110,bottom=h-170;
+  /** The part of the canvas the panels leave free, and the view offset that centres the picture in it. */
+  const freeArea=(inspectorOpen:boolean)=>{
+   const w=el.clientWidth,h=el.clientHeight,mobile=w<768,landscape=w>h&&h<=600;let left=20,right=w-20,top=mobile?175:110,bottom=h-170;
    if(inspectorOpen){if(landscape){right=w-335;top=100;bottom=h-125;}else if(mobile){const sheet=document.querySelector('.detail-sheet')?.getBoundingClientRect(),header=document.querySelector('.identity')?.getBoundingClientRect();top=(header?.bottom??94)+16;bottom=(sheet?.top??h*.58-139)-16;}else{right=w-370;left=w>1100?285:25;}}
-   const availableWidth=Math.max(150,right-left),availableHeight=Math.max(40,bottom-top);cam.setViewOffset(w,h,w/2-(left+right)/2,h/2-(top+bottom)/2,w,h);
+   return {left,right,top,bottom,offset:[w/2-(left+right)/2,h/2-(top+bottom)/2]};
+  };
+  const frameBox=(box:T.Box3,inspectorOpen:boolean,direction:T.Vector3)=>{
+   const center=box.getCenter(new T.Vector3()),size=box.getSize(new T.Vector3());const w=el.clientWidth,h=el.clientHeight,{left,right,top,bottom,offset}=freeArea(inspectorOpen);
+   const availableWidth=Math.max(150,right-left),availableHeight=Math.max(40,bottom-top);cam.setViewOffset(w,h,offset[0],offset[1],w,h);
    const distance=Math.max(.07,Math.max(size.y*h/availableHeight,size.x*w/availableWidth/cam.aspect,size.z)/(2*Math.tan(T.MathUtils.degToRad(cam.fov/2)))*1.35);
    controls.maxDistance=Math.max(40,distance*2);controls.target.copy(center);cam.position.copy(center).add(direction.clone().normalize().multiplyScalar(distance));controls.update();dirty=true;
   };
   const resize=()=>{layoutKey='';lastState=null;lastFocus='';renderer.setPixelRatio(Math.min(devicePixelRatio,el.clientWidth<768||el.clientHeight<600?1.5:2));cam.aspect=el.clientWidth/el.clientHeight;cam.updateProjectionMatrix();renderer.setSize(el.clientWidth,el.clientHeight);if(!latest.current.isolate&&!latest.current.region)fit(latest.current.view,amount);};const observer=new ResizeObserver(resize);observer.observe(el);
-  const raycaster=new T.Raycaster(),pointer=new T.Vector2(),tap=new PointerTap(),worldBox=new T.Box3(),hitPoint=new T.Vector3();
+  const raycaster=new T.Raycaster(),pointer=new T.Vector2(),tap=new PointerTap(),doubleTap=new DoubleTap(),pinch=new Pinch(),worldBox=new T.Box3(),hitPoint=new T.Vector3();
   const kept=(point:T.Vector3)=>planes.every(plane=>plane.distanceToPoint(point)>=-1e-4);
-  const down=(e:PointerEvent)=>{hover.hidden=true;tap.down(e.pointerId,e.clientX,e.clientY,e.pointerType==='touch'?12:5);};
-  const move=(e:PointerEvent)=>{tap.move(e.pointerId,e.clientX,e.clientY);if(e.buttons||amount<.5||e.pointerType==='touch'){hover.hidden=true;return;}const rect=el.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,index=findTarget(x,y,12);hover.hidden=index<0;renderer.domElement.style.cursor=index<0?'grab':'pointer';if(index>=0){hover.textContent=atlas.parts[index].label??atlas.parts[index].name;hover.style.left=`${Math.max(8,Math.min(x+14,el.clientWidth-260))}px`;hover.style.top=`${Math.max(8,Math.min(y+18,el.clientHeight-55))}px`;}};
-  const cancel=(e:PointerEvent)=>tap.cancel(e.pointerId);
+  /** Points the raycaster through a position on the screen. */
+  const aim=(clientX:number,clientY:number)=>{const rect=renderer.domElement.getBoundingClientRect();pointer.set((clientX-rect.left)/rect.width*2-1,-(clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,cam);};
+  const solidShown=()=>atlas.parts.some((p,i)=>p.system!=='integumentary'&&data[i*4+3]>.5);
+  type Hit={i:number;distance:number;point:T.Vector3};
+  /** The nearest visible part along the ray (the skin only counts when nothing solid is shown); point is in world space. */
+  const cast=(hasSolid:boolean,only?:(i:number)=>boolean):Hit|null=>{let best:Hit|null=null;
+   for(let i=0;i<pickers.length;i++){const mesh=pickers[i];if(!mesh||data[i*4+3]<.5||(hasSolid&&atlas.parts[i].system==='integumentary')||(only&&!only(i)))continue;worldBox.copy(bounds[i]).translate(mesh.position);if(!raycaster.ray.intersectBox(worldBox,hitPoint))continue;
+    // Hits on geometry the section or region cut away do not count.
+    const hit=raycaster.intersectObject(mesh,false).find(h=>kept(h.point));if(hit&&(!best||hit.distance<best.distance))best={i,distance:hit.distance,point:hit.point.clone()};}
+   return best;};
+  // A double tap flies to the tapped point and turns about it from then on. The point ends up in the middle of the space the
+  // panels leave free (above the detail panel on a phone), so the picture's offset moves along with the camera.
+  let flight:{position:[T.Vector3,T.Vector3];target:[T.Vector3,T.Vector3];offset:[number[],number[]];start:number}|null=null;
+  const flyTo=(point:T.Vector3)=>{
+   const distance=cam.position.distanceTo(point),next=Math.max(Math.min(distance,.12),distance*.45),back=cam.position.clone().sub(controls.target).normalize();
+   const from=cam.view?.enabled?[cam.view.offsetX,cam.view.offsetY]:[0,0];
+   flight={position:[cam.position.clone(),point.clone().addScaledVector(back,next)],target:[controls.target.clone(),point.clone()],offset:[from,freeArea(!!latest.current.inspectorOpen).offset],start:performance.now()};dirty=true;
+  };
+  /** Frames the whole view again: the isolated structure, the region, or the body. */
+  const frameAgain=()=>{flight=null;const s=latest.current;if(s.isolate||s.region)lastFocus='';else{cam.clearViewOffset();fit(amount>.5?'front':s.view,Math.max(0,(amount-.3)/.7));}};
+  // Wheel and pinch zoom toward a point: the visible surface under the cursor or between the fingers, or the point at the
+  // orbit target's depth when nothing is there. The target moves to that point's depth first, so turning the view
+  // afterwards keeps the point on screen.
+  const anchor=new T.Vector3(),forward=new T.Vector3(),viewPlane=new T.Plane();
+  const startZoom=(clientX:number,clientY:number)=>{
+   flight=null;aim(clientX,clientY);const hit=ready?cast(solidShown()):null;
+   if(hit)anchor.copy(hit.point);
+   else{cam.getWorldDirection(forward);viewPlane.setFromNormalAndCoplanarPoint(forward,controls.target);if(!raycaster.ray.intersectPlane(viewPlane,anchor))anchor.copy(controls.target);}
+   targetToDepth(cam.position,controls.target,anchor,controls.minDistance);
+  };
+  const zoomBy=(scale:number)=>{zoomAbout(cam.position,controls.target,anchor,scale,controls.minDistance,controls.maxDistance);dirty=true;};
+  // One wheel gesture keeps its point; a new one starts when the cursor moves or after a pause.
+  let wheelAt={x:0,y:0,time:-Infinity};
+  const wheel=(e:WheelEvent)=>{e.preventDefault();const now=performance.now();if(now-wheelAt.time>350||Math.hypot(e.clientX-wheelAt.x,e.clientY-wheelAt.y)>6)startZoom(e.clientX,e.clientY);wheelAt={x:e.clientX,y:e.clientY,time:now};zoomBy(wheelScale(e));};
+  const down=(e:PointerEvent)=>{hover.hidden=true;flight=null;tap.down(e.pointerId,e.clientX,e.clientY,e.pointerType==='touch'?12:5);if(e.pointerType==='touch'){const middle=pinch.down(e.pointerId,e.clientX,e.clientY);if(middle)startZoom(middle.x,middle.y);}};
+  const move=(e:PointerEvent)=>{tap.move(e.pointerId,e.clientX,e.clientY);if(e.pointerType==='touch'){const scale=pinch.move(e.pointerId,e.clientX,e.clientY);if(scale)zoomBy(scale);}if(e.buttons||amount<.5||e.pointerType==='touch'){hover.hidden=true;return;}const rect=el.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,index=findTarget(x,y,12);hover.hidden=index<0;renderer.domElement.style.cursor=index<0?'grab':'pointer';if(index>=0){hover.textContent=atlas.parts[index].label??atlas.parts[index].name;hover.style.left=`${Math.max(8,Math.min(x+14,el.clientWidth-260))}px`;hover.style.top=`${Math.max(8,Math.min(y+18,el.clientHeight-55))}px`;}};
+  const cancel=(e:PointerEvent)=>{tap.cancel(e.pointerId);pinch.up(e.pointerId);};
   const up=(e:PointerEvent)=>{
-   const validTap=tap.up(e.pointerId,e.clientX,e.clientY);if(!validTap||!ready)return;const rect=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,cam);
-   let nearest=Infinity,found=-1,point:number[]|undefined;const hasSolid=atlas.parts.some((p,i)=>p.system!=='integumentary'&&data[i*4+3]>.5);
-   type Hit={i:number;distance:number;point:number[]};
-   const cast=(only?:(i:number)=>boolean):Hit|null=>{let best:Hit|null=null;
-    for(let i=0;i<pickers.length;i++){const mesh=pickers[i];if(!mesh||data[i*4+3]<.5||(hasSolid&&atlas.parts[i].system==='integumentary')||(only&&!only(i)))continue;worldBox.copy(bounds[i]).translate(mesh.position);if(!raycaster.ray.intersectBox(worldBox,hitPoint))continue;
-     // Hits on geometry the section or region cut away do not count.
-     const hit=raycaster.intersectObject(mesh,false).find(h=>kept(h.point));if(hit&&(!best||hit.distance<best.distance))best={i,distance:hit.distance,point:hit.point.clone().sub(mesh.position).toArray().map(v=>+v.toFixed(4))};}
-    return best;};
-   const centre=cast();if(centre){nearest=centre.distance;found=centre.i;point=centre.point;}
+   pinch.up(e.pointerId);
+   const validTap=tap.up(e.pointerId,e.clientX,e.clientY);if(!validTap||!ready)return;
+   const rect=renderer.domElement.getBoundingClientRect(),hasSolid=solidShown(),double=doubleTap.tap(e.clientX,e.clientY,e.timeStamp,e.pointerType==='touch'?30:8);
+   let nearest=Infinity,found=-1,point:number[]|undefined;
+   aim(e.clientX,e.clientY);const centre=cast(hasSolid);
+   // The first tap of a double tap already selected; the second only moves the view (on empty space it frames it again).
+   if(double){
+    const near=!centre&&amount>.45?findTarget(e.clientX-rect.left,e.clientY-rect.top,e.pointerType==='touch'?24:16):-1;
+    if(centre)flyTo(centre.point);else if(near>=0)flyTo(centers[near].clone().add(new T.Vector3(data[near*4],data[near*4+1],data[near*4+2])));else frameAgain();
+    return;
+   }
+   // Pins keep the point relative to the part, so they follow it when the model is pulled apart.
+   const local=(h:Hit)=>h.point.clone().sub(pickers[h.i]!.position).toArray().map(v=>+v.toFixed(4));
+   if(centre){nearest=centre.distance;found=centre.i;point=local(centre);}
    // A tap on an attachment patch picks its muscle. Patches lie a fraction of a millimetre above the bone, so one hit within
    // a few millimetres of the nearest surface counts.
    if(shownPatches.length){
@@ -196,20 +243,21 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    }
    // Nerves are only millimetres thick: a tap just beside one that lies in front of what the tap hit picks the nerve.
    if(found<0||atlas.parts[found].system!=='nervous'){
-    const reach=e.pointerType==='touch'?10:5,x=e.clientX-rect.left,y=e.clientY-rect.top,nerve=(i:number)=>atlas.parts[i].system==='nervous';
+    const reach=e.pointerType==='touch'?10:5,nerve=(i:number)=>atlas.parts[i].system==='nervous';
     let nerveHit:Hit|null=null;
     for(let k=0;k<16;k++){
      const r=k<8?reach/2:reach,a=k*Math.PI/4+(k<8?0:Math.PI/8);
-     pointer.set((x+r*Math.cos(a))/rect.width*2-1,-(y+r*Math.sin(a))/rect.height*2+1);raycaster.setFromCamera(pointer,cam);
-     const hit=cast(nerve);if(hit&&hit.distance<=nearest+.002&&(!nerveHit||hit.distance<nerveHit.distance))nerveHit=hit;
+     aim(e.clientX+r*Math.cos(a),e.clientY+r*Math.sin(a));
+     const hit=cast(hasSolid,nerve);if(hit&&hit.distance<=nearest+.002&&(!nerveHit||hit.distance<nerveHit.distance))nerveHit=hit;
     }
-    if(nerveHit){found=nerveHit.i;point=nerveHit.point;}
+    if(nerveHit){found=nerveHit.i;point=local(nerveHit);}
    }
    if(found<0&&amount>.45){found=findTarget(e.clientX-rect.left,e.clientY-rect.top,e.pointerType==='touch'?24:16);point=undefined;}if(found>=0){hover.hidden=true;select.current(atlas.parts[found].id,point);}
   };
-  renderer.domElement.addEventListener('pointerdown',down);renderer.domElement.addEventListener('pointermove',move);renderer.domElement.addEventListener('pointerup',up);renderer.domElement.addEventListener('pointercancel',cancel);
+  renderer.domElement.addEventListener('pointerdown',down);renderer.domElement.addEventListener('pointermove',move);renderer.domElement.addEventListener('pointerup',up);renderer.domElement.addEventListener('pointercancel',cancel);renderer.domElement.addEventListener('wheel',wheel,{passive:false});
   const updateClipping=(s:SceneState)=>{
-   const next=clippingPlanes(s.section,s.region?.box??null,body),recompile=next.length!==planes.length;planes=next;
+   // A large area keeps its structures whole, so only a joint region cuts along its box.
+   const next=clippingPlanes(s.section,s.region&&!s.region.parts?s.region.box:null,body),recompile=next.length!==planes.length;planes=next;
    partMaterials.forEach(m=>{m.clippingPlanes=planes.length?planes:null;if(recompile)m.needsUpdate=true;});
    outline.visible=!!s.section;
    if(s.section){const i=AXES[s.section.axis],plane=planes[0],c=-plane.constant*plane.normal.getComponent(i),[a,b]=[0,1,2].filter(k=>k!==i),pos=outlineGeometry.attributes.position as T.BufferAttribute;
@@ -259,17 +307,23 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    }
    if(patches&&(patchesStale||changed||moving||lastState?.marks!==s.marks)){updatePatches(s);patchesStale=false;}
    lastState=s;
-   if(s.view!==lastView||s.reset!==lastReset){cam.clearViewOffset();lastFocus='';if(!s.region)fit(s.view,amount);lastView=s.view;lastReset=s.reset;}
+   if(s.view!==lastView||s.reset!==lastReset){flight=null;cam.clearViewOffset();lastFocus='';if(!s.region)fit(s.view,amount);lastView=s.view;lastReset=s.reset;}
    if(moving&&!s.isolate&&!s.region)fit(amount>.5?'front':s.view,Math.max(0,(amount-.3)/.7));
    // Isolating a structure or choosing a body region frames the camera on it.
    const focusKey=s.isolate?'i:'+s.selected.join(',')+':'+s.reset+':'+s.inspectorOpen+':'+cam.aspect:s.region?'r:'+s.region.box.flat().join(',')+':'+s.reset+':'+cam.aspect:'';
    if(focusKey!==lastFocus||(s.isolate&&moving)){
+    flight=null;
     if(s.isolate){const box=new T.Box3();atlas.parts.forEach((p,i)=>{if(s.selected.includes(p.id))box.union(bounds[i].clone().translate(new T.Vector3(data[i*4],data[i*4+1],data[i*4+2])));});if(!box.isEmpty())frameBox(box,!!s.inspectorOpen,new T.Vector3(.2,.1,1));}
     else if(s.region){const box=new T.Box3(new T.Vector3().fromArray(s.region.box[0]),new T.Vector3().fromArray(s.region.box[1]));frameBox(box,false,new T.Vector3().fromArray(s.region.look));}
     else if(lastFocus){cam.clearViewOffset();fit(s.view,amount);}
     lastFocus=focusKey;
    }
-   if(s.camera&&s.camera.n!==lastCameraN){lastCameraN=s.camera.n;cam.clearViewOffset();cam.position.fromArray(s.camera.pose.position);controls.target.fromArray(s.camera.pose.target);controls.update();dirty=true;}
+   if(s.camera&&s.camera.n!==lastCameraN){lastCameraN=s.camera.n;flight=null;cam.clearViewOffset();cam.position.fromArray(s.camera.pose.position);controls.target.fromArray(s.camera.pose.target);controls.update();dirty=true;}
+   if(flight){
+    const t=Math.min(1,(performance.now()-flight.start)/450),k=1-(1-t)**3,[[x0,y0],[x1,y1]]=flight.offset;
+    cam.position.lerpVectors(flight.position[0],flight.position[1],k);controls.target.lerpVectors(flight.target[0],flight.target[1],k);
+    cam.setViewOffset(el.clientWidth,el.clientHeight,x0+(x1-x0)*k,y0+(y1-y0)*k,el.clientWidth,el.clientHeight);dirty=true;if(t>=1)flight=null;
+   }
    controls.enableRotate=amount<.8;controls.mouseButtons.LEFT=amount<.8?T.MOUSE.ROTATE:T.MOUSE.PAN;controls.touches.ONE=amount<.8?T.TOUCH.ROTATE:T.TOUCH.PAN;ground.visible=platform.visible=ring.visible=innerRing.visible=amount<.5&&!s.isolate&&!s.region;markers.visible=amount>.75;controls.autoRotate=s.rotate&&!s.isolate&&amount<.4;controls.autoRotateSpeed=.65;controls.update();if(controls.autoRotate)dirty=true;
    if(dirty){renderer.render(scene,cam);renderPins(s.pins);targets=[];if(amount>.45){const hasSolid=atlas.parts.some((p,i)=>p.system!=='integumentary'&&data[i*4+3]>.5);atlas.parts.forEach((p,i)=>{if(data[i*4+3]<.5||(hasSolid&&p.system==='integumentary'))return;let left=Infinity,right=-Infinity,top=Infinity,bottom=-Infinity;for(let corner=0;corner<8;corner++){projected.set(p.bounds[(corner&1)?1:0][0]+data[i*4],p.bounds[(corner&2)?1:0][1]+data[i*4+1],p.bounds[(corner&4)?1:0][2]+data[i*4+2]).project(cam);const x=(projected.x+1)*el.clientWidth/2,y=(1-projected.y)*el.clientHeight/2;left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}projected.copy(centers[i]).add(new T.Vector3(data[i*4],data[i*4+1],data[i*4+2])).project(cam);if(projected.z< -1||projected.z>1)return;targets.push({index:i,x:(projected.x+1)*el.clientWidth/2,y:(1-projected.y)*el.clientHeight/2,left,right,top,bottom});});}dirty=false;}
   };animate();

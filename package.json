@@ -1,6 +1,6 @@
 {
   "name": "anatomy3d",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -12,7 +12,7 @@
     "validate": "node scripts/validate-atlas.mjs && node scripts/validate-interactions.mjs && node scripts/validate-names.mjs && node scripts/validate-regions.mjs && node scripts/validate-layers.mjs && node scripts/validate-cards.mjs && node scripts/validate-attachments.mjs",
     "atlas": "node scripts/build-atlas.mjs",
     "layers": "node scripts/compute-muscle-layers.mjs",
-    "members": "node scripts/compute-region-members.mjs",
+    "members": "node scripts/compute-region-members.mjs && node scripts/compute-area-members.mjs",
     "review": "node scripts/review-sheets.mjs",
     "cards": "node scripts/muscle-cards.mjs",
     "attachments": "node scripts/attachment-report.mjs"

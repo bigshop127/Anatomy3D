@@ -12,7 +12,8 @@ import AnatomyScene from './scene';
 import {asset} from './model-download';
 import {createNamer,type NameData} from './names';
 import nameData from './names.zh-TW.json';
-import {REGIONS,regionBox,regionLook,type RegionId,type Side} from './regions';
+import {AREAS,REGIONS,areaLook,areaParts,isArea,regionBox,regionLook,type AreaId,type RegionId,type Side} from './regions';
+import areaMembers from './area-members.json';
 import {fixSystems} from './system-fixes';
 import muscleLayers from './muscle-layers.json';
 import {decodeSnapshot,encodeSnapshot,loadBookmarks,saveBookmarks,type Bookmark as SavedView,type Snapshot} from './share';
@@ -31,6 +32,7 @@ const VIEWS:{id:View;short:string;name:string}[]=[{id:'three-quarter',short:'斜
 type Tool='explode'|'xray'|'section'|'peel';
 const TOOLS:{id:Tool;name:string}[]=[{id:'explode',name:'拆開'},{id:'xray',name:'透視'},{id:'section',name:'剖面'},{id:'peel',name:'剝層'}];
 const LAYERS=muscleLayers.layers as Record<string,number>,DEEPEST=Math.max(...Object.values(LAYERS));
+const AREA_DATA=areaMembers as {keys:string[];members:Record<string,number>};
 const PEEL_TEXT=['全部肌肉','去掉淺層肌','去掉到第 2 層','去掉到第 3 層','去掉到第 4 層','肌肉全部去掉'];
 const AXES:{id:SectionAxis;name:string;ends:[string,string]}[]=[{id:'sagittal',name:'矢狀',ends:['右側','左側']},{id:'coronal',name:'冠狀',ends:['背側','前側']},{id:'transverse',name:'水平',ends:['下方','上方']}];
 const XRAY_DEFAULT=.7;
@@ -40,7 +42,7 @@ const sliderValue=(v:number|readonly number[])=>Array.isArray(v)?v[0]:v as numbe
 export default function Home(){
  const detailTitle=useRef<HTMLHeadingElement>(null),autoXray=useRef(false),lastXray=useRef(XRAY_DEFAULT),current=useRef(initial);
  const [atlas,setAtlas]=useState<Atlas|null>(null),[state,setState]=useState(initial),[progress,setProgress]=useState(0),[error,setError]=useState(''),[panel,setPanel]=useState<Panel|null>(null),[details,setDetails]=useState(false),[about,setAbout]=useState(false),[query,setQuery]=useState(''),[chosen,setChosen]=useState<Concept|null>(null);
- const [region,setRegion]=useState<{id:RegionId;side:Side}|null>(null),[side,setSide]=useState<Side>('right');
+ const [region,setRegion]=useState<{id:RegionId|AreaId;side:Side}|null>(null),[side,setSide]=useState<Side>('right');
  const [tool,setTool]=useState<Tool>('explode'),[multi,setMulti]=useState(false),[undo,setUndo]=useState<string[][]>([]);
  const [bookmarks,setBookmarks]=useState<SavedView[]>(loadBookmarks),[bookmarkName,setBookmarkName]=useState(''),[shareNote,setShareNote]=useState(''),[shareUrl,setShareUrl]=useState('');
  const cameraPose=useRef<CameraPose|null>(null),tapPoint=useRef<{id:string;point?:number[]}|null>(null),cameraN=useRef(0);
@@ -49,6 +51,9 @@ export default function Home(){
  const [marksOn,setMarksOn]=useState(loadMarks),[focus,setFocus]=useState<{term:string;side:string;ids:string[]}|null>(null),sections=useSections();
  // On a phone the detail panel can be pulled up to read a long card.
  const [tall,setTall]=useState(false);
+ // Right after a tap on the model opens or fills the detail panel, the panel lets touches through for a moment, so the second
+ // tap of a double tap reaches the model instead of a button that just appeared under the finger.
+ const [settling,setSettling]=useState(false),settleTimer=useRef(0);
  current.current=state;
  // Panels above the dock follow its real height, which changes with the active tool. The detail sheet lives in a portal, so the value goes on the root element.
  const dock=useRef<HTMLDivElement>(null);
@@ -103,6 +108,7 @@ export default function Home(){
  const groupOf=(ids:string[]):Concept=>{const p=parts.get(ids[0]);return ids.length===1&&p?{id:p.conceptId,name:p.name,label:p.label,elements:ids}:{id:'',name:`${ids.length} structures`,label:`已選 ${ids.length} 個構造`,elements:ids};};
  const choosePart=(id:string,point?:number[])=>{
   const p=parts.get(id);if(!p)return;tapPoint.current={id,point};
+  setSettling(true);clearTimeout(settleTimer.current);settleTimer.current=window.setTimeout(()=>setSettling(false),400);
   const ids=multi?(state.selected.includes(id)?state.selected.filter(x=>x!==id):[...state.selected,id]):[id];
   if(!ids.length){clearSelection();return;}
   setChosen(groupOf(ids));setState(s=>({...s,selected:ids,isolate:false,rotate:false}));setDetails(true);setPanel(null);
@@ -156,9 +162,16 @@ export default function Home(){
  const showAll=()=>{setUndo(u=>[...u,state.hidden]);setState(s=>({...s,hidden:[]}));};
  const toggle=(id:SystemId)=>{setDetails(false);setState(s=>({...s,selected:[],isolate:false,visible:s.visible.includes(id)?s.visible.filter(x=>x!==id):[...s.visible,id]}));};
  const reset=()=>{setState(s=>({...initial,visible:DEFAULT_VISIBLE,reset:s.reset+1}));setRegion(null);autoXray.current=false;setUndo([]);setChosen(null);setDetails(false);setPanel(null);};
- const chooseRegion=(id:RegionId,regionSide=side)=>{if(!atlas)return;const box=regionBox(atlas,id,regionSide);if(!box)return;setRegion({id,side:regionSide});setState(s=>({...s,region:{box,look:regionLook(id,regionSide)},explode:0,isolate:false,rotate:false}));setPanel(null);};
+ /** What the scene needs for a region: a joint region cuts along its box, a large area shows its structures whole. */
+ const regionView=(id:RegionId|AreaId,regionSide:Side):SceneState['region']=>{
+  if(!atlas)return null;
+  if(isArea(id)){const area=areaParts(atlas,AREA_DATA,id,regionSide);return area&&{box:area.box,look:areaLook(id,regionSide),parts:area.parts};}
+  const box=regionBox(atlas,id,regionSide);return box&&{box,look:regionLook(id,regionSide)};
+ };
+ const chooseRegion=(id:RegionId|AreaId,regionSide=side)=>{const view=regionView(id,regionSide);if(!view)return;setRegion({id,side:regionSide});setState(s=>({...s,region:view,explode:0,isolate:false,rotate:false}));setPanel(null);};
  const clearRegion=()=>{setRegion(null);setState(s=>({...s,region:null}));setPanel(null);};
- const regionName=region?`${REGIONS.find(r=>r.id===region.id)?.sided?(region.side==='left'?'左':'右'):''}${REGIONS.find(r=>r.id===region.id)?.name}`:'';
+ const regionInfo=region?[...REGIONS,...AREAS].find(r=>r.id===region.id):undefined;
+ const regionName=region&&regionInfo?`${regionInfo.sided?(region.side==='left'?'左':'右'):''}${regionInfo.name}`:'';
  const openPanel=(next:Panel)=>{setDetails(false);setPanel(p=>p===next?null:next);};
  // A pin sits where the structure was tapped, or at the centre of its bounds when it came from search.
  const pinned=selected?state.pins.find(p=>p.part===selected.id):undefined;
@@ -167,9 +180,9 @@ export default function Home(){
   setState(s=>({...s,pins:[...s.pins,{id:`${selected.id}-${Date.now().toString(36)}`,part:selected.id,label:chosen.label??chosen.name,point}]}));};
  const snapshot=():Snapshot=>({v:1,visible:state.visible,selected:state.selected,hidden:state.hidden,isolate:state.isolate,xray:state.xray,section:state.section,region,peel:state.peel,pins:state.pins,view:state.view,camera:cameraPose.current??undefined});
  const applySnapshot=(snap:Snapshot)=>{
-  if(!atlas)return;const box=snap.region?regionBox(atlas,snap.region.id,snap.region.side):null,known=(ids:string[])=>ids.filter(id=>parts.has(id));
-  const selection=known(snap.selected),n=++cameraN.current;autoXray.current=false;setUndo([]);setRegion(box?snap.region:null);setPanel(null);
-  setState(s=>({...initial,visible:snap.visible.filter(id=>SYSTEMS.some(x=>x.id===id)),selected:selection,hidden:known(snap.hidden),isolate:snap.isolate&&selection.length>0,xray:snap.xray,section:snap.section,region:box&&snap.region?{box,look:regionLook(snap.region.id,snap.region.side)}:null,peel:snap.peel,pins:snap.pins.filter(p=>parts.has(p.part)),view:snap.view,reset:s.reset+1,camera:snap.camera?{pose:snap.camera,n}:undefined}));
+  if(!atlas)return;const view=snap.region?regionView(snap.region.id,snap.region.side):null,known=(ids:string[])=>ids.filter(id=>parts.has(id));
+  const selection=known(snap.selected),n=++cameraN.current;autoXray.current=false;setUndo([]);setRegion(view?snap.region:null);setPanel(null);
+  setState(s=>({...initial,visible:snap.visible.filter(id=>SYSTEMS.some(x=>x.id===id)),selected:selection,hidden:known(snap.hidden),isolate:snap.isolate&&selection.length>0,xray:snap.xray,section:snap.section,region:view,peel:snap.peel,pins:snap.pins.filter(p=>parts.has(p.part)),view:snap.view,reset:s.reset+1,camera:snap.camera?{pose:snap.camera,n}:undefined}));
   if(selection.length){setChosen(groupOf(selection));setDetails(true);}else{setChosen(null);setDetails(false);}
  };
  // A shared link (#s=…) opens the view it describes, then the address goes back to plain.
@@ -195,7 +208,9 @@ export default function Home(){
    <div className="panel-foot"><span>顯示 {visibleCount.toLocaleString()} 個部件</span><Button variant="ghost" onClick={()=>setState(s=>({...s,visible:[],selected:[],isolate:false}))}>全部隱藏</Button></div>
   </section>
   {panel==='search'&&<section className="search-panel glass" aria-label="搜尋構造"><div className="panel-heading"><span>找構造</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉搜尋"><X size={18}/></Button></div><Combobox<Concept> items={results} value={null} onValueChange={value=>{if(value)choose(value);}} inputValue={query} onInputValueChange={setQuery} itemToStringLabel={c=>c.label??c.name} filter={null} open onOpenChange={open=>{if(!open)setPanel(null);}}><ComboboxInput autoFocus placeholder="中文或英文：心臟、股骨、femur…" aria-label="用中文或英文名稱搜尋構造" showTrigger={false}/><ComboboxContent className="anatomy-search-results"><ComboboxEmpty>找不到符合的構造。</ComboboxEmpty><ComboboxList>{(c:Concept)=><ComboboxItem key={c.id} value={c}><span className="search-result-name">{c.label??c.name}{c.label&&c.label!==c.name&&<small>{c.name}</small>}</span><span className="small-number">{c.elements.length} 件</span></ComboboxItem>}</ComboboxList></ComboboxContent></Combobox><p className="search-note">{query?'最多顯示 80 筆，打得更精確可以找到更小的構造。':'先從常用的構造開始，或輸入任何中英文名稱。'}</p></section>}
-  {panel==='regions'&&<section className="search-panel region-panel glass" aria-label="選擇部位"><div className="panel-heading"><span>部位</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉部位"><X size={18}/></Button></div><div className="side-switch" role="group" aria-label="左右側">{(['right','left'] as Side[]).map(v=><button key={v} type="button" aria-pressed={side===v} className={side===v?'active':''} onClick={()=>{setSide(v);if(region&&REGIONS.find(r=>r.id===region.id)?.sided)chooseRegion(region.id,v);}}>{v==='right'?'右側':'左側'}</button>)}<span>肩、肘、腕、髖、膝、踝用</span></div><div className="region-grid">{REGIONS.map(r=><button key={r.id} type="button" aria-pressed={region?.id===r.id} className={region?.id===r.id?'active':''} onClick={()=>chooseRegion(r.id)}>{r.name}</button>)}</div><Button variant="ghost" className="region-clear" disabled={!region} onClick={clearRegion}>回到全身</Button></section>}
+  {panel==='regions'&&<section className="search-panel region-panel glass" aria-label="選擇部位"><div className="panel-heading"><span>部位</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉部位"><X size={18}/></Button></div><div className="side-switch" role="group" aria-label="左右側">{(['right','left'] as Side[]).map(v=><button key={v} type="button" aria-pressed={side===v} className={side===v?'active':''} onClick={()=>{setSide(v);if(region&&regionInfo?.sided)chooseRegion(region.id,v);}}>{v==='right'?'右側':'左側'}</button>)}<span>上下肢與肩、肘、腕、髖、膝、踝用</span></div>
+   <h3 className="region-group">身體區域<small>跨區的構造整塊顯示</small></h3><div className="region-grid area-grid"><button type="button" aria-pressed={!region} className={!region?'active':''} onClick={clearRegion}>全身</button>{AREAS.map(a=><button key={a.id} type="button" aria-pressed={region?.id===a.id} className={region?.id===a.id?'active':''} onClick={()=>chooseRegion(a.id)}>{a.name}</button>)}</div>
+   <h3 className="region-group">關節<small>沿著方框切齊</small></h3><div className="region-grid">{REGIONS.map(r=><button key={r.id} type="button" aria-pressed={region?.id===r.id} className={region?.id===r.id?'active':''} onClick={()=>chooseRegion(r.id)}>{r.name}</button>)}</div></section>}
   {panel==='bookmarks'&&<section className="search-panel bookmark-panel glass" aria-label="書籤與分享"><div className="panel-heading"><span>書籤與分享</span><Button variant="ghost" className="icon-button" onClick={()=>setPanel(null)} aria-label="關閉書籤"><X size={18}/></Button></div>
    <Button variant="ghost" className="share-link" onClick={shareLink}><Link size={16}/>複製目前畫面的分享連結</Button>
    {shareUrl&&<input className="share-url" readOnly value={shareUrl} onFocus={e=>e.currentTarget.select()} aria-label="分享連結"/>}
@@ -216,10 +231,10 @@ export default function Home(){
     {tool==='peel'&&<><Slider aria-label='肌肉剝層' min={0} max={DEEPEST} step={1} value={[state.peel]} onValueChange={v=>setState(s=>({...s,peel:sliderValue(v)}))}/><div className="slider-endpoints"><span>淺層</span><span>{PEEL_TEXT[state.peel]??`去掉到第 ${state.peel} 層`}</span><span>深層</span></div></>}
    </div>
   </div>
-  <footer className="studio-footer"><span>{state.explode>.8?'拖曳平移':'拖曳旋轉'} <b>·</b> 雙指縮放 <b>·</b> {multi?'點一下加入／移除':'點一下查看'}</span><Button variant="ghost" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}>資料來源與授權 <ArrowUpRight size={12}/></Button></footer>
+  <footer className="studio-footer"><span>{state.explode>.8?'拖曳平移':'拖曳旋轉'} <b>·</b> 滾輪或雙指縮放 <b>·</b> {multi?'點一下加入／移除':'點一下查看'} <b>·</b> 點兩下對準</span><Button variant="ghost" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}>資料來源與授權 <ArrowUpRight size={12}/></Button></footer>
   {progress<100&&!error&&<div className="loading glass" role="status"><Activity size={18}/><div><strong>正在準備人體模型</strong><span>{progress}% · 載入 {atlas?.parts.length.toLocaleString()??'2,234'} 個部件</span><div className="loading-track"><i style={{width:`${progress}%`}}/></div></div></div>}
   {error&&<div className="loading glass error" role="alert"><p>{error}</p><Button variant="ghost" onClick={()=>location.reload()}>重新載入</Button></div>}
-  <Sheet open={details&&selectedParts.length>0} modal={false} disablePointerDismissal onOpenChange={open=>{if(!open)clearSelection();}}><SheetContent initialFocus={detailTitle} className={`detail-sheet glass ${state.isolate?'is-isolated':''} ${tall?'is-tall':''}`} showCloseButton={true}><Button variant="ghost" className="mobile-only sheet-size" onClick={()=>setTall(t=>!t)} aria-label={tall?'縮小面板':'放大面板'} aria-pressed={tall}>{tall?<Minimize2 size={17}/>:<Maximize2 size={17}/>}</Button><div className="detail-header"><div className="detail-accent" style={{background:system?.color}}/><div className="eyebrow">{system?.name??'解剖構造'}</div><SheetTitle ref={detailTitle} tabIndex={-1} className="structure-title">{chosen?.label??chosen?.name}</SheetTitle>{chosen&&chosen.id&&chosen.label!==chosen.name&&<p className="structure-en">{chosen.name}{!chosen.id.startsWith('card:')&&!namer.reviewed(chosen.name)&&<span className="unreviewed" title="中文譯名由程式翻譯，還沒人工校對">未校對</span>}</p>}</div><div className="detail-scroll" key={`${chosen?.id}-${state.isolate}`}>
+  <Sheet open={details&&selectedParts.length>0} modal={false} disablePointerDismissal onOpenChange={open=>{if(!open)clearSelection();}}><SheetContent initialFocus={detailTitle} className={`detail-sheet glass ${state.isolate?'is-isolated':''} ${tall?'is-tall':''} ${settling?'is-settling':''}`} showCloseButton={true}><Button variant="ghost" className="mobile-only sheet-size" onClick={()=>setTall(t=>!t)} aria-label={tall?'縮小面板':'放大面板'} aria-pressed={tall}>{tall?<Minimize2 size={17}/>:<Maximize2 size={17}/>}</Button><div className="detail-header"><div className="detail-accent" style={{background:system?.color}}/><div className="eyebrow">{system?.name??'解剖構造'}</div><SheetTitle ref={detailTitle} tabIndex={-1} className="structure-title">{chosen?.label??chosen?.name}</SheetTitle>{chosen&&chosen.id&&chosen.label!==chosen.name&&<p className="structure-en">{chosen.name}{!chosen.id.startsWith('card:')&&!namer.reviewed(chosen.name)&&<span className="unreviewed" title="中文譯名由程式翻譯，還沒人工校對">未校對</span>}</p>}</div><div className="detail-scroll" key={`${chosen?.id}-${state.isolate}`}>
    {card?<><SheetDescription className="sr-only">肌肉卡：起點、止點、作用、神經支配與出處。</SheetDescription><CardView card={card} sections={sections} marks={marksProps} onNerve={term=>selectNerve(term,selectionSide)} onWhole={wholeCard.some(id=>!state.selected.includes(id))?()=>selectCard(card,selectionSide):undefined}/></>
    :<><SheetDescription className="structure-description">{chosen&&selected?(nerveFocus?'這條神經（含分支）和它支配的肌肉已一起選取，周圍改成透視。':chosen.id?explanation(chosen.name,selected.system):'多選模式：在模型上點一下可以加入或移除構造。'):''}</SheetDescription>{chosen&&chosen.id&&!hasExplanation(chosen.name)&&<span className="context-note">系統概述 · 這個構造目前只有所屬系統的說明</span>}</>}
    {nerveTerm&&cards&&<NerveView cards={cards} term={nerveTerm} nameOf={nameOf} sections={sections} onCard={c=>selectCard(c,nerveFocus?.side??selectionSide)} onNerve={term=>selectNerve(term,nerveFocus?.side??selectionSide)} onSelectAll={nerveFocus?undefined:()=>selectNerve(nerveTerm,selectionSide)}/>}

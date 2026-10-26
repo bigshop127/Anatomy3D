@@ -34,7 +34,8 @@ export interface SceneState {inspectorOpen?:boolean;explode:number;visible:Syste
  /** Parts the user hid one by one. */ hidden:string[];
  /** Transparency of everything outside the selection, 0 turns X-ray off. */ xray:number;
  section:Section|null;
- /** Body region cut out by a clipping box; look is the camera direction for framing it. */ region:{box:Box;look:number[]}|null;
+ /** Body region cut out by a clipping box; look is the camera direction for framing it. A large area (upper body, a limb)
+  * lists its parts instead and shows them whole; its box only frames the camera. */ region:{box:Box;look:number[];parts?:ReadonlySet<string>}|null;
  /** Number of muscle layers peeled away from the surface. */ peel:number;
  pins:Pin[];camera?:{pose:CameraPose;n:number};
  /** Muscle attachment patches to draw (ids from attachments.json); markThrough draws the selected muscles see-through so the
@@ -49,7 +50,7 @@ export function visibilityTest(s:SceneState){
   if(s.isolate)return companions.has(p.id);
   if(!visible.has(p.system)||hidden.has(p.id))return false;
   if(p.layer&&p.layer<=s.peel)return false;
-  return !s.region||overlaps(p.bounds as Box,s.region.box);
+  return !s.region||(s.region.parts?s.region.parts.has(p.id):overlaps(p.bounds as Box,s.region.box));
  };
 }
 /** Fascia is left out: it wraps the muscles and would hide them. */

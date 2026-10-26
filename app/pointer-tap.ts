@@ -19,3 +19,12 @@ export class PointerTap {
  }
  cancel(id:number){this.active.delete(id);this.blocked=true}
 }
+/** A second tap soon after the first and close to it. The pair is used up, so a third tap starts afresh. */
+export class DoubleTap {
+ private last:{x:number;y:number;time:number}|null=null;
+ tap(x:number,y:number,time:number,radius:number){
+  const double=!!this.last&&time-this.last.time<=350&&Math.hypot(x-this.last.x,y-this.last.y)<=radius;
+  this.last=double?null:{x,y,time};
+  return double;
+ }
+}

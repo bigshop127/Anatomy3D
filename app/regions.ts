@@ -11,6 +11,30 @@ export const REGIONS:{id:RegionId;name:string;sided:boolean;look:number[]}[]=[
  {id:'hip',name:'髖',sided:true,look:[-.8,.15,1]},{id:'knee',name:'膝',sided:true,look:[-.45,.1,1]},{id:'ankle',name:'踝與足',sided:true,look:[-.9,.35,.8]},
 ];
 export const regionLook=(id:RegionId,side:Side)=>{const r=REGIONS.find(x=>x.id===id)!;return side==='left'&&r.sided?[-r.look[0],r.look[1],r.look[2]]:r.look;};
+export type AreaId='upper'|'lower'|'head-neck'|'trunk'|'upper-limb'|'lower-limb';
+/** Large body areas. They show whole structures (app/area-members.json, from scripts/compute-area-members.mjs) instead of
+ * cutting along a box: the arms hang beside the pelvis and thighs, so no box separates them. */
+export const AREAS:{id:AreaId;name:string;sided:boolean;look:number[]}[]=[
+ {id:'upper',name:'上半身',sided:false,look:[-.35,.08,1]},{id:'lower',name:'下半身',sided:false,look:[-.35,.08,1]},
+ {id:'head-neck',name:'頭頸',sided:false,look:[-.6,.1,1]},{id:'trunk',name:'軀幹',sided:false,look:[-.35,.1,1]},
+ {id:'upper-limb',name:'上肢',sided:true,look:[-.8,.12,1]},{id:'lower-limb',name:'下肢',sided:true,look:[-.55,.1,1]},
+];
+/** One key per area and side, in the bit order of app/area-members.json. */
+export const AREA_KEYS=AREAS.flatMap(a=>a.sided?[`${a.id}:left`,`${a.id}:right`]:[a.id]);
+export const isArea=(id:string):id is AreaId=>AREAS.some(a=>a.id===id);
+export const areaKey=(id:AreaId,side:Side)=>AREAS.find(a=>a.id===id)!.sided?`${id}:${side}`:id;
+export const areaLook=(id:AreaId,side:Side)=>{const a=AREAS.find(x=>x.id===id)!;return side==='left'&&a.sided?[-a.look[0],a.look[1],a.look[2]]:a.look;};
+/** The parts of an area, and the box of its bones for framing the camera. */
+export function areaParts(atlas:Atlas,data:{keys:string[];members:Record<string,number>},id:AreaId,side:Side):{parts:Set<string>;box:Box}|null{
+ const bit=data.keys.indexOf(areaKey(id,side));if(bit<0)return null;
+ const parts=new Set<string>(),min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];
+ for(const p of atlas.parts){
+  if(!((data.members[p.id]??0)&(1<<bit)))continue;parts.add(p.id);
+  if(p.system==='skeletal')for(let i=0;i<3;i++){min[i]=Math.min(min[i],p.bounds[0][i]);max[i]=Math.max(max[i],p.bounds[1][i]);}
+ }
+ if(!parts.size||!Number.isFinite(min[0]))return null;
+ return {parts,box:[min.map(v=>+(v-.02).toFixed(4)),max.map(v=>+(v+.02).toFixed(4))]};
+}
 const CARPALS=['scaphoid','lunate','triquetral','pisiform','trapezium','trapezoid','capitate','hamate'];
 const FOOT=['talus','calcaneus','navicular bone of foot','cuboid bone','medial cuneiform bone','intermediate cuneiform bone','lateral cuneiform bone','sesamoid bone of foot'];
 const sideOf=(p:Part):Side|null=>/\bleft\b/i.test(p.name)?'left':/\bright\b/i.test(p.name)?'right':null;

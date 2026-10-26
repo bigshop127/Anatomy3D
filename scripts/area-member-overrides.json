@@ -1,0 +1,21 @@
+{
+  "note": "Areas to add to or remove from a structure (name in lowercase, without left/right, or a pattern between slashes) when the rules in scripts/compute-area-members.mjs get it wrong. A paired area applies to the structure's own side. Neck muscles that reach the clavicle or scapula are not upper limb muscles; the iliacus lines the iliac fossa beside the psoas; the tensor fasciae latae ends on the iliotibial tract, so the hip bone is its only bone. The whole brachial plexus and the subclavian vessels go with the upper limb (thoracic outlet), though their roots lie nearer the neck and the first rib. The gluteal veins lie beside the hip bone, where the rules only take nerves into the lower limb; the genital branch of the genitofemoral nerve goes to the scrotum. The skin is one mesh over the whole body, so no area shows it.",
+  "add": {
+    "iliacus": ["trunk"],
+    "/brachial plexus$/": ["upper-limb"],
+    "subclavian artery": ["upper-limb"],
+    "subclavian vein": ["upper-limb"],
+    "/gluteal vein$/": ["lower-limb"]
+  },
+  "remove": {
+    "tensor fasciae latae": ["trunk"],
+    "sternocleidomastoid": ["upper-limb"],
+    "sternohyoid": ["upper-limb"],
+    "omohyoid": ["upper-limb"],
+    "platysma": ["upper-limb"],
+    "innermost intercostal muscle": ["upper-limb"],
+    "internal intercostal membrane": ["upper-limb"],
+    "genital branch of genitofemoral nerve": ["lower-limb"],
+    "skin": ["upper", "lower"]
+  }
+}
