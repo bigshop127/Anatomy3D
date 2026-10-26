@@ -20,7 +20,9 @@ for(const {id} of fixes.remove)assert.ok(!ids.has(id),`${id} should have been re
 const byId=new Map(atlas.parts.map(p=>[p.id,p]));
 assert.equal(atlas.parts.filter(p=>p.source==='z-anatomy').length,manifest.parts.length,'Z-Anatomy part count');
 for(const m of manifest.parts){const p=byId.get(m.id);assert.ok(p&&p.source==='z-anatomy'&&p.name===m.name&&p.system===m.system,`${m.id} (${m.z}) does not match scripts/zanatomy-parts.json`);}
-assert.deepEqual(attachments.patches.map(p=>p.id),manifest.attachments.map(a=>a.id),'Attachment patches');
+// Z-Anatomy's patches are the manifest's; the worked-out ones (scripts/attachment-contacts.json) carry ZC ids.
+assert.deepEqual(attachments.patches.filter(p=>p.source==='z-anatomy').map(p=>p.id),manifest.attachments.map(a=>a.id),'Attachment patches');
+assert.ok(attachments.patches.every(p=>p.source==='z-anatomy'||(p.source==='computed'&&p.id.startsWith('ZC'))),'Attachment sources');
 assert.ok(atlas.sources['z-anatomy']?.license==='CC BY-SA 4.0','Z-Anatomy source and license');
 for(const [id,s] of Object.entries(atlas.sources))assert.ok(s.name&&s.license&&s.url,`Source ${id} needs a name, license and url`);
 
@@ -60,7 +62,7 @@ for(const p of atlas.parts){
 }
 const triangles=await checkGeometry(atlas,atlas.parts,await checkChunks(atlas,atlas.parts));
 assert.equal(triangles,atlas.triangles,'Triangle total');
-for(const p of attachments.patches){assert.ok(['origin','insertion'].includes(p.end)&&['left','right'].includes(p.side)&&p.name,`${p.id}: attachment fields`);assert.ok(p.muscle===null||typeof p.muscle==='string');}
+for(const p of attachments.patches){assert.ok(['origin','insertion'].includes(p.end)&&['left','right'].includes(p.side)&&p.name&&p.host,`${p.id}: attachment fields`);assert.ok(Array.isArray(p.muscles)&&p.muscles.length,`${p.id}: no muscles`);}
 const patchTriangles=await checkGeometry(attachments,attachments.patches,await checkChunks(attachments,attachments.patches));
 const atlasChunks=new Set(atlas.chunks.map(c=>c.url));assert.ok(attachments.chunks.every(c=>!atlasChunks.has(c.url)),'Attachment chunks are separate from the atlas chunks');
 

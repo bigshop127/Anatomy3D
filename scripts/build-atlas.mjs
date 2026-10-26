@@ -20,6 +20,8 @@ import {MeshoptEncoder} from 'meshoptimizer/encoder';
 import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {MeshoptSimplifier} from 'meshoptimizer/simplifier';
 import {decodePart} from '../app/model-decode.ts';
+import {contactPatches} from './lib/attachment-contacts.mjs';
+import {attachmentHosts} from './lib/attachment-hosts.mjs';
 import {loadGeometry,readAtlas,readChunks,root} from './lib/atlas-geometry.mjs';
 
 const GRID=5e-5,CHUNK=1.2e6,FORMAT='meshopt-1';
@@ -188,13 +190,25 @@ const attachmentsFile=new URL('attachments.json',models);
 let previous=null;try{previous=JSON.parse(await readFile(attachmentsFile,'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
 const oldPatches=new Map(previous?.patches.map(p=>[p.id,p])),patchGeometry=new Map();
 const patches=manifest.attachments.map(a=>{
- const p=exported?{id:a.id}:oldPatches.get(a.id);
- if(!p)throw new Error(`Attachment ${a.z} has not been built yet: run with --zanatomy`);
- Object.assign(p,{muscle:a.term??null,name:a.muscle,end:a.end,side:a.side});
+ const old=oldPatches.get(a.id),p={id:a.id,source:'z-anatomy',muscles:a.terms,name:a.muscle,end:a.end,side:a.side};
  if(exported){const g=simplified(a.z,'attachment');patchGeometry.set(a.id,g);p.vertexCount=g.position.length/3;p.indexCount=g.index.length;}
+ else if(old){const {vertexCount,indexCount,bounds,chunk,streams,origin}=old;Object.assign(p,{vertexCount,indexCount,bounds,chunk,streams,origin});}
+ else throw new Error(`Attachment ${a.z} has not been built yet: run with --zanatomy`);
  return p;
 });
+// Ends Z-Anatomy has no patch for, worked out from where the muscle touches the parts scripts/attachment-contacts.json names.
+const decoder=chunkList=>q=>decodePart(header,q,chunkList[q.chunk].bytes,MeshoptDecoder);
+const contactTable=JSON.parse(await readFile(new URL('scripts/attachment-contacts.json',root),'utf8')).contacts;
+const idOf=key=>'ZC'+createHash('sha256').update(key).digest('hex').slice(0,8);
+for(const c of contactPatches(atlas.parts,decoder(out),contactTable,idOf)){
+ const g=c.geometry;patchGeometry.set(c.id,g);
+ patches.push({id:c.id,source:'computed',muscles:c.muscles,name:c.name,end:c.end,side:c.side,host:c.host,vertexCount:g.position.length/3,indexCount:g.index.length});
+}
 const patchPack=pack(patches,p=>patchGeometry.get(p.id)??null,previous?await readChunks(previous):[]);
+// About fifty Z-Anatomy patches carry the wrong side; one that lies wholly on one side takes that side (the patient's left is +x).
+for(const p of patches){const x=(p.bounds[0][0]+p.bounds[1][0])/2;if(Math.abs(x)>.005)p.side=x>0?'left':'right';}
+const zPatches=patches.filter(p=>p.source==='z-anatomy'),hosts=attachmentHosts(atlas.parts,decoder(out),zPatches,decoder(patchPack.out));
+for(const p of zPatches)p.host=hosts.get(p.id);
 
 // --- Write the model files, the catalogues and the cache name; then delete model files nothing references.
 const used=Object.fromEntries(Object.entries(SOURCES).filter(([id])=>atlas.parts.some(p=>p.source===id)));
@@ -206,12 +220,14 @@ const scope=`Adult male reference anatomy · ${bp3d.toLocaleString('en')} BodyPa
 const result={version,sex,source,scope,...header,sources:used,parts,concepts,chunks:chunkList(out),
  triangles:parts.reduce((n,p)=>n+p.indexCount/3,0),sourceTriangles,
  optimized:{...optimized,zAnatomy:{maximumRelativeError:RELATIVE_ERROR,maximumAbsoluteError:MAX_ERROR}}};
-const attachments={note:'Origin and insertion patches of the muscles (Z-Anatomy, CC BY-SA 4.0), warped onto the atlas bones. muscle is the atlas muscle term (lowercase, without the side) or null where batch 06 still has to match it; name is the Z-Anatomy muscle name.',
+const attachments={note:'Origin and insertion patches of the muscles (Z-Anatomy, CC BY-SA 4.0), warped onto the atlas bones. muscles are the atlas muscle terms (lowercase, without the side) the patch belongs to, name is the Z-Anatomy name, host the atlas part it lies on.',
  ...header,source:'z-anatomy',patches,chunks:chunkList(patchPack.out)};
 for(const c of [...out,...patchPack.out]){const name=c.url.split('/').pop();await writeFile(new URL(name,models),c.bytes);await writeFile(new URL(name+'.gz',models),c.gzip);}
 await writeFile(new URL('atlas.json',models),JSON.stringify(result));
 await writeFile(attachmentsFile,JSON.stringify(attachments));
-const cacheName='anatomy3d-models-'+createHash('sha256').update([...out,...patchPack.out].map(c=>c.url).join()).digest('hex').slice(0,12);
+// The cache name follows the model chunks only: the attachment chunk is small and named by its content, so changing the patches
+// adds one file to the offline copy instead of replacing all of it.
+const cacheName='anatomy3d-models-'+createHash('sha256').update(out.map(c=>c.url).join()).digest('hex').slice(0,12);
 const swFile=new URL('public/sw.js',root),sw=await readFile(swFile,'utf8'),nextSw=sw.replace(/MODELS='[^']*'/,`MODELS='${cacheName}'`);
 if(nextSw===sw&&!sw.includes(`MODELS='${cacheName}'`))throw new Error('public/sw.js has no MODELS cache name to update');
 await writeFile(swFile,nextSw);

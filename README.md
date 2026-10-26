@@ -28,7 +28,7 @@ npm run dev        # http://localhost:3016
 
 ```sh
 npm run check      # 型別
-npm run validate   # 模型、互動、中文名稱
+npm run validate   # 模型、互動、中文名稱、肌肉卡、起止點
 npm run build      # 輸出在 dist/
 npm exec vite preview   # 用正式站的路徑看 build 結果：http://localhost:4173/Anatomy3D/
 ```
@@ -37,7 +37,7 @@ npm exec vite preview   # 用正式站的路徑看 build 結果：http://localho
 
 push 到 `main` 就會由 `.github/workflows/deploy.yml` 自動檢查、建置、發布到 GitHub Pages。網站放在 `/Anatomy3D/` 底下，程式裡的檔案路徑一律用 `asset()`（`app/model-download.ts`）加上這個前綴。
 
-離線快取在 `public/sw.js`：頁面和目錄檔每次先連網、斷網才用快取；模型檔先用快取。模型檔名是內容指紋，`MODELS` 快取名稱由 `npm run atlas` 依模型內容自動換，裝過的手機下次打開就會換成新模型。
+離線快取在 `public/sw.js`：頁面和目錄檔每次先連網、斷網才用快取；模型檔先用快取。模型檔名是內容指紋，`MODELS` 快取名稱由 `npm run atlas` 依模型內容自動換，裝過的手機下次打開就會換成新模型（起止點檔也是內容指紋，但不算在快取名稱裡，只改起止點不會讓手機重抓整個模型）。肌肉卡（`app/muscle-cards.json`）建置成獨立的小檔，模型載完才抓。
 
 ## 模型
 
@@ -62,7 +62,7 @@ npm run layers && npm run members && npm run validate
 
 `scripts/zanatomy-parts.json` 是補進來的清單（Z-Anatomy 物件名、我們的編號 `Z`＋雜湊、名稱、系統）、搜尋群組（例如「膝關節（韌帶、半月板與關節囊）」「正中神經（含分支）」）、起止點貼片，以及沒拿的構造和原因。去重複先比名稱（同義詞表在 `zanatomy-select.mjs`），因為 Z-Anatomy 的肌肉形狀被插畫家改過，只比形狀會誤判。韌帶、關節囊這類變形後還有一點嵌進骨頭的，匯出時推回骨面。網格依大小簡化（0.2%，神經最多 0.1 mm、其他最多 0.25 mm）。不帶 `--zanatomy` 時已建好的 Z-Anatomy 部件原樣複製，只套用清單的名稱和系統。
 
-705 塊肌肉起止點貼片另存在 `public/models/attachments.json`（App 平常不下載，肌肉卡要顯示起止點時才用）。Z-Anatomy 把斜方肌上、下束的名稱標反了，貼片的 `muscle` 已對調。
+肌肉起止點貼片另存在 `public/models/attachments.json`，第一次選構造時才下載（約 0.8 MB），見下面「起止點」。
 
 筋膜（闊筋膜、胸腰筋膜、足底腱膜等）是獨立的「筋膜」系統，預設不顯示，因為打開會把肌肉整片蓋住。
 
@@ -88,10 +88,27 @@ npm run layers && npm run members && npm run validate
 
 ```sh
 npm run cards -- check <資料夾>   # 檢查格式、模型肌肉、神經根寫法，列出待回答的意見、模型裡沒有的神經、還沒有卡片的肌肉
-npm run cards -- apply <資料夾>   # 把核對過的卡寫進 app/muscle-cards.json
+npm run cards -- apply <資料夾>   # 把全部的卡寫進 app/muscle-cards.json，記下哪些核對過
 ```
 
-頁面狀態改成「已核對」（或單張卡標題後加 ✔）的卡才會寫進 `app/muscle-cards.json`；「你的意見」還沒清掉的先不放。神經名稱跟模型的中文名一致時會記下模型的神經（`term`），之後可以從神經找到它支配的肌肉。`scripts/validate-cards.mjs` 檢查這份檔案（也在 `npm run validate` 裡）。
+147 張卡全部進 App；頁面狀態是「已核對」（或單張卡標題後加 ✔）而且「你的意見」已清掉的記成 `reviewed`，其他的 App 標「未核對」。每張卡的英文維基百科條目（血液供應比對用、App 當出處連結）在 `scripts/muscle-card-wiki.json`。神經名稱跟模型的中文名一致時會記下模型的神經（`term`），App 用它從神經找支配的肌肉；分支關係（坐骨神經 → 脛神經、腓總神經 → 足底神經⋯⋯、臂神經叢的幹、股、束）在 `app/muscle-cards.ts` 的 `NERVE_BRANCHES`。`scripts/validate-cards.mjs` 檢查這份檔案（也在 `npm run validate` 裡）。
+
+App 裡點一塊有卡的肌肉，面板就顯示這張卡（分段可收合，收合狀態記在這台裝置）；卡片上的神經可以點，會選取這條神經（含分支）和它支配的所有肌肉。點神經會列出它支配的肌肉（直接的、經哪條分支的），點骨頭會列出附著在上面的肌肉。
+
+## 起止點
+
+`public/models/attachments.json` 每塊貼片記著它屬於哪些模型肌肉（`muscles`）、起點或止點（`end`）、左右、貼在哪個部件上（`host`，骨頭為主，也有骨間膜、韌帶、白線、筋膜）、來源（`source`）。App 選到肌肉時把它整張卡的起點畫紅、止點畫藍，肌肉本身變半透明好看見底下的標色；「單獨顯示」時一起顯示它附著的骨頭；選到骨頭時畫出所有附著在上面的肌肉，點色塊可以選到那條肌肉。
+
+兩種來源，都由 `npm run atlas` 產生：
+
+- **Z-Anatomy 的貼片**（`z-anatomy`）。`scripts/zanatomy-select.mjs` 對到模型肌肉：名稱對得上的直接對；整條肌肉或共同肌腱的貼片（肱二頭肌止點、共同屈肌腱、髕韌帶止點等）用 `WHOLE` 對到每一個頭；起止點的叫法跟卡片相反的（肩帶肌、頸部肌群、腹斜肌等，卡片照 Neumann）用 `FLIP`、`PATCH` 改過來；不是肌肉的（足底長韌帶）和位置不對的（腹直肌沿整條白線那塊、尺側伸腕肌落在腕關節囊那塊，改用推算的）放進 `ATTACHMENT_OUT`。約五十塊標錯左右的依位置改正。
+- **電腦推算的**（`computed`），補 Z-Anatomy 沒畫的端點：肌肉表面 2.5 mm 內（或嵌進肌肉）的骨面，要算哪些骨頭寫在 `scripts/attachment-contacts.json`（照卡片文字挑、排除只是貼著經過的骨頭，這就是人工修正的地方）。同一塊骨頭兩端都有的（多裂肌、迴旋肌、棘間肌、肋間肌）依位置切開：靠中線的棘突與椎板／外側的橫突與關節突，或上緣／下緣。App 會註明「有些位置是電腦推算」。
+
+```sh
+npm run attachments   # 檢查清單：貼片的起止點跟卡片相反？卡片寫了但沒有貼片的骨頭？整端都沒有的卡？
+```
+
+清單是拿卡片文字的骨頭關鍵字比對（`scripts/lib/bone-keywords.mjs`），每一條都要人看過再決定改不改。卡片改過起點、止點的寫法後也跑一次。`scripts/validate-attachments.mjs` 在 `npm run validate` 裡，檢查每塊貼片的肌肉、左右、附著部件和檔案。
 
 ## 肌肉分層
 
@@ -105,7 +122,7 @@ npm run cards -- apply <資料夾>   # 把核對過的卡寫進 app/muscle-cards
 
 ## 3D 資料
 
-以 **BodyParts3D 4.0**（成年男性參考模型）為主：2,223 個網格（原始 2,234 個，拿掉 5 個重複的和 6 個被取代的迴旋肌）。BodyParts3D 缺的肌肉、韌帶、關節囊與關節盤、滑囊、腱鞘、筋膜和周邊神經，由 **Z-Anatomy** 補上 898 個構造。合計 3,121 個可點選的部件、約 303 萬個三角面，第一次載入下載約 12.6 MB。完整出處與改動說明見 [public/ATTRIBUTION.md](public/ATTRIBUTION.md)。
+以 **BodyParts3D 4.0**（成年男性參考模型）為主：2,223 個網格（原始 2,234 個，拿掉 5 個重複的和 6 個被取代的迴旋肌）。BodyParts3D 缺的肌肉、韌帶、關節囊與關節盤、滑囊、腱鞘、筋膜和周邊神經，由 **Z-Anatomy** 補上 898 個構造。合計 3,121 個可點選的部件、約 303 萬個三角面，第一次載入下載約 12.6 MB；起止點貼片 1,741 塊（Z-Anatomy 683＋推算 1,058）另外約 0.8 MB。完整出處與改動說明見 [public/ATTRIBUTION.md](public/ATTRIBUTION.md)。
 
 - BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.
 - Z-Anatomy - The libre 3D atlas of anatomy (Gauthier Kervyn et al.) - CC BY-SA 4.0. 其中腦神經取自 University of Dundee, CAHID 的 Cranial Nerves and Foramina（CC BY 4.0）。內耳（CC BY-NC-SA）、腎臟（CC BY-NC）和腦沒有拿。

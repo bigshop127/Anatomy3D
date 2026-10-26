@@ -8,8 +8,10 @@ import {createExplosionLayout} from './explosion-layout';
 import {asset,decodeModelResponse} from './model-download';
 import {decodePart} from './model-decode';
 import {PointerTap} from './pointer-tap';
+import {END_COLOR,loadAttachments} from './attachments';
 import {SYSTEMS,visibilityTest,type Atlas,type Box,type CameraPose,type Pin,type SceneState,type Section} from './anatomy';
-interface Props {atlas:Atlas;state:SceneState;onSelect:(id:string,point?:number[])=>void;onProgress:(n:number)=>void;onError:(s:string)=>void;onCamera?:(pose:CameraPose)=>void;onPinRemove?:(id:string)=>void}
+interface Props {atlas:Atlas;state:SceneState;onSelect:(id:string,point?:number[])=>void;onProgress:(n:number)=>void;onError:(s:string)=>void;onCamera?:(pose:CameraPose)=>void;onPinRemove?:(id:string)=>void;
+ /** A tap on a muscle attachment patch; onMarksFailed reports that the patches could not be loaded. */ onSelectPatch?:(id:string)=>void;onMarksFailed?:()=>void}
 const AXES={sagittal:0,transverse:1,coronal:2} as const;
 /** Body extent of the atlas, used to place section planes. */
 export function atlasBounds(atlas:Atlas):Box{const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];for(const p of atlas.parts)for(let i=0;i<3;i++){min[i]=Math.min(min[i],p.bounds[0][i]);max[i]=Math.max(max[i],p.bounds[1][i]);}return [min,max];}
@@ -21,9 +23,9 @@ export function clippingPlanes(section:Section|null,region:Box|null,body:Box){
  if(region)for(let i=0;i<3;i++){planes.push(new T.Plane(axis(i,1),-region[0][i]),new T.Plane(axis(i,-1),region[1][i]));}
  return planes;
 }
-export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,onCamera,onPinRemove}:Props){
- const host=useRef<HTMLDivElement>(null),latest=useRef(state),select=useRef(onSelect),camera=useRef(onCamera),removePin=useRef(onPinRemove);
- latest.current=state;select.current=onSelect;camera.current=onCamera;removePin.current=onPinRemove;
+export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,onCamera,onPinRemove,onSelectPatch,onMarksFailed}:Props){
+ const host=useRef<HTMLDivElement>(null),latest=useRef(state),select=useRef(onSelect),camera=useRef(onCamera),removePin=useRef(onPinRemove),selectPatch=useRef(onSelectPatch),marksFailed=useRef(onMarksFailed);
+ latest.current=state;select.current=onSelect;camera.current=onCamera;removePin.current=onPinRemove;selectPatch.current=onSelectPatch;marksFailed.current=onMarksFailed;
  useEffect(()=>{
   const el=host.current!;let disposed=false,frame=0,dirty=true,ready=false,lastView='',lastReset=-1,lastFocus='',layoutKey='',amount=0,lastCameraN=-1;
   let lastState:SceneState|null=null;
@@ -66,34 +68,76 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    for(const t of targets){const dx=Math.max(t.left-x,0,x-t.right),dy=Math.max(t.top-y,0,y-t.bottom),distance=Math.hypot(dx,dy);if(distance>radius)continue;const candidate=distance+Math.hypot(t.x-x,t.y-y)*.025;if(candidate<score){score=candidate;best=t.index;}}
    return best;
   };
-  const xrayOn={value:0},ghostOpacity={value:.3};
+  // marksOn: attachment patches of the selected muscles are showing, so those muscles move to the see-through pass.
+  const xrayOn={value:0},ghostOpacity={value:.3},marksOn={value:0};
   const partShader=(shader:T.Shader)=>{
-   shader.uniforms.partState={value:partTexture};shader.uniforms.selectionState={value:selectionTexture};shader.uniforms.stateWidth={value:width};shader.uniforms.xrayOn=xrayOn;shader.uniforms.ghostOpacity=ghostOpacity;
+   shader.uniforms.partState={value:partTexture};shader.uniforms.selectionState={value:selectionTexture};shader.uniforms.stateWidth={value:width};shader.uniforms.xrayOn=xrayOn;shader.uniforms.ghostOpacity=ghostOpacity;shader.uniforms.marksOn=marksOn;
    shader.vertexShader='attribute float partIndex; uniform sampler2D partState; uniform sampler2D selectionState; uniform float stateWidth; varying float partVisible; varying float partSelected;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvec2 stateUv = vec2((partIndex + 0.5) / stateWidth, 0.5); vec4 state = texture2D(partState, stateUv); transformed += state.xyz; partVisible = state.w; partSelected = texture2D(selectionState, stateUv).r;');
-   shader.fragmentShader='uniform float xrayOn; uniform float ghostOpacity; varying float partVisible; varying float partSelected;\n'+shader.fragmentShader;
+   shader.fragmentShader='uniform float xrayOn; uniform float ghostOpacity; uniform float marksOn; varying float partVisible; varying float partSelected;\n'+shader.fragmentShader;
   };
   const materialFor=(system:string)=>{
    const m=new T.MeshStandardMaterial({color:SYSTEMS.find(s=>s.id===system)?.color??'#aebbb8',metalness:.08,roughness:.53,side:T.DoubleSide,transparent:system==='integumentary',opacity:system==='integumentary'?.1:1,depthWrite:system!=='integumentary'});
+   const through=system==='muscular'?' || (marksOn > 0.5 && partSelected > 0.5)':'';
    m.onBeforeCompile=shader=>{
     partShader(shader);
     // In X-ray mode only the selection is drawn solid; everything else goes to the ghost pass.
-    shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>','#include <clipping_planes_fragment>\nif (partVisible < 0.5 || (xrayOn > 0.5 && partSelected < 0.5)) discard;');
+    shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>\nif (partVisible < 0.5 || (xrayOn > 0.5 && partSelected < 0.5)${through}) discard;`);
     // Back faces only show through a cut, so shading them darker reads as a cross-section.
     shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.42, 0.85, 0.78), partSelected * 0.75);\nif (!gl_FrontFacing) diffuseColor.rgb *= 0.62;');
-   };materials.push(m);partMaterials.push(m);return m;
+   };
+   // The shader text differs for muscles, so they need their own compiled program.
+   m.customProgramCacheKey=()=>'part:'+(through?'muscular':'other');
+   materials.push(m);partMaterials.push(m);return m;
   };
   const ghostFor=(system:string)=>{
    const m=new T.MeshStandardMaterial({color:SYSTEMS.find(s=>s.id===system)?.color??'#aebbb8',metalness:0,roughness:.7,side:T.DoubleSide,transparent:true,depthWrite:false});
+   // Selected muscles come here, tinted and half see-through, while their attachment patches show.
+   const muscular=system==='muscular',drawn=muscular?'(partSelected > 0.5 ? marksOn < 0.5 : xrayOn < 0.5)':'partSelected > 0.5';
    m.onBeforeCompile=shader=>{
     partShader(shader);
-    shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>','#include <clipping_planes_fragment>\nif (partVisible < 0.5 || partSelected > 0.5) discard;');
+    shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>\nif (partVisible < 0.5 || ${drawn}) discard;`);
+    if(muscular)shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.42, 0.85, 0.78), partSelected * 0.75);');
     // Edges stay more opaque than faces seen head-on, so outlines remain readable through the body.
-    shader.fragmentShader=shader.fragmentShader.replace('#include <dithering_fragment>','#include <dithering_fragment>\nfloat facing = abs(dot(normalize(normal), normalize(vViewPosition)));\ngl_FragColor.a = ghostOpacity * (0.22 + 0.78 * pow(1.0 - facing, 2.0));');
-   };materials.push(m);partMaterials.push(m);return m;
+    shader.fragmentShader=shader.fragmentShader.replace('#include <dithering_fragment>',`#include <dithering_fragment>\nfloat facing = abs(dot(normalize(normal), normalize(vViewPosition)));\ngl_FragColor.a = ${muscular?'partSelected > 0.5 ? 0.5 + 0.35 * pow(1.0 - facing, 2.0) : ':''}ghostOpacity * (0.22 + 0.78 * pow(1.0 - facing, 2.0));`);
+   };
+   m.customProgramCacheKey=()=>'ghost:'+(muscular?'muscular':'other');
+   materials.push(m);partMaterials.push(m);return m;
   };
   const mats=new Map(SYSTEMS.map(s=>[s.id,materialFor(s.id)])),ghosts=new Map(SYSTEMS.map(s=>[s.id,ghostFor(s.id)]));
+  const ghostVisible=(system:string)=>xrayOn.value>.5||(marksOn.value>.5&&system==='muscular');
   const pickMaterial=new T.MeshBasicMaterial({side:T.DoubleSide});materials.push(pickMaterial);
+  // Muscle attachment patches: loaded the first time the page asks for some, drawn just above the bone they lie on and moved
+  // with it when the model is pulled apart.
+  const patchMaterial=(color:string)=>{const m=new T.MeshStandardMaterial({color,roughness:.6,metalness:0,side:T.DoubleSide,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});materials.push(m);partMaterials.push(m);return m;};
+  const patchMaterials={origin:patchMaterial(END_COLOR.origin),insertion:patchMaterial(END_COLOR.insertion)};
+  // After a failed load, the next try waits for another selection rather than repeating every frame.
+  let patches:Map<string,{mesh:T.Mesh;host:number}>|null=null,patchesRequested=false,patchesStale=false,shownPatches:T.Mesh[]=[],failedFor:string[]|undefined;
+  const requestPatches=()=>{
+   patchesRequested=true;
+   (async()=>{
+    const catalogue=await loadAttachments();await MeshoptDecoder.ready;
+    const chunks=await Promise.all(catalogue.chunks.map(async c=>{const compressed=!!c.gzip&&typeof DecompressionStream!=='undefined';return new Uint8Array(await decodeModelResponse(await fetch(asset(compressed?c.gzip!:c.url),{signal:abort.signal}),c.bytes,compressed));}));
+    if(disposed)return;
+    const map=new Map<string,{mesh:T.Mesh;host:number}>();
+    for(const p of catalogue.patches){
+     const host=indexOf.get(p.host);if(host===undefined)continue;
+     const {position,normal,index}=decodePart(catalogue,p,chunks[p.chunk],MeshoptDecoder),g=new T.BufferGeometry();
+     g.setAttribute('position',new T.BufferAttribute(position,3));g.setAttribute('normal',new T.BufferAttribute(normal,3,true));g.setIndex(new T.BufferAttribute(index,1));g.computeBoundingSphere();geometries.push(g);
+     const mesh=new T.Mesh(g,patchMaterials[p.end]);mesh.visible=false;mesh.matrixAutoUpdate=false;mesh.userData.patch=p.id;scene.add(mesh);map.set(p.id,{mesh,host});
+    }
+    patches=map;patchesStale=true;dirty=true;
+   })().catch(e=>{if(!disposed&&e?.name!=='AbortError'){patchesRequested=false;failedFor=latest.current.marks;marksFailed.current?.();}});
+  };
+  const updatePatches=(s:SceneState)=>{
+   shownPatches.forEach(m=>{m.visible=false;});shownPatches=[];
+   for(const id of s.marks??[]){
+    const entry=patches?.get(id);if(!entry)continue;const i=entry.host;
+    if(data[i*4+3]<.5)continue;
+    entry.mesh.position.set(data[i*4],data[i*4+1],data[i*4+2]);entry.mesh.updateMatrix();entry.mesh.visible=true;shownPatches.push(entry.mesh);
+   }
+   dirty=true;
+  };
   let loaded=0;
   const loadChunk=async(ci:number)=>{
    const chunk=atlas.chunks[ci],compressed=!!chunk.gzip&&typeof DecompressionStream!=='undefined';const response=await fetch(asset(compressed?chunk.gzip!:chunk.url),{signal:abort.signal});const bytes=new Uint8Array(await decodeModelResponse(response,chunk.bytes,compressed));if(disposed)return;
@@ -109,7 +153,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    });
    groups.forEach((gs,system)=>{const geometry=mergeGeometries(gs,false);if(!geometry)throw new Error('人體模型組合失敗。');geometries.push(geometry);
     const mesh=new T.Mesh(geometry,mats.get(system as never));mesh.frustumCulled=false;scene.add(mesh);
-    const ghost=new T.Mesh(geometry,ghosts.get(system as never));ghost.frustumCulled=false;ghost.renderOrder=1;ghost.visible=xrayOn.value>.5;ghostMeshes.push(ghost);scene.add(ghost);});
+    const ghost=new T.Mesh(geometry,ghosts.get(system as never));ghost.frustumCulled=false;ghost.renderOrder=1;ghost.userData.system=system;ghost.visible=ghostVisible(system);ghostMeshes.push(ghost);scene.add(ghost);});
    lastState=null;loaded++;onProgress(Math.round(loaded/atlas.chunks.length*100));dirty=true;
   };
   (async()=>{try{if(!MeshoptDecoder.supported)throw new Error('這個瀏覽器無法解開人體模型，請改用較新的瀏覽器。');await MeshoptDecoder.ready;let cursor=0;await Promise.all(Array.from({length:3},async()=>{while(cursor<atlas.chunks.length){const i=cursor++;await loadChunk(i);}}));if(!disposed){ready=true;dirty=true;}}catch(e){if(!disposed)onError(e instanceof Error?e.message:'人體模型載入失敗。');}})();
@@ -144,6 +188,12 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
      const hit=raycaster.intersectObject(mesh,false).find(h=>kept(h.point));if(hit&&(!best||hit.distance<best.distance))best={i,distance:hit.distance,point:hit.point.clone().sub(mesh.position).toArray().map(v=>+v.toFixed(4))};}
     return best;};
    const centre=cast();if(centre){nearest=centre.distance;found=centre.i;point=centre.point;}
+   // A tap on an attachment patch picks its muscle. Patches lie a fraction of a millimetre above the bone, so one hit within
+   // a few millimetres of the nearest surface counts.
+   if(shownPatches.length){
+    const hit=raycaster.intersectObjects(shownPatches,false).find(h=>kept(h.point));
+    if(hit&&hit.distance<=nearest+.003){hover.hidden=true;selectPatch.current?.(hit.object.userData.patch);return;}
+   }
    // Nerves are only millimetres thick: a tap just beside one that lies in front of what the tap hit picks the nerve.
    if(found<0||atlas.parts[found].system!=='nervous'){
     const reach=e.pointerType==='touch'?10:5,x=e.clientX-rect.left,y=e.clientY-rect.top,nerve=(i:number)=>atlas.parts[i].system==='nervous';
@@ -185,11 +235,14 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   const clock=new T.Clock();let lastExtent=-1;
   const animate=()=>{
    if(disposed)return;frame=requestAnimationFrame(animate);const dt=Math.min(clock.getDelta(),.05),s=latest.current;
-   const changed=lastState?.visible!==s.visible||lastState?.selected!==s.selected||lastState?.isolate!==s.isolate||lastState?.hidden!==s.hidden||lastState?.peel!==s.peel||lastState?.region!==s.region;
+   const changed=lastState?.visible!==s.visible||lastState?.selected!==s.selected||lastState?.isolate!==s.isolate||lastState?.hidden!==s.hidden||lastState?.peel!==s.peel||lastState?.region!==s.region||lastState?.companions!==s.companions;
    const moving=Math.abs(amount-s.explode)>.0001;
    if(moving){amount=T.MathUtils.damp(amount,s.explode,8,dt);dirty=true;}
    if(lastState?.section!==s.section||lastState?.region!==s.region)updateClipping(s);
-   if(lastState?.xray!==s.xray){xrayOn.value=s.xray>0?1:0;ghostOpacity.value=1-s.xray;ghostMeshes.forEach(g=>{g.visible=s.xray>0;});dirty=true;}
+   if(s.marks?.length&&!patchesRequested&&s.marks!==failedFor)requestPatches();
+   // The selected muscles only turn see-through once their patches are there to be seen.
+   const through=s.markThrough&&patches?1:0;
+   if(lastState?.xray!==s.xray||through!==marksOn.value){xrayOn.value=s.xray>0?1:0;ghostOpacity.value=1-s.xray;marksOn.value=through;ghostMeshes.forEach(g=>{g.visible=ghostVisible(g.userData.system);});dirty=true;}
    if(lastState?.pins!==s.pins)dirty=true;
    if(changed||moving||lastExtent<0){
     const selection=new Set(s.selected),shown=visibilityTest(s);
@@ -204,6 +257,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
      markerPositions.set(data[i*4+3]>.5?[c.x+dx,c.y+dy,c.z+dz]:[10000,10000,10000],i*3);const mesh=pickers[i];if(mesh){mesh.position.set(dx,dy,dz);mesh.updateMatrix();mesh.updateMatrixWorld(true);}
     });partTexture.needsUpdate=true;selectionTexture.needsUpdate=true;markerGeometry.attributes.position.needsUpdate=true;lastExtent=amount;dirty=true;
    }
+   if(patches&&(patchesStale||changed||moving||lastState?.marks!==s.marks)){updatePatches(s);patchesStale=false;}
    lastState=s;
    if(s.view!==lastView||s.reset!==lastReset){cam.clearViewOffset();lastFocus='';if(!s.region)fit(s.view,amount);lastView=s.view;lastReset=s.reset;}
    if(moving&&!s.isolate&&!s.region)fit(amount>.5?'front':s.view,Math.max(0,(amount-.3)/.7));

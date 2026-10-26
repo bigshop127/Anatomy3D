@@ -1,4 +1,6616 @@
 {
  "version": 1,
- "cards": []
+ "cards": [
+  {
+   "id": "sternocleidomastoid",
+   "zh": "胸鎖乳突肌",
+   "en": "sternocleidomastoid",
+   "region": "neck",
+   "parts": [
+    "sternocleidomastoid"
+   ],
+   "origin": [
+    "胸骨頭：胸骨柄上部前面",
+    "鎖骨頭：鎖骨內側 1/3 的上後面"
+   ],
+   "insertion": [
+    "顳骨乳突外側面、枕骨上項線外側半"
+   ],
+   "primary": [
+    "單側：頸部同側側屈、頭頸轉向對側（CL）；雙側：頸部屈曲"
+   ],
+   "secondary": [
+    "上部纖維伸展上頸段（寰枕、寰樞關節）；頭頸固定時上提胸骨，協助用力吸氣"
+   ],
+   "innervation": [
+    {
+     "nerve": "副神經",
+     "roots": "CN XI",
+     "term": "accessory nerve"
+    },
+    {
+     "nerve": "頸神經叢腹枝",
+     "roots": "C2–C3",
+     "note": "可能主要傳本體感覺"
+    }
+   ],
+   "innervationText": [
+    "副神經（CN XI）；頸神經叢腹枝（C2–C3，可能主要傳本體感覺）"
+   ],
+   "blood": [
+    "上 1/3 枕動脈與耳後動脈分支、中 1/3 甲狀腺上動脈、下 1/3 肩胛上動脈"
+   ],
+   "palpation": [
+    "仰臥，頭轉向對側再微微抬頭，胸骨頭與鎖骨頭兩條肌腱會浮起；可用拇指與食指捏住肌腹由乳突往下摸。前緣深處有頸動脈，不要往內深壓。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）"
+   ],
+   "notes": [
+    "Neumann 只寫「中上段頸神經叢的腹枝」，C2–C3 是一般教科書常見寫法。"
+   ],
+   "reviewed": false,
+   "wiki": "Sternocleidomastoid muscle"
+  },
+  {
+   "id": "scalenus-anterior",
+   "zh": "前斜角肌",
+   "en": "scalenus anterior",
+   "region": "neck",
+   "parts": [
+    "scalenus anterior"
+   ],
+   "origin": [
+    "C3–C6 橫突前結節"
+   ],
+   "insertion": [
+    "第一肋內緣前外側的斜角肌結節"
+   ],
+   "primary": [
+    "頸部同側側屈；頸椎固定時上提第一肋（吸氣）"
+   ],
+   "secondary": [
+    "頸部屈曲；頸部同側旋轉（IL）"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C3–C7",
+     "note": "三條斜角肌合計的範圍"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C3–C7，三條斜角肌合計的範圍）"
+   ],
+   "blood": [
+    "頸升動脈（甲狀腺下動脈的分支）"
+   ],
+   "palpation": [
+    "仰臥，在鎖骨上方、胸鎖乳突肌鎖骨頭後外側；請病人用鼻子快速吸氣可感覺收縮。臂神經叢與鎖骨下動脈從前、中斜角肌之間穿出，按壓要輕，按出手麻就停。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）、表 11.4 p.457（吸氣）"
+   ],
+   "notes": [
+    "一般教科書常把前斜角肌寫成 C4–C6；Neumann 附錄只給三條合計的 C3–C7。"
+   ],
+   "reviewed": false,
+   "wiki": "Anterior scalene muscle"
+  },
+  {
+   "id": "scalenus-medius",
+   "zh": "中斜角肌",
+   "en": "scalenus medius",
+   "region": "neck",
+   "parts": [
+    "scalenus medius"
+   ],
+   "origin": [
+    "C2–C7 橫突後結節"
+   ],
+   "insertion": [
+    "第一肋上緣，在前斜角肌附著點後方"
+   ],
+   "primary": [
+    "頸部同側側屈；頸椎固定時上提第一肋（吸氣）"
+   ],
+   "secondary": [
+    "頸部同側旋轉（IL）"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C3–C7",
+     "note": "三條斜角肌合計的範圍"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C3–C7，三條斜角肌合計的範圍）"
+   ],
+   "blood": [
+    "頸升動脈"
+   ],
+   "palpation": [
+    "在前斜角肌後方、提肩胛肌前方的頸側中段；側躺或坐姿時請病人頭往同側側彎可摸到收縮。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）、表 11.4 p.457（吸氣）"
+   ],
+   "notes": [
+    "一般教科書常寫 C3–C8。"
+   ],
+   "reviewed": false,
+   "wiki": "Scalene muscles"
+  },
+  {
+   "id": "scalenus-posterior",
+   "zh": "後斜角肌",
+   "en": "scalenus posterior",
+   "region": "neck",
+   "parts": [
+    "scalenus posterior"
+   ],
+   "origin": [
+    "C5–C7 橫突後結節"
+   ],
+   "insertion": [
+    "第二肋外面，靠近肋骨角"
+   ],
+   "primary": [
+    "頸部同側側屈；頸椎固定時上提第二肋（吸氣）"
+   ],
+   "secondary": [
+    "頸部同側旋轉（IL）"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C3–C7",
+     "note": "三條斜角肌合計的範圍"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C3–C7，三條斜角肌合計的範圍）"
+   ],
+   "blood": [
+    "頸升動脈、頸橫動脈分支"
+   ],
+   "palpation": [
+    "三條裡最深最後面，在提肩胛肌前緣深處、第一肋上方，通常不容易跟中斜角肌分開。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）、表 11.4 p.457（吸氣）"
+   ],
+   "notes": [
+    "一般教科書常寫 C6–C8。"
+   ],
+   "reviewed": false,
+   "wiki": "Posterior scalene muscle"
+  },
+  {
+   "id": "longus-colli",
+   "zh": "頸長肌",
+   "en": "longus colli",
+   "region": "neck",
+   "parts": [
+    "superior oblique part of longus colli",
+    "vertical intermediate part of longus colli",
+    "inferior oblique part of longus colli"
+   ],
+   "origin": [
+    "上斜部：C3–C5 橫突前結節",
+    "垂直部：C5–T3 椎體前面",
+    "下斜部：T1–T3 椎體前面"
+   ],
+   "insertion": [
+    "上斜部：寰椎前弓的前結節",
+    "垂直部：C2–C4 椎體前面",
+    "下斜部：C5–C6 橫突前結節"
+   ],
+   "primary": [
+    "頸部屈曲；穩定頸椎、減少過度前凸"
+   ],
+   "secondary": [
+    "頸部同側側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C2–C8",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C2–C8，鄰近節段）"
+   ],
+   "blood": [
+    "椎動脈、甲狀腺下動脈與頸升動脈的分支"
+   ],
+   "palpation": [
+    "位在氣管、食道後方，臨床上不直接觸診；與頭長肌合稱「深層頸屈肌」，常用頭頸屈曲測試（仰臥點頭＋壓力回饋器）評估。"
+   ],
+   "sources": [
+    "Neumann p.471–472（附著點、神經）、表 10.5 p.416（作用）、p.416（穩定）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Longus colli muscle"
+  },
+  {
+   "id": "longus-capitis",
+   "zh": "頭長肌",
+   "en": "longus capitis",
+   "region": "neck",
+   "parts": [
+    "longus capitis"
+   ],
+   "origin": [
+    "C3–C6 橫突前結節"
+   ],
+   "insertion": [
+    "枕骨基底部下面，在頭前直肌附著點前方"
+   ],
+   "primary": [
+    "頭頸屈曲（點頭、上頸段屈曲）"
+   ],
+   "secondary": [
+    "頭頸同側側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C1–C3"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C1–C3）"
+   ],
+   "blood": [
+    "頸升動脈、咽升動脈、椎動脈的分支"
+   ],
+   "palpation": [
+    "深層，不直接觸診；與頸長肌一起用頭頸屈曲測試評估。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.5 p.416（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Longus capitis muscle"
+  },
+  {
+   "id": "rectus-capitis-anterior",
+   "zh": "頭前直肌",
+   "en": "rectus capitis anterior",
+   "region": "neck",
+   "parts": [
+    "rectus capitis anterior"
+   ],
+   "origin": [
+    "寰椎橫突前面"
+   ],
+   "insertion": [
+    "枕骨基底部下面，枕髁正前方"
+   ],
+   "primary": [
+    "寰枕關節屈曲（點頭）"
+   ],
+   "secondary": [
+    "寰枕關節側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C1–C2"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C1–C2）"
+   ],
+   "blood": [
+    "椎動脈、咽升動脈的分支"
+   ],
+   "palpation": [
+    "位置太深，無法觸診。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rectus capitis anterior muscle"
+  },
+  {
+   "id": "rectus-capitis-lateralis",
+   "zh": "頭外側直肌",
+   "en": "rectus capitis lateralis",
+   "region": "neck",
+   "parts": [
+    "rectus capitis lateralis"
+   ],
+   "origin": [
+    "寰椎橫突上面"
+   ],
+   "insertion": [
+    "枕骨下面、枕髁外側（頸靜脈突）"
+   ],
+   "primary": [
+    "寰枕關節同側側屈"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C1–C2"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C1–C2）"
+   ],
+   "blood": [
+    "椎動脈、枕動脈、咽升動脈的分支"
+   ],
+   "palpation": [
+    "位置太深，無法觸診。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rectus capitis lateralis muscle"
+  },
+  {
+   "id": "rectus-capitis-posterior-major",
+   "zh": "頭後大直肌",
+   "en": "rectus capitis posterior major",
+   "region": "neck",
+   "parts": [
+    "rectus capitis posterior major"
+   ],
+   "origin": [
+    "樞椎（C2）棘突"
+   ],
+   "insertion": [
+    "枕骨下項線外側端的內前方"
+   ],
+   "primary": [
+    "寰枕、寰樞關節伸展（抬下巴）；寰枕關節側屈；寰樞關節同側旋轉（IL）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "枕下神經",
+     "roots": "C1",
+     "note": "C1 背枝"
+    }
+   ],
+   "innervationText": [
+    "枕下神經（C1，C1 背枝）"
+   ],
+   "blood": [
+    "椎動脈、枕動脈深降支"
+   ],
+   "palpation": [
+    "俯臥或坐姿，枕骨下方、C2 棘突外上方的深處，要先讓斜方肌與頭半棘肌放鬆；請病人眼睛往同側看，可感覺細微收縮。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rectus capitis posterior major muscle"
+  },
+  {
+   "id": "rectus-capitis-posterior-minor",
+   "zh": "頭後小直肌",
+   "en": "rectus capitis posterior minor",
+   "region": "neck",
+   "parts": [
+    "rectus capitis posterior minor"
+   ],
+   "origin": [
+    "寰椎後弓的後結節"
+   ],
+   "insertion": [
+    "下項線內側端前方，緊靠枕骨大孔後方"
+   ],
+   "primary": [
+    "寰枕關節伸展"
+   ],
+   "secondary": [
+    "寰枕關節側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "枕下神經",
+     "roots": "C1",
+     "note": "C1 背枝"
+    }
+   ],
+   "innervationText": [
+    "枕下神經（C1，C1 背枝）"
+   ],
+   "blood": [
+    "椎動脈、枕動脈的分支"
+   ],
+   "palpation": [
+    "最內側、最深，緊貼中線兩側，通常無法跟頭後大直肌分開。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rectus capitis posterior minor muscle"
+  },
+  {
+   "id": "obliquus-capitis-superior",
+   "zh": "頭上斜肌",
+   "en": "obliquus capitis superior",
+   "region": "neck",
+   "parts": [
+    "obliquus capitis superior"
+   ],
+   "origin": [
+    "寰椎橫突上緣"
+   ],
+   "insertion": [
+    "枕骨上、下項線之間的外側部"
+   ],
+   "primary": [
+    "寰枕關節伸展；寰枕關節同側側屈"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "枕下神經",
+     "roots": "C1",
+     "note": "C1 背枝"
+    }
+   ],
+   "innervationText": [
+    "枕下神經（C1，C1 背枝）"
+   ],
+   "blood": [
+    "椎動脈、枕動脈的分支"
+   ],
+   "palpation": [
+    "在乳突後內側、枕骨下方的深處，跟頭後大直肌、頭下斜肌圍成枕下三角。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Obliquus capitis superior muscle"
+  },
+  {
+   "id": "obliquus-capitis-inferior",
+   "zh": "頭下斜肌",
+   "en": "obliquus capitis inferior",
+   "region": "neck",
+   "parts": [
+    "obliquus capitis inferior"
+   ],
+   "origin": [
+    "樞椎（C2）棘突尖端"
+   ],
+   "insertion": [
+    "寰椎橫突下緣"
+   ],
+   "primary": [
+    "寰樞關節同側旋轉（IL）；寰樞關節伸展"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "枕下神經",
+     "roots": "C1",
+     "note": "C1 背枝"
+    }
+   ],
+   "innervationText": [
+    "枕下神經（C1，C1 背枝）"
+   ],
+   "blood": [
+    "椎動脈、枕動脈的分支"
+   ],
+   "palpation": [
+    "C2 棘突與寰椎橫突之間的斜向深層肌；大枕神經從它下緣繞出，枕下頭痛時常一起評估。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、圖 10.29 p.415（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Obliquus capitis inferior muscle"
+  },
+  {
+   "id": "splenius-capitis",
+   "zh": "頭夾肌",
+   "en": "splenius capitis",
+   "region": "neck",
+   "parts": [
+    "splenius capitis"
+   ],
+   "origin": [
+    "項韌帶下半部、C7–T4 棘突"
+   ],
+   "insertion": [
+    "顳骨乳突、枕骨上項線外側 1/3"
+   ],
+   "primary": [
+    "頭頸伸展；頭頸同側旋轉（IL）；頭頸同側側屈"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "頸神經背枝",
+     "roots": "C2–C8"
+    }
+   ],
+   "innervationText": [
+    "頸神經背枝（C2–C8）"
+   ],
+   "blood": [
+    "枕動脈的肌支、頸橫動脈分支"
+   ],
+   "palpation": [
+    "坐姿，在胸鎖乳突肌後緣與斜方肌上束前緣之間、乳突下方的小三角可摸到；請病人頭轉向同側並往後抬，對抗阻力時更清楚。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）"
+   ],
+   "notes": [
+    "英文 Wikipedia 資訊框寫「主動脈的肌支」，跟一般解剖書不同，這裡照一般寫法。"
+   ],
+   "reviewed": false,
+   "wiki": "Splenius capitis muscle"
+  },
+  {
+   "id": "splenius-cervicis",
+   "zh": "頸夾肌",
+   "en": "splenius cervicis",
+   "region": "neck",
+   "parts": [
+    "splenius cervicis"
+   ],
+   "origin": [
+    "T3–T6 棘突"
+   ],
+   "insertion": [
+    "C1–C3 橫突後結節"
+   ],
+   "primary": [
+    "頸部伸展；頸部同側側屈；頸部同側旋轉（IL）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "頸神經背枝",
+     "roots": "C2–C8"
+    }
+   ],
+   "innervationText": [
+    "頸神經背枝（C2–C8）"
+   ],
+   "blood": [
+    "頸橫動脈、枕動脈的分支"
+   ],
+   "palpation": [
+    "被斜方肌、提肩胛肌、菱形肌蓋住，很難單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.5 p.416（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Splenius cervicis muscle"
+  },
+  {
+   "id": "semispinalis",
+   "zh": "半棘肌",
+   "en": "semispinalis",
+   "region": "neck",
+   "parts": [
+    "semispinalis capitis",
+    "semispinalis cervicis",
+    "semispinalis thoracis"
+   ],
+   "origin": [
+    "頭半棘肌：C7–T7 橫突、C4–C6 關節突",
+    "頸半棘肌：T1–T6 橫突",
+    "胸半棘肌：T6–T10 橫突"
+   ],
+   "insertion": [
+    "頭半棘肌：枕骨上、下項線之間",
+    "頸半棘肌：C2–C5 棘突（主要在 C2）",
+    "胸半棘肌：C6–T4 棘突"
+   ],
+   "primary": [
+    "頭頸、胸椎伸展（三部都很強）；頭半棘肌另有頭頸同側側屈"
+   ],
+   "secondary": [
+    "對側旋轉（CL）；頸、胸半棘肌的同側側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C1–T6",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C1–T6，鄰近節段）"
+   ],
+   "blood": [
+    "枕動脈、頸深動脈、肋間後動脈的背側支"
+   ],
+   "palpation": [
+    "頭半棘肌在枕骨下方、中線兩側（斜方肌深層），是兩條粗的縱向肌束，俯臥抬頭時最明顯。大枕神經穿過頭半棘肌。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Semispinalis muscles"
+  },
+  {
+   "id": "trapezius",
+   "zh": "斜方肌",
+   "en": "trapezius",
+   "region": "shoulder",
+   "parts": [
+    "descending part of trapezius",
+    "transverse part of trapezius",
+    "ascending part of trapezius"
+   ],
+   "origin": [
+    "枕骨上項線內側部與枕外隆凸、項韌帶、C7 與所有胸椎的棘突及棘上韌帶"
+   ],
+   "insertion": [
+    "上束：鎖骨外側 1/3 後上緣",
+    "中束：肩峰內緣、肩胛棘上緣",
+    "下束：肩胛棘內側端（棘根稍外側）"
+   ],
+   "primary": [
+    "上束：肩胛上提、上旋",
+    "中束：肩胛後縮",
+    "下束：肩胛下壓、上旋、後縮",
+    "對頸部（上束）：頭頸伸展、同側側屈、對側旋轉"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "副神經",
+     "roots": "CN XI",
+     "term": "accessory nerve"
+    },
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C2–C4",
+     "note": "直接支配、份量較少"
+    }
+   ],
+   "innervationText": [
+    "副神經（CN XI）；頸神經腹枝（C2–C4，直接支配、份量較少）"
+   ],
+   "blood": [
+    "頸橫動脈（淺支）、肩胛背動脈、枕動脈分支（上部）、肋間後動脈的背側支（下部）"
+   ],
+   "palpation": [
+    "上束捏住肩頸交界的肌腹即可；中、下束俯臥時請病人手臂外展 90°／120° 並把手臂往天花板抬（常用的中、下斜方肌肌力測試姿勢），肩胛內側可摸到收縮。下束在肩胛棘根部到 T12 之間呈三角形。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、第 5 章 p.148–163（作用）、表 10.4 p.407（頸部作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Trapezius"
+  },
+  {
+   "id": "levator-scapulae",
+   "zh": "提肩胛肌",
+   "en": "levator scapulae",
+   "region": "shoulder",
+   "parts": [
+    "levator scapulae"
+   ],
+   "origin": [
+    "C1–C2 橫突、C3–C4 橫突後結節"
+   ],
+   "insertion": [
+    "肩胛骨內緣，從上角到肩胛棘根部之間"
+   ],
+   "primary": [
+    "肩胛上提、下旋"
+   ],
+   "secondary": [
+    "頸部伸展、同側側屈、同側旋轉"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸神經腹枝",
+     "roots": "C3–C4"
+    },
+    {
+     "nerve": "肩胛背神經",
+     "roots": "C5",
+     "term": "dorsal scapular nerve"
+    }
+   ],
+   "innervationText": [
+    "頸神經腹枝（C3–C4）；肩胛背神經（C5）"
+   ],
+   "blood": [
+    "肩胛背動脈、頸橫動脈"
+   ],
+   "palpation": [
+    "坐姿，在肩胛上角內上方、斜方肌上束深層；請病人反覆做小幅度聳肩（或肩胛下旋）可摸到收縮。上角附著處是常見壓痛點。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [
+    "Neumann 的神經根表沒列提肩胛肌，肩胛背神經的 C5 是一般教科書寫法。"
+   ],
+   "reviewed": false,
+   "wiki": "Levator scapulae muscle"
+  },
+  {
+   "id": "rhomboid-major",
+   "zh": "大菱形肌",
+   "en": "rhomboid major",
+   "region": "shoulder",
+   "parts": [
+    "rhomboid major"
+   ],
+   "origin": [
+    "T2–T5 棘突與棘上韌帶"
+   ],
+   "insertion": [
+    "肩胛骨內緣，從肩胛棘根部到下角"
+   ],
+   "primary": [
+    "肩胛後縮、上提、下旋"
+   ],
+   "secondary": [
+    "把肩胛內緣穩定在胸廓上（與前鋸肌共同收縮）"
+   ],
+   "innervation": [
+    {
+     "nerve": "肩胛背神經",
+     "roots": "C5",
+     "minorRoots": "C4",
+     "term": "dorsal scapular nerve"
+    }
+   ],
+   "innervationText": [
+    "肩胛背神經（C5，次要 C4）"
+   ],
+   "blood": [
+    "肩胛背動脈（頸橫動脈深支）"
+   ],
+   "palpation": [
+    "俯臥，手背放在下背（手臂內旋、後伸），請病人把手往上抬離背部，肩胛內緣與脊椎之間可摸到斜向肌腹（斜方肌中束深層）。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [
+    "Neumann 把大、小菱形肌合寫成「C7–T5 棘突」，這裡依一般寫法分成小菱形肌 C7–T1、大菱形肌 T2–T5。"
+   ],
+   "reviewed": false,
+   "wiki": "Rhomboid major muscle"
+  },
+  {
+   "id": "rhomboid-minor",
+   "zh": "小菱形肌",
+   "en": "rhomboid minor",
+   "region": "shoulder",
+   "parts": [
+    "rhomboid minor"
+   ],
+   "origin": [
+    "項韌帶下部、C7–T1 棘突"
+   ],
+   "insertion": [
+    "肩胛骨內緣，肩胛棘根部附近"
+   ],
+   "primary": [
+    "肩胛後縮、上提、下旋"
+   ],
+   "secondary": [
+    "把肩胛內緣穩定在胸廓上"
+   ],
+   "innervation": [
+    {
+     "nerve": "肩胛背神經",
+     "roots": "C5",
+     "minorRoots": "C4",
+     "term": "dorsal scapular nerve"
+    }
+   ],
+   "innervationText": [
+    "肩胛背神經（C5，次要 C4）"
+   ],
+   "blood": [
+    "肩胛背動脈（頸橫動脈深支）"
+   ],
+   "palpation": [
+    "在大菱形肌上方、肩胛棘根部內側，很薄，通常跟大菱形肌一起觸診。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rhomboid minor muscle"
+  },
+  {
+   "id": "serratus-anterior",
+   "zh": "前鋸肌",
+   "en": "serratus anterior",
+   "region": "shoulder",
+   "parts": [
+    "serratus anterior"
+   ],
+   "origin": [
+    "第 1–9 肋外側面"
+   ],
+   "insertion": [
+    "肩胛骨內緣前面（肋面）全長，下角附近最集中"
+   ],
+   "primary": [
+    "肩胛前突、上旋（與斜方肌上、下束形成力偶）；把肩胛內緣貼住胸廓"
+   ],
+   "secondary": [
+    "下部纖維協助肩胛下壓"
+   ],
+   "innervation": [
+    {
+     "nerve": "胸長神經",
+     "roots": "C5–C7",
+     "minorRoots": "C8",
+     "term": "long thoracic nerve"
+    }
+   ],
+   "innervationText": [
+    "胸長神經（C5–C7，次要 C8）"
+   ],
+   "blood": [
+    "胸外側動脈、胸上動脈（上部）、胸背動脈（下部）"
+   ],
+   "palpation": [
+    "仰臥手臂前舉，請病人把拳頭往天花板推（肩胛前突），在腋中線第 5–8 肋上可摸到鋸齒狀肌束。無力時出現翼狀肩胛（推牆時內緣翹起）。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Serratus anterior muscle"
+  },
+  {
+   "id": "pectoralis-minor",
+   "zh": "胸小肌",
+   "en": "pectoralis minor",
+   "region": "shoulder",
+   "parts": [
+    "pectoralis minor"
+   ],
+   "origin": [
+    "第 3–5 肋外面"
+   ],
+   "insertion": [
+    "肩胛骨喙突內緣"
+   ],
+   "primary": [
+    "肩胛下壓、前傾、下旋、前突"
+   ],
+   "secondary": [
+    "肩胛固定時上提第 3–5 肋，協助用力吸氣"
+   ],
+   "innervation": [
+    {
+     "nerve": "胸內側神經",
+     "roots": "C8",
+     "minorRoots": "C7、T1",
+     "term": "medial pectoral nerve"
+    }
+   ],
+   "innervationText": [
+    "胸內側神經（C8，次要 C7、T1）"
+   ],
+   "blood": [
+    "胸肩峰動脈的胸肌支、胸外側動脈"
+   ],
+   "palpation": [
+    "仰臥，治療師手指從腋窩前壁、胸大肌外緣下方往內上方探到喙突下方；請病人把肩膀往床面下壓可感覺收縮。太短時肩胛前傾、肩膀前移，也可能壓迫腋下的神經血管束。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Pectoralis minor"
+  },
+  {
+   "id": "subclavius",
+   "zh": "鎖骨下肌",
+   "en": "subclavius",
+   "region": "shoulder",
+   "parts": [
+    "subclavius"
+   ],
+   "origin": [
+    "第一肋最前端（肋骨與肋軟骨交界）"
+   ],
+   "insertion": [
+    "鎖骨中 1/3 下面"
+   ],
+   "primary": [
+    "把鎖骨往下、往內拉，穩定胸鎖關節"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "鎖骨下肌神經",
+     "roots": "C5–C6",
+     "term": "subclavian nerve"
+    }
+   ],
+   "innervationText": [
+    "鎖骨下肌神經（C5–C6）"
+   ],
+   "blood": [
+    "胸肩峰動脈的鎖骨支、肩胛上動脈"
+   ],
+   "palpation": [
+    "在鎖骨下方深處，胸大肌鎖骨部底下，很難單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Subclavius muscle"
+  },
+  {
+   "id": "pectoralis-major",
+   "zh": "胸大肌",
+   "en": "pectoralis major",
+   "region": "shoulder",
+   "parts": [
+    "clavicular part of pectoralis major",
+    "sternocostal part of pectoralis major",
+    "abdominal part of pectoralis major"
+   ],
+   "origin": [
+    "鎖骨部：鎖骨內側半前緣",
+    "胸肋部：胸骨柄與胸骨體外緣、第 1–6（或 7）肋軟骨",
+    "腹部：腹外斜肌腱膜（與胸肋部下緣相連）"
+   ],
+   "insertion": [
+    "肱骨大結節嵴（結節間溝外唇）"
+   ],
+   "primary": [
+    "整塊：GH 內收、內旋、水平內收",
+    "鎖骨部：GH 屈曲",
+    "胸肋部與腹部：從屈曲位把手臂往下拉（伸展到身體旁）、肩帶下壓"
+   ],
+   "secondary": [
+    "手臂固定時上提胸骨與肋骨，協助用力吸氣"
+   ],
+   "innervation": [
+    {
+     "nerve": "胸外側神經",
+     "roots": "C5–C6",
+     "note": "鎖骨部",
+     "term": "lateral pectoral nerve"
+    },
+    {
+     "nerve": "胸內側神經",
+     "roots": "C8–T1",
+     "minorRoots": "C6、C7",
+     "note": "胸肋部與腹部",
+     "term": "medial pectoral nerve"
+    },
+    {
+     "nerve": "胸外側神經",
+     "roots": "C8–T1",
+     "minorRoots": "C6、C7",
+     "term": "lateral pectoral nerve"
+    }
+   ],
+   "innervationText": [
+    "鎖骨部：胸外側神經（C5–C6）",
+    "胸肋部與腹部：胸內側神經（C8–T1，次要 C6、C7）；胸外側神經（C8–T1，次要 C6、C7）"
+   ],
+   "blood": [
+    "胸肩峰動脈的胸肌支、胸外側動脈、胸廓內動脈的穿支"
+   ],
+   "palpation": [
+    "形成腋窩前壁，手指捏住腋前皺褶即是；鎖骨部請病人手臂前舉約 60° 再往對側肩方向用力，胸肋部則請病人把手往同側髖部下壓。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [
+    "Neumann 只寫「胸內側及胸外側神經」，兩部各由哪條神經為主是一般教科書寫法。"
+   ],
+   "reviewed": false,
+   "wiki": "Pectoralis major"
+  },
+  {
+   "id": "latissimus-dorsi",
+   "zh": "闊背肌",
+   "en": "latissimus dorsi",
+   "region": "shoulder",
+   "parts": [
+    "latissimus dorsi"
+   ],
+   "origin": [
+    "胸腰筋膜後層、下半胸椎與所有腰椎棘突及棘上韌帶、薦骨中嵴、髂嵴後部、下 4 肋、肩胛下角附近一小塊"
+   ],
+   "insertion": [
+    "肱骨結節間溝底"
+   ],
+   "primary": [
+    "GH 伸展、內收、內旋；肩帶下壓"
+   ],
+   "secondary": [
+    "手撐固定時把軀幹與骨盆往上抬（撐柺杖、坐姿轉位）；雙側時協助腰椎伸展、骨盆前傾"
+   ],
+   "innervation": [
+    {
+     "nerve": "胸背神經",
+     "roots": "C6–C8",
+     "term": "thoracodorsal nerve"
+    }
+   ],
+   "innervationText": [
+    "胸背神經（C6–C8）"
+   ],
+   "blood": [
+    "胸背動脈（肩胛下動脈的分支）、肋間後動脈與腰動脈的背側穿支"
+   ],
+   "palpation": [
+    "形成腋窩後壁，捏住腋後皺褶（與大圓肌一起）；請病人把舉高的手臂往下、往後拉可感覺收縮。太短時手臂上舉受限、代償腰椎伸展。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）、表 10.4 p.407（軀幹）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Latissimus dorsi muscle"
+  },
+  {
+   "id": "teres-major",
+   "zh": "大圓肌",
+   "en": "teres major",
+   "region": "shoulder",
+   "parts": [
+    "teres major"
+   ],
+   "origin": [
+    "肩胛骨下角後面"
+   ],
+   "insertion": [
+    "肱骨小結節嵴（結節間溝內唇）"
+   ],
+   "primary": [
+    "GH 伸展、內收、內旋"
+   ],
+   "secondary": [
+    "無（收縮時需要菱形肌把肩胛固定住）"
+   ],
+   "innervation": [
+    {
+     "nerve": "下肩胛下神經",
+     "roots": "C6",
+     "minorRoots": "C5、C7",
+     "term": "inferior subscapular nerve"
+    }
+   ],
+   "innervationText": [
+    "下肩胛下神經（C6，次要 C5、C7）"
+   ],
+   "blood": [
+    "胸背動脈、旋肩胛動脈"
+   ],
+   "palpation": [
+    "在肩胛外緣下 1/3、闊背肌上方；俯臥手臂垂在床邊，請病人手臂往後、往內轉對抗阻力，可摸到圓柱形肌腹。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Teres major muscle"
+  },
+  {
+   "id": "deltoid",
+   "zh": "三角肌",
+   "en": "deltoid",
+   "region": "shoulder",
+   "parts": [
+    "clavicular part of deltoid",
+    "acromial part of deltoid",
+    "spinal part of deltoid"
+   ],
+   "origin": [
+    "前束：鎖骨外側端前面",
+    "中束：肩峰外緣上面",
+    "後束：肩胛棘後緣"
+   ],
+   "insertion": [
+    "肱骨三角肌粗隆"
+   ],
+   "primary": [
+    "前束：GH 屈曲、外展、水平內收",
+    "中束：GH 外展",
+    "後束：GH 伸展、水平外展"
+   ],
+   "secondary": [
+    "前束：GH 內旋；後束：GH 外旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "腋神經",
+     "roots": "C5–C6",
+     "term": "axillary nerve"
+    }
+   ],
+   "innervationText": [
+    "腋神經（C5–C6）"
+   ],
+   "blood": [
+    "旋肱後動脈（主要）、胸肩峰動脈的三角肌支、旋肱前動脈"
+   ],
+   "palpation": [
+    "三束都在表層，請病人分別做前舉、側舉、往後伸展對抗阻力即可區分。腋神經受損（如肩關節脫臼）時三角肌無力並有「肩章區」感覺異常。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Deltoid muscle"
+  },
+  {
+   "id": "supraspinatus",
+   "zh": "棘上肌",
+   "en": "supraspinatus",
+   "region": "shoulder",
+   "parts": [
+    "supraspinatus"
+   ],
+   "origin": [
+    "棘上窩"
+   ],
+   "insertion": [
+    "肱骨大結節上面（上小面）；部分纖維融入 GH 關節囊"
+   ],
+   "primary": [
+    "GH 外展；把肱骨頭壓緊在關節盂中、穩定 GH"
+   ],
+   "secondary": [
+    "GH 外旋（微弱）"
+   ],
+   "innervation": [
+    {
+     "nerve": "肩胛上神經",
+     "roots": "C5–C6",
+     "term": "suprascapular nerve"
+    }
+   ],
+   "innervationText": [
+    "肩胛上神經（C5–C6）"
+   ],
+   "blood": [
+    "肩胛上動脈"
+   ],
+   "palpation": [
+    "肌腹在斜方肌深層的棘上窩；肌腱在肩峰前外側下方，請病人手背放到後腰（伸展＋內旋），肌腱會從肩峰前方露出，在大結節上可摸到。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Supraspinatus muscle"
+  },
+  {
+   "id": "infraspinatus",
+   "zh": "棘下肌",
+   "en": "infraspinatus",
+   "region": "shoulder",
+   "parts": [
+    "infraspinatus muscle"
+   ],
+   "origin": [
+    "棘下窩"
+   ],
+   "insertion": [
+    "肱骨大結節中間面；部分纖維融入 GH 關節囊"
+   ],
+   "primary": [
+    "GH 外旋；穩定 GH（把肱骨頭往後、往下壓）"
+   ],
+   "secondary": [
+    "上部纖維協助外展、下部纖維協助內收；GH 水平外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "肩胛上神經",
+     "roots": "C5–C6",
+     "term": "suprascapular nerve"
+    }
+   ],
+   "innervationText": [
+    "肩胛上神經（C5–C6）"
+   ],
+   "blood": [
+    "肩胛上動脈、旋肩胛動脈"
+   ],
+   "palpation": [
+    "俯臥手肘彎 90°、手臂外展 90° 放床邊，請病人往外轉，在肩胛棘下方可摸到收縮；肌腱在肩峰後角下方。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Infraspinatus muscle"
+  },
+  {
+   "id": "teres-minor",
+   "zh": "小圓肌",
+   "en": "teres minor",
+   "region": "shoulder",
+   "parts": [
+    "teres minor"
+   ],
+   "origin": [
+    "肩胛骨外緣上 2/3 的後面"
+   ],
+   "insertion": [
+    "肱骨大結節下面；部分纖維融入 GH 關節囊"
+   ],
+   "primary": [
+    "GH 外旋；穩定 GH"
+   ],
+   "secondary": [
+    "GH 內收（微弱）"
+   ],
+   "innervation": [
+    {
+     "nerve": "腋神經",
+     "roots": "C5–C6",
+     "term": "axillary nerve"
+    }
+   ],
+   "innervationText": [
+    "腋神經（C5–C6）"
+   ],
+   "blood": [
+    "旋肩胛動脈、旋肱後動脈"
+   ],
+   "palpation": [
+    "在棘下肌下方、大圓肌上方，沿肩胛外緣；外旋對抗阻力時可摸到，常不容易跟棘下肌分開。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Teres minor muscle"
+  },
+  {
+   "id": "subscapularis",
+   "zh": "肩胛下肌",
+   "en": "subscapularis",
+   "region": "shoulder",
+   "parts": [
+    "subscapularis"
+   ],
+   "origin": [
+    "肩胛下窩"
+   ],
+   "insertion": [
+    "肱骨小結節；部分纖維融入 GH 關節囊前方"
+   ],
+   "primary": [
+    "GH 內旋；穩定 GH 前方"
+   ],
+   "secondary": [
+    "GH 內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "上肩胛下神經",
+     "roots": "C5–C6",
+     "minorRoots": "C7",
+     "term": "superior subscapular nerve"
+    },
+    {
+     "nerve": "下肩胛下神經",
+     "roots": "C5–C6",
+     "minorRoots": "C7",
+     "term": "inferior subscapular nerve"
+    }
+   ],
+   "innervationText": [
+    "上肩胛下神經（C5–C6，次要 C7）；下肩胛下神經（C5–C6，次要 C7）"
+   ],
+   "blood": [
+    "肩胛下動脈的分支"
+   ],
+   "palpation": [
+    "仰臥手臂稍外展，手指從腋窩後壁（闊背肌前方）往肩胛前面輕壓，可摸到一小部分肌腹；請病人內轉可感覺收縮。肌腱在小結節上，喙突外下方。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Subscapularis muscle"
+  },
+  {
+   "id": "coracobrachialis",
+   "zh": "喙肱肌",
+   "en": "coracobrachialis",
+   "region": "shoulder",
+   "parts": [
+    "coracobrachialis"
+   ],
+   "origin": [
+    "喙突尖（與肱二頭肌短頭共同肌腱）"
+   ],
+   "insertion": [
+    "肱骨幹中段內側"
+   ],
+   "primary": [
+    "GH 屈曲、內收"
+   ],
+   "secondary": [
+    "GH 水平內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "肌皮神經",
+     "roots": "C6–C7",
+     "minorRoots": "C5",
+     "term": "musculocutaneous nerve"
+    }
+   ],
+   "innervationText": [
+    "肌皮神經（C6–C7，次要 C5）"
+   ],
+   "blood": [
+    "肱動脈的肌支"
+   ],
+   "palpation": [
+    "手臂外展外旋，在腋窩前壁後方、肱二頭肌短頭內側可摸到細長肌腹；肌皮神經從它中間穿過。"
+   ],
+   "sources": [
+    "Neumann p.311（附著點、神經）、p.309（神經根）、第 5 章 p.148–163（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Coracobrachialis muscle"
+  },
+  {
+   "id": "biceps-brachii",
+   "zh": "肱二頭肌",
+   "en": "biceps brachii",
+   "region": "elbow",
+   "parts": [
+    "long head of biceps brachii",
+    "short head of biceps brachii"
+   ],
+   "origin": [
+    "長頭：肩胛骨盂上結節（肌腱在 GH 關節囊內、走在結節間溝）",
+    "短頭：喙突尖（與喙肱肌共同肌腱）"
+   ],
+   "insertion": [
+    "橈骨粗隆；另經肱二頭肌腱膜（lacertus fibrosus）連到前臂內側的深筋膜"
+   ],
+   "primary": [
+    "肘屈曲；前臂旋後（肘彎曲約 90° 時旋後力最大）"
+   ],
+   "secondary": [
+    "GH 屈曲（微弱）；長頭協助穩定肱骨頭"
+   ],
+   "innervation": [
+    {
+     "nerve": "肌皮神經",
+     "roots": "C5–C6",
+     "term": "musculocutaneous nerve"
+    }
+   ],
+   "innervationText": [
+    "肌皮神經（C5–C6）"
+   ],
+   "blood": [
+    "肱動脈的肌支"
+   ],
+   "palpation": [
+    "遠端肌腱在肘窩正中，屈肘加旋後時最明顯（肱動脈與正中神經在它內側）；長頭肌腱在結節間溝，手臂外旋時在肱骨前方可摸到。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Biceps"
+  },
+  {
+   "id": "brachialis",
+   "zh": "肱肌",
+   "en": "brachialis",
+   "region": "elbow",
+   "parts": [
+    "brachialis"
+   ],
+   "origin": [
+    "肱骨下半前面"
+   ],
+   "insertion": [
+    "尺骨冠狀突與尺骨粗隆"
+   ],
+   "primary": [
+    "肘屈曲（不論前臂旋前或旋後，最主要的屈肘肌）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肌皮神經",
+     "roots": "C5–C6",
+     "note": "另有少量橈神經",
+     "term": "musculocutaneous nerve"
+    }
+   ],
+   "innervationText": [
+    "肌皮神經（C5–C6，另有少量橈神經）"
+   ],
+   "blood": [
+    "肱動脈的肌支、橈返動脈"
+   ],
+   "palpation": [
+    "在肱二頭肌兩側深處；前臂旋前再屈肘（減少肱二頭肌參與），在肱二頭肌外側遠端可摸到收縮。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Brachialis muscle"
+  },
+  {
+   "id": "brachioradialis",
+   "zh": "肱橈肌",
+   "en": "brachioradialis",
+   "region": "elbow",
+   "parts": [
+    "brachioradialis"
+   ],
+   "origin": [
+    "肱骨外上髁嵴上 2/3"
+   ],
+   "insertion": [
+    "橈骨遠端，莖突附近"
+   ],
+   "primary": [
+    "肘屈曲（前臂中立位時最有力）"
+   ],
+   "secondary": [
+    "把前臂從完全旋前或完全旋後帶回中立位"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C5–C6",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C5–C6）"
+   ],
+   "blood": [
+    "橈返動脈、橈側副動脈"
+   ],
+   "palpation": [
+    "前臂中立位（拇指朝上）屈肘對抗阻力，前臂外側近端會隆起一條肌腹。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Brachioradialis"
+  },
+  {
+   "id": "triceps-brachii",
+   "zh": "肱三頭肌",
+   "en": "triceps brachii",
+   "region": "elbow",
+   "parts": [
+    "long head of triceps brachii",
+    "lateral head of triceps brachii",
+    "medial head of triceps brachii"
+   ],
+   "origin": [
+    "長頭：肩胛骨盂下結節",
+    "外側頭：肱骨後面，橈神經溝的上外側",
+    "內側頭：肱骨後面，橈神經溝的下內側"
+   ],
+   "insertion": [
+    "尺骨鷹嘴突"
+   ],
+   "primary": [
+    "肘伸展"
+   ],
+   "secondary": [
+    "長頭：GH 伸展、內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6、T1",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6、T1）"
+   ],
+   "blood": [
+    "肱深動脈（主要）、旋肱後動脈（長頭）、尺側上副動脈"
+   ],
+   "palpation": [
+    "長頭在上臂後內側、腋後皺褶下方；外側頭在上臂後外側；內側頭在遠端肌腱兩側、靠近肘。俯臥上臂放床邊、伸肘對抗阻力。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Triceps"
+  },
+  {
+   "id": "anconeus",
+   "zh": "肘肌",
+   "en": "anconeus",
+   "region": "elbow",
+   "parts": [
+    "anconeus"
+   ],
+   "origin": [
+    "肱骨外上髁後面"
+   ],
+   "insertion": [
+    "鷹嘴突外側到尺骨近端後面之間"
+   ],
+   "primary": [
+    "肘伸展（約占伸肘力 15%）"
+   ],
+   "secondary": [
+    "前臂旋前、旋後時穩定肱尺關節"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8）"
+   ],
+   "blood": [
+    "肱深動脈的中副動脈、骨間返動脈"
+   ],
+   "palpation": [
+    "外上髁、鷹嘴突與尺骨後緣圍成的三角形小區域，伸肘時可摸到。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Anconeus muscle"
+  },
+  {
+   "id": "pronator-teres",
+   "zh": "旋前圓肌",
+   "en": "pronator teres",
+   "region": "elbow",
+   "parts": [
+    "humeral head of pronator teres",
+    "ulnar head of pronator teres"
+   ],
+   "origin": [
+    "肱骨頭：肱骨內上髁（屈肌—旋前肌共同肌腱）",
+    "尺骨頭：尺骨粗隆內側（冠狀突）"
+   ],
+   "insertion": [
+    "橈骨中段外側面"
+   ],
+   "primary": [
+    "前臂旋前"
+   ],
+   "secondary": [
+    "肘屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C6–C7",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C6–C7）"
+   ],
+   "blood": [
+    "尺動脈與橈動脈的分支"
+   ],
+   "palpation": [
+    "肘窩內側，從內上髁往外下斜行；前臂旋前對抗阻力時明顯。正中神經從兩頭之間穿過（旋前圓肌症候群）。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Pronator teres muscle"
+  },
+  {
+   "id": "pronator-quadratus",
+   "zh": "旋前方肌",
+   "en": "pronator quadratus",
+   "region": "elbow",
+   "parts": [
+    "pronator quadratus"
+   ],
+   "origin": [
+    "尺骨遠端前面"
+   ],
+   "insertion": [
+    "橈骨遠端前面"
+   ],
+   "primary": [
+    "前臂旋前（不論肘角度都會參與）；穩定遠端橈尺關節"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "經前骨間神經",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7，經前骨間神經）"
+   ],
+   "blood": [
+    "前骨間動脈"
+   ],
+   "palpation": [
+    "在屈肌腱深層，很難直接觸診；前骨間神經麻痺時旋前方肌無力（屈肘時測旋前可減少旋前圓肌參與）。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Pronator quadratus muscle"
+  },
+  {
+   "id": "supinator",
+   "zh": "旋後肌",
+   "en": "supinator",
+   "region": "elbow",
+   "parts": [
+    "supinator"
+   ],
+   "origin": [
+    "肱骨外上髁、橈側副韌帶與環狀韌帶、尺骨旋後肌嵴"
+   ],
+   "insertion": [
+    "橈骨近端外側面"
+   ],
+   "primary": [
+    "前臂旋後（肘伸直或輕負荷時最主要）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C6",
+     "minorRoots": "C5",
+     "note": "經深支／後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C6，次要 C5，經深支／後骨間神經）"
+   ],
+   "blood": [
+    "橈返動脈、骨間返動脈"
+   ],
+   "palpation": [
+    "在橈骨頸周圍、肱橈肌與伸腕肌深層，不易單獨觸診。橈神經深支在旋後肌近端的 Frohse 弓下穿入，是後骨間神經卡壓的位置。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 6 章 p.195–209（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Supinator muscle"
+  },
+  {
+   "id": "extensor-carpi-radialis-longus",
+   "zh": "橈側伸腕長肌",
+   "en": "extensor carpi radialis longus",
+   "region": "wrist",
+   "parts": [
+    "extensor carpi radialis longus"
+   ],
+   "origin": [
+    "肱骨外上髁嵴遠端、外上髁的伸肌—旋後肌共同肌腱"
+   ],
+   "insertion": [
+    "第 2 掌骨底的橈背側"
+   ],
+   "primary": [
+    "腕伸展、橈偏"
+   ],
+   "secondary": [
+    "肘屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C6–C7",
+     "minorRoots": "C5、C8",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C6–C7，次要 C5、C8）"
+   ],
+   "blood": [
+    "橈動脈、橈返動脈"
+   ],
+   "palpation": [
+    "在肱橈肌後下方、外上髁上方；握拳伸腕並往橈側偏可摸到。遠端肌腱在 Lister 結節橈側、第 2 掌骨底。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 7 章 p.234–241（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor carpi radialis longus muscle"
+  },
+  {
+   "id": "extensor-carpi-radialis-brevis",
+   "zh": "橈側伸腕短肌",
+   "en": "extensor carpi radialis brevis",
+   "region": "wrist",
+   "parts": [
+    "extensor carpi radialis brevis"
+   ],
+   "origin": [
+    "肱骨外上髁的伸肌—旋後肌共同肌腱、橈側副韌帶"
+   ],
+   "insertion": [
+    "第 3 掌骨底的橈背側"
+   ],
+   "primary": [
+    "腕伸展"
+   ],
+   "secondary": [
+    "腕橈偏"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C6–C7",
+     "minorRoots": "C5、C8",
+     "note": "多由深支支配",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C6–C7，次要 C5、C8，多由深支支配）"
+   ],
+   "blood": [
+    "橈動脈、橈返動脈"
+   ],
+   "palpation": [
+    "外上髁前下方的共同伸肌腱起點；網球肘（外上髁炎）最常牽涉的就是這條。遠端肌腱在 Lister 結節橈側、第 3 掌骨底，握拳伸腕時明顯。"
+   ],
+   "sources": [
+    "Neumann p.312（附著點、神經）、p.309（神經根）、第 7 章 p.234–241（作用）"
+   ],
+   "notes": [
+    "Neumann 只寫橈神經；由深支支配是一般教科書寫法。"
+   ],
+   "reviewed": false,
+   "wiki": "Extensor carpi radialis brevis muscle"
+  },
+  {
+   "id": "extensor-carpi-ulnaris",
+   "zh": "尺側伸腕肌",
+   "en": "extensor carpi ulnaris",
+   "region": "wrist",
+   "parts": [
+    "extensor carpi ulnaris"
+   ],
+   "origin": [
+    "肱骨外上髁的共同伸肌腱、尺骨中 1/3 後緣"
+   ],
+   "insertion": [
+    "第 5 掌骨底的尺背側"
+   ],
+   "primary": [
+    "腕伸展、尺偏"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "尺動脈的分支、骨間後動脈"
+   ],
+   "palpation": [
+    "尺骨莖突與第 5 掌骨底之間的肌腱溝，伸腕加尺偏時明顯；前臂旋後時肌腱容易在溝裡滑脫。"
+   ],
+   "sources": [
+    "Neumann p.312–313（附著點、神經）、p.309（神經根）、第 7 章 p.234–241（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor carpi ulnaris muscle"
+  },
+  {
+   "id": "flexor-carpi-radialis",
+   "zh": "橈側屈腕肌",
+   "en": "flexor carpi radialis",
+   "region": "wrist",
+   "parts": [
+    "flexor carpi radialis"
+   ],
+   "origin": [
+    "肱骨內上髁的屈肌—旋前肌共同肌腱"
+   ],
+   "insertion": [
+    "第 2 掌骨底掌側，另有小束到第 3 掌骨底"
+   ],
+   "primary": [
+    "腕屈曲、橈偏"
+   ],
+   "secondary": [
+    "前臂旋前；肘屈曲（微弱）"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C6–C7",
+     "minorRoots": "C8",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C6–C7，次要 C8）"
+   ],
+   "blood": [
+    "橈動脈與尺動脈的分支"
+   ],
+   "palpation": [
+    "手腕掌側、掌長肌腱的橈側，屈腕加橈偏時明顯；它的橈側就是量橈動脈脈搏的位置。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 7 章 p.234–241（作用）"
+   ],
+   "notes": [
+    "英文 Wikipedia 資訊框只寫尺動脈；一般解剖書多寫橈動脈為主，這裡兩者都列。"
+   ],
+   "reviewed": false,
+   "wiki": "Flexor carpi radialis muscle"
+  },
+  {
+   "id": "flexor-carpi-ulnaris",
+   "zh": "尺側屈腕肌",
+   "en": "flexor carpi ulnaris",
+   "region": "wrist",
+   "parts": [
+    "humeral head of flexor carpi ulnaris",
+    "ulnar head of flexor carpi ulnaris"
+   ],
+   "origin": [
+    "肱骨頭：肱骨內上髁的共同屈肌腱",
+    "尺骨頭：尺骨中 1/3 後緣（鷹嘴內側）"
+   ],
+   "insertion": [
+    "豌豆骨，再經豆鉤韌帶、豆掌韌帶到鉤骨與第 5 掌骨底"
+   ],
+   "primary": [
+    "腕屈曲、尺偏"
+   ],
+   "secondary": [
+    "快速外展小指或伸拇指時穩定豌豆骨"
+   ],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8",
+     "minorRoots": "C7、T1",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8，次要 C7、T1）"
+   ],
+   "blood": [
+    "尺動脈、尺側返動脈"
+   ],
+   "palpation": [
+    "豌豆骨近端的肌腱，屈腕加尺偏時明顯。尺神經從它兩頭之間的肘隧道穿入前臂。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 7 章 p.234–241、p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor carpi ulnaris muscle"
+  },
+  {
+   "id": "palmaris-longus",
+   "zh": "掌長肌",
+   "en": "palmaris longus",
+   "region": "wrist",
+   "parts": [
+    "palmaris longus"
+   ],
+   "origin": [
+    "肱骨內上髁的共同屈肌腱"
+   ],
+   "insertion": [
+    "屈肌支持帶（橫腕韌帶）中央、掌腱膜"
+   ],
+   "primary": [
+    "腕屈曲"
+   ],
+   "secondary": [
+    "繃緊掌腱膜"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C7–C8",
+     "minorRoots": "T1",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C7–C8，次要 T1）"
+   ],
+   "blood": [
+    "尺動脈的分支"
+   ],
+   "palpation": [
+    "拇指與小指指尖相碰再微屈腕，手腕掌側正中會浮起一條細腱；正中神經就在它深層。有一部分人天生沒有這條肌肉。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 7 章 p.234–241（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Palmaris longus muscle"
+  },
+  {
+   "id": "extensor-digitorum",
+   "zh": "伸指肌",
+   "en": "extensor digitorum",
+   "region": "wrist",
+   "parts": [
+    "extensor digitorum"
+   ],
+   "origin": [
+    "肱骨外上髁的共同伸肌腱"
+   ],
+   "insertion": [
+    "分成 4 條肌腱，接到第 2–5 指的伸肌機制（指背腱帽）與近節指骨底背側"
+   ],
+   "primary": [
+    "伸展第 2–5 指的 MCP；經伸肌機制協助伸 PIP、DIP"
+   ],
+   "secondary": [
+    "腕伸展"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "前臂背側中間；手背上可看到 4 條肌腱，請病人只伸 MCP（指間關節微彎）時最清楚。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 8 章 p.268–294、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor digitorum muscle"
+  },
+  {
+   "id": "extensor-digiti-minimi",
+   "zh": "伸小指肌",
+   "en": "extensor digiti minimi",
+   "region": "wrist",
+   "parts": [
+    "extensor digiti minimi"
+   ],
+   "origin": [
+    "伸指肌肌腹的尺側"
+   ],
+   "insertion": [
+    "肌腱通常分叉，接到伸指肌往小指那條肌腱的尺側"
+   ],
+   "primary": [
+    "伸展小指（MCP、PIP、DIP）"
+   ],
+   "secondary": [
+    "腕伸展"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "遠端橈尺關節背側、伸指肌尺側；請病人單獨伸小指可摸到。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor digiti minimi muscle"
+  },
+  {
+   "id": "extensor-indicis",
+   "zh": "伸食指肌",
+   "en": "extensor indicis",
+   "region": "wrist",
+   "parts": [
+    "extensor indicis"
+   ],
+   "origin": [
+    "尺骨中段到遠端後面、骨間膜"
+   ],
+   "insertion": [
+    "接到伸指肌往食指那條肌腱的尺側"
+   ],
+   "primary": [
+    "伸展食指（可單獨伸食指）"
+   ],
+   "secondary": [
+    "腕伸展"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "握拳後只伸出食指，在手背食指肌腱尺側可摸到另一條肌腱。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 8 章 p.268–294（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor indicis muscle"
+  },
+  {
+   "id": "abductor-pollicis-longus",
+   "zh": "外展拇長肌",
+   "en": "abductor pollicis longus",
+   "region": "wrist",
+   "parts": [
+    "abductor pollicis longus"
+   ],
+   "origin": [
+    "橈骨與尺骨中段後面、骨間膜"
+   ],
+   "insertion": [
+    "拇指掌骨底的橈背側；有時另有分支到大多角骨與魚際肌"
+   ],
+   "primary": [
+    "拇指 CMC 外展、伸展；協助拇指對掌"
+   ],
+   "secondary": [
+    "腕橈偏"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "構成「解剖鼻煙壺」的掌側（橈側）邊界，與伸拇短肌並行；兩條肌腱在第一伸肌腔室裡發炎就是 de Quervain 腱鞘炎。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.1 p.278、p.277–278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abductor pollicis longus muscle"
+  },
+  {
+   "id": "extensor-pollicis-brevis",
+   "zh": "伸拇短肌",
+   "en": "extensor pollicis brevis",
+   "region": "wrist",
+   "parts": [
+    "extensor pollicis brevis"
+   ],
+   "origin": [
+    "橈骨中段到遠端後面、骨間膜"
+   ],
+   "insertion": [
+    "拇指近節指骨底背側、拇指伸肌機制"
+   ],
+   "primary": [
+    "拇指 MCP 伸展；CMC 伸展"
+   ],
+   "secondary": [
+    "腕橈偏"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "解剖鼻煙壺的掌側邊界、外展拇長肌的背側，拇指伸直外展時明顯。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.1 p.278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor pollicis brevis muscle"
+  },
+  {
+   "id": "extensor-pollicis-longus",
+   "zh": "伸拇長肌",
+   "en": "extensor pollicis longus",
+   "region": "wrist",
+   "parts": [
+    "extensor pollicis longus"
+   ],
+   "origin": [
+    "尺骨中段後面、骨間膜"
+   ],
+   "insertion": [
+    "拇指遠節指骨底背側、拇指伸肌機制"
+   ],
+   "primary": [
+    "拇指 IP、MCP、CMC 伸展；CMC 內收；拇指復位（從對掌位回來）"
+   ],
+   "secondary": [
+    "腕伸展、橈偏"
+   ],
+   "innervation": [
+    {
+     "nerve": "橈神經",
+     "roots": "C7–C8",
+     "minorRoots": "C6",
+     "note": "經後骨間神經",
+     "term": "radial nerve"
+    }
+   ],
+   "innervationText": [
+    "橈神經（C7–C8，次要 C6，經後骨間神經）"
+   ],
+   "blood": [
+    "骨間後動脈"
+   ],
+   "palpation": [
+    "解剖鼻煙壺的背側（尺側）邊界，肌腱繞過 Lister 結節轉向拇指；請病人把拇指往後翹（伸 IP）最明顯。遠端橈骨骨折後可能斷裂。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.1 p.278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor pollicis longus muscle"
+  },
+  {
+   "id": "flexor-digitorum-superficialis",
+   "zh": "屈指淺肌",
+   "en": "flexor digitorum superficialis",
+   "region": "wrist",
+   "parts": [
+    "flexor digitorum superficialis"
+   ],
+   "origin": [
+    "肱尺頭：肱骨內上髁的共同屈肌腱、尺骨冠狀突內側",
+    "橈骨頭：橈骨粗隆遠外側的斜線"
+   ],
+   "insertion": [
+    "分成 4 條肌腱，接到第 2–5 指中節指骨兩側"
+   ],
+   "primary": [
+    "屈曲第 2–5 指的 PIP、MCP"
+   ],
+   "secondary": [
+    "腕屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7）"
+   ],
+   "blood": [
+    "尺動脈與橈動脈的分支"
+   ],
+   "palpation": [
+    "把其他手指壓直固定（不讓屈指深肌作用），請病人只彎某一指的 PIP，可測該指的屈指淺肌；前臂掌側中段可摸到肌腹。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 8 章 p.268–294、Box 8.2 p.280（作用）"
+   ],
+   "notes": [
+    "英文 Wikipedia 資訊框只寫橈動脈；一般解剖書多寫尺動脈為主，這裡兩者都列。"
+   ],
+   "reviewed": false,
+   "wiki": "Flexor digitorum superficialis muscle"
+  },
+  {
+   "id": "flexor-digitorum-profundus",
+   "zh": "屈指深肌",
+   "en": "flexor digitorum profundus",
+   "region": "wrist",
+   "parts": [
+    "flexor digitorum profundus"
+   ],
+   "origin": [
+    "尺骨前面與內側面近端 3/4、骨間膜"
+   ],
+   "insertion": [
+    "分成 4 條肌腱，穿過屈指淺肌腱的分叉，接到第 2–5 指遠節指骨底掌側"
+   ],
+   "primary": [
+    "屈曲第 2–5 指的 DIP（唯一的 DIP 屈肌）、PIP、MCP"
+   ],
+   "secondary": [
+    "腕屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "內側半（第 4、5 指）",
+     "term": "ulnar nerve"
+    },
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "外側半（第 2、3 指），經前骨間神經",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "內側半（第 4、5 指）：尺神經（C8–T1）",
+    "外側半（第 2、3 指）：正中神經（C8–T1，次要 C7，經前骨間神經）"
+   ],
+   "blood": [
+    "前骨間動脈、尺動脈的分支"
+   ],
+   "palpation": [
+    "固定中節指骨，請病人單獨彎 DIP 即可測該指；肌腹在尺骨前內側，握拳時可摸到。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、第 8 章 p.268–294、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor digitorum profundus muscle"
+  },
+  {
+   "id": "flexor-pollicis-longus",
+   "zh": "屈拇長肌",
+   "en": "flexor pollicis longus",
+   "region": "wrist",
+   "parts": [
+    "flexor pollicis longus"
+   ],
+   "origin": [
+    "橈骨中段前面、骨間膜"
+   ],
+   "insertion": [
+    "拇指遠節指骨底掌側"
+   ],
+   "primary": [
+    "屈曲拇指 IP（唯一的拇指 IP 屈肌）、MCP、CMC"
+   ],
+   "secondary": [
+    "協助拇指對掌"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "經前骨間神經",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7，經前骨間神經）"
+   ],
+   "blood": [
+    "前骨間動脈"
+   ],
+   "palpation": [
+    "固定拇指近節，請病人彎拇指末節；肌腱在拇指近節掌側。前骨間神經麻痺時拇指與食指捏不出「OK」的圓圈。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.1 p.278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor pollicis longus muscle"
+  },
+  {
+   "id": "abductor-pollicis-brevis",
+   "zh": "外展拇短肌",
+   "en": "abductor pollicis brevis",
+   "region": "wrist",
+   "parts": [
+    "abductor pollicis brevis"
+   ],
+   "origin": [
+    "屈肌支持帶（橫腕韌帶）、大多角骨與舟狀骨的掌側結節"
+   ],
+   "insertion": [
+    "拇指近節指骨底橈側；也接到拇指伸肌機制"
+   ],
+   "primary": [
+    "拇指 CMC 外展（往掌面前方）；對掌"
+   ],
+   "secondary": [
+    "拇指 CMC 屈曲、MCP 屈曲；經伸肌機制協助伸 IP"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "返支",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7，返支）"
+   ],
+   "blood": [
+    "掌淺弓（橈動脈掌淺支）"
+   ],
+   "palpation": [
+    "魚際最表層、偏橈側；請病人拇指垂直於手掌往上抬。腕隧道症候群時這塊最早萎縮。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.1 p.278（作用）"
+   ],
+   "notes": [
+    "Neumann 神經根表上這條 C8 的記號不是粗體，寫法待你核對。"
+   ],
+   "reviewed": false,
+   "wiki": "Abductor pollicis brevis muscle"
+  },
+  {
+   "id": "flexor-pollicis-brevis",
+   "zh": "屈拇短肌",
+   "en": "flexor pollicis brevis",
+   "region": "wrist",
+   "parts": [
+    "flexor pollicis brevis",
+    "superficial head of flexor pollicis brevis"
+   ],
+   "origin": [
+    "屈肌支持帶（橫腕韌帶）、大多角骨掌側結節"
+   ],
+   "insertion": [
+    "拇指近節指骨底橈側、外側籽骨"
+   ],
+   "primary": [
+    "拇指 CMC 屈曲、MCP 屈曲；對掌"
+   ],
+   "secondary": [
+    "拇指 CMC 外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "返支",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7，返支）"
+   ],
+   "blood": [
+    "掌淺弓（橈動脈掌淺支）"
+   ],
+   "palpation": [
+    "魚際內側半、外展拇短肌尺側；請病人拇指橫過手掌往小指根部彎。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、Box 8.1 p.278、p.278（深頭）（作用）"
+   ],
+   "notes": [
+    "Neumann 寫淺頭占大部分、深頭很小；一般教科書寫深頭常由尺神經深支支配。"
+   ],
+   "reviewed": false,
+   "wiki": "Flexor pollicis brevis muscle"
+  },
+  {
+   "id": "opponens-pollicis",
+   "zh": "拇指對掌肌",
+   "en": "opponens pollicis",
+   "region": "wrist",
+   "parts": [
+    "opponens pollicis"
+   ],
+   "origin": [
+    "屈肌支持帶（橫腕韌帶）、大多角骨掌側結節"
+   ],
+   "insertion": [
+    "拇指掌骨幹橈側"
+   ],
+   "primary": [
+    "拇指對掌（CMC 屈曲＋外展＋內旋）"
+   ],
+   "secondary": [
+    "拇指 CMC 外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "返支",
+     "term": "median nerve"
+    }
+   ],
+   "innervationText": [
+    "正中神經（C8–T1，次要 C7，返支）"
+   ],
+   "blood": [
+    "掌淺弓（橈動脈掌淺支）"
+   ],
+   "palpation": [
+    "在外展拇短肌深層，沿第一掌骨橈側掌面；拇指指腹與小指指腹相對用力時收縮。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、Box 8.1 p.278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Opponens pollicis muscle"
+  },
+  {
+   "id": "adductor-pollicis",
+   "zh": "內收拇肌",
+   "en": "adductor pollicis",
+   "region": "wrist",
+   "parts": [
+    "oblique head of adductor pollicis",
+    "transverse head of adductor pollicis"
+   ],
+   "origin": [
+    "斜頭：頭狀骨、第 2–3 掌骨底與鄰近的腕掌關節囊韌帶",
+    "橫頭：第 3 掌骨掌面"
+   ],
+   "insertion": [
+    "拇指近節指骨底尺側、內側籽骨；也接到拇指伸肌機制"
+   ],
+   "primary": [
+    "拇指 CMC 內收、屈曲；MCP 屈曲（捏、剪刀動作的主要力量）"
+   ],
+   "secondary": [
+    "經伸肌機制協助伸 IP"
+   ],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "掌深弓"
+   ],
+   "palpation": [
+    "拇指與食指之間的虎口掌側深處。尺神經麻痺時用拇指食指夾紙會以屈拇長肌代償、拇指末節彎曲（Froment 徵象）。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、Box 8.1 p.278、p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Adductor pollicis muscle"
+  },
+  {
+   "id": "abductor-digiti-minimi-hand",
+   "zh": "外展小指肌",
+   "en": "abductor digiti minimi (hand)",
+   "region": "wrist",
+   "parts": [
+    "abductor digiti minimi of hand"
+   ],
+   "origin": [
+    "豌豆骨、豆鉤韌帶、尺側屈腕肌腱"
+   ],
+   "insertion": [
+    "小指近節指骨底尺側；也接到小指伸肌機制"
+   ],
+   "primary": [
+    "小指 MCP 外展"
+   ],
+   "secondary": [
+    "小指 MCP 屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "尺動脈（深掌支）"
+   ],
+   "palpation": [
+    "小魚際最內側、最表層；請病人把小指往外張開。"
+   ],
+   "sources": [
+    "Neumann p.313（附著點、神經）、p.309（神經根）、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abductor digiti minimi muscle of hand"
+  },
+  {
+   "id": "flexor-digiti-minimi-brevis-hand",
+   "zh": "屈小指短肌",
+   "en": "flexor digiti minimi brevis (hand)",
+   "region": "wrist",
+   "parts": [
+    "flexor digiti minimi brevis of hand"
+   ],
+   "origin": [
+    "屈肌支持帶（橫腕韌帶）、鉤骨鉤"
+   ],
+   "insertion": [
+    "小指近節指骨底尺側"
+   ],
+   "primary": [
+    "小指 MCP 屈曲；小指 CMC 屈曲與對掌"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "尺動脈（深掌支）"
+   ],
+   "palpation": [
+    "外展小指肌外側（橈側），常與它融合；請病人只彎小指 MCP、指間關節伸直。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor digiti minimi brevis muscle of hand"
+  },
+  {
+   "id": "opponens-digiti-minimi-hand",
+   "zh": "小指對掌肌",
+   "en": "opponens digiti minimi (hand)",
+   "region": "wrist",
+   "parts": [
+    "opponens digiti minimi of hand"
+   ],
+   "origin": [
+    "屈肌支持帶（橫腕韌帶）、鉤骨鉤"
+   ],
+   "insertion": [
+    "第 5 掌骨幹尺側"
+   ],
+   "primary": [
+    "小指 CMC 屈曲與對掌（把第 5 掌骨轉向中指），讓手掌尺側隆起成杯狀"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "尺動脈（深掌支）"
+   ],
+   "palpation": [
+    "在外展小指肌與屈小指短肌深層，沿第 5 掌骨；小指指腹與拇指相對時收縮。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Opponens digiti minimi muscle"
+  },
+  {
+   "id": "lumbricals-hand",
+   "zh": "手部蚓狀肌",
+   "en": "lumbricals (hand)",
+   "region": "wrist",
+   "parts": [
+    "set of lumbricals of hand"
+   ],
+   "origin": [
+    "屈指深肌腱",
+    "外側兩條（第 1、2）：食指、中指屈指深肌腱的橈側",
+    "內側兩條（第 3、4）：中指、無名指、小指屈指深肌腱的相鄰側"
+   ],
+   "insertion": [
+    "經背側腱帽的斜纖維，接到第 2–5 指伸肌機制的橈側"
+   ],
+   "primary": [
+    "屈曲 MCP、同時伸展 PIP 與 DIP（「蚓狀肌姿勢」）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "正中神經",
+     "roots": "C8–T1",
+     "minorRoots": "C7",
+     "note": "外側兩條",
+     "term": "median nerve"
+    },
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "內側兩條，深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "外側兩條：正中神經（C8–T1，次要 C7）",
+    "內側兩條：尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "掌淺弓、指掌側總動脈、掌深弓、指背動脈"
+   ],
+   "palpation": [
+    "很小，不直接觸診；測試時請病人 MCP 屈曲、指間關節伸直（像托盤姿勢）。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、第 8 章 p.280–284、Box 8.2 p.280（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Lumbricals of the hand"
+  },
+  {
+   "id": "dorsal-interossei-hand",
+   "zh": "手部背側骨間肌",
+   "en": "dorsal interossei (hand)",
+   "region": "wrist",
+   "parts": [
+    "set of dorsal interossei of hand"
+   ],
+   "origin": [
+    "相鄰兩掌骨的對面（4 條，各有兩頭）",
+    "第 1：拇指與食指掌骨之間",
+    "第 2：第 2、3 掌骨之間",
+    "第 3：第 3、4 掌骨之間",
+    "第 4：第 4、5 掌骨之間"
+   ],
+   "insertion": [
+    "近節指骨底與背側腱帽",
+    "第 1：食指橈側",
+    "第 2：中指橈側",
+    "第 3：中指尺側",
+    "第 4：無名指尺側"
+   ],
+   "primary": [
+    "以中指為中線，把食指、中指、無名指 MCP 外展；協助 MCP 屈曲、指間關節伸展"
+   ],
+   "secondary": [
+    "第 1 背側骨間肌協助拇指內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "掌背動脈與掌心動脈"
+   ],
+   "palpation": [
+    "第 1 背側骨間肌在虎口背側，請病人食指往拇指方向反向張開（外展）時隆起；尺神經麻痺時這裡最先凹陷。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、第 8 章 p.280–284、Box 8.1 p.278（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Dorsal interossei of the hand"
+  },
+  {
+   "id": "palmar-interossei-hand",
+   "zh": "手部掌側骨間肌",
+   "en": "palmar interossei (hand)",
+   "region": "wrist",
+   "parts": [
+    "set of palmar interossei of hand"
+   ],
+   "origin": [
+    "第 1：拇指掌骨尺側",
+    "第 2：第 2 掌骨尺側",
+    "第 3：第 4 掌骨橈側",
+    "第 4：第 5 掌骨橈側"
+   ],
+   "insertion": [
+    "第 1：拇指近節指骨尺側（與內收拇肌融合）、內側籽骨",
+    "第 2：食指背側腱帽與近節指骨底尺側",
+    "第 3：無名指背側腱帽與近節指骨底橈側",
+    "第 4：小指背側腱帽與近節指骨底橈側"
+   ],
+   "primary": [
+    "把手指往中指方向 MCP 內收；協助 MCP 屈曲、指間關節伸展"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "尺神經",
+     "roots": "C8–T1",
+     "note": "深支",
+     "term": "ulnar nerve"
+    }
+   ],
+   "innervationText": [
+    "尺神經（C8–T1，深支）"
+   ],
+   "blood": [
+    "掌深弓的掌心動脈"
+   ],
+   "palpation": [
+    "在掌骨之間深處，不易觸診；測試時請病人夾住放在指縫間的紙。"
+   ],
+   "sources": [
+    "Neumann p.314（附著點、神經）、p.309（神經根）、第 8 章 p.280–284、Box 8.2 p.280（作用）"
+   ],
+   "notes": [
+    "Neumann 把拇指的那條也算進去，所以是 4 條；有些書只算 3 條。"
+   ],
+   "reviewed": false,
+   "wiki": "Palmar interossei muscles"
+  },
+  {
+   "id": "rectus-abdominis",
+   "zh": "腹直肌",
+   "en": "rectus abdominis",
+   "region": "trunk",
+   "parts": [
+    "rectus abdominis"
+   ],
+   "origin": [
+    "恥骨嵴、恥骨聯合附近的韌帶"
+   ],
+   "insertion": [
+    "劍突、第 5–7 肋軟骨"
+   ],
+   "primary": [
+    "軀幹屈曲；軀幹同側側屈；用力呼氣（壓低肋骨與胸骨）"
+   ],
+   "secondary": [
+    "下肢固定時讓骨盆後傾；增加腹內壓"
+   ],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T7–T12",
+     "term": "intercostal nerves"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T7–T12）"
+   ],
+   "blood": [
+    "腹壁上動脈、腹壁下動脈，以及下位肋間後動脈"
+   ],
+   "palpation": [
+    "仰臥捲腹時在白線兩側明顯，可看到腱劃。產後可在肚臍上下用手指量白線分開的寬度（腹直肌分離）。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407、表 11.6 p.461（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rectus abdominis muscle"
+  },
+  {
+   "id": "external-oblique",
+   "zh": "腹外斜肌",
+   "en": "external oblique",
+   "region": "trunk",
+   "parts": [
+    "external oblique"
+   ],
+   "origin": [
+    "第 4–12 肋外側面（與前鋸肌、闊背肌交錯）"
+   ],
+   "insertion": [
+    "髂嵴外唇前半、白線、對側腹直肌鞘"
+   ],
+   "primary": [
+    "軀幹屈曲；軀幹同側側屈；軀幹對側旋轉（CL）；用力呼氣"
+   ],
+   "secondary": [
+    "增加腹內壓"
+   ],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T8–T12",
+     "term": "intercostal nerves"
+    },
+    {
+     "nerve": "髂腹下神經",
+     "roots": "L1",
+     "term": "iliohypogastric nerve"
+    },
+    {
+     "nerve": "髂腹股溝神經",
+     "roots": "L1",
+     "term": "ilio-inguinal nerve"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T8–T12）；髂腹下神經（L1）；髂腹股溝神經（L1）"
+   ],
+   "blood": [
+    "下位肋間後動脈、肋下動脈、旋髂深動脈"
+   ],
+   "palpation": [
+    "在胸廓下外側到髂嵴之間，纖維往前下內斜（像手插口袋）；仰臥捲腹同時把一側肩膀轉向對側髖部時收縮。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.3 p.403、表 10.4 p.407、表 11.6 p.461（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abdominal external oblique muscle"
+  },
+  {
+   "id": "internal-oblique",
+   "zh": "腹內斜肌",
+   "en": "internal oblique",
+   "region": "trunk",
+   "parts": [
+    "internal oblique"
+   ],
+   "origin": [
+    "髂嵴中間線前 2/3、腹股溝韌帶、胸腰筋膜"
+   ],
+   "insertion": [
+    "第 9–12 肋、白線、對側腹直肌鞘"
+   ],
+   "primary": [
+    "軀幹屈曲；軀幹同側側屈；軀幹同側旋轉（IL）；用力呼氣"
+   ],
+   "secondary": [
+    "增加腹內壓；經胸腰筋膜協助穩定腰椎"
+   ],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T8–T12",
+     "term": "intercostal nerves"
+    },
+    {
+     "nerve": "髂腹下神經",
+     "roots": "L1",
+     "term": "iliohypogastric nerve"
+    },
+    {
+     "nerve": "髂腹股溝神經",
+     "roots": "L1",
+     "term": "ilio-inguinal nerve"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T8–T12）；髂腹下神經（L1）；髂腹股溝神經（L1）"
+   ],
+   "blood": [
+    "肋下動脈、腹壁上與腹壁下動脈、旋髂深動脈"
+   ],
+   "palpation": [
+    "在腹外斜肌深層，髂前上棘內下方最容易摸到；扭轉捲腹時跟對側的腹外斜肌一起收縮。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.3 p.403、表 10.4 p.407、表 11.6 p.461（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abdominal internal oblique muscle"
+  },
+  {
+   "id": "transversus-abdominis",
+   "zh": "腹橫肌",
+   "en": "transversus abdominis",
+   "region": "trunk",
+   "parts": [
+    "transversus abdominis"
+   ],
+   "origin": [
+    "髂嵴內唇前 2/3、胸腰筋膜、第 6–12 肋軟骨內面、腹股溝韌帶"
+   ],
+   "insertion": [
+    "白線、對側腹直肌鞘"
+   ],
+   "primary": [
+    "增加腹內壓；經胸腰筋膜穩定腰椎；用力呼氣（咳嗽、打噴嚏）"
+   ],
+   "secondary": [
+    "不產生明顯的軀幹動作"
+   ],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T7–T12",
+     "term": "intercostal nerves"
+    },
+    {
+     "nerve": "髂腹下神經",
+     "roots": "L1",
+     "term": "iliohypogastric nerve"
+    },
+    {
+     "nerve": "髂腹股溝神經",
+     "roots": "L1",
+     "term": "ilio-inguinal nerve"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T7–T12）；髂腹下神經（L1）；髂腹股溝神經（L1）"
+   ],
+   "blood": [
+    "肋下動脈、腹壁上與腹壁下動脈、旋髂深動脈"
+   ],
+   "palpation": [
+    "仰臥屈膝，手指放在髂前上棘內側約 2 cm 再往下內深壓；請病人輕輕把下腹往內收（腹部內收動作），手指下的張力會增加，但不應鼓起（鼓起代表腹內斜肌代償）。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407、表 11.6 p.461（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Transverse abdominal muscle"
+  },
+  {
+   "id": "pyramidalis",
+   "zh": "錐狀肌",
+   "en": "pyramidalis",
+   "region": "trunk",
+   "parts": [
+    "pyramidalis"
+   ],
+   "origin": [
+    "恥骨嵴、恥骨聯合前面"
+   ],
+   "insertion": [
+    "白線下段（肚臍與恥骨之間）"
+   ],
+   "primary": [
+    "繃緊白線"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肋下神經",
+     "roots": "T12"
+    }
+   ],
+   "innervationText": [
+    "肋下神經（T12）"
+   ],
+   "blood": [
+    "腹壁下動脈"
+   ],
+   "palpation": [
+    "很小，位在腹直肌下端前方，有些人沒有；臨床上不單獨觸診。"
+   ],
+   "sources": [
+    "Neumann 沒有收錄；依一般解剖學整理"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Pyramidalis muscle"
+  },
+  {
+   "id": "quadratus-lumborum",
+   "zh": "腰方肌",
+   "en": "quadratus lumborum",
+   "region": "trunk",
+   "parts": [
+    "quadratus lumborum"
+   ],
+   "origin": [
+    "髂腰韌帶、髂嵴後部"
+   ],
+   "insertion": [
+    "第 12 肋、L1–L4 橫突尖"
+   ],
+   "primary": [
+    "腰椎同側側屈；腰椎伸展"
+   ],
+   "secondary": [
+    "下肢懸空時上提同側骨盆；用力吸氣初期固定第 12 肋，讓橫膈收縮更有效"
+   ],
+   "innervation": [
+    {
+     "nerve": "腰神經腹枝",
+     "roots": "T12–L3"
+    }
+   ],
+   "innervationText": [
+    "腰神經腹枝（T12–L3）"
+   ],
+   "blood": [
+    "腰動脈、髂腰動脈的腰支、肋下動脈"
+   ],
+   "palpation": [
+    "側臥（患側在上），在第 12 肋與髂嵴之間、豎脊肌外緣往內深壓；請病人把同側骨盆往肩膀方向提起可感覺收縮。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 10.4 p.407、表 11.5 p.460（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Quadratus lumborum muscle"
+  },
+  {
+   "id": "iliocostalis",
+   "zh": "髂肋肌",
+   "en": "iliocostalis",
+   "region": "trunk",
+   "parts": [
+    "iliocostalis lumborum",
+    "iliocostalis thoracis",
+    "iliocostalis cervicis"
+   ],
+   "origin": [
+    "腰髂肋肌：豎脊肌共同肌腱（薦骨、下胸與腰椎棘突、髂嵴、薦結節與薦髂韌帶等）",
+    "胸髂肋肌：第 6–12 肋的肋骨角",
+    "頸髂肋肌：第 3–7 肋的肋骨角"
+   ],
+   "insertion": [
+    "腰髂肋肌：第 6–12 肋的肋骨角",
+    "胸髂肋肌：第 1–6 肋的肋骨角",
+    "頸髂肋肌：C4–C6 橫突後結節"
+   ],
+   "primary": [
+    "軀幹（頸）伸展、同側側屈；頸髂肋肌另有頸部同側旋轉（IL）"
+   ],
+   "secondary": [
+    "腰髂肋肌：腰椎同側旋轉（IL）；用力吸氣時伸展軀幹"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C3–L5",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C3–L5，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈、肋下動脈、腰動脈的背側支；頸段為頸深動脈"
+   ],
+   "palpation": [
+    "豎脊肌最外側的一條，腰部在最長肌外側、靠近肋骨角；俯臥抬胸時可摸到。"
+   ],
+   "sources": [
+    "Neumann p.470–471（附著點、神經）、Box 10.2 p.398、表 10.4 p.407、表 11.5 p.460（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Iliocostalis"
+  },
+  {
+   "id": "longissimus",
+   "zh": "最長肌",
+   "en": "longissimus",
+   "region": "trunk",
+   "parts": [
+    "longissimus thoracis",
+    "longissimus cervicis",
+    "longissimus capitis"
+   ],
+   "origin": [
+    "胸最長肌：豎脊肌共同肌腱",
+    "頸最長肌：T1–T4 橫突",
+    "頭最長肌：T1–T5 橫突、C4–C7 關節突"
+   ],
+   "insertion": [
+    "胸最長肌：第 3–12 肋的肋結節與肋骨角、T1–T12 橫突",
+    "頸最長肌：C2–C6 橫突後結節",
+    "頭最長肌：顳骨乳突後緣"
+   ],
+   "primary": [
+    "脊椎伸展、同側側屈；頸、頭最長肌另有同側旋轉（IL）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C3–L5",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C3–L5，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈與腰動脈的背側支、薦外側動脈（下段）、頸深動脈與枕動脈（頸段）"
+   ],
+   "palpation": [
+    "腰部棘突旁約兩指寬的粗大隆起，是豎脊肌最大的一條；站姿前彎回正或俯臥抬胸時明顯。"
+   ],
+   "sources": [
+    "Neumann p.470（附著點）、p.471（神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Longissimus"
+  },
+  {
+   "id": "spinalis",
+   "zh": "棘肌",
+   "en": "spinalis",
+   "region": "trunk",
+   "parts": [
+    "spinalis thoracis",
+    "spinalis"
+   ],
+   "origin": [
+    "胸棘肌：豎脊肌共同肌腱（下胸與上腰的棘突）",
+    "頸棘肌：項韌帶、C7–T1 棘突"
+   ],
+   "insertion": [
+    "胸棘肌：大部分胸椎的棘突",
+    "頸棘肌：C2 棘突"
+   ],
+   "primary": [
+    "脊椎伸展"
+   ],
+   "secondary": [
+    "同側側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C3–L5",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C3–L5，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈的背側支、頸深動脈"
+   ],
+   "palpation": [
+    "緊貼棘突兩側最內側的一條，很薄，通常跟最長肌一起觸診。"
+   ],
+   "sources": [
+    "Neumann p.470–471（附著點、神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [
+    "模型裡的 `spinalis` 位在頸段（頸棘肌）；Neumann 另寫頭棘肌與頭半棘肌融合。"
+   ],
+   "reviewed": false,
+   "wiki": "Spinalis"
+  },
+  {
+   "id": "multifidus",
+   "zh": "多裂肌",
+   "en": "multifidus",
+   "region": "trunk",
+   "parts": [
+    "multifidus cervicis",
+    "multifidus thoracis",
+    "multifidus lumborum"
+   ],
+   "origin": [
+    "腰段：腰椎乳突、腰薦韌帶、豎脊肌共同肌腱深部、薦骨後面、髂後上棘、腰椎與腰薦小面關節囊",
+    "胸段：T1–T12 橫突",
+    "頸段：C3–C7 關節突"
+   ],
+   "insertion": [
+    "往上跨 2–4 個節段的棘突"
+   ],
+   "primary": [
+    "脊椎伸展；脊椎對側旋轉（CL）；腰椎節段穩定"
+   ],
+   "secondary": [
+    "同側側屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C4–S3",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C4–S3，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈與腰動脈的背側支；頸段為頸深動脈"
+   ],
+   "palpation": [
+    "俯臥，手指放在 L4–L5 棘突正旁輕壓（豎脊肌深層），請病人想像把腰往手指方向輕輕鼓起，或抬對側手臂，可感覺收縮。下背痛患者常見萎縮或脂肪浸潤（可用超音波看）。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、Box 10.3 p.401、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Multifidus muscle"
+  },
+  {
+   "id": "rotatores",
+   "zh": "迴旋肌",
+   "en": "rotatores",
+   "region": "trunk",
+   "parts": [
+    "set of rotatores"
+   ],
+   "origin": [
+    "所有椎骨的橫突"
+   ],
+   "insertion": [
+    "往上 1–2 個節段的棘突底與椎板（短迴旋肌跨 1 節、長迴旋肌跨 2 節）"
+   ],
+   "primary": [
+    "脊椎伸展；脊椎對側旋轉（CL）"
+   ],
+   "secondary": [
+    "同側側屈；節段的本體感覺與微調"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C4–L4",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C4–L4，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈與腰動脈的背側支"
+   ],
+   "palpation": [
+    "最深層，無法單獨觸診；胸段最發達。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Rotatores muscles"
+  },
+  {
+   "id": "interspinales",
+   "zh": "棘間肌",
+   "en": "interspinales",
+   "region": "trunk",
+   "parts": [
+    "set of interspinales cervicis",
+    "interspinalis thoracis",
+    "set of interspinales lumborum"
+   ],
+   "origin": [
+    "下一節的棘突"
+   ],
+   "insertion": [
+    "上一節的棘突（左右成對，頸段除 C1–C2、腰段每節都有，胸段只有最上與最下幾節）"
+   ],
+   "primary": [
+    "脊椎伸展"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "脊神經背枝",
+     "roots": "C3–L5",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "脊神經背枝（C3–L5，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈與腰動脈的背側支、頸深動脈"
+   ],
+   "palpation": [
+    "在棘突之間的棘間韌帶兩旁，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Interspinales muscles"
+  },
+  {
+   "id": "intertransversarii",
+   "zh": "橫突間肌",
+   "en": "intertransversarii",
+   "region": "trunk",
+   "parts": [
+    "set of anterior cervical intertransversarii",
+    "set of posterior cervical intertransversarii",
+    "medial lumbar intertransversarius",
+    "lateral lumbar intertransversarius"
+   ],
+   "origin": [
+    "下一節的橫突（頸段分前、後兩組；腰段分內側、外側兩組；下胸段也有）"
+   ],
+   "insertion": [
+    "上一節的橫突"
+   ],
+   "primary": [
+    "脊椎同側側屈"
+   ],
+   "secondary": [
+    "脊椎伸展"
+   ],
+   "innervation": [
+    {
+     "nerve": "脊神經腹枝",
+     "roots": "C3–L5",
+     "note": "頸前、頸後與腰外側橫突間肌，鄰近節段"
+    },
+    {
+     "nerve": "脊神經背枝",
+     "roots": "L1–L5",
+     "note": "腰內側橫突間肌，鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "頸前、頸後與腰外側橫突間肌：脊神經腹枝（C3–L5，鄰近節段）",
+    "腰內側橫突間肌：脊神經背枝（L1–L5，鄰近節段）"
+   ],
+   "blood": [
+    "椎動脈、頸深動脈（頸段）；腰動脈（腰段）"
+   ],
+   "palpation": [
+    "最深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.471（附著點、神經）、表 10.4 p.407（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Intertransversarii"
+  },
+  {
+   "id": "diaphragm",
+   "zh": "橫膈",
+   "en": "diaphragm",
+   "region": "trunk",
+   "parts": [
+    "diaphragm"
+   ],
+   "origin": [
+    "肋部：第 6–12 肋軟骨與鄰近肋骨的內面（部分纖維與腹橫肌相連）",
+    "胸骨部：劍突後面",
+    "腰部（膈腳）：跨在腰方肌、腰大肌前面的兩條腱弓（外側、內側弓狀韌帶）；左右膈腳起自 L1–L3 椎體與椎間盤"
+   ],
+   "insertion": [
+    "圓頂上方的中心腱"
+   ],
+   "primary": [
+    "最主要的吸氣肌（安靜呼吸的 60–80%）：圓頂下降、增加胸腔垂直徑；腹部阻擋後再上提下位 6 對肋骨"
+   ],
+   "secondary": [
+    "與腹肌共同收縮增加腹內壓（穩定軀幹、排便、分娩、閉氣用力）"
+   ],
+   "innervation": [
+    {
+     "nerve": "膈神經",
+     "roots": "C3–C5",
+     "note": "以 C4 為主"
+    }
+   ],
+   "innervationText": [
+    "膈神經（C3–C5，以 C4 為主）"
+   ],
+   "blood": [
+    "膈上與膈下動脈、心包膈動脈與肌膈動脈（胸廓內動脈的分支）、下位肋間後動脈"
+   ],
+   "palpation": [
+    "仰臥屈膝，手指從肋弓下緣往內上方輕輕勾入，吸氣時手指會被往下推；也可觀察吸氣時上腹與下胸是否往外擴（腹式呼吸）。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.4 與 p.457（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Thoracic diaphragm"
+  },
+  {
+   "id": "external-intercostal-muscles",
+   "zh": "肋間外肌",
+   "en": "external intercostal muscles",
+   "region": "trunk",
+   "parts": [
+    "external intercostal muscle"
+   ],
+   "origin": [
+    "上一根肋骨的下緣（每側 11 條）"
+   ],
+   "insertion": [
+    "下一根肋骨的上緣；纖維往下、往內斜，外側最發達"
+   ],
+   "primary": [
+    "吸氣時上提肋骨；穩定肋間隙，避免吸氣時往內塌陷"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T2–T12",
+     "term": "intercostal nerves"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T2–T12）"
+   ],
+   "blood": [
+    "肋間後動脈、肋間前動脈"
+   ],
+   "palpation": [
+    "在肋間隙外側，無法跟肋間內肌分開觸診；可觀察吸氣時肋間隙是否內凹。"
+   ],
+   "sources": [
+    "Neumann p.473–474（附著點、神經）、表 11.4 p.457（作用）"
+   ],
+   "notes": [
+    "Neumann 寫肋間神經 T2–T12；一般教科書多寫 T1–T11 肋間神經（第 12 對是肋下神經）。"
+   ],
+   "reviewed": false,
+   "wiki": "External intercostal muscles"
+  },
+  {
+   "id": "internal-intercostal-muscles",
+   "zh": "肋間內肌",
+   "en": "internal intercostal muscles",
+   "region": "trunk",
+   "parts": [
+    "internal intercostal muscle"
+   ],
+   "origin": [
+    "上一根肋骨的下緣（每側 11 條）"
+   ],
+   "insertion": [
+    "下一根肋骨的上緣；纖維往下、稍往外，跟肋間外肌幾乎垂直，胸骨旁最發達"
+   ],
+   "primary": [
+    "胸骨旁纖維（軟骨間部）：吸氣時上提肋骨",
+    "骨間部纖維：用力呼氣時下拉肋骨"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T2–T12",
+     "term": "intercostal nerves"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T2–T12）"
+   ],
+   "blood": [
+    "肋間後動脈、肋間前動脈"
+   ],
+   "palpation": [
+    "位在肋間外肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473–474（附著點、神經）、表 11.4 p.457、表 11.6 p.461（作用）"
+   ],
+   "notes": [
+    "神經節段同肋間外肌的備註。"
+   ],
+   "reviewed": false,
+   "wiki": "Internal intercostal muscles"
+  },
+  {
+   "id": "serratus-posterior-superior",
+   "zh": "上後鋸肌",
+   "en": "serratus posterior superior",
+   "region": "trunk",
+   "parts": [
+    "serratus posterior superior"
+   ],
+   "origin": [
+    "C6–T3 棘突、棘上韌帶與項韌帶"
+   ],
+   "insertion": [
+    "第 2–5 肋後面、肋骨角附近"
+   ],
+   "primary": [
+    "上提上位肋骨（用力吸氣）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T2–T5",
+     "term": "intercostal nerves"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T2–T5）"
+   ],
+   "blood": [
+    "肋間後動脈"
+   ],
+   "palpation": [
+    "在菱形肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.474（附著點、神經）、表 11.5 p.460（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Serratus posterior superior muscle"
+  },
+  {
+   "id": "serratus-posterior-inferior",
+   "zh": "下後鋸肌",
+   "en": "serratus posterior inferior",
+   "region": "trunk",
+   "parts": [
+    "serratus posterior inferior"
+   ],
+   "origin": [
+    "T11–L3 棘突與棘上韌帶"
+   ],
+   "insertion": [
+    "第 9–12 肋後面、肋骨角附近"
+   ],
+   "primary": [
+    "固定下位肋骨，讓橫膈開始收縮時更有效（用力吸氣）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "肋間神經",
+     "roots": "T9–T12",
+     "term": "intercostal nerves"
+    }
+   ],
+   "innervationText": [
+    "肋間神經（T9–T12）"
+   ],
+   "blood": [
+    "肋間後動脈、肋下動脈、腰動脈"
+   ],
+   "palpation": [
+    "在闊背肌深層、豎脊肌表面，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.474（附著點、神經）、表 11.5 p.460（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Serratus posterior inferior muscle"
+  },
+  {
+   "id": "levatores-costarum",
+   "zh": "提肋肌",
+   "en": "levatores costarum",
+   "region": "trunk",
+   "parts": [
+    "set of levatores costarum breves",
+    "set of levatores costarum longi"
+   ],
+   "origin": [
+    "C7–T11 橫突尖"
+   ],
+   "insertion": [
+    "下方肋骨的外面（肋結節與肋骨角之間）",
+    "短提肋肌：接到正下方那一根肋骨",
+    "長提肋肌：接到往下第二根肋骨（下段較明顯）"
+   ],
+   "primary": [
+    "上提肋骨（用力吸氣）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "胸神經背枝",
+     "roots": "C7–T11",
+     "note": "鄰近節段"
+    }
+   ],
+   "innervationText": [
+    "胸神經背枝（C7–T11，鄰近節段）"
+   ],
+   "blood": [
+    "肋間後動脈的背側支"
+   ],
+   "palpation": [
+    "在豎脊肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.474（附著點、神經）、表 11.5 p.460（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Levatores costarum muscles"
+  },
+  {
+   "id": "levator-ani",
+   "zh": "提肛肌",
+   "en": "levator ani",
+   "region": "trunk",
+   "parts": [
+    "pubococcygeus",
+    "puborectalis",
+    "iliococcygeus"
+   ],
+   "origin": [
+    "從恥骨後面、閉孔內肌筋膜上的肌腱弓，一直到坐骨棘的一條線",
+    "恥骨尾骨肌、恥骨直腸肌：恥骨後面",
+    "髂尾肌：肌腱弓與坐骨棘"
+   ],
+   "insertion": [
+    "前方接到會陰膜；後方接到對側同名肌、直腸遠端與肛管、肛尾韌帶（恥骨直腸肌在直腸後方左右相連成吊帶）"
+   ],
+   "primary": [
+    "構成骨盆底、承托骨盆器官；維持肛直腸角（恥骨直腸肌像夾子一樣維持排便控制）；放鬆時讓尿液與糞便通過"
+   ],
+   "secondary": [
+    "加強肛門外括約肌與陰道括約；與腹肌、橫膈一起增加腹內壓"
+   ],
+   "innervation": [
+    {
+     "nerve": "第 4 薦神經腹枝",
+     "roots": "S4"
+    },
+    {
+     "nerve": "陰部神經",
+     "roots": "S2–S4",
+     "note": "直腸下支",
+     "term": "pudendal nerve"
+    }
+   ],
+   "innervationText": [
+    "第 4 薦神經腹枝（S4）；陰部神經（S2–S4，直腸下支）"
+   ],
+   "blood": [
+    "陰部內動脈、臀下動脈、膀胱下動脈的分支"
+   ],
+   "palpation": [
+    "外部可在坐骨結節內側、肛門外側，請病人「像憋住不放屁」時感覺往內上提；精確評估要經陰道或肛門內診，需要相應訓練與同意。"
+   ],
+   "sources": [
+    "Neumann 附錄 IV Part F p.736（附著點、神經、作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Levator ani"
+  },
+  {
+   "id": "coccygeus-ischiococcygeus",
+   "zh": "尾骨肌",
+   "en": "coccygeus (ischiococcygeus)",
+   "region": "trunk",
+   "parts": [
+    "coccygeus"
+   ],
+   "origin": [
+    "坐骨棘、薦棘韌帶的骨盆面"
+   ],
+   "insertion": [
+    "尾骨外緣與鄰近的薦骨下端"
+   ],
+   "primary": [
+    "構成骨盆底後部；協助提肛肌控制排尿與排便"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "薦神經腹枝",
+     "roots": "S3–S4"
+    }
+   ],
+   "innervationText": [
+    "薦神經腹枝（S3–S4）"
+   ],
+   "blood": [
+    "臀下動脈、陰部內動脈的分支"
+   ],
+   "palpation": [
+    "在骨盆內，需經肛門內診才能觸及；尾骨痛時常一起評估。"
+   ],
+   "sources": [
+    "Neumann 附錄 IV Part F p.736（附著點、神經、作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Coccygeus muscle"
+  },
+  {
+   "id": "psoas-major",
+   "zh": "腰大肌",
+   "en": "psoas major",
+   "region": "hip",
+   "parts": [
+    "psoas major"
+   ],
+   "origin": [
+    "T12 與所有腰椎的橫突、椎體側面與椎間盤"
+   ],
+   "insertion": [
+    "股骨小轉子"
+   ],
+   "primary": [
+    "髖屈曲（股骨固定時讓骨盆前傾）；腰椎同側側屈"
+   ],
+   "secondary": [
+    "腰椎屈曲或伸展（依腰椎所在位置，作用都小）"
+   ],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "term": "femoral nerve"
+    },
+    {
+     "nerve": "L1 的直接分支",
+     "roots": "L1"
+    }
+   ],
+   "innervationText": [
+    "股神經（L2–L3，次要 L4）；L1 的直接分支（L1）"
+   ],
+   "blood": [
+    "腰動脈、髂腰動脈的腰支"
+   ],
+   "palpation": [
+    "仰臥屈膝，在肚臍外側約 3 橫指、腹直肌外緣慢慢往後深壓，請病人腳跟輕輕離床（屈髖）感覺收縮；旁邊有腹主動脈與腸道，壓到搏動就移開。腹股溝韌帶下方股三角內也可摸到肌腱。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499、表 10.4 p.407（作用）"
+   ],
+   "notes": [
+    "Neumann 寫髂腰肌由股神經支配、腰大肌另有 L1 分支；一般教科書多寫腰大肌由腰神經叢直接分支（L1–L3）支配。"
+   ],
+   "reviewed": false,
+   "wiki": "Psoas major muscle"
+  },
+  {
+   "id": "iliacus",
+   "zh": "髂肌",
+   "en": "iliacus",
+   "region": "hip",
+   "parts": [
+    "iliacus"
+   ],
+   "origin": [
+    "髂窩上 2/3、髂嵴內唇、跨過薦髂關節的一小塊薦骨"
+   ],
+   "insertion": [
+    "沿腰大肌肌腱外側止於股骨小轉子"
+   ],
+   "primary": [
+    "髖屈曲；股骨固定時讓骨盆前傾"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L2–L3，次要 L4）"
+   ],
+   "blood": [
+    "髂腰動脈的髂支、旋髂深動脈、旋股內動脈"
+   ],
+   "palpation": [
+    "仰臥屈膝，手指從髂前上棘內側沿髂嵴內面往髂窩深處滑入，請病人輕微屈髖。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Iliacus muscle"
+  },
+  {
+   "id": "sartorius",
+   "zh": "縫匠肌",
+   "en": "sartorius",
+   "region": "hip",
+   "parts": [
+    "sartorius"
+   ],
+   "origin": [
+    "髂前上棘"
+   ],
+   "insertion": [
+    "脛骨近端內側面（鵝足最前面）"
+   ],
+   "primary": [
+    "髖屈曲；膝屈曲與內旋"
+   ],
+   "secondary": [
+    "髖外展、外旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L2–L3",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L2–L3）"
+   ],
+   "blood": [
+    "股動脈的肌支（旋股外側動脈、膝降動脈）"
+   ],
+   "palpation": [
+    "髂前上棘正下方；坐姿翹「4 字腿」（髖屈曲、外展、外旋加膝屈曲）對抗阻力時，可沿大腿前面斜向內下摸到全長。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Sartorius"
+  },
+  {
+   "id": "tensor-fasciae-latae",
+   "zh": "闊筋膜張肌",
+   "en": "tensor fasciae latae",
+   "region": "hip",
+   "parts": [
+    "tensor fasciae latae"
+   ],
+   "origin": [
+    "髂嵴外緣、髂前上棘正後方"
+   ],
+   "insertion": [
+    "髂脛束近端 1/3"
+   ],
+   "primary": [
+    "髖屈曲、外展"
+   ],
+   "secondary": [
+    "髖內旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "臀上神經",
+     "roots": "L4–S1",
+     "term": "superior gluteal nerve"
+    }
+   ],
+   "innervationText": [
+    "臀上神經（L4–S1）"
+   ],
+   "blood": [
+    "旋股外側動脈的升支、臀上動脈"
+   ],
+   "palpation": [
+    "髂前上棘後下方、大轉子前方；仰臥時請病人屈髖並內旋（或側臥外展加內旋）可摸到收縮。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Tensor fasciae latae muscle"
+  },
+  {
+   "id": "pectineus",
+   "zh": "恥骨肌",
+   "en": "pectineus",
+   "region": "hip",
+   "parts": [
+    "pectineus"
+   ],
+   "origin": [
+    "恥骨上枝的恥骨梳線"
+   ],
+   "insertion": [
+    "股骨後面的恥骨肌線（小轉子下方）"
+   ],
+   "primary": [
+    "髖屈曲、內收"
+   ],
+   "secondary": [
+    "髖內旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "note": "偶有閉孔神經分支",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L2–L3，次要 L4，偶有閉孔神經分支）"
+   ],
+   "blood": [
+    "旋股內動脈、閉孔動脈"
+   ],
+   "palpation": [
+    "股三角底部的內側，內收長肌近端肌腱的外側；位置深，靠近股動靜脈，按壓要輕。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Pectineus muscle"
+  },
+  {
+   "id": "adductor-longus",
+   "zh": "內收長肌",
+   "en": "adductor longus",
+   "region": "hip",
+   "parts": [
+    "adductor longus"
+   ],
+   "origin": [
+    "恥骨體前面（恥骨結節下方）"
+   ],
+   "insertion": [
+    "股骨粗線中 1/3"
+   ],
+   "primary": [
+    "髖內收、屈曲"
+   ],
+   "secondary": [
+    "髖內旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "閉孔神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "term": "obturator nerve"
+    }
+   ],
+   "innervationText": [
+    "閉孔神經（L2–L3，次要 L4）"
+   ],
+   "blood": [
+    "股深動脈、旋股內動脈"
+   ],
+   "palpation": [
+    "大腿內側近端最明顯的一條肌腱，在恥骨結節下方；髖內收對抗阻力時浮起。鼠蹊部拉傷最常見的位置。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Adductor longus muscle"
+  },
+  {
+   "id": "adductor-brevis",
+   "zh": "內收短肌",
+   "en": "adductor brevis",
+   "region": "hip",
+   "parts": [
+    "adductor brevis"
+   ],
+   "origin": [
+    "恥骨下枝前面"
+   ],
+   "insertion": [
+    "股骨粗線近端 1/3"
+   ],
+   "primary": [
+    "髖內收"
+   ],
+   "secondary": [
+    "髖屈曲、內旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "閉孔神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "term": "obturator nerve"
+    }
+   ],
+   "innervationText": [
+    "閉孔神經（L2–L3，次要 L4）"
+   ],
+   "blood": [
+    "股深動脈、旋股內動脈"
+   ],
+   "palpation": [
+    "在內收長肌與恥骨肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Adductor brevis muscle"
+  },
+  {
+   "id": "adductor-magnus",
+   "zh": "內收大肌",
+   "en": "adductor magnus",
+   "region": "hip",
+   "parts": [
+    "adductor magnus",
+    "adductor minimus"
+   ],
+   "origin": [
+    "前頭（內收部）：坐骨枝（最上面那一部分常另稱內收小肌）",
+    "後頭（伸肌部）：坐骨結節"
+   ],
+   "insertion": [
+    "前頭：橫向纖維到粗線最上端、斜向纖維到整條粗線",
+    "後頭：股骨內收肌結節"
+   ],
+   "primary": [
+    "髖內收；後頭：髖伸展"
+   ],
+   "secondary": [
+    "前頭：髖伸展"
+   ],
+   "innervation": [
+    {
+     "nerve": "閉孔神經",
+     "roots": "L3–L5",
+     "minorRoots": "L2、S1",
+     "note": "前頭，神經根是整塊肌肉合計",
+     "term": "obturator nerve"
+    },
+    {
+     "nerve": "坐骨神經",
+     "note": "後頭，脛神經部分",
+     "term": "sciatic nerve"
+    }
+   ],
+   "innervationText": [
+    "前頭：閉孔神經（L3–L5，次要 L2、S1，神經根是整塊肌肉合計）",
+    "後頭：坐骨神經（脛神經部分）"
+   ],
+   "blood": [
+    "股深動脈（穿動脈）、閉孔動脈、膝降動脈（遠端）"
+   ],
+   "palpation": [
+    "大腿內側後方，在股薄肌與半膜肌之間；遠端肌腱可在內收肌結節上方摸到。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Adductor magnus muscle"
+  },
+  {
+   "id": "gracilis",
+   "zh": "股薄肌",
+   "en": "gracilis",
+   "region": "hip",
+   "parts": [
+    "gracilis"
+   ],
+   "origin": [
+    "恥骨體下部前面、恥骨下枝"
+   ],
+   "insertion": [
+    "脛骨近端內側面（鵝足，在縫匠肌止點後方）"
+   ],
+   "primary": [
+    "髖內收；膝屈曲與內旋"
+   ],
+   "secondary": [
+    "髖屈曲"
+   ],
+   "innervation": [
+    {
+     "nerve": "閉孔神經",
+     "roots": "L2–L3",
+     "minorRoots": "L4",
+     "term": "obturator nerve"
+    }
+   ],
+   "innervationText": [
+    "閉孔神經（L2–L3，次要 L4）"
+   ],
+   "blood": [
+    "旋股內動脈、股深動脈"
+   ],
+   "palpation": [
+    "大腿內側最表淺、最內側的細長肌；膝伸直、髖內收對抗阻力時，在內收長肌後內側摸到。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Gracilis muscle"
+  },
+  {
+   "id": "gluteus-maximus",
+   "zh": "臀大肌",
+   "en": "gluteus maximus",
+   "region": "hip",
+   "parts": [
+    "gluteus maximus"
+   ],
+   "origin": [
+    "髂骨外面（後臀線後方）、胸腰筋膜、薦骨與尾骨後面、部分薦結節韌帶與後薦髂韌帶"
+   ],
+   "insertion": [
+    "股骨臀肌粗隆、髂脛束"
+   ],
+   "primary": [
+    "髖伸展、外旋"
+   ],
+   "secondary": [
+    "下部纖維：髖內收；上部纖維：髖外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "臀下神經",
+     "roots": "L5–S1",
+     "minorRoots": "S2"
+    }
+   ],
+   "innervationText": [
+    "臀下神經（L5–S1，次要 S2）"
+   ],
+   "blood": [
+    "臀上動脈、臀下動脈"
+   ],
+   "palpation": [
+    "俯臥屈膝 90°（減少膕旁肌參與）再把大腿往上抬，整片臀部收縮。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Gluteus maximus"
+  },
+  {
+   "id": "gluteus-medius",
+   "zh": "臀中肌",
+   "en": "gluteus medius",
+   "region": "hip",
+   "parts": [
+    "gluteus medius"
+   ],
+   "origin": [
+    "髂骨外面，前臀線上方"
+   ],
+   "insertion": [
+    "股骨大轉子的上後面與外側面"
+   ],
+   "primary": [
+    "髖外展（單腳站立時穩定骨盆）"
+   ],
+   "secondary": [
+    "前部纖維：髖內旋；中、後部纖維：髖伸展；後部纖維：髖外旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "臀上神經",
+     "roots": "L4–S1",
+     "term": "superior gluteal nerve"
+    }
+   ],
+   "innervationText": [
+    "臀上神經（L4–S1）"
+   ],
+   "blood": [
+    "臀上動脈"
+   ],
+   "palpation": [
+    "髂嵴下方、大轉子上方約 3 橫指；側臥上方腿外展並稍伸展時明顯。無力時單腳站對側骨盆下掉（Trendelenburg 徵象）。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Gluteus medius"
+  },
+  {
+   "id": "gluteus-minimus",
+   "zh": "臀小肌",
+   "en": "gluteus minimus",
+   "region": "hip",
+   "parts": [
+    "gluteus minimus"
+   ],
+   "origin": [
+    "髂骨外面，前臀線與下臀線之間，往後到坐骨大切跡"
+   ],
+   "insertion": [
+    "股骨大轉子前面；部分接到髖關節囊"
+   ],
+   "primary": [
+    "髖外展"
+   ],
+   "secondary": [
+    "前部纖維：髖屈曲、內旋；後部纖維：髖外旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "臀上神經",
+     "roots": "L4–S1",
+     "term": "superior gluteal nerve"
+    }
+   ],
+   "innervationText": [
+    "臀上神經（L4–S1）"
+   ],
+   "blood": [
+    "臀上動脈"
+   ],
+   "palpation": [
+    "在臀中肌深層，大轉子前上方，無法跟臀中肌分開觸診。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Gluteus minimus"
+  },
+  {
+   "id": "piriformis",
+   "zh": "梨狀肌",
+   "en": "piriformis",
+   "region": "hip",
+   "parts": [
+    "piriformis"
+   ],
+   "origin": [
+    "薦骨前面（薦前孔之間）；部分融入薦髂關節囊"
+   ],
+   "insertion": [
+    "股骨大轉子尖"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [
+    "髖外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "梨狀肌神經",
+     "roots": "S1–S2",
+     "term": "nerve to piriformis"
+    }
+   ],
+   "innervationText": [
+    "梨狀肌神經（S1–S2）"
+   ],
+   "blood": [
+    "臀上動脈、臀下動脈、薦外側動脈"
+   ],
+   "palpation": [
+    "俯臥，在大轉子尖與薦骨外緣（約 S2–S4）連線的中段，臀大肌深層。坐骨神經通常從它下緣穿出，緊繃時可能壓迫坐骨神經（梨狀肌症候群）。髖屈曲接近 90° 以上時旋轉作用會反轉為內旋（文獻常見說法）。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Piriformis muscle"
+  },
+  {
+   "id": "gemellus-superior",
+   "zh": "上孖肌",
+   "en": "gemellus superior",
+   "region": "hip",
+   "parts": [
+    "gemellus superior"
+   ],
+   "origin": [
+    "坐骨棘背面"
+   ],
+   "insertion": [
+    "融入閉孔內肌肌腱，一起止於大轉子內側面"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "閉孔內肌神經",
+     "roots": "L5–S2",
+     "note": "與閉孔內肌共用"
+    }
+   ],
+   "innervationText": [
+    "閉孔內肌神經（L5–S2，與閉孔內肌共用）"
+   ],
+   "blood": [
+    "臀下動脈、陰部內動脈的分支"
+   ],
+   "palpation": [
+    "在梨狀肌下方的深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Superior gemellus muscle"
+  },
+  {
+   "id": "obturator-internus",
+   "zh": "閉孔內肌",
+   "en": "obturator internus",
+   "region": "hip",
+   "parts": [
+    "obturator internus"
+   ],
+   "origin": [
+    "閉孔膜內面與閉孔周圍骨面，往上後延伸到坐骨（骨盆內）、靠近坐骨大切跡"
+   ],
+   "insertion": [
+    "股骨大轉子內側面，轉子窩的前上方"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "閉孔內肌神經",
+     "roots": "L5–S2"
+    }
+   ],
+   "innervationText": [
+    "閉孔內肌神經（L5–S2）"
+   ],
+   "blood": [
+    "陰部內動脈、閉孔動脈、臀下動脈的分支"
+   ],
+   "palpation": [
+    "骨盆內的部分構成骨盆側壁，提肛肌就附著在它的筋膜上；外面的肌腱在上、下孖肌之間，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Internal obturator muscle"
+  },
+  {
+   "id": "gemellus-inferior",
+   "zh": "下孖肌",
+   "en": "gemellus inferior",
+   "region": "hip",
+   "parts": [
+    "gemellus inferior"
+   ],
+   "origin": [
+    "坐骨結節上部"
+   ],
+   "insertion": [
+    "融入閉孔內肌肌腱，一起止於大轉子內側面"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "股方肌神經",
+     "roots": "L4–S1",
+     "note": "與股方肌共用",
+     "term": "nerve to quadratus femoris"
+    }
+   ],
+   "innervationText": [
+    "股方肌神經（L4–S1，與股方肌共用）"
+   ],
+   "blood": [
+    "旋股內動脈、臀下動脈的分支"
+   ],
+   "palpation": [
+    "深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Inferior gemellus muscle"
+  },
+  {
+   "id": "quadratus-femoris",
+   "zh": "股方肌",
+   "en": "quadratus femoris",
+   "region": "hip",
+   "parts": [
+    "quadratus femoris"
+   ],
+   "origin": [
+    "坐骨結節外側面（半膜肌附著點前方）"
+   ],
+   "insertion": [
+    "股骨方形結節（轉子間嵴中段）"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [
+    "髖內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "股方肌神經",
+     "roots": "L4–S1",
+     "term": "nerve to quadratus femoris"
+    }
+   ],
+   "innervationText": [
+    "股方肌神經（L4–S1）"
+   ],
+   "blood": [
+    "旋股內動脈、臀下動脈"
+   ],
+   "palpation": [
+    "在坐骨結節與大轉子之間的深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Quadratus femoris muscle"
+  },
+  {
+   "id": "obturator-externus",
+   "zh": "閉孔外肌",
+   "en": "obturator externus",
+   "region": "hip",
+   "parts": [
+    "obturator externus"
+   ],
+   "origin": [
+    "閉孔膜外面，與周圍恥骨下枝、坐骨枝的外面"
+   ],
+   "insertion": [
+    "股骨大轉子內側的轉子窩"
+   ],
+   "primary": [
+    "髖外旋"
+   ],
+   "secondary": [
+    "髖內收"
+   ],
+   "innervation": [
+    {
+     "nerve": "閉孔神經",
+     "roots": "L3–L4",
+     "term": "obturator nerve"
+    }
+   ],
+   "innervationText": [
+    "閉孔神經（L3–L4）"
+   ],
+   "blood": [
+    "閉孔動脈、旋股內動脈"
+   ],
+   "palpation": [
+    "在髖關節下後方最深層，無法觸診。"
+   ],
+   "sources": [
+    "Neumann p.731–732（附著點、神經）、p.729（神經根）、表 12.3 p.499（作用）"
+   ],
+   "notes": [
+    "Neumann 表 12.3 把閉孔外肌的外旋與內收都列為「次要」；這裡把外旋放在主要，方便 App 顯示，待你決定。"
+   ],
+   "reviewed": false,
+   "wiki": "External obturator muscle"
+  },
+  {
+   "id": "rectus-femoris",
+   "zh": "股直肌",
+   "en": "rectus femoris",
+   "region": "knee",
+   "parts": [
+    "rectus femoris"
+   ],
+   "origin": [
+    "直頭：髂前下棘",
+    "反折頭：髖臼上緣的溝、髖關節囊前方"
+   ],
+   "insertion": [
+    "髕骨底，再經髕韌帶到脛骨粗隆"
+   ],
+   "primary": [
+    "膝伸展；髖屈曲"
+   ],
+   "secondary": [
+    "髖外展"
+   ],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L3",
+     "minorRoots": "L2、L4",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L3，次要 L2、L4）"
+   ],
+   "blood": [
+    "旋股外側動脈的降支"
+   ],
+   "palpation": [
+    "大腿前面正中；坐姿伸膝同時稍微抬大腿時明顯。跨兩關節，俯臥屈膝時骨盆或髖跟著抬起表示它太緊。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559、表 12.3 p.499（作用）"
+   ],
+   "notes": [
+    "股四頭肌神經根 Neumann 表上是 L3 粗體、L2 與 L4 細體；臨床常說 L2–L4（關鍵肌 L3）。"
+   ],
+   "reviewed": false,
+   "wiki": "Rectus femoris muscle"
+  },
+  {
+   "id": "vastus-lateralis",
+   "zh": "股外側肌",
+   "en": "vastus lateralis",
+   "region": "knee",
+   "parts": [
+    "vastus lateralis"
+   ],
+   "origin": [
+    "轉子間線上部、大轉子前緣與下緣、臀肌粗隆外側、粗線外唇"
+   ],
+   "insertion": [
+    "膝關節囊外側、髕骨底，再經髕韌帶到脛骨粗隆"
+   ],
+   "primary": [
+    "膝伸展"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L3",
+     "minorRoots": "L2、L4",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L3，次要 L2、L4）"
+   ],
+   "blood": [
+    "旋股外側動脈（降支、橫支）"
+   ],
+   "palpation": [
+    "大腿前外側最大的肌腹，伸膝對抗阻力時明顯；外側支持帶緊繃可能把髕骨往外拉。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Vastus lateralis muscle"
+  },
+  {
+   "id": "vastus-medialis",
+   "zh": "股內側肌",
+   "en": "vastus medialis",
+   "region": "knee",
+   "parts": [
+    "vastus medialis"
+   ],
+   "origin": [
+    "轉子間線下部、粗線內唇、內上髁嵴近端、部分來自內收大肌的纖維"
+   ],
+   "insertion": [
+    "膝關節囊內側、髕骨底，再經髕韌帶到脛骨粗隆"
+   ],
+   "primary": [
+    "膝伸展；下端斜向纖維（股內斜肌）往內拉髕骨、穩定髕骨軌跡"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L3",
+     "minorRoots": "L2、L4",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L3，次要 L2、L4）"
+   ],
+   "blood": [
+    "股動脈、膝降動脈、股深動脈的分支"
+   ],
+   "palpation": [
+    "髕骨內上方「淚滴狀」的肌腹（股內斜肌），坐姿伸膝到最後角度時最明顯；膝關節積水或術後常最先萎縮。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Vastus medialis"
+  },
+  {
+   "id": "vastus-intermedius",
+   "zh": "股中間肌",
+   "en": "vastus intermedius",
+   "region": "knee",
+   "parts": [
+    "vastus intermedius"
+   ],
+   "origin": [
+    "股骨幹上 2/3 的前外側面"
+   ],
+   "insertion": [
+    "髕骨底外側，再經髕韌帶到脛骨粗隆"
+   ],
+   "primary": [
+    "膝伸展"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "股神經",
+     "roots": "L3",
+     "minorRoots": "L2、L4",
+     "term": "femoral nerve"
+    }
+   ],
+   "innervationText": [
+    "股神經（L3，次要 L2、L4）"
+   ],
+   "blood": [
+    "旋股外側動脈、股深動脈的分支"
+   ],
+   "palpation": [
+    "在股直肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Vastus intermedius muscle"
+  },
+  {
+   "id": "biceps-femoris",
+   "zh": "股二頭肌",
+   "en": "biceps femoris",
+   "region": "knee",
+   "parts": [
+    "long head of biceps femoris",
+    "short head of biceps femoris"
+   ],
+   "origin": [
+    "長頭：坐骨結節後面內側（與半腱肌共同肌腱）、部分薦結節韌帶",
+    "短頭：股骨粗線外唇（臀肌粗隆下方）"
+   ],
+   "insertion": [
+    "腓骨頭；長頭另有附著到外側副韌帶、近端脛腓關節囊、脛骨外側結節"
+   ],
+   "primary": [
+    "膝屈曲與外旋（兩頭都有）；長頭：髖伸展"
+   ],
+   "secondary": [
+    "長頭：髖內收、外旋"
+   ],
+   "innervation": [
+    {
+     "nerve": "坐骨神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "note": "長頭，脛神經部分",
+     "term": "sciatic nerve"
+    },
+    {
+     "nerve": "坐骨神經",
+     "roots": "L5–S1",
+     "minorRoots": "S2",
+     "note": "短頭，腓總神經部分",
+     "term": "sciatic nerve"
+    }
+   ],
+   "innervationText": [
+    "長頭：坐骨神經（S1–S2，次要 L5，脛神經部分）",
+    "短頭：坐骨神經（L5–S1，次要 S2，腓總神經部分）"
+   ],
+   "blood": [
+    "股深動脈的穿動脈、臀下動脈、膕動脈的分支"
+   ],
+   "palpation": [
+    "膝後外側粗大的肌腱，一路摸到腓骨頭；俯臥屈膝並讓小腿外轉時明顯。腓總神經在它肌腱的後內側、繞過腓骨頸。"
+   ],
+   "sources": [
+    "Neumann p.731（附著點、神經）、p.729（神經根）、表 13.5 p.559、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Biceps femoris muscle"
+  },
+  {
+   "id": "semitendinosus",
+   "zh": "半腱肌",
+   "en": "semitendinosus",
+   "region": "knee",
+   "parts": [
+    "semitendinosus"
+   ],
+   "origin": [
+    "坐骨結節後面內側（與股二頭肌長頭共同肌腱）、部分薦結節韌帶"
+   ],
+   "insertion": [
+    "脛骨近端內側面（鵝足，在縫匠肌止點下端後方）"
+   ],
+   "primary": [
+    "髖伸展；膝屈曲與內旋"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "坐骨神經",
+     "roots": "L5–S2",
+     "minorRoots": "L4",
+     "note": "脛神經部分",
+     "term": "sciatic nerve"
+    }
+   ],
+   "innervationText": [
+    "坐骨神經（L5–S2，次要 L4，脛神經部分）"
+   ],
+   "blood": [
+    "臀下動脈、股深動脈的穿動脈、膕動脈的分支"
+   ],
+   "palpation": [
+    "膝後內側最突出、最表淺的細長肌腱；俯臥屈膝並讓小腿內轉時明顯。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Semitendinosus muscle"
+  },
+  {
+   "id": "semimembranosus",
+   "zh": "半膜肌",
+   "en": "semimembranosus",
+   "region": "knee",
+   "parts": [
+    "semimembranosus"
+   ],
+   "origin": [
+    "坐骨結節後面外側"
+   ],
+   "insertion": [
+    "脛骨內髁後面；另有附著到內側副韌帶、膕斜韌帶、內外側半月板"
+   ],
+   "primary": [
+    "髖伸展；膝屈曲與內旋"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "坐骨神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4、S2",
+     "note": "脛神經部分",
+     "term": "sciatic nerve"
+    }
+   ],
+   "innervationText": [
+    "坐骨神經（L5–S1，次要 L4、S2，脛神經部分）"
+   ],
+   "blood": [
+    "股深動脈的穿動脈、臀下動脈"
+   ],
+   "palpation": [
+    "在半腱肌肌腱兩側與深層，膝後內側較寬、較軟的肌腹。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559、表 12.3 p.499（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Semimembranosus muscle"
+  },
+  {
+   "id": "popliteus",
+   "zh": "膕肌",
+   "en": "popliteus",
+   "region": "knee",
+   "parts": [
+    "popliteus"
+   ],
+   "origin": [
+    "股骨外髁外側（關節囊內的肌腱）；另有附著到外側半月板，並經膕腓韌帶到腓骨頭"
+   ],
+   "insertion": [
+    "脛骨近端後面，比目魚肌線上方"
+   ],
+   "primary": [
+    "膝屈曲與內旋（從完全伸直開始屈膝時「解鎖」膝關節）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "L4–S1",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（L4–S1）"
+   ],
+   "blood": [
+    "膕動脈（膝下內側、外側動脈）"
+   ],
+   "palpation": [
+    "在膕窩深處，無法直接觸診；可在脛骨近端後內側、腓腸肌內側頭深層按到部分肌腹。"
+   ],
+   "sources": [
+    "Neumann p.732（附著點、神經）、p.729（神經根）、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Popliteus muscle"
+  },
+  {
+   "id": "tibialis-anterior",
+   "zh": "脛前肌",
+   "en": "tibialis anterior",
+   "region": "ankle",
+   "parts": [
+    "tibialis anterior"
+   ],
+   "origin": [
+    "脛骨外髁、脛骨外側面近端 2/3、骨間膜"
+   ],
+   "insertion": [
+    "內楔骨內側與足底面、第 1 蹠骨底"
+   ],
+   "primary": [
+    "踝背屈；足內翻"
+   ],
+   "secondary": [
+    "走路腳跟著地後控制前足放下（離心收縮）；支撐內側縱弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L4–L5",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L4–L5）"
+   ],
+   "blood": [
+    "脛前動脈"
+   ],
+   "palpation": [
+    "脛骨前外側的肌腹；踝前面最內側、最粗的肌腱，背屈加內翻時明顯。無力時走路腳掌拍地或垂足。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Tibialis anterior muscle"
+  },
+  {
+   "id": "extensor-hallucis-longus",
+   "zh": "伸拇趾長肌",
+   "en": "extensor hallucis longus",
+   "region": "ankle",
+   "parts": [
+    "extensor hallucis longus"
+   ],
+   "origin": [
+    "腓骨內側面中段、骨間膜"
+   ],
+   "insertion": [
+    "大拇趾遠節趾骨底背側"
+   ],
+   "primary": [
+    "伸大拇趾；踝背屈"
+   ],
+   "secondary": [
+    "足內翻（很小）"
+   ],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "脛前動脈"
+   ],
+   "palpation": [
+    "踝前面脛前肌腱外側，翹大拇趾時明顯。是 L5 神經根的關鍵肌。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729–730（神經根、關鍵肌）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor hallucis longus muscle"
+  },
+  {
+   "id": "extensor-digitorum-longus",
+   "zh": "伸趾長肌",
+   "en": "extensor digitorum longus",
+   "region": "ankle",
+   "parts": [
+    "extensor digitorum longus"
+   ],
+   "origin": [
+    "脛骨外髁、腓骨內側面近端 2/3、骨間膜"
+   ],
+   "insertion": [
+    "分成 4 條肌腱，經趾背腱膜到第 2–5 趾中節與遠節趾骨底背側"
+   ],
+   "primary": [
+    "伸第 2–5 趾；踝背屈；足外翻"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "脛前動脈"
+   ],
+   "palpation": [
+    "伸拇趾長肌外側；翹 2–5 趾時足背可看到 4 條肌腱散開。"
+   ],
+   "sources": [
+    "Neumann p.732–733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor digitorum longus muscle"
+  },
+  {
+   "id": "fibularis-tertius",
+   "zh": "第三腓骨肌",
+   "en": "fibularis tertius",
+   "region": "ankle",
+   "parts": [
+    "fibularis tertius"
+   ],
+   "origin": [
+    "腓骨內側面遠端 1/3、骨間膜"
+   ],
+   "insertion": [
+    "第 5 蹠骨底背側"
+   ],
+   "primary": [
+    "踝背屈；足外翻"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "脛前動脈"
+   ],
+   "palpation": [
+    "伸趾長肌最外側那條肌腱，往第 5 蹠骨底走；有些人沒有。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Fibularis tertius"
+  },
+  {
+   "id": "fibularis-longus",
+   "zh": "腓骨長肌",
+   "en": "fibularis longus",
+   "region": "ankle",
+   "parts": [
+    "fibularis longus"
+   ],
+   "origin": [
+    "脛骨外髁、腓骨頭與腓骨外側面近端 2/3"
+   ],
+   "insertion": [
+    "內楔骨外側、第 1 蹠骨底外側（肌腱繞過骰骨溝橫越足底）"
+   ],
+   "primary": [
+    "足外翻；踝蹠屈"
+   ],
+   "secondary": [
+    "下壓第 1 蹠骨（穩定第 1 列）；支撐足橫弓與外側縱弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "腓淺神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "superficial fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓淺神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "腓動脈、脛前動脈的分支"
+   ],
+   "palpation": [
+    "小腿外側上 2/3；外踝後方兩條肌腱中靠後的那條，外翻加蹠屈時明顯。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Fibularis longus"
+  },
+  {
+   "id": "fibularis-brevis",
+   "zh": "腓骨短肌",
+   "en": "fibularis brevis",
+   "region": "ankle",
+   "parts": [
+    "fibularis brevis"
+   ],
+   "origin": [
+    "腓骨外側面遠端 2/3"
+   ],
+   "insertion": [
+    "第 5 蹠骨粗隆（莖突）"
+   ],
+   "primary": [
+    "足外翻（最主要的外翻肌）"
+   ],
+   "secondary": [
+    "踝蹠屈"
+   ],
+   "innervation": [
+    {
+     "nerve": "腓淺神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "superficial fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓淺神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "腓動脈、脛前動脈的分支"
+   ],
+   "palpation": [
+    "外踝後方兩條肌腱中靠前、貼著外踝的那條，一路摸到第 5 蹠骨粗隆。內翻扭傷時可能拉斷第 5 蹠骨粗隆（撕脫性骨折）。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Fibularis brevis"
+  },
+  {
+   "id": "gastrocnemius",
+   "zh": "腓腸肌",
+   "en": "gastrocnemius",
+   "region": "ankle",
+   "parts": [
+    "medial head of gastrocnemius",
+    "lateral head of gastrocnemius"
+   ],
+   "origin": [
+    "內側頭：股骨內髁後面",
+    "外側頭：股骨外髁後面"
+   ],
+   "insertion": [
+    "經跟腱（阿基里斯腱）到跟骨粗隆"
+   ],
+   "primary": [
+    "踝蹠屈；膝屈曲"
+   ],
+   "secondary": [
+    "足內翻"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "S1–S2",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（S1–S2）"
+   ],
+   "blood": [
+    "腓腸動脈（膕動脈的分支）"
+   ],
+   "palpation": [
+    "小腿後上方兩個頭，踮腳時明顯，內側頭較大、位置較低。跨兩關節，膝伸直時背屈角度比屈膝時小代表腓腸肌緊。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 13.5 p.559、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Gastrocnemius muscle"
+  },
+  {
+   "id": "soleus",
+   "zh": "比目魚肌",
+   "en": "soleus",
+   "region": "ankle",
+   "parts": [
+    "soleus"
+   ],
+   "origin": [
+    "腓骨頭後面與腓骨幹近端 1/3、脛骨後面比目魚肌線附近"
+   ],
+   "insertion": [
+    "經跟腱到跟骨粗隆"
+   ],
+   "primary": [
+    "踝蹠屈（站立時控制小腿前傾）"
+   ],
+   "secondary": [
+    "足內翻"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "S2",
+     "minorRoots": "L5、S1",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（S2，次要 L5、S1）"
+   ],
+   "blood": [
+    "膕動脈、脛後動脈、腓動脈的分支"
+   ],
+   "palpation": [
+    "屈膝 90° 踮腳（減少腓腸肌參與），在小腿下半、腓腸肌兩側深層邊緣可摸到。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [
+    "Neumann 神經根表上比目魚肌只有 S2 是粗體；一般教科書多寫 S1–S2。"
+   ],
+   "reviewed": false,
+   "wiki": "Soleus muscle"
+  },
+  {
+   "id": "plantaris",
+   "zh": "蹠肌",
+   "en": "plantaris",
+   "region": "ankle",
+   "parts": [
+    "plantaris"
+   ],
+   "origin": [
+    "股骨外上髁嵴最下端、膕斜韌帶"
+   ],
+   "insertion": [
+    "沿跟腱內側止於跟骨粗隆"
+   ],
+   "primary": [
+    "膝屈曲（很弱）"
+   ],
+   "secondary": [
+    "踝蹠屈（很弱）"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "腓腸動脈"
+   ],
+   "palpation": [
+    "肌腹小、在膕窩外側腓腸肌外側頭深層，肌腱很細長；有一部分人沒有。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 13.5 p.559（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Plantaris muscle"
+  },
+  {
+   "id": "tibialis-posterior",
+   "zh": "脛後肌",
+   "en": "tibialis posterior",
+   "region": "ankle",
+   "parts": [
+    "tibialis posterior"
+   ],
+   "origin": [
+    "脛骨與腓骨後面近端 2/3、骨間膜"
+   ],
+   "insertion": [
+    "主要止於舟狀骨粗隆與內楔骨；另有分支到距骨以外的所有跗骨與第 2–4 蹠骨底"
+   ],
+   "primary": [
+    "足內翻（最主要的內翻肌）；踝蹠屈"
+   ],
+   "secondary": [
+    "支撐內側縱弓、控制負重時後足旋前"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "L5",
+     "minorRoots": "L4、S1",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（L5，次要 L4、S1）"
+   ],
+   "blood": [
+    "脛後動脈、腓動脈"
+   ],
+   "palpation": [
+    "內踝後方最前面（最靠內踝）的那條肌腱，內翻加蹠屈對抗阻力時明顯，可一路摸到舟狀骨粗隆。功能不全會造成後天性扁平足。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Tibialis posterior muscle"
+  },
+  {
+   "id": "flexor-digitorum-longus",
+   "zh": "屈趾長肌",
+   "en": "flexor digitorum longus",
+   "region": "ankle",
+   "parts": [
+    "flexor digitorum longus"
+   ],
+   "origin": [
+    "脛骨後面中 1/3，脛後肌附著點內側"
+   ],
+   "insertion": [
+    "分成 4 條肌腱到第 2–5 趾遠節趾骨底"
+   ],
+   "primary": [
+    "屈第 2–5 趾"
+   ],
+   "secondary": [
+    "踝蹠屈；足內翻"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "L5–S2",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（L5–S2）"
+   ],
+   "blood": [
+    "脛後動脈"
+   ],
+   "palpation": [
+    "內踝後方，在脛後肌腱後面；彎 2–5 趾時可感覺。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor digitorum longus muscle"
+  },
+  {
+   "id": "flexor-hallucis-longus",
+   "zh": "屈拇趾長肌",
+   "en": "flexor hallucis longus",
+   "region": "ankle",
+   "parts": [
+    "flexor hallucis longus"
+   ],
+   "origin": [
+    "腓骨後面遠端 2/3 的大部分"
+   ],
+   "insertion": [
+    "大拇趾遠節趾骨底足底面"
+   ],
+   "primary": [
+    "屈大拇趾"
+   ],
+   "secondary": [
+    "踝蹠屈；足內翻；支撐內側縱弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "脛神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "term": "tibial nerve"
+    }
+   ],
+   "innervationText": [
+    "脛神經（S1–S2，次要 L5）"
+   ],
+   "blood": [
+    "腓動脈"
+   ],
+   "palpation": [
+    "內踝後方最後面、最深的肌腱（走在距骨後突的溝裡）；彎大拇趾時可在內踝後下方感覺。芭蕾舞者常見這條腱鞘炎。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、第 14 章 p.627–636（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor hallucis longus muscle"
+  },
+  {
+   "id": "extensor-digitorum-brevis",
+   "zh": "伸趾短肌",
+   "en": "extensor digitorum brevis",
+   "region": "ankle",
+   "parts": [
+    "extensor digitorum brevis"
+   ],
+   "origin": [
+    "跟骨前外側（跟骰關節近端）"
+   ],
+   "insertion": [
+    "通常 4 條肌腱：到大拇趾背側（常另稱伸拇趾短肌）；另外 3 條併入伸趾長肌往第 2–4 趾的肌腱"
+   ],
+   "primary": [
+    "伸趾"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L5–S1，次要 L4）"
+   ],
+   "blood": [
+    "足背動脈（跗外側動脈）"
+   ],
+   "palpation": [
+    "外踝前下方足背外側的小肌腹，翹腳趾時隆起，常被誤認為腫塊。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Extensor digitorum brevis muscle"
+  },
+  {
+   "id": "extensor-hallucis-brevis",
+   "zh": "伸拇趾短肌",
+   "en": "extensor hallucis brevis",
+   "region": "ankle",
+   "parts": [
+    "extensor hallucis brevis"
+   ],
+   "origin": [
+    "跟骨前外側（與伸趾短肌一起）"
+   ],
+   "insertion": [
+    "大拇趾近節趾骨底背側"
+   ],
+   "primary": [
+    "伸大拇趾（MTP）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "腓深神經",
+     "roots": "L5–S1",
+     "minorRoots": "L4",
+     "note": "同伸趾短肌",
+     "term": "deep fibular nerve"
+    }
+   ],
+   "innervationText": [
+    "腓深神經（L5–S1，次要 L4，同伸趾短肌）"
+   ],
+   "blood": [
+    "足背動脈"
+   ],
+   "palpation": [
+    "伸趾短肌最內側那一束，跟伸趾短肌一起觸診。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經，寫在伸趾短肌裡）、表 14.8 p.640（作用）"
+   ],
+   "notes": [
+    "Neumann 把它算成伸趾短肌往大拇趾的那條；模型裡是分開的兩塊。"
+   ],
+   "reviewed": false,
+   "wiki": "Extensor hallucis brevis muscle"
+  },
+  {
+   "id": "abductor-hallucis",
+   "zh": "外展拇趾肌",
+   "en": "abductor hallucis",
+   "region": "ankle",
+   "parts": [
+    "abductor hallucis"
+   ],
+   "origin": [
+    "屈肌支持帶、跟骨內側突、足底筋膜"
+   ],
+   "insertion": [
+    "大拇趾近節趾骨底內側（與屈拇趾短肌內側腱共用）"
+   ],
+   "primary": [
+    "外展大拇趾；協助屈大拇趾 MTP"
+   ],
+   "secondary": [
+    "支撐內側縱弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "足底內側神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "term": "medial plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底內側神經（S1–S2，次要 L5）"
+   ],
+   "blood": [
+    "足底內側動脈"
+   ],
+   "palpation": [
+    "足內側緣、內側縱弓下方的肌腹；把大拇趾往內張開時隆起。足底內、外側神經在它深層進入足底（跗隧道遠端）。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abductor hallucis muscle"
+  },
+  {
+   "id": "flexor-digitorum-brevis",
+   "zh": "屈趾短肌",
+   "en": "flexor digitorum brevis",
+   "region": "ankle",
+   "parts": [
+    "flexor digitorum brevis"
+   ],
+   "origin": [
+    "跟骨粗隆內側突、足底筋膜中央部"
+   ],
+   "insertion": [
+    "每條肌腱分叉，止於第 2–5 趾中節趾骨底兩側"
+   ],
+   "primary": [
+    "屈第 2–5 趾的 PIP 與 MTP"
+   ],
+   "secondary": [
+    "支撐縱弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "足底內側神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "term": "medial plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底內側神經（S1–S2，次要 L5）"
+   ],
+   "blood": [
+    "足底內側與外側動脈、足底弓的分支"
+   ],
+   "palpation": [
+    "足底中央、足底筋膜深層；腳趾抓地時可感覺。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor digitorum brevis muscle"
+  },
+  {
+   "id": "abductor-digiti-minimi-foot",
+   "zh": "外展小趾肌",
+   "en": "abductor digiti minimi (foot)",
+   "region": "ankle",
+   "parts": [
+    "abductor digiti minimi of foot"
+   ],
+   "origin": [
+    "跟骨粗隆外側突與內側突外緣、足底筋膜、第 5 蹠骨底足底面"
+   ],
+   "insertion": [
+    "小趾近節趾骨底外側（與屈小趾短肌共用）"
+   ],
+   "primary": [
+    "外展小趾；協助屈小趾 MTP"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "minorRoots": "S1",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3，次要 S1）"
+   ],
+   "blood": [
+    "足底外側動脈"
+   ],
+   "palpation": [
+    "足外側緣的肌腹，把小趾往外張開時收縮。"
+   ],
+   "sources": [
+    "Neumann p.733（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Abductor digiti minimi muscle of foot"
+  },
+  {
+   "id": "quadratus-plantae",
+   "zh": "蹠方肌",
+   "en": "quadratus plantae",
+   "region": "ankle",
+   "parts": [
+    "flexor accessorius"
+   ],
+   "origin": [
+    "兩頭，起自跟骨足底面的內側與外側（跟骨粗隆遠端）"
+   ],
+   "insertion": [
+    "屈趾長肌共同肌腱的外緣"
+   ],
+   "primary": [
+    "從外側拉住屈趾長肌腱，讓它屈趾時方向較直"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "minorRoots": "S1",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3，次要 S1）"
+   ],
+   "blood": [
+    "足底內側與外側動脈"
+   ],
+   "palpation": [
+    "在屈趾短肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Quadratus plantae muscle"
+  },
+  {
+   "id": "lumbricals-foot",
+   "zh": "足部蚓狀肌",
+   "en": "lumbricals (foot)",
+   "region": "ankle",
+   "parts": [
+    "first lumbrical of foot",
+    "second lumbrical of foot",
+    "third lumbrical of foot",
+    "fourth lumbrical of foot"
+   ],
+   "origin": [
+    "屈趾長肌的肌腱"
+   ],
+   "insertion": [
+    "繞過 MTP 內側，接到第 2–5 趾的趾背腱膜"
+   ],
+   "primary": [
+    "屈 MTP、伸趾間關節"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底內側神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "note": "第 1 條（往第 2 趾）",
+     "term": "medial plantar nerve"
+    },
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "minorRoots": "S1",
+     "note": "第 2–4 條",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "第 1 條（往第 2 趾）：足底內側神經（S1–S2，次要 L5）",
+    "第 2–4 條：足底外側神經（S2–S3，次要 S1）"
+   ],
+   "blood": [
+    "足底內側與外側動脈、蹠底動脈"
+   ],
+   "palpation": [
+    "深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Lumbricals of the foot"
+  },
+  {
+   "id": "flexor-hallucis-brevis",
+   "zh": "屈拇趾短肌",
+   "en": "flexor hallucis brevis",
+   "region": "ankle",
+   "parts": [
+    "medial head of flexor hallucis brevis",
+    "lateral head of flexor hallucis brevis"
+   ],
+   "origin": [
+    "骰骨與外楔骨足底面、部分脛後肌腱"
+   ],
+   "insertion": [
+    "內側腱：大拇趾近節趾骨底內側（與外展拇趾肌）",
+    "外側腱：大拇趾近節趾骨底外側（與內收拇趾肌）",
+    "兩條肌腱裡各有一顆籽骨"
+   ],
+   "primary": [
+    "屈大拇趾 MTP"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底內側神經",
+     "roots": "S1–S2",
+     "minorRoots": "L5",
+     "term": "medial plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底內側神經（S1–S2，次要 L5）"
+   ],
+   "blood": [
+    "足底內側動脈、第 1 蹠底動脈"
+   ],
+   "palpation": [
+    "第 1 蹠骨頭下方的籽骨區深層；籽骨炎時這裡壓痛。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor hallucis brevis muscle"
+  },
+  {
+   "id": "adductor-hallucis",
+   "zh": "內收拇趾肌",
+   "en": "adductor hallucis",
+   "region": "ankle",
+   "parts": [
+    "oblique head of adductor hallucis",
+    "transverse head of adductor hallucis"
+   ],
+   "origin": [
+    "斜頭：第 2–4 蹠骨底足底面、腓骨長肌腱的纖維鞘",
+    "橫頭：第 3–5 趾 MTP 的足底韌帶"
+   ],
+   "insertion": [
+    "兩頭合併，與屈拇趾短肌外側腱一起止於大拇趾近節趾骨底外側"
+   ],
+   "primary": [
+    "內收大拇趾；協助屈大拇趾 MTP"
+   ],
+   "secondary": [
+    "支撐足橫弓"
+   ],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "minorRoots": "S1",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3，次要 S1）"
+   ],
+   "blood": [
+    "足底外側動脈、足底弓"
+   ],
+   "palpation": [
+    "前足底深層，無法單獨觸診；跟拇趾外翻的成因有關。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Adductor hallucis muscle"
+  },
+  {
+   "id": "flexor-digiti-minimi-brevis-foot",
+   "zh": "屈小趾短肌",
+   "en": "flexor digiti minimi brevis (foot)",
+   "region": "ankle",
+   "parts": [
+    "flexor digiti minimi brevis of foot"
+   ],
+   "origin": [
+    "第 5 蹠骨底足底面、腓骨長肌腱的纖維鞘"
+   ],
+   "insertion": [
+    "小趾近節趾骨底外側（與外展小趾肌腱融合）"
+   ],
+   "primary": [
+    "屈小趾 MTP"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "minorRoots": "S1",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3，次要 S1）"
+   ],
+   "blood": [
+    "足底外側動脈"
+   ],
+   "palpation": [
+    "在外展小趾肌內側深層，不易分開。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Flexor digiti minimi brevis muscle of foot"
+  },
+  {
+   "id": "dorsal-interossei-foot",
+   "zh": "足部背側骨間肌",
+   "en": "dorsal interossei (foot)",
+   "region": "ankle",
+   "parts": [
+    "set of dorsal interossei of foot"
+   ],
+   "origin": [
+    "相鄰兩蹠骨的對面（4 條）",
+    "第 1：第 1、2 蹠骨之間",
+    "第 2：第 2、3 蹠骨之間",
+    "第 3：第 3、4 蹠骨之間",
+    "第 4：第 4、5 蹠骨之間"
+   ],
+   "insertion": [
+    "近節趾骨底與趾背腱膜",
+    "第 1：第 2 趾內側",
+    "第 2：第 2 趾外側",
+    "第 3：第 3 趾外側",
+    "第 4：第 4 趾外側"
+   ],
+   "primary": [
+    "以第 2 趾為中線，外展第 2、3、4 趾的 MTP"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3）"
+   ],
+   "blood": [
+    "蹠背動脈、足底弓的蹠底動脈"
+   ],
+   "palpation": [
+    "在蹠骨之間，足背可摸到一點點（第 1 背側骨間肌最明顯）；腳趾張開時收縮。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Dorsal interossei of the foot"
+  },
+  {
+   "id": "plantar-interossei-foot",
+   "zh": "足部蹠側骨間肌",
+   "en": "plantar interossei (foot)",
+   "region": "ankle",
+   "parts": [
+    "first plantar interosseous of foot",
+    "second plantar interosseous of foot",
+    "third plantar interosseous of foot"
+   ],
+   "origin": [
+    "第 1：第 3 蹠骨內側",
+    "第 2：第 4 蹠骨內側",
+    "第 3：第 5 蹠骨內側"
+   ],
+   "insertion": [
+    "第 1：第 3 趾近節趾骨內側",
+    "第 2：第 4 趾近節趾骨內側",
+    "第 3：第 5 趾近節趾骨內側"
+   ],
+   "primary": [
+    "以第 2 趾為中線，內收第 3、4、5 趾的 MTP"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "足底外側神經",
+     "roots": "S2–S3",
+     "term": "lateral plantar nerve"
+    }
+   ],
+   "innervationText": [
+    "足底外側神經（S2–S3）"
+   ],
+   "blood": [
+    "足底弓的蹠底動脈"
+   ],
+   "palpation": [
+    "足底深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.734（附著點、神經）、p.729（神經根）、表 14.8 p.640（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Plantar interossei muscles"
+  },
+  {
+   "id": "masseter",
+   "zh": "咬肌",
+   "en": "masseter",
+   "region": "tmj",
+   "parts": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ],
+   "origin": [
+    "顴骨下外側面、顴弓下緣（淺部在前下、深部在後上）"
+   ],
+   "insertion": [
+    "下頷骨外面，從下頷角到冠狀突下方"
+   ],
+   "primary": [
+    "上提下頷（閉口、咬合）"
+   ],
+   "secondary": [
+    "下頷往同側側移（IL）；下頷前突"
+   ],
+   "innervation": [
+    {
+     "nerve": "下頷神經前幹",
+     "roots": "CN V3",
+     "note": "咬肌神經",
+     "term": "anterior division of mandibular nerve"
+    }
+   ],
+   "innervationText": [
+    "下頷神經前幹（CN V3，咬肌神經）"
+   ],
+   "blood": [
+    "咬肌動脈（上頷動脈的分支）、面橫動脈"
+   ],
+   "palpation": [
+    "咬緊牙齒時在顴弓下方、下頷角前上方隆起；也可戴手套從口內頰側配合口外夾著觸診。"
+   ],
+   "sources": [
+    "Neumann p.472（附著點、神經）、表 11.2 p.446、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Masseter muscle"
+  },
+  {
+   "id": "temporalis",
+   "zh": "顳肌",
+   "en": "temporalis",
+   "region": "tmj",
+   "parts": [
+    "temporalis"
+   ],
+   "origin": [
+    "顳窩、顳筋膜深面"
+   ],
+   "insertion": [
+    "下頷骨冠狀突尖與內側面、下頷枝前緣全長"
+   ],
+   "primary": [
+    "上提下頷（閉口）；後部纖維讓下頷後縮"
+   ],
+   "secondary": [
+    "下頷往同側側移（IL）"
+   ],
+   "innervation": [
+    {
+     "nerve": "下頷神經前幹",
+     "roots": "CN V3",
+     "note": "顳深神經",
+     "term": "anterior division of mandibular nerve"
+    }
+   ],
+   "innervationText": [
+    "下頷神經前幹（CN V3，顳深神經）"
+   ],
+   "blood": [
+    "顳深動脈（上頷動脈的分支）、顳中動脈"
+   ],
+   "palpation": [
+    "太陽穴與耳朵上方的扇形區，咬緊牙齒時收縮；後部纖維在耳朵正上方。"
+   ],
+   "sources": [
+    "Neumann p.472–473（附著點、神經）、表 11.2 p.446、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Temporalis muscle"
+  },
+  {
+   "id": "medial-pterygoid",
+   "zh": "翼內肌",
+   "en": "medial pterygoid",
+   "region": "tmj",
+   "parts": [
+    "medial pterygoid"
+   ],
+   "origin": [
+    "蝶骨翼突外側板的內側面；上頷骨後外側一小塊（第三大臼齒齒槽上方）"
+   ],
+   "insertion": [
+    "下頷骨內面，下頷角到下頷孔之間"
+   ],
+   "primary": [
+    "上提下頷（閉口）；下頷往對側側移（CL）"
+   ],
+   "secondary": [
+    "下頷前突"
+   ],
+   "innervation": [
+    {
+     "nerve": "下頷神經",
+     "roots": "CN V3",
+     "note": "翼內肌神經，由主幹分出"
+    }
+   ],
+   "innervationText": [
+    "下頷神經（CN V3，翼內肌神經，由主幹分出）"
+   ],
+   "blood": [
+    "上頷動脈的翼肌支"
+   ],
+   "palpation": [
+    "口外在下頷角內面往上輕壓；口內沿最後一顆臼齒後方、下頷枝內面往下摸。跟咬肌形成夾住下頷角的「吊帶」。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.2 p.446、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Medial pterygoid muscle"
+  },
+  {
+   "id": "lateral-pterygoid",
+   "zh": "翼外肌",
+   "en": "lateral pterygoid",
+   "region": "tmj",
+   "parts": [
+    "superior head of lateral pterygoid",
+    "inferior head of lateral pterygoid"
+   ],
+   "origin": [
+    "上頭：蝶骨大翼",
+    "下頭：翼突外側板的外側面與鄰近上頷骨"
+   ],
+   "insertion": [
+    "上頭：顳顎關節囊內側壁、關節盤內側、下頷骨翼肌窩",
+    "下頭：下頷骨翼肌窩與下頷頸"
+   ],
+   "primary": [
+    "下頭：張口（下壓下頷，把髁突往前拉）；下頷前突；下頷往對側側移（CL）",
+    "上頭：下頷前突、往對側側移；閉口時穩定與調整關節盤位置"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "下頷神經前幹",
+     "roots": "CN V3",
+     "note": "翼外肌神經",
+     "term": "anterior division of mandibular nerve"
+    }
+   ],
+   "innervationText": [
+    "下頷神經前幹（CN V3，翼外肌神經）"
+   ],
+   "blood": [
+    "上頷動脈的翼肌支"
+   ],
+   "palpation": [
+    "位置深，口內在上頷結節後上方的觸診準確度有限；臨床多用張口軌跡、偏移與抗阻側移來評估。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.2 p.446、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Lateral pterygoid muscle"
+  },
+  {
+   "id": "digastric",
+   "zh": "二腹肌",
+   "en": "digastric",
+   "region": "tmj",
+   "parts": [
+    "digastric"
+   ],
+   "origin": [
+    "後腹：顳骨乳突切跡",
+    "前腹：下頷骨下緣中線附近的二腹肌窩"
+   ],
+   "insertion": [
+    "兩腹之間的中間腱，經筋膜環固定在舌骨外側（舌骨體與大角）"
+   ],
+   "primary": [
+    "舌骨固定時下壓下頷（張口）；下頷固定時上提舌骨（吞嚥）"
+   ],
+   "secondary": [
+    "前腹協助下頷後縮"
+   ],
+   "innervation": [
+    {
+     "nerve": "顏面神經",
+     "roots": "CN VII",
+     "note": "後腹",
+     "term": "facial nerve"
+    },
+    {
+     "nerve": "下頷舌骨肌神經",
+     "roots": "CN V3",
+     "note": "前腹，下齒槽神經的分支",
+     "term": "nerve to mylohyoid"
+    }
+   ],
+   "innervationText": [
+    "後腹：顏面神經（CN VII）",
+    "前腹：下頷舌骨肌神經（CN V3，下齒槽神經的分支）"
+   ],
+   "blood": [
+    "前腹：顏面動脈的頦下支；後腹：枕動脈、耳後動脈"
+   ],
+   "palpation": [
+    "前腹在下巴下方中線兩側，抵抗張口時可摸到；後腹在下頷角與乳突之間，深在胸鎖乳突肌前緣。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Digastric muscle"
+  },
+  {
+   "id": "stylohyoid",
+   "zh": "莖突舌骨肌",
+   "en": "stylohyoid",
+   "region": "tmj",
+   "parts": [
+    "stylohyoid"
+   ],
+   "origin": [
+    "顳骨莖突底部"
+   ],
+   "insertion": [
+    "舌骨大角前緣（與體交界處）"
+   ],
+   "primary": [
+    "吞嚥時把舌骨往上、往後拉"
+   ],
+   "secondary": [
+    "舌骨固定時協助張口（作為舌骨上肌群的一員）"
+   ],
+   "innervation": [
+    {
+     "nerve": "顏面神經",
+     "roots": "CN VII",
+     "term": "facial nerve"
+    }
+   ],
+   "innervationText": [
+    "顏面神經（CN VII）"
+   ],
+   "blood": [
+    "顏面動脈、枕動脈、耳後動脈的分支"
+   ],
+   "palpation": [
+    "與二腹肌後腹並行，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Stylohyoid muscle"
+  },
+  {
+   "id": "mylohyoid",
+   "zh": "下頷舌骨肌",
+   "en": "mylohyoid",
+   "region": "tmj",
+   "parts": [
+    "mylohyoid"
+   ],
+   "origin": [
+    "下頷骨內面的下頷舌骨肌線（兩側）"
+   ],
+   "insertion": [
+    "舌骨體；左右在中線縫合，構成口腔底"
+   ],
+   "primary": [
+    "上提口腔底與舌骨（吞嚥、把舌頭往上頂）；舌骨固定時協助張口"
+   ],
+   "secondary": [
+    "下頷後縮"
+   ],
+   "innervation": [
+    {
+     "nerve": "下頷舌骨肌神經",
+     "roots": "CN V3",
+     "note": "下齒槽神經的分支",
+     "term": "nerve to mylohyoid"
+    }
+   ],
+   "innervationText": [
+    "下頷舌骨肌神經（CN V3，下齒槽神經的分支）"
+   ],
+   "blood": [
+    "下齒槽動脈的下頷舌骨肌支、顏面動脈的頦下支"
+   ],
+   "palpation": [
+    "下巴下方，舌頭用力往上頂上顎時，下頷骨內側可摸到收縮。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Mylohyoid muscle"
+  },
+  {
+   "id": "geniohyoid",
+   "zh": "頦舌骨肌",
+   "en": "geniohyoid",
+   "region": "tmj",
+   "parts": [
+    "geniohyoid"
+   ],
+   "origin": [
+    "下頷骨內面正中（頦棘，下頷聯合處）"
+   ],
+   "insertion": [
+    "舌骨體"
+   ],
+   "primary": [
+    "把舌骨往前上拉（吞嚥）；舌骨固定時協助張口"
+   ],
+   "secondary": [
+    "下頷後縮"
+   ],
+   "innervation": [
+    {
+     "nerve": "舌下神經",
+     "roots": "C1",
+     "note": "其實是搭舌下神經走的 C1 纖維",
+     "term": "hypoglossal nerve"
+    }
+   ],
+   "innervationText": [
+    "舌下神經（C1，其實是搭舌下神經走的 C1 纖維）"
+   ],
+   "blood": [
+    "舌動脈的分支"
+   ],
+   "palpation": [
+    "在下頷舌骨肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、表 11.3 p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Geniohyoid muscle"
+  },
+  {
+   "id": "sternohyoid",
+   "zh": "胸骨舌骨肌",
+   "en": "sternohyoid",
+   "region": "tmj",
+   "parts": [
+    "sternohyoid"
+   ],
+   "origin": [
+    "鎖骨內側端後面、胸骨柄上後部、胸鎖後韌帶"
+   ],
+   "insertion": [
+    "舌骨體"
+   ],
+   "primary": [
+    "吞嚥後把舌骨往下拉；固定舌骨，讓舌骨上肌群能下壓下頷"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "頸袢",
+     "roots": "C1–C3",
+     "note": "頸神經腹枝"
+    }
+   ],
+   "innervationText": [
+    "頸袢（C1–C3，頸神經腹枝）"
+   ],
+   "blood": [
+    "甲狀腺上動脈的分支"
+   ],
+   "palpation": [
+    "頸前中線兩側、喉頭外側的薄帶狀肌，吞口水時跟著動；一般不單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Sternohyoid muscle"
+  },
+  {
+   "id": "omohyoid",
+   "zh": "肩胛舌骨肌",
+   "en": "omohyoid",
+   "region": "tmj",
+   "parts": [
+    "omohyoid"
+   ],
+   "origin": [
+    "肩胛骨上緣、肩胛切跡附近（下腹）"
+   ],
+   "insertion": [
+    "舌骨體（上腹）；兩腹之間的中間腱被筋膜吊在鎖骨上"
+   ],
+   "primary": [
+    "下壓並固定舌骨"
+   ],
+   "secondary": [
+    "繃緊頸動脈鞘附近的頸筋膜"
+   ],
+   "innervation": [
+    {
+     "nerve": "頸袢",
+     "roots": "C1–C3",
+     "note": "頸神經腹枝"
+    }
+   ],
+   "innervationText": [
+    "頸袢（C1–C3，頸神經腹枝）"
+   ],
+   "blood": [
+    "甲狀腺上動脈與甲狀腺下動脈的分支"
+   ],
+   "palpation": [
+    "下腹在鎖骨上方、斜方肌前緣附近斜行，瘦的人說話或吞嚥時偶爾看得到；按壓斜角肌時可能誤以為是斜角肌。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Omohyoid muscle"
+  },
+  {
+   "id": "sternothyroid",
+   "zh": "胸骨甲狀肌",
+   "en": "sternothyroid",
+   "region": "tmj",
+   "parts": [
+    "sternothyroid"
+   ],
+   "origin": [
+    "胸骨柄後面、第 1 肋軟骨"
+   ],
+   "insertion": [
+    "甲狀軟骨（斜線）"
+   ],
+   "primary": [
+    "把喉（甲狀軟骨）往下拉"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "頸袢",
+     "roots": "C1–C3",
+     "note": "頸神經腹枝"
+    }
+   ],
+   "innervationText": [
+    "頸袢（C1–C3，頸神經腹枝）"
+   ],
+   "blood": [
+    "甲狀腺上動脈的分支"
+   ],
+   "palpation": [
+    "在胸骨舌骨肌深層，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Sternothyroid muscle"
+  },
+  {
+   "id": "thyrohyoid",
+   "zh": "甲狀舌骨肌",
+   "en": "thyrohyoid",
+   "region": "tmj",
+   "parts": [
+    "thyrohyoid"
+   ],
+   "origin": [
+    "甲狀軟骨（斜線）"
+   ],
+   "insertion": [
+    "舌骨體與大角交界"
+   ],
+   "primary": [
+    "下壓舌骨；舌骨固定時上提喉（吞嚥）"
+   ],
+   "secondary": [],
+   "innervation": [
+    {
+     "nerve": "舌下神經",
+     "roots": "C1",
+     "note": "其實是搭舌下神經走的 C1 纖維",
+     "term": "hypoglossal nerve"
+    }
+   ],
+   "innervationText": [
+    "舌下神經（C1，其實是搭舌下神經走的 C1 纖維）"
+   ],
+   "blood": [
+    "甲狀腺上動脈的分支"
+   ],
+   "palpation": [
+    "在甲狀軟骨與舌骨之間的外側，無法單獨觸診。"
+   ],
+   "sources": [
+    "Neumann p.473（附著點、神經）、p.450（作用）"
+   ],
+   "notes": [],
+   "reviewed": false,
+   "wiki": "Thyrohyoid muscle"
+  }
+ ]
 }

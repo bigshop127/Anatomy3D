@@ -1,4 +1,4 @@
-import type {Atlas,Part} from './anatomy';
+import type {Part} from './anatomy';
 /** The part of meshoptimizer's decoder this needs (MeshoptDecoder from 'meshoptimizer/decoder'). */
 export interface MeshDecoder {
  decodeVertexBuffer:(target:Uint8Array,count:number,size:number,source:Uint8Array,filter?:string)=>void;
@@ -7,7 +7,7 @@ export interface MeshDecoder {
 export interface PartGeometry {position:Float32Array;normal:Int8Array;index:Uint32Array}
 /** Model chunks hold, per part and back to back, three meshopt streams: positions as 16-bit steps of atlas.encoding.grid
  * from part.origin (8-byte vertices), octahedral 8-bit normals (4-byte vertices) and triangle indices. */
-export function decodePart(atlas:Atlas,part:Part,chunk:Uint8Array,decoder:MeshDecoder):PartGeometry{
+export function decodePart(atlas:{encoding:{grid:number}},part:Pick<Part,'vertexCount'|'streams'|'origin'|'indexCount'>,chunk:Uint8Array,decoder:MeshDecoder):PartGeometry{
  const n=part.vertexCount,[offset,positionBytes,normalBytes,indexBytes]=part.streams,grid=atlas.encoding.grid,origin=part.origin;
  const steps=new Uint16Array(n*4);
  decoder.decodeVertexBuffer(new Uint8Array(steps.buffer),n,8,chunk.subarray(offset,offset+positionBytes));

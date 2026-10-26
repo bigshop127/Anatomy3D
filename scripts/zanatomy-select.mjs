@@ -64,6 +64,19 @@ const OUT={
  'Lateral process of nasal septal cartilage':'nose',
 };
 const OUT_PATTERN=[[/ cells of ethmoid bone$|^Sinus of /,'air sinus']];
+// Attachment patches left out, by muscle or by patch.
+const ATTACHMENT_OUT={
+ 'Long plantar ligament':'where the long plantar ligament itself attaches, not a muscle',
+ 'Articularis genus muscle':'neither model has the articularis genus itself',
+ 'Spinalis capitis muscle':'the spinalis capitis blends with the semispinalis capitis, and the card leaves it out',
+ 'Extensor carpi ulnaris.el':'lies on the wrist capsule and triquetrum, short of the fifth metacarpal; the insertion is worked out instead',
+ 'Extensor carpi ulnaris.er':'lies on the wrist capsule and triquetrum, short of the fifth metacarpal; the insertion is worked out instead',
+ 'Rectus abdominis muscle.el':'runs the whole length of the linea alba; the origin on the pubic crest is worked out instead',
+ 'Rectus abdominis muscle.er':'runs the whole length of the linea alba; the origin on the pubic crest is worked out instead',
+ 'Patellar ligament.ol':'apex of the patella, where the patellar ligament itself starts','Patellar ligament.or':'apex of the patella, where the patellar ligament itself starts',
+ 'Deep head of flexor pollicis brevis.o1l':'on the shaft of the first metacarpal, where neither head of the flexor pollicis brevis attaches',
+ 'Deep head of flexor pollicis brevis.o1r':'on the shaft of the first metacarpal, where neither head of the flexor pollicis brevis attaches',
+};
 
 // App names follow BodyParts3D: "Left latissimus dorsi", and for parts of a muscle "Superficial part of left masseter".
 const RENAME={
@@ -103,9 +116,12 @@ const skip=(why,z)=>{(skipped[why]??=[]).push(z);};
 for(const r of candidates){
  const {base,side}=split(r.name);
  if(r.kind==='attachment'){
-  // "Adductor longus.ol" is the origin on the left, ".e2r" the second insertion on the right.
+  // "Adductor longus.ol" is the origin on the left, ".e2r" the second insertion on the right (about fifty carry the wrong side,
+  // which build-atlas.mjs corrects from where the patch lies).
   const m=r.name.match(/^(.*)\.([oe])(\d*)([lr])$/);if(!m)throw new Error(`Unexpected attachment name ${r.name}`);
-  attachments.push({z:r.name,id:idOf('ZA',r.name),muscle:m[1].replace(/^\((.*)\)$/,'$1'),end:m[2]==='o'?'origin':'insertion',side:m[4]==='l'?'left':'right'});
+  const muscle=m[1].replace(/^\((.*)\)$/,'$1'),out=ATTACHMENT_OUT[r.name]??ATTACHMENT_OUT[muscle];
+  if(out){skip(`attachment left out: ${out}`,r.name);continue;}
+  attachments.push({z:r.name,id:idOf('ZA',r.name),muscle,end:m[2]==='o'?'origin':'insertion',side:m[4]==='l'?'left':'right'});
   continue;
  }
  const out=OUT[base]??OUT_PATTERN.find(([re])=>re.test(base))?.[1];
@@ -117,14 +133,73 @@ for(const r of candidates){
  parts.push({z:r.name,id:idOf('Z',r.name),name:appName(base,placed,system==='muscular'),system,...(pushOut(system)?{pushOut:true}:{})});
  if(r.present)review.push(`${r.name} → ${parts.at(-1).name}: shape matches ${r.counterparts.slice(0,2).map(c=>c[0]).join(', ')}`);
 }
-// Attachment patches name their muscle the Z-Anatomy way. term is the atlas muscle (lowercase, without the side) it belongs to
-// when one matches; the rest (patches of the whole biceps brachii, whose heads the atlas draws apart, and the like) are for
-// batch 06 to resolve. Z-Anatomy has the descending and ascending parts of the trapezius the wrong way round.
-const TRAPEZIUS={'Ascending part of trapezius muscle':'descending part of trapezius','Descending part of trapezius muscle':'ascending part of trapezius'};
-const muscleTerm=new Map();
+// Attachment patches name their muscle the Z-Anatomy way; terms are the atlas muscles (lowercase, without the side) a patch
+// belongs to. Most match by name. A patch of a whole muscle whose heads the atlas draws apart, or of a common tendon, belongs
+// to all of them (WHOLE: one list, or one per end); PATCH settles single patches. Z-Anatomy has the descending and ascending
+// parts of the trapezius the wrong way round. Origin and insertion follow the muscle cards (Neumann), so FLIP turns round the
+// muscles Z-Anatomy draws the other way: shoulder-girdle muscles it takes to arise from the scapula or clavicle, and neck muscles
+// it takes to arise from their upper end, which the cards make the insertion.
+const QUADRICEPS=['rectus femoris','vastus lateralis','vastus medialis','vastus intermedius'];
+const WHOLE={
+ 'Ascending part of trapezius muscle':['descending part of trapezius'],'Descending part of trapezius muscle':['ascending part of trapezius'],
+ 'Biceps brachii muscle':['long head of biceps brachii','short head of biceps brachii'],
+ 'Triceps brachii muscle':['long head of triceps brachii','lateral head of triceps brachii','medial head of triceps brachii'],
+ 'Deltoid muscle':['clavicular part of deltoid','acromial part of deltoid','spinal part of deltoid'],
+ // Its origin patch lies on the clavicle; the sternocostal and abdominal parts have patches of their own.
+ 'Pectoralis major muscle':{origin:['clavicular part of pectoralis major'],insertion:['clavicular part of pectoralis major','sternocostal part of pectoralis major','abdominal part of pectoralis major']},
+ // Its origin patch is on the medial epicondyle, where only the humeral head arises.
+ 'Pronator teres':{origin:['humeral head of pronator teres'],insertion:['humeral head of pronator teres','ulnar head of pronator teres']},
+ 'Flexor carpi ulnaris':['humeral head of flexor carpi ulnaris','ulnar head of flexor carpi ulnaris'],
+ 'Common flexor tendon':['flexor carpi radialis','palmaris longus','flexor digitorum superficialis','humeral head of flexor carpi ulnaris'],
+ // Neumann has the extensor digiti minimi arise from the extensor digitorum, so the card leaves it out here.
+ 'Common extensor tendon':['extensor carpi radialis brevis','extensor digitorum','extensor carpi ulnaris'],
+ 'Erector spinae':['iliocostalis lumborum','longissimus thoracis'],
+ 'Iliopsoas muscle':['iliacus','psoas major'],
+ 'Quadriceps femoris muscle':QUADRICEPS,
+ // The quadriceps reaches the tibial tuberosity through the patellar ligament.
+ 'Patellar ligament':{insertion:QUADRICEPS},
+ 'Triceps surae muscle':['medial head of gastrocnemius','lateral head of gastrocnemius','soleus','plantaris'],
+ 'Biceps femoris muscle':['long head of biceps femoris','short head of biceps femoris'],
+ // The shared insertion on the medial side of the greater trochanter.
+ 'Trochanteric insertion':['gemellus superior','obturator internus','gemellus inferior'],
+ 'Masseter':['superficial part of masseter','deep part of masseter'],
+ 'Lateral pterygoid muscle':['superior head of lateral pterygoid','inferior head of lateral pterygoid'],
+ 'Anterior belly of digastric muscle':['digastric'],
+ 'Levator ani':['pubococcygeus','puborectalis','iliococcygeus'],
+ 'Adductor pollicis':['oblique head of adductor pollicis','transverse head of adductor pollicis'],
+ 'Deep head of flexor pollicis brevis':['flexor pollicis brevis','superficial head of flexor pollicis brevis'],
+};
+const FLIP=new Set(['Ascending part of trapezius muscle','Descending part of trapezius muscle','Transverse part of trapezius muscle',
+ 'Serratus anterior muscle','Pectoralis minor muscle','Subclavius muscle','Sternocostal head of pectoralis major muscle','Rectus abdominis muscle',
+ 'Scalenus anterior muscle','Scalenus medius muscle','Scalenus posterior muscle','Longus capitis muscle','Rectus anterior capitis muscle',
+ 'Rectus lateralis capitis muscle','Rectus posterior major capitis muscle','Rectus posterior minor capitis muscle','Obliquus superior capitis muscle',
+ 'Obliquus inferior capitis muscle','Thyrohyoid muscle','Anterior belly of digastric muscle','Transverse head of adductor hallucis']);
+const PATCH={
+ // The slip from the inferior angle of the scapula is part of the latissimus dorsi's origin, the short head of the biceps femoris
+ // arises from the femur, and the obliques run from the ribs to the hip bone and inguinal ligament (external) or the other way.
+ 'Latissimus dorsi muscle.el':{end:'origin'},'Latissimus dorsi muscle.er':{end:'origin'},'Short head of biceps femoris.el':{end:'origin'},
+ ...Object.fromEntries(['o4l','o4r','o5l','o5r'].map(k=>[`External abdominal oblique muscle.${k}`,{end:'insertion'}])),
+ ...Object.fromEntries(['ol','or','o1l','o1r','o2l','o2r','o4l','o4r'].map(k=>[`Internal abdominal oblique muscle.${k}`,{end:'insertion'}])),
+ // Z-Anatomy calls the patch on the capitate an insertion; it is where the oblique head arises.
+ 'Adductor pollicis.el':{terms:['oblique head of adductor pollicis'],end:'origin'},'Adductor pollicis.er':{terms:['oblique head of adductor pollicis'],end:'origin'},
+ // One patch per plantar interosseous: from the 3rd, 4th and 5th metatarsals to the proximal phalanges of the same toes.
+ 'Plantar interossei muscles.ol':{terms:['first plantar interosseous of foot']},'Plantar interossei muscles.o1l':{terms:['second plantar interosseous of foot']},
+ 'Plantar interossei muscles.o2l':{terms:['third plantar interosseous of foot']},'Plantar interossei muscles.el':{terms:['first plantar interosseous of foot']},
+ 'Plantar interossei muscles.e1l':{terms:['second plantar interosseous of foot']},'Plantar interossei muscles.e2l':{terms:['third plantar interosseous of foot']},
+};
+const muscleTerm=new Map(),allTerms=new Set();
 for(const p of atlas.parts)if(p.system==='muscular'&&!removed.has(p.id)&&p.source!=='z-anatomy')muscleTerm.set(canon(p.name),p.name.toLowerCase().replace(/\b(left|right) /g,''));
 for(const p of parts)if(p.system==='muscular')muscleTerm.set(canon(split(p.z).base),p.name.toLowerCase().replace(/\b(left|right) /g,''));
-for(const a of attachments){const t=TRAPEZIUS[a.muscle]??muscleTerm.get(canon(SAME[a.muscle]??a.muscle));if(t)a.term=t;}
+for(const t of muscleTerm.values())allTerms.add(t);
+for(const a of attachments){
+ const fix=PATCH[a.z],whole=WHOLE[a.muscle],name=muscleTerm.get(canon(SAME[a.muscle]??a.muscle));
+ if(FLIP.has(a.muscle))a.end=a.end==='origin'?'insertion':'origin';
+ if(fix?.end)a.end=fix.end;
+ const terms=fix?.terms??(Array.isArray(whole)?whole:whole?.[a.end])??(name?[name]:null);
+ if(!terms)throw new Error(`Attachment ${a.z} belongs to no atlas muscle: add it to WHOLE, PATCH or ATTACHMENT_OUT`);
+ for(const t of terms)if(!allTerms.has(t))throw new Error(`Attachment ${a.z}: ${t} is not an atlas muscle`);
+ a.terms=terms;
+}
 const ids=new Set(parts.map(p=>p.id));if(ids.size!==parts.length)throw new Error('Id collision');
 const names=new Map();for(const p of parts){if(names.has(p.name))throw new Error(`Two structures named ${p.name}: ${names.get(p.name)}, ${p.z}`);names.set(p.name,p.z);}
 parts.sort((a,b)=>a.z.localeCompare(b.z));attachments.sort((a,b)=>a.z.localeCompare(b.z));

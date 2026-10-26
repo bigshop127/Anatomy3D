@@ -1,7 +1,7 @@
 // Offline cache for the installed app. The page shell is network-first so updates show up on the next visit;
 // hashed build assets and the anatomy geometry are cache-first. scripts/build-atlas.mjs sets MODELS from the model content,
 // so a new model replaces the old offline copy.
-const SHELL='anatomy3d-shell-v1',MODELS='anatomy3d-models-225f589bb75a';
+const SHELL='anatomy3d-shell-v1',MODELS='anatomy3d-models-8b1b2ab978a7';
 self.addEventListener('install',()=>self.skipWaiting());
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
  for(const key of await caches.keys())if(key!==SHELL&&key!==MODELS)await caches.delete(key);

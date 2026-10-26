@@ -154,3 +154,37 @@ h1,.structure-title{letter-spacing:.01em!important}
 @media(max-width:420px){.tool-tabs button{white-space:nowrap;padding:4px 6px}.tool-value{min-width:0;padding:3px 5px}.dock-row{gap:6px}}
 @media(max-width:400px){h1 .edition{display:none}}
 .bookmark-panel .search-note{display:block}
+
+/* Muscle cards, nerve and attachment lists in the detail panel. Sections fold, so the card fits a phone. */
+.detail-sheet:has(.muscle-card){width:350px!important;max-width:350px!important}
+.muscle-card{display:flex;flex-direction:column}.card-head{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;color:#7c8793;padding-bottom:4px}
+.card-link{font-size:12px;letter-spacing:0;color:#2f6b7a;padding:6px 0;min-height:32px;text-align:left}.card-head .card-link{margin-left:auto}.card-link:hover{text-decoration:underline;background:none!important}
+.card-section{border-top:1px solid #18253612}.card-section:last-child{border-bottom:1px solid #18253612}
+.card-section summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px;font-size:13px;font-weight:500;color:#26313c;cursor:pointer}
+.card-section summary::-webkit-details-marker{display:none}.card-chevron{color:#9aa3ab;transition:transform .18s}.card-section[open] .card-chevron{transform:rotate(90deg)}
+.card-section-body{padding:0 0 12px;font-size:13px;line-height:1.65;color:#4b5967}.card-section-body p{margin:0}.card-section-body ul{margin:0;padding-left:1.1em}.card-section-body b{font-weight:600;color:#33414e;margin-right:2px}
+.attach-row{display:flex;align-items:baseline;gap:7px;margin:0 0 6px}.attach-row>b{flex-shrink:0;font-weight:500}.attach-row>p,.attach-row>ul,.attach-row>.chip-list{flex:1;min-width:0}
+.end-dot{display:inline-block;flex-shrink:0;width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 2px #fff,0 0 0 3px #18253618}
+.marks-toggle{margin-top:8px}.marks-toggle label{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#33414e;min-height:36px;cursor:pointer}
+.card-note{font-size:11px!important;line-height:1.55!important;color:#87929d!important;margin:4px 0 0!important}
+.nerve-list{display:flex;flex-direction:column;gap:6px}.nerve-chip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 7px;max-width:100%;padding:6px 10px;border-radius:12px;border:1px solid #458a8555;background:#e3efed99;color:#24524f;font-size:13px;text-align:left}
+.nerve-chip small{font-size:11px;color:#3f6f6b}.nerve-chip small.minor{color:#6f8f8c}.nerve-chip.static{border-color:#18253618;background:#f7f9fa;color:#4b5967}.nerve-chip.static small{color:#7c8793}
+button.nerve-chip:hover{background:#d6e9e6!important}
+.chip-list{display:flex;flex-wrap:wrap;gap:5px}.chip-list button{display:inline-flex;align-items:baseline;gap:5px;padding:5px 10px;min-height:34px;border-radius:9px;border:1px solid #18253618;background:#f7f9fa;font-size:12.5px;color:#33414e}
+.chip-list small{font-size:10.5px;color:#87929d}.branch h4{font-size:12px;font-weight:500;color:#687786;margin:10px 0 5px}
+.muscle-card .source-link{margin-top:8px;line-height:1.5}
+@media(max-width:767px){
+ .card-section summary{min-height:44px;font-size:14px}.card-section-body{font-size:13.5px}.chip-list button{min-height:40px}.nerve-chip{min-height:40px}
+}
+.label-short{display:none}
+@media(max-width:767px){
+ /* One row of actions under the panel, so a card has room to read; a card or list may also make the panel taller. */
+ .label-full{display:none}.label-short{display:inline}
+ .detail-actions{flex-direction:row;align-items:center;gap:4px}
+ .detail-actions .primary-action{flex:0 0 auto;min-height:42px;padding:0 12px;gap:6px}.detail-actions .primary-action svg:last-child{display:none}
+ .detail-tools{flex:1;flex-wrap:nowrap;margin-top:0;gap:4px;min-width:0}.detail-tools button{flex:1;min-width:0;height:42px;padding:0 4px;justify-content:center;gap:3px}
+ .detail-sheet:has(.card-section){max-height:min(54dvh,calc(100dvh - 30px - var(--dock-h,110px) - 96px))}
+ .detail-sheet.is-tall,.detail-sheet.is-tall.is-isolated{max-height:calc(100dvh - 30px - env(safe-area-inset-bottom) - var(--dock-h,110px) - 24px)!important}
+ .sheet-size{position:absolute;top:3px;right:47px;min-width:44px;min-height:44px;align-items:center;justify-content:center;color:#5d6a77;z-index:1}
+}
+@media(max-width:360px){.detail-tools button svg{display:none}}

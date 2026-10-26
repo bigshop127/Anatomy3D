@@ -36,14 +36,18 @@ export interface SceneState {inspectorOpen?:boolean;explode:number;visible:Syste
  section:Section|null;
  /** Body region cut out by a clipping box; look is the camera direction for framing it. */ region:{box:Box;look:number[]}|null;
  /** Number of muscle layers peeled away from the surface. */ peel:number;
- pins:Pin[];camera?:{pose:CameraPose;n:number}}
+ pins:Pin[];camera?:{pose:CameraPose;n:number};
+ /** Muscle attachment patches to draw (ids from attachments.json); markThrough draws the selected muscles see-through so the
+  * patches under them show. */ marks?:string[];markThrough?:boolean;
+ /** Parts shown along with an isolated selection: the bones its attachment patches lie on. */ companions?:string[]}
 export const overlaps=(a:Box,b:Box)=>a[0].every((v,i)=>v<=b[1][i]&&a[1][i]>=b[0][i]);
 /** One rule for what is drawn, shared by the scene and the counts in the interface. */
 export function visibilityTest(s:SceneState){
- const visible=new Set(s.visible),selection=new Set(s.selected),hidden=new Set(s.hidden);
+ const visible=new Set(s.visible),selection=new Set(s.selected),hidden=new Set(s.hidden),companions=new Set(s.companions);
  return (p:Part)=>{
   if(selection.has(p.id))return true;
-  if(s.isolate||!visible.has(p.system)||hidden.has(p.id))return false;
+  if(s.isolate)return companions.has(p.id);
+  if(!visible.has(p.system)||hidden.has(p.id))return false;
   if(p.layer&&p.layer<=s.peel)return false;
   return !s.region||overlaps(p.bounds as Box,s.region.box);
  };

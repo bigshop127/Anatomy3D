@@ -18020,7 +18020,9 @@
    "muscle": "Abdominal part of pectoralis major muscle",
    "end": "origin",
    "side": "left",
-   "term": "abdominal part of pectoralis major"
+   "terms": [
+    "abdominal part of pectoralis major"
+   ]
   },
   {
    "z": "(Abdominal part of pectoralis major muscle).or",
@@ -18028,7 +18030,9 @@
    "muscle": "Abdominal part of pectoralis major muscle",
    "end": "origin",
    "side": "right",
-   "term": "abdominal part of pectoralis major"
+   "terms": [
+    "abdominal part of pectoralis major"
+   ]
   },
   {
    "z": "(Opponens digiti minimi muscle of foot).ol",
@@ -18036,7 +18040,9 @@
    "muscle": "Opponens digiti minimi muscle of foot",
    "end": "origin",
    "side": "left",
-   "term": "opponens digiti minimi of foot"
+   "terms": [
+    "opponens digiti minimi of foot"
+   ]
   },
   {
    "z": "(Opponens digiti minimi muscle of foot).or",
@@ -18044,7 +18050,9 @@
    "muscle": "Opponens digiti minimi muscle of foot",
    "end": "origin",
    "side": "right",
-   "term": "opponens digiti minimi of foot"
+   "terms": [
+    "opponens digiti minimi of foot"
+   ]
   },
   {
    "z": "Abductor digiti minimi of foot.el",
@@ -18052,7 +18060,9 @@
    "muscle": "Abductor digiti minimi of foot",
    "end": "insertion",
    "side": "left",
-   "term": "abductor digiti minimi of foot"
+   "terms": [
+    "abductor digiti minimi of foot"
+   ]
   },
   {
    "z": "Abductor digiti minimi of foot.er",
@@ -18060,7 +18070,9 @@
    "muscle": "Abductor digiti minimi of foot",
    "end": "insertion",
    "side": "right",
-   "term": "abductor digiti minimi of foot"
+   "terms": [
+    "abductor digiti minimi of foot"
+   ]
   },
   {
    "z": "Abductor digiti minimi of hand.el",
@@ -18068,7 +18080,9 @@
    "muscle": "Abductor digiti minimi of hand",
    "end": "insertion",
    "side": "left",
-   "term": "abductor digiti minimi of hand"
+   "terms": [
+    "abductor digiti minimi of hand"
+   ]
   },
   {
    "z": "Abductor digiti minimi of hand.er",
@@ -18076,7 +18090,9 @@
    "muscle": "Abductor digiti minimi of hand",
    "end": "insertion",
    "side": "right",
-   "term": "abductor digiti minimi of hand"
+   "terms": [
+    "abductor digiti minimi of hand"
+   ]
   },
   {
    "z": "Abductor digiti minimi of hand.ol",
@@ -18084,7 +18100,9 @@
    "muscle": "Abductor digiti minimi of hand",
    "end": "origin",
    "side": "left",
-   "term": "abductor digiti minimi of hand"
+   "terms": [
+    "abductor digiti minimi of hand"
+   ]
   },
   {
    "z": "Abductor digiti minimi of hand.or",
@@ -18092,7 +18110,9 @@
    "muscle": "Abductor digiti minimi of hand",
    "end": "origin",
    "side": "right",
-   "term": "abductor digiti minimi of hand"
+   "terms": [
+    "abductor digiti minimi of hand"
+   ]
   },
   {
    "z": "Abductor hallucis.el",
@@ -18100,7 +18120,9 @@
    "muscle": "Abductor hallucis",
    "end": "insertion",
    "side": "left",
-   "term": "abductor hallucis"
+   "terms": [
+    "abductor hallucis"
+   ]
   },
   {
    "z": "Abductor hallucis.er",
@@ -18108,7 +18130,9 @@
    "muscle": "Abductor hallucis",
    "end": "insertion",
    "side": "right",
-   "term": "abductor hallucis"
+   "terms": [
+    "abductor hallucis"
+   ]
   },
   {
    "z": "Abductor hallucis.ol",
@@ -18116,7 +18140,9 @@
    "muscle": "Abductor hallucis",
    "end": "origin",
    "side": "left",
-   "term": "abductor hallucis"
+   "terms": [
+    "abductor hallucis"
+   ]
   },
   {
    "z": "Abductor hallucis.or",
@@ -18124,7 +18150,9 @@
    "muscle": "Abductor hallucis",
    "end": "origin",
    "side": "right",
-   "term": "abductor hallucis"
+   "terms": [
+    "abductor hallucis"
+   ]
   },
   {
    "z": "Abductor pollicis longus.el",
@@ -18132,7 +18160,9 @@
    "muscle": "Abductor pollicis longus",
    "end": "insertion",
    "side": "left",
-   "term": "abductor pollicis longus"
+   "terms": [
+    "abductor pollicis longus"
+   ]
   },
   {
    "z": "Abductor pollicis longus.er",
@@ -18140,7 +18170,9 @@
    "muscle": "Abductor pollicis longus",
    "end": "insertion",
    "side": "right",
-   "term": "abductor pollicis longus"
+   "terms": [
+    "abductor pollicis longus"
+   ]
   },
   {
    "z": "Abductor pollicis longus.ol",
@@ -18148,7 +18180,9 @@
    "muscle": "Abductor pollicis longus",
    "end": "origin",
    "side": "left",
-   "term": "abductor pollicis longus"
+   "terms": [
+    "abductor pollicis longus"
+   ]
   },
   {
    "z": "Abductor pollicis longus.or",
@@ -18156,7 +18190,9 @@
    "muscle": "Abductor pollicis longus",
    "end": "origin",
    "side": "right",
-   "term": "abductor pollicis longus"
+   "terms": [
+    "abductor pollicis longus"
+   ]
   },
   {
    "z": "Acromial part of deltoid muscle.ol",
@@ -18164,7 +18200,9 @@
    "muscle": "Acromial part of deltoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "acromial part of deltoid"
+   "terms": [
+    "acromial part of deltoid"
+   ]
   },
   {
    "z": "Acromial part of deltoid muscle.or",
@@ -18172,7 +18210,9 @@
    "muscle": "Acromial part of deltoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "acromial part of deltoid"
+   "terms": [
+    "acromial part of deltoid"
+   ]
   },
   {
    "z": "Adductor longus.el",
@@ -18180,7 +18220,9 @@
    "muscle": "Adductor longus",
    "end": "insertion",
    "side": "left",
-   "term": "adductor longus"
+   "terms": [
+    "adductor longus"
+   ]
   },
   {
    "z": "Adductor longus.er",
@@ -18188,7 +18230,9 @@
    "muscle": "Adductor longus",
    "end": "insertion",
    "side": "right",
-   "term": "adductor longus"
+   "terms": [
+    "adductor longus"
+   ]
   },
   {
    "z": "Adductor longus.ol",
@@ -18196,7 +18240,9 @@
    "muscle": "Adductor longus",
    "end": "origin",
    "side": "left",
-   "term": "adductor longus"
+   "terms": [
+    "adductor longus"
+   ]
   },
   {
    "z": "Adductor longus.or",
@@ -18204,7 +18250,9 @@
    "muscle": "Adductor longus",
    "end": "origin",
    "side": "right",
-   "term": "adductor longus"
+   "terms": [
+    "adductor longus"
+   ]
   },
   {
    "z": "Adductor magnus.el",
@@ -18212,7 +18260,9 @@
    "muscle": "Adductor magnus",
    "end": "insertion",
    "side": "left",
-   "term": "adductor magnus"
+   "terms": [
+    "adductor magnus"
+   ]
   },
   {
    "z": "Adductor magnus.er",
@@ -18220,7 +18270,9 @@
    "muscle": "Adductor magnus",
    "end": "insertion",
    "side": "right",
-   "term": "adductor magnus"
+   "terms": [
+    "adductor magnus"
+   ]
   },
   {
    "z": "Adductor magnus.ol",
@@ -18228,7 +18280,9 @@
    "muscle": "Adductor magnus",
    "end": "origin",
    "side": "left",
-   "term": "adductor magnus"
+   "terms": [
+    "adductor magnus"
+   ]
   },
   {
    "z": "Adductor magnus.or",
@@ -18236,35 +18290,51 @@
    "muscle": "Adductor magnus",
    "end": "origin",
    "side": "right",
-   "term": "adductor magnus"
+   "terms": [
+    "adductor magnus"
+   ]
   },
   {
    "z": "Adductor pollicis.e1l",
    "id": "ZAfae44212",
    "muscle": "Adductor pollicis",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "oblique head of adductor pollicis",
+    "transverse head of adductor pollicis"
+   ]
   },
   {
    "z": "Adductor pollicis.e1r",
    "id": "ZA012e1d05",
    "muscle": "Adductor pollicis",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "oblique head of adductor pollicis",
+    "transverse head of adductor pollicis"
+   ]
   },
   {
    "z": "Adductor pollicis.el",
    "id": "ZA3237a365",
    "muscle": "Adductor pollicis",
-   "end": "insertion",
-   "side": "left"
+   "end": "origin",
+   "side": "left",
+   "terms": [
+    "oblique head of adductor pollicis"
+   ]
   },
   {
    "z": "Adductor pollicis.er",
    "id": "ZA07f3785f",
    "muscle": "Adductor pollicis",
-   "end": "insertion",
-   "side": "right"
+   "end": "origin",
+   "side": "right",
+   "terms": [
+    "oblique head of adductor pollicis"
+   ]
   },
   {
    "z": "Anconeus muscle.el",
@@ -18272,7 +18342,9 @@
    "muscle": "Anconeus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "anconeus"
+   "terms": [
+    "anconeus"
+   ]
   },
   {
    "z": "Anconeus muscle.er",
@@ -18280,7 +18352,9 @@
    "muscle": "Anconeus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "anconeus"
+   "terms": [
+    "anconeus"
+   ]
   },
   {
    "z": "Anconeus muscle.ol",
@@ -18288,7 +18362,9 @@
    "muscle": "Anconeus muscle",
    "end": "origin",
    "side": "left",
-   "term": "anconeus"
+   "terms": [
+    "anconeus"
+   ]
   },
   {
    "z": "Anconeus muscle.or",
@@ -18296,95 +18372,113 @@
    "muscle": "Anconeus muscle",
    "end": "origin",
    "side": "right",
-   "term": "anconeus"
+   "terms": [
+    "anconeus"
+   ]
   },
   {
    "z": "Anterior belly of digastric muscle.el",
    "id": "ZA460bbb0f",
    "muscle": "Anterior belly of digastric muscle",
-   "end": "insertion",
-   "side": "left"
+   "end": "origin",
+   "side": "left",
+   "terms": [
+    "digastric"
+   ]
   },
   {
    "z": "Anterior belly of digastric muscle.er",
    "id": "ZA33e8a7fe",
    "muscle": "Anterior belly of digastric muscle",
-   "end": "insertion",
-   "side": "right"
-  },
-  {
-   "z": "Articularis genus muscle.ol",
-   "id": "ZA175fa942",
-   "muscle": "Articularis genus muscle",
    "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Articularis genus muscle.or",
-   "id": "ZAcee6f5ea",
-   "muscle": "Articularis genus muscle",
-   "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "digastric"
+   ]
   },
   {
    "z": "Ascending part of trapezius muscle.el",
    "id": "ZA53c273eb",
    "muscle": "Ascending part of trapezius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "descending part of trapezius"
+   "terms": [
+    "descending part of trapezius"
+   ]
   },
   {
    "z": "Ascending part of trapezius muscle.er",
    "id": "ZAdafe99de",
    "muscle": "Ascending part of trapezius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "descending part of trapezius"
+   "terms": [
+    "descending part of trapezius"
+   ]
   },
   {
    "z": "Ascending part of trapezius muscle.ol",
    "id": "ZA4e1b6921",
    "muscle": "Ascending part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "descending part of trapezius"
+   "terms": [
+    "descending part of trapezius"
+   ]
   },
   {
    "z": "Ascending part of trapezius muscle.or",
    "id": "ZAe8e9bb1f",
    "muscle": "Ascending part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "descending part of trapezius"
+   "terms": [
+    "descending part of trapezius"
+   ]
   },
   {
    "z": "Biceps brachii muscle.el",
    "id": "ZA2376f6a7",
    "muscle": "Biceps brachii muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "long head of biceps brachii",
+    "short head of biceps brachii"
+   ]
   },
   {
    "z": "Biceps brachii muscle.er",
    "id": "ZAfea4f0e4",
    "muscle": "Biceps brachii muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "long head of biceps brachii",
+    "short head of biceps brachii"
+   ]
   },
   {
    "z": "Biceps femoris muscle.el",
    "id": "ZA1a20fba7",
    "muscle": "Biceps femoris muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "long head of biceps femoris",
+    "short head of biceps femoris"
+   ]
   },
   {
    "z": "Biceps femoris muscle.er",
    "id": "ZA0894023e",
    "muscle": "Biceps femoris muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "long head of biceps femoris",
+    "short head of biceps femoris"
+   ]
   },
   {
    "z": "Brachialis muscle.el",
@@ -18392,7 +18486,9 @@
    "muscle": "Brachialis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "brachialis"
+   "terms": [
+    "brachialis"
+   ]
   },
   {
    "z": "Brachialis muscle.er",
@@ -18400,7 +18496,9 @@
    "muscle": "Brachialis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "brachialis"
+   "terms": [
+    "brachialis"
+   ]
   },
   {
    "z": "Brachialis muscle.ol",
@@ -18408,7 +18506,9 @@
    "muscle": "Brachialis muscle",
    "end": "origin",
    "side": "left",
-   "term": "brachialis"
+   "terms": [
+    "brachialis"
+   ]
   },
   {
    "z": "Brachialis muscle.or",
@@ -18416,7 +18516,9 @@
    "muscle": "Brachialis muscle",
    "end": "origin",
    "side": "right",
-   "term": "brachialis"
+   "terms": [
+    "brachialis"
+   ]
   },
   {
    "z": "Brachioradialis muscle.el",
@@ -18424,7 +18526,9 @@
    "muscle": "Brachioradialis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "brachioradialis"
+   "terms": [
+    "brachioradialis"
+   ]
   },
   {
    "z": "Brachioradialis muscle.er",
@@ -18432,7 +18536,9 @@
    "muscle": "Brachioradialis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "brachioradialis"
+   "terms": [
+    "brachioradialis"
+   ]
   },
   {
    "z": "Brachioradialis muscle.ol",
@@ -18440,7 +18546,9 @@
    "muscle": "Brachioradialis muscle",
    "end": "origin",
    "side": "left",
-   "term": "brachioradialis"
+   "terms": [
+    "brachioradialis"
+   ]
   },
   {
    "z": "Brachioradialis muscle.or",
@@ -18448,7 +18556,9 @@
    "muscle": "Brachioradialis muscle",
    "end": "origin",
    "side": "right",
-   "term": "brachioradialis"
+   "terms": [
+    "brachioradialis"
+   ]
   },
   {
    "z": "Bucinator.o1l",
@@ -18456,7 +18566,9 @@
    "muscle": "Bucinator",
    "end": "origin",
    "side": "left",
-   "term": "bucinator"
+   "terms": [
+    "bucinator"
+   ]
   },
   {
    "z": "Bucinator.o1r",
@@ -18464,7 +18576,9 @@
    "muscle": "Bucinator",
    "end": "origin",
    "side": "right",
-   "term": "bucinator"
+   "terms": [
+    "bucinator"
+   ]
   },
   {
    "z": "Bucinator.ol",
@@ -18472,7 +18586,9 @@
    "muscle": "Bucinator",
    "end": "origin",
    "side": "left",
-   "term": "bucinator"
+   "terms": [
+    "bucinator"
+   ]
   },
   {
    "z": "Bucinator.or",
@@ -18480,7 +18596,9 @@
    "muscle": "Bucinator",
    "end": "origin",
    "side": "right",
-   "term": "bucinator"
+   "terms": [
+    "bucinator"
+   ]
   },
   {
    "z": "Clavicular part of deltoid muscle.ol",
@@ -18488,7 +18606,9 @@
    "muscle": "Clavicular part of deltoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "clavicular part of deltoid"
+   "terms": [
+    "clavicular part of deltoid"
+   ]
   },
   {
    "z": "Clavicular part of deltoid muscle.or",
@@ -18496,35 +18616,59 @@
    "muscle": "Clavicular part of deltoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "clavicular part of deltoid"
+   "terms": [
+    "clavicular part of deltoid"
+   ]
   },
   {
    "z": "Common extensor tendon.ol",
    "id": "ZAfe6928aa",
    "muscle": "Common extensor tendon",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "extensor carpi radialis brevis",
+    "extensor digitorum",
+    "extensor carpi ulnaris"
+   ]
   },
   {
    "z": "Common extensor tendon.or",
    "id": "ZA61087d34",
    "muscle": "Common extensor tendon",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "extensor carpi radialis brevis",
+    "extensor digitorum",
+    "extensor carpi ulnaris"
+   ]
   },
   {
    "z": "Common flexor tendon.ol",
    "id": "ZAf700eed1",
    "muscle": "Common flexor tendon",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "flexor carpi radialis",
+    "palmaris longus",
+    "flexor digitorum superficialis",
+    "humeral head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Common flexor tendon.or",
    "id": "ZA0ede9794",
    "muscle": "Common flexor tendon",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "flexor carpi radialis",
+    "palmaris longus",
+    "flexor digitorum superficialis",
+    "humeral head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Coracobrachialis muscle.ol",
@@ -18532,7 +18676,9 @@
    "muscle": "Coracobrachialis muscle",
    "end": "origin",
    "side": "left",
-   "term": "coracobrachialis"
+   "terms": [
+    "coracobrachialis"
+   ]
   },
   {
    "z": "Coracobrachialis muscle.or",
@@ -18540,49 +18686,55 @@
    "muscle": "Coracobrachialis muscle",
    "end": "origin",
    "side": "right",
-   "term": "coracobrachialis"
-  },
-  {
-   "z": "Deep head of flexor pollicis brevis.o1l",
-   "id": "ZA4ebafa31",
-   "muscle": "Deep head of flexor pollicis brevis",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Deep head of flexor pollicis brevis.o1r",
-   "id": "ZA5b4dd826",
-   "muscle": "Deep head of flexor pollicis brevis",
-   "end": "origin",
-   "side": "right"
+   "terms": [
+    "coracobrachialis"
+   ]
   },
   {
    "z": "Deep head of flexor pollicis brevis.ol",
    "id": "ZAe56a6b60",
    "muscle": "Deep head of flexor pollicis brevis",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "flexor pollicis brevis",
+    "superficial head of flexor pollicis brevis"
+   ]
   },
   {
    "z": "Deep head of flexor pollicis brevis.or",
    "id": "ZAf373c9b9",
    "muscle": "Deep head of flexor pollicis brevis",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "flexor pollicis brevis",
+    "superficial head of flexor pollicis brevis"
+   ]
   },
   {
    "z": "Deltoid muscle.el",
    "id": "ZA0eb25b88",
    "muscle": "Deltoid muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "clavicular part of deltoid",
+    "acromial part of deltoid",
+    "spinal part of deltoid"
+   ]
   },
   {
    "z": "Deltoid muscle.er",
    "id": "ZAca4b9c5d",
    "muscle": "Deltoid muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "clavicular part of deltoid",
+    "acromial part of deltoid",
+    "spinal part of deltoid"
+   ]
   },
   {
    "z": "Depressor anguli oris.ol",
@@ -18590,7 +18742,9 @@
    "muscle": "Depressor anguli oris",
    "end": "origin",
    "side": "left",
-   "term": "depressor anguli oris"
+   "terms": [
+    "depressor anguli oris"
+   ]
   },
   {
    "z": "Depressor anguli oris.or",
@@ -18598,7 +18752,9 @@
    "muscle": "Depressor anguli oris",
    "end": "origin",
    "side": "right",
-   "term": "depressor anguli oris"
+   "terms": [
+    "depressor anguli oris"
+   ]
   },
   {
    "z": "Depressor labii inferioris.ol",
@@ -18606,7 +18762,9 @@
    "muscle": "Depressor labii inferioris",
    "end": "origin",
    "side": "left",
-   "term": "depressor labii inferioris"
+   "terms": [
+    "depressor labii inferioris"
+   ]
   },
   {
    "z": "Depressor labii inferioris.or",
@@ -18614,7 +18772,9 @@
    "muscle": "Depressor labii inferioris",
    "end": "origin",
    "side": "right",
-   "term": "depressor labii inferioris"
+   "terms": [
+    "depressor labii inferioris"
+   ]
   },
   {
    "z": "Depressor septi nasi.ol",
@@ -18622,7 +18782,9 @@
    "muscle": "Depressor septi nasi",
    "end": "origin",
    "side": "left",
-   "term": "depressor septi nasi"
+   "terms": [
+    "depressor septi nasi"
+   ]
   },
   {
    "z": "Depressor septi nasi.or",
@@ -18630,23 +18792,29 @@
    "muscle": "Depressor septi nasi",
    "end": "origin",
    "side": "right",
-   "term": "depressor septi nasi"
+   "terms": [
+    "depressor septi nasi"
+   ]
   },
   {
    "z": "Descending part of trapezius muscle.ol",
    "id": "ZAebb47790",
    "muscle": "Descending part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "ascending part of trapezius"
+   "terms": [
+    "ascending part of trapezius"
+   ]
   },
   {
    "z": "Descending part of trapezius muscle.or",
    "id": "ZAb78dffc5",
    "muscle": "Descending part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "ascending part of trapezius"
+   "terms": [
+    "ascending part of trapezius"
+   ]
   },
   {
    "z": "Diaphragm.o1l",
@@ -18654,7 +18822,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o1r",
@@ -18662,7 +18832,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o2l",
@@ -18670,7 +18842,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o2r",
@@ -18678,7 +18852,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o3l",
@@ -18686,7 +18862,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o3r",
@@ -18694,7 +18872,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o4l",
@@ -18702,7 +18882,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o4r",
@@ -18710,7 +18892,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o5l",
@@ -18718,7 +18902,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.o5r",
@@ -18726,7 +18912,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.ol",
@@ -18734,7 +18922,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "left",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Diaphragm.or",
@@ -18742,7 +18932,9 @@
    "muscle": "Diaphragm",
    "end": "origin",
    "side": "right",
-   "term": "diaphragm"
+   "terms": [
+    "diaphragm"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o1l",
@@ -18750,7 +18942,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "left",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o1r",
@@ -18758,7 +18952,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "right",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o2l",
@@ -18766,7 +18962,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "left",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o2r",
@@ -18774,7 +18972,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "right",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o3l",
@@ -18782,7 +18982,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "left",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o3r",
@@ -18790,7 +18992,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "right",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o4l",
@@ -18798,7 +19002,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "left",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.o4r",
@@ -18806,7 +19012,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "right",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.ol",
@@ -18814,7 +19022,9 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "left",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Dorsal interossei muscles of hand.or",
@@ -18822,21 +19032,31 @@
    "muscle": "Dorsal interossei muscles of hand",
    "end": "origin",
    "side": "right",
-   "term": "set of dorsal interossei of hand"
+   "terms": [
+    "set of dorsal interossei of hand"
+   ]
   },
   {
    "z": "Erector spinae.ol",
    "id": "ZA7368cf82",
    "muscle": "Erector spinae",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "iliocostalis lumborum",
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Erector spinae.or",
    "id": "ZAfa068d90",
    "muscle": "Erector spinae",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "iliocostalis lumborum",
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Extensor carpi radialis brevis.el",
@@ -18844,7 +19064,9 @@
    "muscle": "Extensor carpi radialis brevis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor carpi radialis brevis"
+   "terms": [
+    "extensor carpi radialis brevis"
+   ]
   },
   {
    "z": "Extensor carpi radialis brevis.er",
@@ -18852,7 +19074,9 @@
    "muscle": "Extensor carpi radialis brevis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor carpi radialis brevis"
+   "terms": [
+    "extensor carpi radialis brevis"
+   ]
   },
   {
    "z": "Extensor carpi radialis longus.el",
@@ -18860,7 +19084,9 @@
    "muscle": "Extensor carpi radialis longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor carpi radialis longus"
+   "terms": [
+    "extensor carpi radialis longus"
+   ]
   },
   {
    "z": "Extensor carpi radialis longus.er",
@@ -18868,7 +19094,9 @@
    "muscle": "Extensor carpi radialis longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor carpi radialis longus"
+   "terms": [
+    "extensor carpi radialis longus"
+   ]
   },
   {
    "z": "Extensor carpi radialis longus.ol",
@@ -18876,7 +19104,9 @@
    "muscle": "Extensor carpi radialis longus",
    "end": "origin",
    "side": "left",
-   "term": "extensor carpi radialis longus"
+   "terms": [
+    "extensor carpi radialis longus"
+   ]
   },
   {
    "z": "Extensor carpi radialis longus.or",
@@ -18884,23 +19114,9 @@
    "muscle": "Extensor carpi radialis longus",
    "end": "origin",
    "side": "right",
-   "term": "extensor carpi radialis longus"
-  },
-  {
-   "z": "Extensor carpi ulnaris.el",
-   "id": "ZA3dc62b4f",
-   "muscle": "Extensor carpi ulnaris",
-   "end": "insertion",
-   "side": "left",
-   "term": "extensor carpi ulnaris"
-  },
-  {
-   "z": "Extensor carpi ulnaris.er",
-   "id": "ZA4c71e1ee",
-   "muscle": "Extensor carpi ulnaris",
-   "end": "insertion",
-   "side": "right",
-   "term": "extensor carpi ulnaris"
+   "terms": [
+    "extensor carpi radialis longus"
+   ]
   },
   {
    "z": "Extensor carpi ulnaris.ol",
@@ -18908,7 +19124,9 @@
    "muscle": "Extensor carpi ulnaris",
    "end": "origin",
    "side": "left",
-   "term": "extensor carpi ulnaris"
+   "terms": [
+    "extensor carpi ulnaris"
+   ]
   },
   {
    "z": "Extensor carpi ulnaris.or",
@@ -18916,7 +19134,9 @@
    "muscle": "Extensor carpi ulnaris",
    "end": "origin",
    "side": "right",
-   "term": "extensor carpi ulnaris"
+   "terms": [
+    "extensor carpi ulnaris"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.e1l",
@@ -18924,7 +19144,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.e1r",
@@ -18932,7 +19154,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.e2l",
@@ -18940,7 +19164,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.e2r",
@@ -18948,7 +19174,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.el",
@@ -18956,7 +19184,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum brevis.er",
@@ -18964,7 +19194,9 @@
    "muscle": "Extensor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum brevis"
+   "terms": [
+    "extensor digitorum brevis"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e1l",
@@ -18972,7 +19204,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e1r",
@@ -18980,7 +19214,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e2l",
@@ -18988,7 +19224,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e2r",
@@ -18996,7 +19234,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e3l",
@@ -19004,7 +19244,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e3r",
@@ -19012,7 +19254,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e4l",
@@ -19020,7 +19264,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.e4r",
@@ -19028,7 +19274,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.el",
@@ -19036,7 +19284,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.er",
@@ -19044,7 +19294,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.o1l",
@@ -19052,7 +19304,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "origin",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.o1r",
@@ -19060,7 +19314,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "origin",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.ol",
@@ -19068,7 +19324,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "origin",
    "side": "left",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum longus.or",
@@ -19076,7 +19334,9 @@
    "muscle": "Extensor digitorum longus",
    "end": "origin",
    "side": "right",
-   "term": "extensor digitorum longus"
+   "terms": [
+    "extensor digitorum longus"
+   ]
   },
   {
    "z": "Extensor digitorum.e1l",
@@ -19084,7 +19344,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e1r",
@@ -19092,7 +19354,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e2l",
@@ -19100,7 +19364,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e2r",
@@ -19108,7 +19374,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e3l",
@@ -19116,7 +19384,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e3r",
@@ -19124,7 +19394,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e4l",
@@ -19132,7 +19404,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e4r",
@@ -19140,7 +19414,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e5l",
@@ -19148,7 +19424,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e5r",
@@ -19156,7 +19434,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e6l",
@@ -19164,7 +19444,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e6r",
@@ -19172,7 +19454,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e7l",
@@ -19180,7 +19464,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.e7r",
@@ -19188,7 +19474,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.el",
@@ -19196,7 +19484,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "left",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor digitorum.er",
@@ -19204,7 +19494,9 @@
    "muscle": "Extensor digitorum",
    "end": "insertion",
    "side": "right",
-   "term": "extensor digitorum"
+   "terms": [
+    "extensor digitorum"
+   ]
   },
   {
    "z": "Extensor hallucis brevis.ol",
@@ -19212,7 +19504,9 @@
    "muscle": "Extensor hallucis brevis",
    "end": "origin",
    "side": "left",
-   "term": "extensor hallucis brevis"
+   "terms": [
+    "extensor hallucis brevis"
+   ]
   },
   {
    "z": "Extensor hallucis brevis.or",
@@ -19220,7 +19514,9 @@
    "muscle": "Extensor hallucis brevis",
    "end": "origin",
    "side": "right",
-   "term": "extensor hallucis brevis"
+   "terms": [
+    "extensor hallucis brevis"
+   ]
   },
   {
    "z": "Extensor hallucis longus.el",
@@ -19228,7 +19524,9 @@
    "muscle": "Extensor hallucis longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor hallucis longus"
+   "terms": [
+    "extensor hallucis longus"
+   ]
   },
   {
    "z": "Extensor hallucis longus.er",
@@ -19236,7 +19534,9 @@
    "muscle": "Extensor hallucis longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor hallucis longus"
+   "terms": [
+    "extensor hallucis longus"
+   ]
   },
   {
    "z": "Extensor hallucis longus.ol",
@@ -19244,7 +19544,9 @@
    "muscle": "Extensor hallucis longus",
    "end": "origin",
    "side": "left",
-   "term": "extensor hallucis longus"
+   "terms": [
+    "extensor hallucis longus"
+   ]
   },
   {
    "z": "Extensor hallucis longus.or",
@@ -19252,7 +19554,9 @@
    "muscle": "Extensor hallucis longus",
    "end": "origin",
    "side": "right",
-   "term": "extensor hallucis longus"
+   "terms": [
+    "extensor hallucis longus"
+   ]
   },
   {
    "z": "Extensor indicis.el",
@@ -19260,7 +19564,9 @@
    "muscle": "Extensor indicis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor indicis"
+   "terms": [
+    "extensor indicis"
+   ]
   },
   {
    "z": "Extensor indicis.er",
@@ -19268,7 +19574,9 @@
    "muscle": "Extensor indicis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor indicis"
+   "terms": [
+    "extensor indicis"
+   ]
   },
   {
    "z": "Extensor indicis.ol",
@@ -19276,7 +19584,9 @@
    "muscle": "Extensor indicis",
    "end": "origin",
    "side": "left",
-   "term": "extensor indicis"
+   "terms": [
+    "extensor indicis"
+   ]
   },
   {
    "z": "Extensor indicis.or",
@@ -19284,7 +19594,9 @@
    "muscle": "Extensor indicis",
    "end": "origin",
    "side": "right",
-   "term": "extensor indicis"
+   "terms": [
+    "extensor indicis"
+   ]
   },
   {
    "z": "Extensor pollicis brevis.el",
@@ -19292,7 +19604,9 @@
    "muscle": "Extensor pollicis brevis",
    "end": "insertion",
    "side": "left",
-   "term": "extensor pollicis brevis"
+   "terms": [
+    "extensor pollicis brevis"
+   ]
   },
   {
    "z": "Extensor pollicis brevis.er",
@@ -19300,7 +19614,9 @@
    "muscle": "Extensor pollicis brevis",
    "end": "insertion",
    "side": "right",
-   "term": "extensor pollicis brevis"
+   "terms": [
+    "extensor pollicis brevis"
+   ]
   },
   {
    "z": "Extensor pollicis brevis.ol",
@@ -19308,7 +19624,9 @@
    "muscle": "Extensor pollicis brevis",
    "end": "origin",
    "side": "left",
-   "term": "extensor pollicis brevis"
+   "terms": [
+    "extensor pollicis brevis"
+   ]
   },
   {
    "z": "Extensor pollicis brevis.or",
@@ -19316,7 +19634,9 @@
    "muscle": "Extensor pollicis brevis",
    "end": "origin",
    "side": "right",
-   "term": "extensor pollicis brevis"
+   "terms": [
+    "extensor pollicis brevis"
+   ]
   },
   {
    "z": "Extensor pollicis longus.el",
@@ -19324,7 +19644,9 @@
    "muscle": "Extensor pollicis longus",
    "end": "insertion",
    "side": "left",
-   "term": "extensor pollicis longus"
+   "terms": [
+    "extensor pollicis longus"
+   ]
   },
   {
    "z": "Extensor pollicis longus.er",
@@ -19332,7 +19654,9 @@
    "muscle": "Extensor pollicis longus",
    "end": "insertion",
    "side": "right",
-   "term": "extensor pollicis longus"
+   "terms": [
+    "extensor pollicis longus"
+   ]
   },
   {
    "z": "Extensor pollicis longus.ol",
@@ -19340,7 +19664,9 @@
    "muscle": "Extensor pollicis longus",
    "end": "origin",
    "side": "left",
-   "term": "extensor pollicis longus"
+   "terms": [
+    "extensor pollicis longus"
+   ]
   },
   {
    "z": "Extensor pollicis longus.or",
@@ -19348,7 +19674,9 @@
    "muscle": "Extensor pollicis longus",
    "end": "origin",
    "side": "right",
-   "term": "extensor pollicis longus"
+   "terms": [
+    "extensor pollicis longus"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o1l",
@@ -19356,7 +19684,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o1r",
@@ -19364,7 +19694,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o2l",
@@ -19372,7 +19704,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o2r",
@@ -19380,7 +19714,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o3l",
@@ -19388,7 +19724,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o3r",
@@ -19396,39 +19734,49 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o4l",
    "id": "ZA48f26552",
    "muscle": "External abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o4r",
    "id": "ZAa36ca61a",
    "muscle": "External abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o5l",
    "id": "ZAa20d77c1",
    "muscle": "External abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.o5r",
    "id": "ZA4daa8daf",
    "muscle": "External abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.ol",
@@ -19436,7 +19784,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "left",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "External abdominal oblique muscle.or",
@@ -19444,7 +19794,9 @@
    "muscle": "External abdominal oblique muscle",
    "end": "origin",
    "side": "right",
-   "term": "external oblique"
+   "terms": [
+    "external oblique"
+   ]
   },
   {
    "z": "Fibularis brevis muscle.el",
@@ -19452,7 +19804,9 @@
    "muscle": "Fibularis brevis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "fibularis brevis"
+   "terms": [
+    "fibularis brevis"
+   ]
   },
   {
    "z": "Fibularis brevis muscle.er",
@@ -19460,7 +19814,9 @@
    "muscle": "Fibularis brevis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "fibularis brevis"
+   "terms": [
+    "fibularis brevis"
+   ]
   },
   {
    "z": "Fibularis brevis muscle.ol",
@@ -19468,7 +19824,9 @@
    "muscle": "Fibularis brevis muscle",
    "end": "origin",
    "side": "left",
-   "term": "fibularis brevis"
+   "terms": [
+    "fibularis brevis"
+   ]
   },
   {
    "z": "Fibularis brevis muscle.or",
@@ -19476,7 +19834,9 @@
    "muscle": "Fibularis brevis muscle",
    "end": "origin",
    "side": "right",
-   "term": "fibularis brevis"
+   "terms": [
+    "fibularis brevis"
+   ]
   },
   {
    "z": "Fibularis longus muscle.ol",
@@ -19484,7 +19844,9 @@
    "muscle": "Fibularis longus muscle",
    "end": "origin",
    "side": "left",
-   "term": "fibularis longus"
+   "terms": [
+    "fibularis longus"
+   ]
   },
   {
    "z": "Fibularis longus muscle.or",
@@ -19492,7 +19854,9 @@
    "muscle": "Fibularis longus muscle",
    "end": "origin",
    "side": "right",
-   "term": "fibularis longus"
+   "terms": [
+    "fibularis longus"
+   ]
   },
   {
    "z": "Fibularis tertius muscle.el",
@@ -19500,7 +19864,9 @@
    "muscle": "Fibularis tertius muscle",
    "end": "insertion",
    "side": "left",
-   "term": "fibularis tertius"
+   "terms": [
+    "fibularis tertius"
+   ]
   },
   {
    "z": "Fibularis tertius muscle.er",
@@ -19508,7 +19874,9 @@
    "muscle": "Fibularis tertius muscle",
    "end": "insertion",
    "side": "right",
-   "term": "fibularis tertius"
+   "terms": [
+    "fibularis tertius"
+   ]
   },
   {
    "z": "Fibularis tertius muscle.ol",
@@ -19516,7 +19884,9 @@
    "muscle": "Fibularis tertius muscle",
    "end": "origin",
    "side": "left",
-   "term": "fibularis tertius"
+   "terms": [
+    "fibularis tertius"
+   ]
   },
   {
    "z": "Fibularis tertius muscle.or",
@@ -19524,21 +19894,31 @@
    "muscle": "Fibularis tertius muscle",
    "end": "origin",
    "side": "right",
-   "term": "fibularis tertius"
+   "terms": [
+    "fibularis tertius"
+   ]
   },
   {
    "z": "Flexor carpi ulnaris.el",
    "id": "ZA808a09f4",
    "muscle": "Flexor carpi ulnaris",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "humeral head of flexor carpi ulnaris",
+    "ulnar head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Flexor carpi ulnaris.er",
    "id": "ZA77c3242f",
    "muscle": "Flexor carpi ulnaris",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "humeral head of flexor carpi ulnaris",
+    "ulnar head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Flexor digiti minimi of foot.el",
@@ -19546,7 +19926,9 @@
    "muscle": "Flexor digiti minimi of foot",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digiti minimi brevis of foot"
+   "terms": [
+    "flexor digiti minimi brevis of foot"
+   ]
   },
   {
    "z": "Flexor digiti minimi of foot.er",
@@ -19554,7 +19936,9 @@
    "muscle": "Flexor digiti minimi of foot",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digiti minimi brevis of foot"
+   "terms": [
+    "flexor digiti minimi brevis of foot"
+   ]
   },
   {
    "z": "Flexor digiti minimi of hand.el",
@@ -19562,7 +19946,9 @@
    "muscle": "Flexor digiti minimi of hand",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digiti minimi brevis of hand"
+   "terms": [
+    "flexor digiti minimi brevis of hand"
+   ]
   },
   {
    "z": "Flexor digiti minimi of hand.er",
@@ -19570,7 +19956,9 @@
    "muscle": "Flexor digiti minimi of hand",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digiti minimi brevis of hand"
+   "terms": [
+    "flexor digiti minimi brevis of hand"
+   ]
   },
   {
    "z": "Flexor digiti minimi of hand.ol",
@@ -19578,7 +19966,9 @@
    "muscle": "Flexor digiti minimi of hand",
    "end": "origin",
    "side": "left",
-   "term": "flexor digiti minimi brevis of hand"
+   "terms": [
+    "flexor digiti minimi brevis of hand"
+   ]
   },
   {
    "z": "Flexor digiti minimi of hand.or",
@@ -19586,7 +19976,9 @@
    "muscle": "Flexor digiti minimi of hand",
    "end": "origin",
    "side": "right",
-   "term": "flexor digiti minimi brevis of hand"
+   "terms": [
+    "flexor digiti minimi brevis of hand"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.e1l",
@@ -19594,7 +19986,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.e1r",
@@ -19602,7 +19996,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.e2l",
@@ -19610,7 +20006,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.e2r",
@@ -19618,7 +20016,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.el",
@@ -19626,7 +20026,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.er",
@@ -19634,7 +20036,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.ol",
@@ -19642,7 +20046,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "origin",
    "side": "left",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum brevis.or",
@@ -19650,7 +20056,9 @@
    "muscle": "Flexor digitorum brevis",
    "end": "origin",
    "side": "right",
-   "term": "flexor digitorum brevis"
+   "terms": [
+    "flexor digitorum brevis"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e1l",
@@ -19658,7 +20066,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e1r",
@@ -19666,7 +20076,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e2l",
@@ -19674,7 +20086,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e2r",
@@ -19682,7 +20096,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e3l",
@@ -19690,7 +20106,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.e3r",
@@ -19698,7 +20116,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.el",
@@ -19706,7 +20126,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.er",
@@ -19714,7 +20136,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.ol",
@@ -19722,7 +20146,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "origin",
    "side": "left",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum longus.or",
@@ -19730,7 +20156,9 @@
    "muscle": "Flexor digitorum longus",
    "end": "origin",
    "side": "right",
-   "term": "flexor digitorum longus"
+   "terms": [
+    "flexor digitorum longus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e1l",
@@ -19738,7 +20166,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e1r",
@@ -19746,7 +20176,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e2l",
@@ -19754,7 +20186,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e2r",
@@ -19762,7 +20196,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e3l",
@@ -19770,7 +20206,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.e3r",
@@ -19778,7 +20216,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.el",
@@ -19786,7 +20226,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum profundus.er",
@@ -19794,7 +20236,9 @@
    "muscle": "Flexor digitorum profundus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum profundus"
+   "terms": [
+    "flexor digitorum profundus"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e1l",
@@ -19802,7 +20246,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e1r",
@@ -19810,7 +20256,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e2l",
@@ -19818,7 +20266,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e2r",
@@ -19826,7 +20276,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e3l",
@@ -19834,7 +20286,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.e3r",
@@ -19842,7 +20296,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.el",
@@ -19850,7 +20306,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "left",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.er",
@@ -19858,7 +20316,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "insertion",
    "side": "right",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.ol",
@@ -19866,7 +20326,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "origin",
    "side": "left",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor digitorum superficialis.or",
@@ -19874,7 +20336,9 @@
    "muscle": "Flexor digitorum superficialis",
    "end": "origin",
    "side": "right",
-   "term": "flexor digitorum superficialis"
+   "terms": [
+    "flexor digitorum superficialis"
+   ]
   },
   {
    "z": "Flexor hallucis longus.el",
@@ -19882,7 +20346,9 @@
    "muscle": "Flexor hallucis longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor hallucis longus"
+   "terms": [
+    "flexor hallucis longus"
+   ]
   },
   {
    "z": "Flexor hallucis longus.er",
@@ -19890,7 +20356,9 @@
    "muscle": "Flexor hallucis longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor hallucis longus"
+   "terms": [
+    "flexor hallucis longus"
+   ]
   },
   {
    "z": "Flexor hallucis longus.ol",
@@ -19898,7 +20366,9 @@
    "muscle": "Flexor hallucis longus",
    "end": "origin",
    "side": "left",
-   "term": "flexor hallucis longus"
+   "terms": [
+    "flexor hallucis longus"
+   ]
   },
   {
    "z": "Flexor hallucis longus.or",
@@ -19906,7 +20376,9 @@
    "muscle": "Flexor hallucis longus",
    "end": "origin",
    "side": "right",
-   "term": "flexor hallucis longus"
+   "terms": [
+    "flexor hallucis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.el",
@@ -19914,7 +20386,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "insertion",
    "side": "left",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.er",
@@ -19922,7 +20396,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "insertion",
    "side": "right",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.o1l",
@@ -19930,7 +20406,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "origin",
    "side": "left",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.o1r",
@@ -19938,7 +20416,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "origin",
    "side": "right",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.ol",
@@ -19946,7 +20426,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "origin",
    "side": "left",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Flexor pollicis longus.or",
@@ -19954,7 +20436,9 @@
    "muscle": "Flexor pollicis longus",
    "end": "origin",
    "side": "right",
-   "term": "flexor pollicis longus"
+   "terms": [
+    "flexor pollicis longus"
+   ]
   },
   {
    "z": "Frontalis muscle.ol",
@@ -19962,7 +20446,9 @@
    "muscle": "Frontalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "frontalis"
+   "terms": [
+    "frontalis"
+   ]
   },
   {
    "z": "Frontalis muscle.or",
@@ -19970,7 +20456,9 @@
    "muscle": "Frontalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "frontalis"
+   "terms": [
+    "frontalis"
+   ]
   },
   {
    "z": "Geniohyoid muscle.el",
@@ -19978,7 +20466,9 @@
    "muscle": "Geniohyoid muscle",
    "end": "insertion",
    "side": "left",
-   "term": "geniohyoid"
+   "terms": [
+    "geniohyoid"
+   ]
   },
   {
    "z": "Geniohyoid muscle.er",
@@ -19986,7 +20476,9 @@
    "muscle": "Geniohyoid muscle",
    "end": "insertion",
    "side": "right",
-   "term": "geniohyoid"
+   "terms": [
+    "geniohyoid"
+   ]
   },
   {
    "z": "Geniohyoid muscle.ol",
@@ -19994,7 +20486,9 @@
    "muscle": "Geniohyoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "geniohyoid"
+   "terms": [
+    "geniohyoid"
+   ]
   },
   {
    "z": "Geniohyoid muscle.or",
@@ -20002,7 +20496,9 @@
    "muscle": "Geniohyoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "geniohyoid"
+   "terms": [
+    "geniohyoid"
+   ]
   },
   {
    "z": "Gluteus maximus muscle.el",
@@ -20010,7 +20506,9 @@
    "muscle": "Gluteus maximus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "gluteus maximus"
+   "terms": [
+    "gluteus maximus"
+   ]
   },
   {
    "z": "Gluteus maximus muscle.er",
@@ -20018,7 +20516,9 @@
    "muscle": "Gluteus maximus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "gluteus maximus"
+   "terms": [
+    "gluteus maximus"
+   ]
   },
   {
    "z": "Gluteus maximus muscle.ol",
@@ -20026,7 +20526,9 @@
    "muscle": "Gluteus maximus muscle",
    "end": "origin",
    "side": "left",
-   "term": "gluteus maximus"
+   "terms": [
+    "gluteus maximus"
+   ]
   },
   {
    "z": "Gluteus maximus muscle.or",
@@ -20034,7 +20536,9 @@
    "muscle": "Gluteus maximus muscle",
    "end": "origin",
    "side": "right",
-   "term": "gluteus maximus"
+   "terms": [
+    "gluteus maximus"
+   ]
   },
   {
    "z": "Gluteus medius muscle.el",
@@ -20042,7 +20546,9 @@
    "muscle": "Gluteus medius muscle",
    "end": "insertion",
    "side": "left",
-   "term": "gluteus medius"
+   "terms": [
+    "gluteus medius"
+   ]
   },
   {
    "z": "Gluteus medius muscle.er",
@@ -20050,7 +20556,9 @@
    "muscle": "Gluteus medius muscle",
    "end": "insertion",
    "side": "right",
-   "term": "gluteus medius"
+   "terms": [
+    "gluteus medius"
+   ]
   },
   {
    "z": "Gluteus medius muscle.ol",
@@ -20058,7 +20566,9 @@
    "muscle": "Gluteus medius muscle",
    "end": "origin",
    "side": "left",
-   "term": "gluteus medius"
+   "terms": [
+    "gluteus medius"
+   ]
   },
   {
    "z": "Gluteus medius muscle.or",
@@ -20066,7 +20576,9 @@
    "muscle": "Gluteus medius muscle",
    "end": "origin",
    "side": "right",
-   "term": "gluteus medius"
+   "terms": [
+    "gluteus medius"
+   ]
   },
   {
    "z": "Gluteus minimus muscle.ol",
@@ -20074,7 +20586,9 @@
    "muscle": "Gluteus minimus muscle",
    "end": "origin",
    "side": "left",
-   "term": "gluteus minimus"
+   "terms": [
+    "gluteus minimus"
+   ]
   },
   {
    "z": "Gluteus minimus muscle.or",
@@ -20082,7 +20596,9 @@
    "muscle": "Gluteus minimus muscle",
    "end": "origin",
    "side": "right",
-   "term": "gluteus minimus"
+   "terms": [
+    "gluteus minimus"
+   ]
   },
   {
    "z": "Gracilis muscle.el",
@@ -20090,7 +20606,9 @@
    "muscle": "Gracilis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "gracilis"
+   "terms": [
+    "gracilis"
+   ]
   },
   {
    "z": "Gracilis muscle.er",
@@ -20098,7 +20616,9 @@
    "muscle": "Gracilis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "gracilis"
+   "terms": [
+    "gracilis"
+   ]
   },
   {
    "z": "Gracilis muscle.ol",
@@ -20106,7 +20626,9 @@
    "muscle": "Gracilis muscle",
    "end": "origin",
    "side": "left",
-   "term": "gracilis"
+   "terms": [
+    "gracilis"
+   ]
   },
   {
    "z": "Gracilis muscle.or",
@@ -20114,7 +20636,9 @@
    "muscle": "Gracilis muscle",
    "end": "origin",
    "side": "right",
-   "term": "gracilis"
+   "terms": [
+    "gracilis"
+   ]
   },
   {
    "z": "Iliacus muscle.ol",
@@ -20122,7 +20646,9 @@
    "muscle": "Iliacus muscle",
    "end": "origin",
    "side": "left",
-   "term": "iliacus"
+   "terms": [
+    "iliacus"
+   ]
   },
   {
    "z": "Iliacus muscle.or",
@@ -20130,7 +20656,9 @@
    "muscle": "Iliacus muscle",
    "end": "origin",
    "side": "right",
-   "term": "iliacus"
+   "terms": [
+    "iliacus"
+   ]
   },
   {
    "z": "Iliocostalis colli muscle.el",
@@ -20138,7 +20666,9 @@
    "muscle": "Iliocostalis colli muscle",
    "end": "insertion",
    "side": "left",
-   "term": "iliocostalis cervicis"
+   "terms": [
+    "iliocostalis cervicis"
+   ]
   },
   {
    "z": "Iliocostalis colli muscle.er",
@@ -20146,21 +20676,31 @@
    "muscle": "Iliocostalis colli muscle",
    "end": "insertion",
    "side": "right",
-   "term": "iliocostalis cervicis"
+   "terms": [
+    "iliocostalis cervicis"
+   ]
   },
   {
    "z": "Iliopsoas muscle.el",
    "id": "ZAfa3032e7",
    "muscle": "Iliopsoas muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "iliacus",
+    "psoas major"
+   ]
   },
   {
    "z": "Iliopsoas muscle.er",
    "id": "ZA14625344",
    "muscle": "Iliopsoas muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "iliacus",
+    "psoas major"
+   ]
   },
   {
    "z": "Inferior gemellus muscle.ol",
@@ -20168,7 +20708,9 @@
    "muscle": "Inferior gemellus muscle",
    "end": "origin",
    "side": "left",
-   "term": "gemellus inferior"
+   "terms": [
+    "gemellus inferior"
+   ]
   },
   {
    "z": "Inferior gemellus muscle.or",
@@ -20176,7 +20718,9 @@
    "muscle": "Inferior gemellus muscle",
    "end": "origin",
    "side": "right",
-   "term": "gemellus inferior"
+   "terms": [
+    "gemellus inferior"
+   ]
   },
   {
    "z": "Infraspinatus muscle.el",
@@ -20184,7 +20728,9 @@
    "muscle": "Infraspinatus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "infraspinatus muscle"
+   "terms": [
+    "infraspinatus muscle"
+   ]
   },
   {
    "z": "Infraspinatus muscle.er",
@@ -20192,7 +20738,9 @@
    "muscle": "Infraspinatus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "infraspinatus muscle"
+   "terms": [
+    "infraspinatus muscle"
+   ]
   },
   {
    "z": "Infraspinatus muscle.ol",
@@ -20200,7 +20748,9 @@
    "muscle": "Infraspinatus muscle",
    "end": "origin",
    "side": "left",
-   "term": "infraspinatus muscle"
+   "terms": [
+    "infraspinatus muscle"
+   ]
   },
   {
    "z": "Infraspinatus muscle.or",
@@ -20208,39 +20758,49 @@
    "muscle": "Infraspinatus muscle",
    "end": "origin",
    "side": "right",
-   "term": "infraspinatus muscle"
+   "terms": [
+    "infraspinatus muscle"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o1l",
    "id": "ZA3aa456a3",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o1r",
    "id": "ZAf47f579d",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o2l",
    "id": "ZAf49c9717",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o2r",
    "id": "ZA89e1a8e9",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o3l",
@@ -20248,7 +20808,9 @@
    "muscle": "Internal abdominal oblique muscle",
    "end": "origin",
    "side": "left",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o3r",
@@ -20256,39 +20818,49 @@
    "muscle": "Internal abdominal oblique muscle",
    "end": "origin",
    "side": "right",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o4l",
    "id": "ZA3e0d6dba",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.o4r",
    "id": "ZAac50eecd",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.ol",
    "id": "ZA302e306a",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Internal abdominal oblique muscle.or",
    "id": "ZA3a7e61eb",
    "muscle": "Internal abdominal oblique muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "internal oblique"
+   "terms": [
+    "internal oblique"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.el",
@@ -20296,7 +20868,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "insertion",
    "side": "left",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.er",
@@ -20304,7 +20878,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "insertion",
    "side": "right",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.o1l",
@@ -20312,7 +20888,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "origin",
    "side": "left",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.o1r",
@@ -20320,7 +20898,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "origin",
    "side": "right",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.ol",
@@ -20328,7 +20908,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "origin",
    "side": "left",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of flexor hallucis brevis.or",
@@ -20336,7 +20918,9 @@
    "muscle": "Lateral head of flexor hallucis brevis",
    "end": "origin",
    "side": "right",
-   "term": "lateral head of flexor hallucis brevis"
+   "terms": [
+    "lateral head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Lateral head of gastrocnemius.ol",
@@ -20344,7 +20928,9 @@
    "muscle": "Lateral head of gastrocnemius",
    "end": "origin",
    "side": "left",
-   "term": "lateral head of gastrocnemius"
+   "terms": [
+    "lateral head of gastrocnemius"
+   ]
   },
   {
    "z": "Lateral head of gastrocnemius.or",
@@ -20352,7 +20938,9 @@
    "muscle": "Lateral head of gastrocnemius",
    "end": "origin",
    "side": "right",
-   "term": "lateral head of gastrocnemius"
+   "terms": [
+    "lateral head of gastrocnemius"
+   ]
   },
   {
    "z": "Lateral head of triceps brachii.ol",
@@ -20360,7 +20948,9 @@
    "muscle": "Lateral head of triceps brachii",
    "end": "origin",
    "side": "left",
-   "term": "lateral head of triceps brachii"
+   "terms": [
+    "lateral head of triceps brachii"
+   ]
   },
   {
    "z": "Lateral head of triceps brachii.or",
@@ -20368,51 +20958,73 @@
    "muscle": "Lateral head of triceps brachii",
    "end": "origin",
    "side": "right",
-   "term": "lateral head of triceps brachii"
+   "terms": [
+    "lateral head of triceps brachii"
+   ]
   },
   {
    "z": "Lateral pterygoid muscle.o1l",
    "id": "ZA9e4bccf7",
    "muscle": "Lateral pterygoid muscle",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "superior head of lateral pterygoid",
+    "inferior head of lateral pterygoid"
+   ]
   },
   {
    "z": "Lateral pterygoid muscle.o1r",
    "id": "ZA1d57bbcc",
    "muscle": "Lateral pterygoid muscle",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "superior head of lateral pterygoid",
+    "inferior head of lateral pterygoid"
+   ]
   },
   {
    "z": "Lateral pterygoid muscle.ol",
    "id": "ZA91fdca10",
    "muscle": "Lateral pterygoid muscle",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "superior head of lateral pterygoid",
+    "inferior head of lateral pterygoid"
+   ]
   },
   {
    "z": "Lateral pterygoid muscle.or",
    "id": "ZA90dc6e0f",
    "muscle": "Lateral pterygoid muscle",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "superior head of lateral pterygoid",
+    "inferior head of lateral pterygoid"
+   ]
   },
   {
    "z": "Latissimus dorsi muscle.el",
    "id": "ZA2bde32f5",
    "muscle": "Latissimus dorsi muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "latissimus dorsi"
+   "terms": [
+    "latissimus dorsi"
+   ]
   },
   {
    "z": "Latissimus dorsi muscle.er",
    "id": "ZA94414893",
    "muscle": "Latissimus dorsi muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "latissimus dorsi"
+   "terms": [
+    "latissimus dorsi"
+   ]
   },
   {
    "z": "Latissimus dorsi muscle.ol",
@@ -20420,7 +21032,9 @@
    "muscle": "Latissimus dorsi muscle",
    "end": "origin",
    "side": "left",
-   "term": "latissimus dorsi"
+   "terms": [
+    "latissimus dorsi"
+   ]
   },
   {
    "z": "Latissimus dorsi muscle.or",
@@ -20428,7 +21042,9 @@
    "muscle": "Latissimus dorsi muscle",
    "end": "origin",
    "side": "right",
-   "term": "latissimus dorsi"
+   "terms": [
+    "latissimus dorsi"
+   ]
   },
   {
    "z": "Levator anguli oris.ol",
@@ -20436,7 +21052,9 @@
    "muscle": "Levator anguli oris",
    "end": "origin",
    "side": "left",
-   "term": "levator anguli oris"
+   "terms": [
+    "levator anguli oris"
+   ]
   },
   {
    "z": "Levator anguli oris.or",
@@ -20444,21 +21062,33 @@
    "muscle": "Levator anguli oris",
    "end": "origin",
    "side": "right",
-   "term": "levator anguli oris"
+   "terms": [
+    "levator anguli oris"
+   ]
   },
   {
    "z": "Levator ani.ol",
    "id": "ZA34628f0d",
    "muscle": "Levator ani",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "pubococcygeus",
+    "puborectalis",
+    "iliococcygeus"
+   ]
   },
   {
    "z": "Levator ani.or",
    "id": "ZA7c5e852c",
    "muscle": "Levator ani",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "pubococcygeus",
+    "puborectalis",
+    "iliococcygeus"
+   ]
   },
   {
    "z": "Levator labii superioris.ol",
@@ -20466,7 +21096,9 @@
    "muscle": "Levator labii superioris",
    "end": "origin",
    "side": "left",
-   "term": "levator labii superioris"
+   "terms": [
+    "levator labii superioris"
+   ]
   },
   {
    "z": "Levator labii superioris.or",
@@ -20474,7 +21106,9 @@
    "muscle": "Levator labii superioris",
    "end": "origin",
    "side": "right",
-   "term": "levator labii superioris"
+   "terms": [
+    "levator labii superioris"
+   ]
   },
   {
    "z": "Levator nasolabialis.ol",
@@ -20482,7 +21116,9 @@
    "muscle": "Levator nasolabialis",
    "end": "origin",
    "side": "left",
-   "term": "levator labii superioris alaeque nasi"
+   "terms": [
+    "levator labii superioris alaeque nasi"
+   ]
   },
   {
    "z": "Levator nasolabialis.or",
@@ -20490,7 +21126,9 @@
    "muscle": "Levator nasolabialis",
    "end": "origin",
    "side": "right",
-   "term": "levator labii superioris alaeque nasi"
+   "terms": [
+    "levator labii superioris alaeque nasi"
+   ]
   },
   {
    "z": "Levator scapulae.el",
@@ -20498,7 +21136,9 @@
    "muscle": "Levator scapulae",
    "end": "insertion",
    "side": "left",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.er",
@@ -20506,7 +21146,9 @@
    "muscle": "Levator scapulae",
    "end": "insertion",
    "side": "right",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o1l",
@@ -20514,7 +21156,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "left",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o1r",
@@ -20522,7 +21166,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "right",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o2l",
@@ -20530,7 +21176,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "left",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o2r",
@@ -20538,7 +21186,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "right",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o3l",
@@ -20546,7 +21196,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "left",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.o3r",
@@ -20554,7 +21206,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "right",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.ol",
@@ -20562,7 +21216,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "left",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levator scapulae.or",
@@ -20570,7 +21226,9 @@
    "muscle": "Levator scapulae",
    "end": "origin",
    "side": "right",
-   "term": "levator scapulae"
+   "terms": [
+    "levator scapulae"
+   ]
   },
   {
    "z": "Levatores longi costarum.e10l",
@@ -20578,7 +21236,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e10r",
@@ -20586,7 +21246,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e1l",
@@ -20594,7 +21256,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e1r",
@@ -20602,7 +21266,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e2l",
@@ -20610,7 +21276,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e2r",
@@ -20618,7 +21286,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e3l",
@@ -20626,7 +21296,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e3r",
@@ -20634,7 +21306,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e4l",
@@ -20642,7 +21316,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e4r",
@@ -20650,7 +21326,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e5l",
@@ -20658,7 +21336,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e5r",
@@ -20666,7 +21346,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e6l",
@@ -20674,7 +21356,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e6r",
@@ -20682,7 +21366,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e7l",
@@ -20690,7 +21376,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e7r",
@@ -20698,7 +21386,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e8l",
@@ -20706,7 +21396,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e8r",
@@ -20714,7 +21406,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e9l",
@@ -20722,7 +21416,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.e9r",
@@ -20730,7 +21426,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.el",
@@ -20738,7 +21436,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "left",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Levatores longi costarum.er",
@@ -20746,7 +21446,9 @@
    "muscle": "Levatores longi costarum",
    "end": "insertion",
    "side": "right",
-   "term": "set of levatores costarum longi"
+   "terms": [
+    "set of levatores costarum longi"
+   ]
   },
   {
    "z": "Long head of biceps brachii.ol",
@@ -20754,7 +21456,9 @@
    "muscle": "Long head of biceps brachii",
    "end": "origin",
    "side": "left",
-   "term": "long head of biceps brachii"
+   "terms": [
+    "long head of biceps brachii"
+   ]
   },
   {
    "z": "Long head of biceps brachii.or",
@@ -20762,7 +21466,9 @@
    "muscle": "Long head of biceps brachii",
    "end": "origin",
    "side": "right",
-   "term": "long head of biceps brachii"
+   "terms": [
+    "long head of biceps brachii"
+   ]
   },
   {
    "z": "Long head of biceps femoris.ol",
@@ -20770,7 +21476,9 @@
    "muscle": "Long head of biceps femoris",
    "end": "origin",
    "side": "left",
-   "term": "long head of biceps femoris"
+   "terms": [
+    "long head of biceps femoris"
+   ]
   },
   {
    "z": "Long head of biceps femoris.or",
@@ -20778,7 +21486,9 @@
    "muscle": "Long head of biceps femoris",
    "end": "origin",
    "side": "right",
-   "term": "long head of biceps femoris"
+   "terms": [
+    "long head of biceps femoris"
+   ]
   },
   {
    "z": "Long head of triceps brachii.ol",
@@ -20786,7 +21496,9 @@
    "muscle": "Long head of triceps brachii",
    "end": "origin",
    "side": "left",
-   "term": "long head of triceps brachii"
+   "terms": [
+    "long head of triceps brachii"
+   ]
   },
   {
    "z": "Long head of triceps brachii.or",
@@ -20794,77 +21506,9 @@
    "muscle": "Long head of triceps brachii",
    "end": "origin",
    "side": "right",
-   "term": "long head of triceps brachii"
-  },
-  {
-   "z": "Long plantar ligament.o1l",
-   "id": "ZAee457ad4",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Long plantar ligament.o1r",
-   "id": "ZAc801b36e",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "right"
-  },
-  {
-   "z": "Long plantar ligament.o2l",
-   "id": "ZAd6524bd8",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Long plantar ligament.o2r",
-   "id": "ZA3ccdcd25",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "right"
-  },
-  {
-   "z": "Long plantar ligament.o3l",
-   "id": "ZA23cc2bf1",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Long plantar ligament.o3r",
-   "id": "ZAcb91eb49",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "right"
-  },
-  {
-   "z": "Long plantar ligament.o4l",
-   "id": "ZAcd20c5e5",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Long plantar ligament.o4r",
-   "id": "ZA0a670fff",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "right"
-  },
-  {
-   "z": "Long plantar ligament.ol",
-   "id": "ZAe24d9b54",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Long plantar ligament.or",
-   "id": "ZA2adb5e92",
-   "muscle": "Long plantar ligament",
-   "end": "origin",
-   "side": "right"
+   "terms": [
+    "long head of triceps brachii"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e10l",
@@ -20872,7 +21516,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e10r",
@@ -20880,7 +21526,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e11l",
@@ -20888,7 +21536,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e11r",
@@ -20896,7 +21546,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e12l",
@@ -20904,7 +21556,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e12r",
@@ -20912,7 +21566,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e13l",
@@ -20920,7 +21576,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e13r",
@@ -20928,7 +21586,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e14l",
@@ -20936,7 +21596,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e14r",
@@ -20944,7 +21606,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e15l",
@@ -20952,7 +21616,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e15r",
@@ -20960,7 +21626,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e16l",
@@ -20968,7 +21636,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e16r",
@@ -20976,7 +21646,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e17l",
@@ -20984,7 +21656,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e17r",
@@ -20992,7 +21666,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e18l",
@@ -21000,7 +21676,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e18r",
@@ -21008,7 +21686,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e19l",
@@ -21016,7 +21696,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e19r",
@@ -21024,7 +21706,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e1l",
@@ -21032,7 +21716,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e1r",
@@ -21040,7 +21726,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e20l",
@@ -21048,7 +21736,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e20r",
@@ -21056,7 +21746,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e21l",
@@ -21064,7 +21756,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e21r",
@@ -21072,7 +21766,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e22l",
@@ -21080,7 +21776,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e22r",
@@ -21088,7 +21786,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e23l",
@@ -21096,7 +21796,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e23r",
@@ -21104,7 +21806,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e24l",
@@ -21112,7 +21816,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e24r",
@@ -21120,7 +21826,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e25l",
@@ -21128,7 +21836,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e25r",
@@ -21136,7 +21846,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e26l",
@@ -21144,7 +21856,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e26r",
@@ -21152,7 +21866,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e2l",
@@ -21160,7 +21876,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e2r",
@@ -21168,7 +21886,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e3l",
@@ -21176,7 +21896,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e3r",
@@ -21184,7 +21906,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e4l",
@@ -21192,7 +21916,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e4r",
@@ -21200,7 +21926,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e5l",
@@ -21208,7 +21936,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e5r",
@@ -21216,7 +21946,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e6l",
@@ -21224,7 +21956,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e6r",
@@ -21232,7 +21966,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e7l",
@@ -21240,7 +21976,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e7r",
@@ -21248,7 +21986,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e8l",
@@ -21256,7 +21996,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e8r",
@@ -21264,7 +22006,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e9l",
@@ -21272,7 +22016,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.e9r",
@@ -21280,7 +22026,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.el",
@@ -21288,7 +22036,9 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longissimus thoracis muscle.er",
@@ -21296,65 +22046,95 @@
    "muscle": "Longissimus thoracis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "longissimus thoracis"
+   "terms": [
+    "longissimus thoracis"
+   ]
   },
   {
    "z": "Longus capitis muscle.ol",
    "id": "ZA538565e7",
    "muscle": "Longus capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "longus capitis"
+   "terms": [
+    "longus capitis"
+   ]
   },
   {
    "z": "Longus capitis muscle.or",
    "id": "ZA8e503dd9",
    "muscle": "Longus capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "longus capitis"
+   "terms": [
+    "longus capitis"
+   ]
   },
   {
    "z": "Masseter.el",
    "id": "ZA067572da",
    "muscle": "Masseter",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Masseter.er",
    "id": "ZA46e82cf6",
    "muscle": "Masseter",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Masseter.o1l",
    "id": "ZA7204cbd6",
    "muscle": "Masseter",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Masseter.o1r",
    "id": "ZA0cc25a01",
    "muscle": "Masseter",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Masseter.ol",
    "id": "ZA7021cd3a",
    "muscle": "Masseter",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Masseter.or",
    "id": "ZA6f29ce03",
    "muscle": "Masseter",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "superficial part of masseter",
+    "deep part of masseter"
+   ]
   },
   {
    "z": "Medial head of flexor hallucis brevis.el",
@@ -21362,7 +22142,9 @@
    "muscle": "Medial head of flexor hallucis brevis",
    "end": "insertion",
    "side": "left",
-   "term": "medial head of flexor hallucis brevis"
+   "terms": [
+    "medial head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Medial head of flexor hallucis brevis.er",
@@ -21370,7 +22152,9 @@
    "muscle": "Medial head of flexor hallucis brevis",
    "end": "insertion",
    "side": "right",
-   "term": "medial head of flexor hallucis brevis"
+   "terms": [
+    "medial head of flexor hallucis brevis"
+   ]
   },
   {
    "z": "Medial head of gastrocnemius.ol",
@@ -21378,7 +22162,9 @@
    "muscle": "Medial head of gastrocnemius",
    "end": "origin",
    "side": "left",
-   "term": "medial head of gastrocnemius"
+   "terms": [
+    "medial head of gastrocnemius"
+   ]
   },
   {
    "z": "Medial head of gastrocnemius.or",
@@ -21386,7 +22172,9 @@
    "muscle": "Medial head of gastrocnemius",
    "end": "origin",
    "side": "right",
-   "term": "medial head of gastrocnemius"
+   "terms": [
+    "medial head of gastrocnemius"
+   ]
   },
   {
    "z": "Medial head of triceps brachii.ol",
@@ -21394,7 +22182,9 @@
    "muscle": "Medial head of triceps brachii",
    "end": "origin",
    "side": "left",
-   "term": "medial head of triceps brachii"
+   "terms": [
+    "medial head of triceps brachii"
+   ]
   },
   {
    "z": "Medial head of triceps brachii.or",
@@ -21402,7 +22192,9 @@
    "muscle": "Medial head of triceps brachii",
    "end": "origin",
    "side": "right",
-   "term": "medial head of triceps brachii"
+   "terms": [
+    "medial head of triceps brachii"
+   ]
   },
   {
    "z": "Medial pterygoid muscle.el",
@@ -21410,7 +22202,9 @@
    "muscle": "Medial pterygoid muscle",
    "end": "insertion",
    "side": "left",
-   "term": "medial pterygoid"
+   "terms": [
+    "medial pterygoid"
+   ]
   },
   {
    "z": "Medial pterygoid muscle.er",
@@ -21418,7 +22212,9 @@
    "muscle": "Medial pterygoid muscle",
    "end": "insertion",
    "side": "right",
-   "term": "medial pterygoid"
+   "terms": [
+    "medial pterygoid"
+   ]
   },
   {
    "z": "Medial pterygoid muscle.ol",
@@ -21426,7 +22222,9 @@
    "muscle": "Medial pterygoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "medial pterygoid"
+   "terms": [
+    "medial pterygoid"
+   ]
   },
   {
    "z": "Medial pterygoid muscle.or",
@@ -21434,7 +22232,9 @@
    "muscle": "Medial pterygoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "medial pterygoid"
+   "terms": [
+    "medial pterygoid"
+   ]
   },
   {
    "z": "Mentalis muscle.ol",
@@ -21442,7 +22242,9 @@
    "muscle": "Mentalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "mentalis"
+   "terms": [
+    "mentalis"
+   ]
   },
   {
    "z": "Mentalis muscle.or",
@@ -21450,7 +22252,9 @@
    "muscle": "Mentalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "mentalis"
+   "terms": [
+    "mentalis"
+   ]
   },
   {
    "z": "Mylohyoid muscle.ol",
@@ -21458,7 +22262,9 @@
    "muscle": "Mylohyoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "mylohyoid"
+   "terms": [
+    "mylohyoid"
+   ]
   },
   {
    "z": "Mylohyoid muscle.or",
@@ -21466,7 +22272,9 @@
    "muscle": "Mylohyoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "mylohyoid"
+   "terms": [
+    "mylohyoid"
+   ]
   },
   {
    "z": "Nasalis muscle.ol",
@@ -21474,7 +22282,9 @@
    "muscle": "Nasalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "nasalis"
+   "terms": [
+    "nasalis"
+   ]
   },
   {
    "z": "Nasalis muscle.or",
@@ -21482,7 +22292,9 @@
    "muscle": "Nasalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "nasalis"
+   "terms": [
+    "nasalis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.el",
@@ -21490,7 +22302,9 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "insertion",
    "side": "left",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.er",
@@ -21498,7 +22312,9 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "insertion",
    "side": "right",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.o1l",
@@ -21506,7 +22322,9 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "origin",
    "side": "left",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.o1r",
@@ -21514,7 +22332,9 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "origin",
    "side": "right",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.ol",
@@ -21522,7 +22342,9 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "origin",
    "side": "left",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Oblique head of adductor hallucis.or",
@@ -21530,55 +22352,69 @@
    "muscle": "Oblique head of adductor hallucis",
    "end": "origin",
    "side": "right",
-   "term": "oblique head of adductor hallucis"
+   "terms": [
+    "oblique head of adductor hallucis"
+   ]
   },
   {
    "z": "Obliquus inferior capitis muscle.el",
    "id": "ZAc721edb1",
    "muscle": "Obliquus inferior capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "obliquus capitis inferior"
+   "terms": [
+    "obliquus capitis inferior"
+   ]
   },
   {
    "z": "Obliquus inferior capitis muscle.er",
    "id": "ZA5f7b604b",
    "muscle": "Obliquus inferior capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "obliquus capitis inferior"
+   "terms": [
+    "obliquus capitis inferior"
+   ]
   },
   {
    "z": "Obliquus inferior capitis muscle.ol",
    "id": "ZA999959fb",
    "muscle": "Obliquus inferior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "obliquus capitis inferior"
+   "terms": [
+    "obliquus capitis inferior"
+   ]
   },
   {
    "z": "Obliquus inferior capitis muscle.or",
    "id": "ZA845c493a",
    "muscle": "Obliquus inferior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "obliquus capitis inferior"
+   "terms": [
+    "obliquus capitis inferior"
+   ]
   },
   {
    "z": "Obliquus superior capitis muscle.ol",
    "id": "ZA20c2e683",
    "muscle": "Obliquus superior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "obliquus capitis superior"
+   "terms": [
+    "obliquus capitis superior"
+   ]
   },
   {
    "z": "Obliquus superior capitis muscle.or",
    "id": "ZA078d2005",
    "muscle": "Obliquus superior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "obliquus capitis superior"
+   "terms": [
+    "obliquus capitis superior"
+   ]
   },
   {
    "z": "Obturator externus.ol",
@@ -21586,7 +22422,9 @@
    "muscle": "Obturator externus",
    "end": "origin",
    "side": "left",
-   "term": "obturator externus"
+   "terms": [
+    "obturator externus"
+   ]
   },
   {
    "z": "Obturator externus.or",
@@ -21594,7 +22432,9 @@
    "muscle": "Obturator externus",
    "end": "origin",
    "side": "right",
-   "term": "obturator externus"
+   "terms": [
+    "obturator externus"
+   ]
   },
   {
    "z": "Obturator internus.ol",
@@ -21602,7 +22442,9 @@
    "muscle": "Obturator internus",
    "end": "origin",
    "side": "left",
-   "term": "obturator internus"
+   "terms": [
+    "obturator internus"
+   ]
   },
   {
    "z": "Obturator internus.or",
@@ -21610,7 +22452,9 @@
    "muscle": "Obturator internus",
    "end": "origin",
    "side": "right",
-   "term": "obturator internus"
+   "terms": [
+    "obturator internus"
+   ]
   },
   {
    "z": "Occipitalis muscle.ol",
@@ -21618,7 +22462,9 @@
    "muscle": "Occipitalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "occipitalis"
+   "terms": [
+    "occipitalis"
+   ]
   },
   {
    "z": "Occipitalis muscle.or",
@@ -21626,7 +22472,9 @@
    "muscle": "Occipitalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "occipitalis"
+   "terms": [
+    "occipitalis"
+   ]
   },
   {
    "z": "Omohyoid muscle.el",
@@ -21634,7 +22482,9 @@
    "muscle": "Omohyoid muscle",
    "end": "insertion",
    "side": "left",
-   "term": "omohyoid"
+   "terms": [
+    "omohyoid"
+   ]
   },
   {
    "z": "Omohyoid muscle.er",
@@ -21642,7 +22492,9 @@
    "muscle": "Omohyoid muscle",
    "end": "insertion",
    "side": "right",
-   "term": "omohyoid"
+   "terms": [
+    "omohyoid"
+   ]
   },
   {
    "z": "Omohyoid muscle.ol",
@@ -21650,7 +22502,9 @@
    "muscle": "Omohyoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "omohyoid"
+   "terms": [
+    "omohyoid"
+   ]
   },
   {
    "z": "Omohyoid muscle.or",
@@ -21658,7 +22512,9 @@
    "muscle": "Omohyoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "omohyoid"
+   "terms": [
+    "omohyoid"
+   ]
   },
   {
    "z": "Opponens digiti minimi muscle of hand.ol",
@@ -21666,7 +22522,9 @@
    "muscle": "Opponens digiti minimi muscle of hand",
    "end": "origin",
    "side": "left",
-   "term": "opponens digiti minimi of hand"
+   "terms": [
+    "opponens digiti minimi of hand"
+   ]
   },
   {
    "z": "Opponens digiti minimi muscle of hand.or",
@@ -21674,7 +22532,9 @@
    "muscle": "Opponens digiti minimi muscle of hand",
    "end": "origin",
    "side": "right",
-   "term": "opponens digiti minimi of hand"
+   "terms": [
+    "opponens digiti minimi of hand"
+   ]
   },
   {
    "z": "Orbicularis oris muscle.ol",
@@ -21682,7 +22542,9 @@
    "muscle": "Orbicularis oris muscle",
    "end": "origin",
    "side": "left",
-   "term": "orbicularis oris"
+   "terms": [
+    "orbicularis oris"
+   ]
   },
   {
    "z": "Orbicularis oris muscle.or",
@@ -21690,7 +22552,9 @@
    "muscle": "Orbicularis oris muscle",
    "end": "origin",
    "side": "right",
-   "term": "orbicularis oris"
+   "terms": [
+    "orbicularis oris"
+   ]
   },
   {
    "z": "Orbital part of orbicularis oculi.ol",
@@ -21698,7 +22562,9 @@
    "muscle": "Orbital part of orbicularis oculi",
    "end": "origin",
    "side": "left",
-   "term": "orbital part of orbicularis oculi"
+   "terms": [
+    "orbital part of orbicularis oculi"
+   ]
   },
   {
    "z": "Orbital part of orbicularis oculi.or",
@@ -21706,35 +22572,35 @@
    "muscle": "Orbital part of orbicularis oculi",
    "end": "origin",
    "side": "right",
-   "term": "orbital part of orbicularis oculi"
+   "terms": [
+    "orbital part of orbicularis oculi"
+   ]
   },
   {
    "z": "Patellar ligament.el",
    "id": "ZAadeef06d",
    "muscle": "Patellar ligament",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "rectus femoris",
+    "vastus lateralis",
+    "vastus medialis",
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Patellar ligament.er",
    "id": "ZA940bb40e",
    "muscle": "Patellar ligament",
    "end": "insertion",
-   "side": "right"
-  },
-  {
-   "z": "Patellar ligament.ol",
-   "id": "ZA98820ffe",
-   "muscle": "Patellar ligament",
-   "end": "origin",
-   "side": "left"
-  },
-  {
-   "z": "Patellar ligament.or",
-   "id": "ZA50b3f701",
-   "muscle": "Patellar ligament",
-   "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "rectus femoris",
+    "vastus lateralis",
+    "vastus medialis",
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Pectineus muscle.el",
@@ -21742,7 +22608,9 @@
    "muscle": "Pectineus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "pectineus"
+   "terms": [
+    "pectineus"
+   ]
   },
   {
    "z": "Pectineus muscle.ol",
@@ -21750,7 +22618,9 @@
    "muscle": "Pectineus muscle",
    "end": "origin",
    "side": "left",
-   "term": "pectineus"
+   "terms": [
+    "pectineus"
+   ]
   },
   {
    "z": "Pectineus muscle.or",
@@ -21758,99 +22628,133 @@
    "muscle": "Pectineus muscle",
    "end": "origin",
    "side": "right",
-   "term": "pectineus"
+   "terms": [
+    "pectineus"
+   ]
   },
   {
    "z": "Pectoralis major muscle.el",
    "id": "ZA3620407d",
    "muscle": "Pectoralis major muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "clavicular part of pectoralis major",
+    "sternocostal part of pectoralis major",
+    "abdominal part of pectoralis major"
+   ]
   },
   {
    "z": "Pectoralis major muscle.er",
    "id": "ZA0d0fb8ed",
    "muscle": "Pectoralis major muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "clavicular part of pectoralis major",
+    "sternocostal part of pectoralis major",
+    "abdominal part of pectoralis major"
+   ]
   },
   {
    "z": "Pectoralis major muscle.ol",
    "id": "ZAac167cb1",
    "muscle": "Pectoralis major muscle",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "clavicular part of pectoralis major"
+   ]
   },
   {
    "z": "Pectoralis major muscle.or",
    "id": "ZA26b41275",
    "muscle": "Pectoralis major muscle",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "clavicular part of pectoralis major"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.e1l",
    "id": "ZA9ccb0a65",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.e1r",
    "id": "ZA2c9f4ce8",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.e2l",
    "id": "ZA8be51c3f",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.e2r",
    "id": "ZA613bd0f9",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.el",
    "id": "ZAb2c3f756",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.er",
    "id": "ZA15263829",
    "muscle": "Pectoralis minor muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.ol",
    "id": "ZA69a38e66",
    "muscle": "Pectoralis minor muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Pectoralis minor muscle.or",
    "id": "ZAfcc3a947",
    "muscle": "Pectoralis minor muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "pectoralis minor"
+   "terms": [
+    "pectoralis minor"
+   ]
   },
   {
    "z": "Piriformis muscle.el",
@@ -21858,7 +22762,9 @@
    "muscle": "Piriformis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "piriformis"
+   "terms": [
+    "piriformis"
+   ]
   },
   {
    "z": "Piriformis muscle.ol",
@@ -21866,7 +22772,9 @@
    "muscle": "Piriformis muscle",
    "end": "origin",
    "side": "left",
-   "term": "piriformis"
+   "terms": [
+    "piriformis"
+   ]
   },
   {
    "z": "Piriformis muscle.or",
@@ -21874,49 +22782,69 @@
    "muscle": "Piriformis muscle",
    "end": "origin",
    "side": "right",
-   "term": "piriformis"
+   "terms": [
+    "piriformis"
+   ]
   },
   {
    "z": "Plantar interossei muscles.e1l",
    "id": "ZAc36060e7",
    "muscle": "Plantar interossei muscles",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "second plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantar interossei muscles.e2l",
    "id": "ZA4fffd27f",
    "muscle": "Plantar interossei muscles",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "third plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantar interossei muscles.el",
    "id": "ZA60482384",
    "muscle": "Plantar interossei muscles",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "first plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantar interossei muscles.o1l",
    "id": "ZA2d1532ea",
    "muscle": "Plantar interossei muscles",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "second plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantar interossei muscles.o2l",
    "id": "ZA52f0fe0d",
    "muscle": "Plantar interossei muscles",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "third plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantar interossei muscles.ol",
    "id": "ZA1b9c9398",
    "muscle": "Plantar interossei muscles",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "first plantar interosseous of foot"
+   ]
   },
   {
    "z": "Plantaris muscle.ol",
@@ -21924,7 +22852,9 @@
    "muscle": "Plantaris muscle",
    "end": "origin",
    "side": "left",
-   "term": "plantaris"
+   "terms": [
+    "plantaris"
+   ]
   },
   {
    "z": "Plantaris muscle.or",
@@ -21932,7 +22862,9 @@
    "muscle": "Plantaris muscle",
    "end": "origin",
    "side": "right",
-   "term": "plantaris"
+   "terms": [
+    "plantaris"
+   ]
   },
   {
    "z": "Popliteus muscle.el",
@@ -21940,7 +22872,9 @@
    "muscle": "Popliteus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "popliteus"
+   "terms": [
+    "popliteus"
+   ]
   },
   {
    "z": "Popliteus muscle.er",
@@ -21948,7 +22882,9 @@
    "muscle": "Popliteus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "popliteus"
+   "terms": [
+    "popliteus"
+   ]
   },
   {
    "z": "Popliteus muscle.ol",
@@ -21956,7 +22892,9 @@
    "muscle": "Popliteus muscle",
    "end": "origin",
    "side": "left",
-   "term": "popliteus"
+   "terms": [
+    "popliteus"
+   ]
   },
   {
    "z": "Popliteus muscle.or",
@@ -21964,7 +22902,9 @@
    "muscle": "Popliteus muscle",
    "end": "origin",
    "side": "right",
-   "term": "popliteus"
+   "terms": [
+    "popliteus"
+   ]
   },
   {
    "z": "Procerus muscle.el",
@@ -21972,7 +22912,9 @@
    "muscle": "Procerus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "procerus"
+   "terms": [
+    "procerus"
+   ]
   },
   {
    "z": "Procerus muscle.ol",
@@ -21980,7 +22922,9 @@
    "muscle": "Procerus muscle",
    "end": "origin",
    "side": "left",
-   "term": "procerus"
+   "terms": [
+    "procerus"
+   ]
   },
   {
    "z": "Procerus muscle.or",
@@ -21988,7 +22932,9 @@
    "muscle": "Procerus muscle",
    "end": "origin",
    "side": "right",
-   "term": "procerus"
+   "terms": [
+    "procerus"
+   ]
   },
   {
    "z": "Pronator quadratus.el",
@@ -21996,7 +22942,9 @@
    "muscle": "Pronator quadratus",
    "end": "insertion",
    "side": "left",
-   "term": "pronator quadratus"
+   "terms": [
+    "pronator quadratus"
+   ]
   },
   {
    "z": "Pronator quadratus.ol",
@@ -22004,35 +22952,51 @@
    "muscle": "Pronator quadratus",
    "end": "origin",
    "side": "left",
-   "term": "pronator quadratus"
+   "terms": [
+    "pronator quadratus"
+   ]
   },
   {
    "z": "Pronator teres.el",
    "id": "ZA724aab7f",
    "muscle": "Pronator teres",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "humeral head of pronator teres",
+    "ulnar head of pronator teres"
+   ]
   },
   {
    "z": "Pronator teres.er",
    "id": "ZA21423558",
    "muscle": "Pronator teres",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "humeral head of pronator teres",
+    "ulnar head of pronator teres"
+   ]
   },
   {
    "z": "Pronator teres.ol",
    "id": "ZAa427b082",
    "muscle": "Pronator teres",
    "end": "origin",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "humeral head of pronator teres"
+   ]
   },
   {
    "z": "Pronator teres.or",
    "id": "ZA43cc66ef",
    "muscle": "Pronator teres",
    "end": "origin",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "humeral head of pronator teres"
+   ]
   },
   {
    "z": "Quadratus femoris muscle.el",
@@ -22040,7 +23004,9 @@
    "muscle": "Quadratus femoris muscle",
    "end": "insertion",
    "side": "left",
-   "term": "quadratus femoris"
+   "terms": [
+    "quadratus femoris"
+   ]
   },
   {
    "z": "Quadratus femoris muscle.er",
@@ -22048,7 +23014,9 @@
    "muscle": "Quadratus femoris muscle",
    "end": "insertion",
    "side": "right",
-   "term": "quadratus femoris"
+   "terms": [
+    "quadratus femoris"
+   ]
   },
   {
    "z": "Quadratus femoris muscle.ol",
@@ -22056,7 +23024,9 @@
    "muscle": "Quadratus femoris muscle",
    "end": "origin",
    "side": "left",
-   "term": "quadratus femoris"
+   "terms": [
+    "quadratus femoris"
+   ]
   },
   {
    "z": "Quadratus femoris muscle.or",
@@ -22064,85 +23034,95 @@
    "muscle": "Quadratus femoris muscle",
    "end": "origin",
    "side": "right",
-   "term": "quadratus femoris"
+   "terms": [
+    "quadratus femoris"
+   ]
   },
   {
    "z": "Quadriceps femoris muscle.el",
    "id": "ZA431185a7",
    "muscle": "Quadriceps femoris muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "rectus femoris",
+    "vastus lateralis",
+    "vastus medialis",
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Quadriceps femoris muscle.er",
    "id": "ZA969168ef",
    "muscle": "Quadriceps femoris muscle",
    "end": "insertion",
-   "side": "right"
-  },
-  {
-   "z": "Rectus abdominis muscle.el",
-   "id": "ZA552dd2f9",
-   "muscle": "Rectus abdominis muscle",
-   "end": "insertion",
-   "side": "left",
-   "term": "rectus abdominis"
-  },
-  {
-   "z": "Rectus abdominis muscle.er",
-   "id": "ZA9672834e",
-   "muscle": "Rectus abdominis muscle",
-   "end": "insertion",
    "side": "right",
-   "term": "rectus abdominis"
+   "terms": [
+    "rectus femoris",
+    "vastus lateralis",
+    "vastus medialis",
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Rectus abdominis muscle.ol",
    "id": "ZAdd45880e",
    "muscle": "Rectus abdominis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "rectus abdominis"
+   "terms": [
+    "rectus abdominis"
+   ]
   },
   {
    "z": "Rectus abdominis muscle.or",
    "id": "ZAfa45863c",
    "muscle": "Rectus abdominis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "rectus abdominis"
+   "terms": [
+    "rectus abdominis"
+   ]
   },
   {
    "z": "Rectus anterior capitis muscle.el",
    "id": "ZA7fb5e889",
    "muscle": "Rectus anterior capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "rectus capitis anterior"
+   "terms": [
+    "rectus capitis anterior"
+   ]
   },
   {
    "z": "Rectus anterior capitis muscle.er",
    "id": "ZA065e4abe",
    "muscle": "Rectus anterior capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "rectus capitis anterior"
+   "terms": [
+    "rectus capitis anterior"
+   ]
   },
   {
    "z": "Rectus anterior capitis muscle.ol",
    "id": "ZA4cacfed9",
    "muscle": "Rectus anterior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "rectus capitis anterior"
+   "terms": [
+    "rectus capitis anterior"
+   ]
   },
   {
    "z": "Rectus anterior capitis muscle.or",
    "id": "ZA49dd3023",
    "muscle": "Rectus anterior capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "rectus capitis anterior"
+   "terms": [
+    "rectus capitis anterior"
+   ]
   },
   {
    "z": "Rectus femoris muscle.ol",
@@ -22150,7 +23130,9 @@
    "muscle": "Rectus femoris muscle",
    "end": "origin",
    "side": "left",
-   "term": "rectus femoris"
+   "terms": [
+    "rectus femoris"
+   ]
   },
   {
    "z": "Rectus femoris muscle.or",
@@ -22158,87 +23140,109 @@
    "muscle": "Rectus femoris muscle",
    "end": "origin",
    "side": "right",
-   "term": "rectus femoris"
+   "terms": [
+    "rectus femoris"
+   ]
   },
   {
    "z": "Rectus lateralis capitis muscle.ol",
    "id": "ZA3517c0ca",
    "muscle": "Rectus lateralis capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "rectus capitis lateralis"
+   "terms": [
+    "rectus capitis lateralis"
+   ]
   },
   {
    "z": "Rectus lateralis capitis muscle.or",
    "id": "ZAfff1e531",
    "muscle": "Rectus lateralis capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "rectus capitis lateralis"
+   "terms": [
+    "rectus capitis lateralis"
+   ]
   },
   {
    "z": "Rectus posterior major capitis muscle.el",
    "id": "ZA9e71e32a",
    "muscle": "Rectus posterior major capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "rectus capitis posterior major"
+   "terms": [
+    "rectus capitis posterior major"
+   ]
   },
   {
    "z": "Rectus posterior major capitis muscle.er",
    "id": "ZA11471406",
    "muscle": "Rectus posterior major capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "rectus capitis posterior major"
+   "terms": [
+    "rectus capitis posterior major"
+   ]
   },
   {
    "z": "Rectus posterior major capitis muscle.ol",
    "id": "ZA4f1ff694",
    "muscle": "Rectus posterior major capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "rectus capitis posterior major"
+   "terms": [
+    "rectus capitis posterior major"
+   ]
   },
   {
    "z": "Rectus posterior major capitis muscle.or",
    "id": "ZA0eb5f0ff",
    "muscle": "Rectus posterior major capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "rectus capitis posterior major"
+   "terms": [
+    "rectus capitis posterior major"
+   ]
   },
   {
    "z": "Rectus posterior minor capitis muscle.el",
    "id": "ZAf8e09220",
    "muscle": "Rectus posterior minor capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "rectus capitis posterior minor"
+   "terms": [
+    "rectus capitis posterior minor"
+   ]
   },
   {
    "z": "Rectus posterior minor capitis muscle.er",
    "id": "ZA301a6755",
    "muscle": "Rectus posterior minor capitis muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "rectus capitis posterior minor"
+   "terms": [
+    "rectus capitis posterior minor"
+   ]
   },
   {
    "z": "Rectus posterior minor capitis muscle.ol",
    "id": "ZA00f4e1d9",
    "muscle": "Rectus posterior minor capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "rectus capitis posterior minor"
+   "terms": [
+    "rectus capitis posterior minor"
+   ]
   },
   {
    "z": "Rectus posterior minor capitis muscle.or",
    "id": "ZA9652f530",
    "muscle": "Rectus posterior minor capitis muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "rectus capitis posterior minor"
+   "terms": [
+    "rectus capitis posterior minor"
+   ]
   },
   {
    "z": "Rhomboid major muscle.el",
@@ -22246,7 +23250,9 @@
    "muscle": "Rhomboid major muscle",
    "end": "insertion",
    "side": "left",
-   "term": "rhomboid major"
+   "terms": [
+    "rhomboid major"
+   ]
   },
   {
    "z": "Rhomboid major muscle.er",
@@ -22254,7 +23260,9 @@
    "muscle": "Rhomboid major muscle",
    "end": "insertion",
    "side": "right",
-   "term": "rhomboid major"
+   "terms": [
+    "rhomboid major"
+   ]
   },
   {
    "z": "Rhomboid minor muscle.el",
@@ -22262,7 +23270,9 @@
    "muscle": "Rhomboid minor muscle",
    "end": "insertion",
    "side": "left",
-   "term": "rhomboid minor"
+   "terms": [
+    "rhomboid minor"
+   ]
   },
   {
    "z": "Rhomboid minor muscle.er",
@@ -22270,7 +23280,9 @@
    "muscle": "Rhomboid minor muscle",
    "end": "insertion",
    "side": "right",
-   "term": "rhomboid minor"
+   "terms": [
+    "rhomboid minor"
+   ]
   },
   {
    "z": "Sartorius muscle.el",
@@ -22278,7 +23290,9 @@
    "muscle": "Sartorius muscle",
    "end": "insertion",
    "side": "left",
-   "term": "sartorius"
+   "terms": [
+    "sartorius"
+   ]
   },
   {
    "z": "Sartorius muscle.er",
@@ -22286,7 +23300,9 @@
    "muscle": "Sartorius muscle",
    "end": "insertion",
    "side": "right",
-   "term": "sartorius"
+   "terms": [
+    "sartorius"
+   ]
   },
   {
    "z": "Sartorius muscle.ol",
@@ -22294,7 +23310,9 @@
    "muscle": "Sartorius muscle",
    "end": "origin",
    "side": "left",
-   "term": "sartorius"
+   "terms": [
+    "sartorius"
+   ]
   },
   {
    "z": "Sartorius muscle.or",
@@ -22302,135 +23320,169 @@
    "muscle": "Sartorius muscle",
    "end": "origin",
    "side": "right",
-   "term": "sartorius"
+   "terms": [
+    "sartorius"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.e1l",
    "id": "ZA492d3fb6",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.e1r",
    "id": "ZA9dec468d",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.e2l",
    "id": "ZA1ebaa9e0",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.e2r",
    "id": "ZAc0eeb058",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.el",
    "id": "ZAd870fab6",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.er",
    "id": "ZAd98a07d4",
    "muscle": "Scalenus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.ol",
    "id": "ZAc4feba24",
    "muscle": "Scalenus anterior muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus anterior muscle.or",
    "id": "ZAd1b48af8",
    "muscle": "Scalenus anterior muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "scalenus anterior"
+   "terms": [
+    "scalenus anterior"
+   ]
   },
   {
    "z": "Scalenus medius muscle.e1l",
    "id": "ZA27b55b60",
    "muscle": "Scalenus medius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus medius muscle.e1r",
    "id": "ZAafcb0383",
    "muscle": "Scalenus medius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus medius muscle.el",
    "id": "ZAc71513ce",
    "muscle": "Scalenus medius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus medius muscle.er",
    "id": "ZAf012403d",
    "muscle": "Scalenus medius muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus medius muscle.ol",
    "id": "ZA7437eb97",
    "muscle": "Scalenus medius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus medius muscle.or",
    "id": "ZA650ce344",
    "muscle": "Scalenus medius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "scalenus medius"
+   "terms": [
+    "scalenus medius"
+   ]
   },
   {
    "z": "Scalenus posterior muscle.el",
    "id": "ZA8ed2e46b",
    "muscle": "Scalenus posterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "scalenus posterior"
+   "terms": [
+    "scalenus posterior"
+   ]
   },
   {
    "z": "Scalenus posterior muscle.er",
    "id": "ZA1daa8f20",
    "muscle": "Scalenus posterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "scalenus posterior"
+   "terms": [
+    "scalenus posterior"
+   ]
   },
   {
    "z": "Scapular spinal part of deltoid muscle.ol",
@@ -22438,7 +23490,9 @@
    "muscle": "Scapular spinal part of deltoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "spinal part of deltoid"
+   "terms": [
+    "spinal part of deltoid"
+   ]
   },
   {
    "z": "Scapular spinal part of deltoid muscle.or",
@@ -22446,7 +23500,9 @@
    "muscle": "Scapular spinal part of deltoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "spinal part of deltoid"
+   "terms": [
+    "spinal part of deltoid"
+   ]
   },
   {
    "z": "Semimembranosus muscle.el",
@@ -22454,7 +23510,9 @@
    "muscle": "Semimembranosus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "semimembranosus"
+   "terms": [
+    "semimembranosus"
+   ]
   },
   {
    "z": "Semimembranosus muscle.er",
@@ -22462,7 +23520,9 @@
    "muscle": "Semimembranosus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "semimembranosus"
+   "terms": [
+    "semimembranosus"
+   ]
   },
   {
    "z": "Semimembranosus muscle.ol",
@@ -22470,7 +23530,9 @@
    "muscle": "Semimembranosus muscle",
    "end": "origin",
    "side": "left",
-   "term": "semimembranosus"
+   "terms": [
+    "semimembranosus"
+   ]
   },
   {
    "z": "Semimembranosus muscle.or",
@@ -22478,7 +23540,9 @@
    "muscle": "Semimembranosus muscle",
    "end": "origin",
    "side": "right",
-   "term": "semimembranosus"
+   "terms": [
+    "semimembranosus"
+   ]
   },
   {
    "z": "Semitendinosus muscle.el",
@@ -22486,7 +23550,9 @@
    "muscle": "Semitendinosus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "semitendinosus"
+   "terms": [
+    "semitendinosus"
+   ]
   },
   {
    "z": "Semitendinosus muscle.er",
@@ -22494,7 +23560,9 @@
    "muscle": "Semitendinosus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "semitendinosus"
+   "terms": [
+    "semitendinosus"
+   ]
   },
   {
    "z": "Semitendinosus muscle.ol",
@@ -22502,7 +23570,9 @@
    "muscle": "Semitendinosus muscle",
    "end": "origin",
    "side": "left",
-   "term": "semitendinosus"
+   "terms": [
+    "semitendinosus"
+   ]
   },
   {
    "z": "Semitendinosus muscle.or",
@@ -22510,151 +23580,189 @@
    "muscle": "Semitendinosus muscle",
    "end": "origin",
    "side": "right",
-   "term": "semitendinosus"
+   "terms": [
+    "semitendinosus"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e1l",
    "id": "ZA57d9a2f8",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e2l",
    "id": "ZAc7a1d0cb",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e2r",
    "id": "ZA233213c5",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e3l",
    "id": "ZAe1434903",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e3r",
    "id": "ZA9c160203",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e4l",
    "id": "ZAb0740069",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e4r",
    "id": "ZA73e9820f",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e5l",
    "id": "ZA915dd547",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e5r",
    "id": "ZA9a70d39d",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e6l",
    "id": "ZAa5dff031",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e6r",
    "id": "ZA67578c76",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e7l",
    "id": "ZA51e32510",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e7r",
    "id": "ZAd6db42cc",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.e8l",
    "id": "ZAa845a32a",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.el",
    "id": "ZAf74cc61b",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.er",
    "id": "ZA0eb0f365",
    "muscle": "Serratus anterior muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.ol",
    "id": "ZAaf20cb72",
    "muscle": "Serratus anterior muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus anterior muscle.or",
    "id": "ZA658cd13f",
    "muscle": "Serratus anterior muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "serratus anterior"
+   "terms": [
+    "serratus anterior"
+   ]
   },
   {
    "z": "Serratus posterior inferior muscle.e1l",
@@ -22662,7 +23770,9 @@
    "muscle": "Serratus posterior inferior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior inferior"
+   "terms": [
+    "serratus posterior inferior"
+   ]
   },
   {
    "z": "Serratus posterior inferior muscle.e2l",
@@ -22670,7 +23780,9 @@
    "muscle": "Serratus posterior inferior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior inferior"
+   "terms": [
+    "serratus posterior inferior"
+   ]
   },
   {
    "z": "Serratus posterior inferior muscle.e3l",
@@ -22678,7 +23790,9 @@
    "muscle": "Serratus posterior inferior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior inferior"
+   "terms": [
+    "serratus posterior inferior"
+   ]
   },
   {
    "z": "Serratus posterior inferior muscle.el",
@@ -22686,7 +23800,9 @@
    "muscle": "Serratus posterior inferior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior inferior"
+   "terms": [
+    "serratus posterior inferior"
+   ]
   },
   {
    "z": "Serratus posterior superior muscle.e1l",
@@ -22694,7 +23810,9 @@
    "muscle": "Serratus posterior superior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior superior"
+   "terms": [
+    "serratus posterior superior"
+   ]
   },
   {
    "z": "Serratus posterior superior muscle.e2l",
@@ -22702,7 +23820,9 @@
    "muscle": "Serratus posterior superior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior superior"
+   "terms": [
+    "serratus posterior superior"
+   ]
   },
   {
    "z": "Serratus posterior superior muscle.e3l",
@@ -22710,7 +23830,9 @@
    "muscle": "Serratus posterior superior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior superior"
+   "terms": [
+    "serratus posterior superior"
+   ]
   },
   {
    "z": "Serratus posterior superior muscle.el",
@@ -22718,7 +23840,9 @@
    "muscle": "Serratus posterior superior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "serratus posterior superior"
+   "terms": [
+    "serratus posterior superior"
+   ]
   },
   {
    "z": "Short head of biceps brachii.ol",
@@ -22726,15 +23850,19 @@
    "muscle": "Short head of biceps brachii",
    "end": "origin",
    "side": "left",
-   "term": "short head of biceps brachii"
+   "terms": [
+    "short head of biceps brachii"
+   ]
   },
   {
    "z": "Short head of biceps femoris.el",
    "id": "ZA96ed6084",
    "muscle": "Short head of biceps femoris",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "short head of biceps femoris"
+   "terms": [
+    "short head of biceps femoris"
+   ]
   },
   {
    "z": "Soleus muscle.o1l",
@@ -22742,7 +23870,9 @@
    "muscle": "Soleus muscle",
    "end": "origin",
    "side": "left",
-   "term": "soleus"
+   "terms": [
+    "soleus"
+   ]
   },
   {
    "z": "Soleus muscle.o1r",
@@ -22750,7 +23880,9 @@
    "muscle": "Soleus muscle",
    "end": "origin",
    "side": "right",
-   "term": "soleus"
+   "terms": [
+    "soleus"
+   ]
   },
   {
    "z": "Soleus muscle.ol",
@@ -22758,7 +23890,9 @@
    "muscle": "Soleus muscle",
    "end": "origin",
    "side": "left",
-   "term": "soleus"
+   "terms": [
+    "soleus"
+   ]
   },
   {
    "z": "Soleus muscle.or",
@@ -22766,21 +23900,9 @@
    "muscle": "Soleus muscle",
    "end": "origin",
    "side": "right",
-   "term": "soleus"
-  },
-  {
-   "z": "Spinalis capitis muscle.el",
-   "id": "ZA30c925f1",
-   "muscle": "Spinalis capitis muscle",
-   "end": "insertion",
-   "side": "left"
-  },
-  {
-   "z": "Spinalis capitis muscle.er",
-   "id": "ZAb82df62e",
-   "muscle": "Spinalis capitis muscle",
-   "end": "insertion",
-   "side": "right"
+   "terms": [
+    "soleus"
+   ]
   },
   {
    "z": "Splenius colli muscle.e1l",
@@ -22788,7 +23910,9 @@
    "muscle": "Splenius colli muscle",
    "end": "insertion",
    "side": "left",
-   "term": "splenius cervicis"
+   "terms": [
+    "splenius cervicis"
+   ]
   },
   {
    "z": "Splenius colli muscle.e1r",
@@ -22796,7 +23920,9 @@
    "muscle": "Splenius colli muscle",
    "end": "insertion",
    "side": "right",
-   "term": "splenius cervicis"
+   "terms": [
+    "splenius cervicis"
+   ]
   },
   {
    "z": "Splenius colli muscle.el",
@@ -22804,7 +23930,9 @@
    "muscle": "Splenius colli muscle",
    "end": "insertion",
    "side": "left",
-   "term": "splenius cervicis"
+   "terms": [
+    "splenius cervicis"
+   ]
   },
   {
    "z": "Splenius colli muscle.er",
@@ -22812,7 +23940,9 @@
    "muscle": "Splenius colli muscle",
    "end": "insertion",
    "side": "right",
-   "term": "splenius cervicis"
+   "terms": [
+    "splenius cervicis"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.el",
@@ -22820,7 +23950,9 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "insertion",
    "side": "left",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.er",
@@ -22828,7 +23960,9 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "insertion",
    "side": "right",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.o1l",
@@ -22836,7 +23970,9 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.o1r",
@@ -22844,7 +23980,9 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.ol",
@@ -22852,7 +23990,9 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocleidomastoid muscle.or",
@@ -22860,55 +24000,69 @@
    "muscle": "Sternocleidomastoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "sternocleidomastoid"
+   "terms": [
+    "sternocleidomastoid"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.e1l",
    "id": "ZA6ef823a9",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.e1r",
    "id": "ZAfc7cc9c1",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.e2l",
    "id": "ZA7b559ac7",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.e2r",
    "id": "ZA6019108f",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.el",
    "id": "ZAd05f79bb",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternocostal head of pectoralis major muscle.er",
    "id": "ZA67c00c36",
    "muscle": "Sternocostal head of pectoralis major muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "sternocostal part of pectoralis major"
+   "terms": [
+    "sternocostal part of pectoralis major"
+   ]
   },
   {
    "z": "Sternohyoid muscle.el",
@@ -22916,7 +24070,9 @@
    "muscle": "Sternohyoid muscle",
    "end": "insertion",
    "side": "left",
-   "term": "sternohyoid"
+   "terms": [
+    "sternohyoid"
+   ]
   },
   {
    "z": "Sternohyoid muscle.er",
@@ -22924,7 +24080,9 @@
    "muscle": "Sternohyoid muscle",
    "end": "insertion",
    "side": "right",
-   "term": "sternohyoid"
+   "terms": [
+    "sternohyoid"
+   ]
   },
   {
    "z": "Sternohyoid muscle.ol",
@@ -22932,7 +24090,9 @@
    "muscle": "Sternohyoid muscle",
    "end": "origin",
    "side": "left",
-   "term": "sternohyoid"
+   "terms": [
+    "sternohyoid"
+   ]
   },
   {
    "z": "Sternohyoid muscle.or",
@@ -22940,23 +24100,29 @@
    "muscle": "Sternohyoid muscle",
    "end": "origin",
    "side": "right",
-   "term": "sternohyoid"
+   "terms": [
+    "sternohyoid"
+   ]
   },
   {
    "z": "Subclavius muscle.ol",
    "id": "ZAc8c2022e",
    "muscle": "Subclavius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "subclavius"
+   "terms": [
+    "subclavius"
+   ]
   },
   {
    "z": "Subclavius muscle.or",
    "id": "ZAb58922e8",
    "muscle": "Subclavius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "subclavius"
+   "terms": [
+    "subclavius"
+   ]
   },
   {
    "z": "Subscapularis muscle.el",
@@ -22964,7 +24130,9 @@
    "muscle": "Subscapularis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "subscapularis"
+   "terms": [
+    "subscapularis"
+   ]
   },
   {
    "z": "Subscapularis muscle.er",
@@ -22972,7 +24140,9 @@
    "muscle": "Subscapularis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "subscapularis"
+   "terms": [
+    "subscapularis"
+   ]
   },
   {
    "z": "Subscapularis muscle.ol",
@@ -22980,7 +24150,9 @@
    "muscle": "Subscapularis muscle",
    "end": "origin",
    "side": "left",
-   "term": "subscapularis"
+   "terms": [
+    "subscapularis"
+   ]
   },
   {
    "z": "Subscapularis muscle.or",
@@ -22988,7 +24160,9 @@
    "muscle": "Subscapularis muscle",
    "end": "origin",
    "side": "right",
-   "term": "subscapularis"
+   "terms": [
+    "subscapularis"
+   ]
   },
   {
    "z": "Superior gemellus muscle.ol",
@@ -22996,7 +24170,9 @@
    "muscle": "Superior gemellus muscle",
    "end": "origin",
    "side": "left",
-   "term": "gemellus superior"
+   "terms": [
+    "gemellus superior"
+   ]
   },
   {
    "z": "Superior gemellus muscle.or",
@@ -23004,7 +24180,9 @@
    "muscle": "Superior gemellus muscle",
    "end": "origin",
    "side": "right",
-   "term": "gemellus superior"
+   "terms": [
+    "gemellus superior"
+   ]
   },
   {
    "z": "Supinator.el",
@@ -23012,7 +24190,9 @@
    "muscle": "Supinator",
    "end": "insertion",
    "side": "left",
-   "term": "supinator"
+   "terms": [
+    "supinator"
+   ]
   },
   {
    "z": "Supinator.er",
@@ -23020,7 +24200,9 @@
    "muscle": "Supinator",
    "end": "insertion",
    "side": "right",
-   "term": "supinator"
+   "terms": [
+    "supinator"
+   ]
   },
   {
    "z": "Supinator.ol",
@@ -23028,7 +24210,9 @@
    "muscle": "Supinator",
    "end": "origin",
    "side": "left",
-   "term": "supinator"
+   "terms": [
+    "supinator"
+   ]
   },
   {
    "z": "Supinator.or",
@@ -23036,7 +24220,9 @@
    "muscle": "Supinator",
    "end": "origin",
    "side": "right",
-   "term": "supinator"
+   "terms": [
+    "supinator"
+   ]
   },
   {
    "z": "Supraspinatus muscle.el",
@@ -23044,7 +24230,9 @@
    "muscle": "Supraspinatus muscle",
    "end": "insertion",
    "side": "left",
-   "term": "supraspinatus"
+   "terms": [
+    "supraspinatus"
+   ]
   },
   {
    "z": "Supraspinatus muscle.er",
@@ -23052,7 +24240,9 @@
    "muscle": "Supraspinatus muscle",
    "end": "insertion",
    "side": "right",
-   "term": "supraspinatus"
+   "terms": [
+    "supraspinatus"
+   ]
   },
   {
    "z": "Supraspinatus muscle.ol",
@@ -23060,7 +24250,9 @@
    "muscle": "Supraspinatus muscle",
    "end": "origin",
    "side": "left",
-   "term": "supraspinatus"
+   "terms": [
+    "supraspinatus"
+   ]
   },
   {
    "z": "Supraspinatus muscle.or",
@@ -23068,7 +24260,9 @@
    "muscle": "Supraspinatus muscle",
    "end": "origin",
    "side": "right",
-   "term": "supraspinatus"
+   "terms": [
+    "supraspinatus"
+   ]
   },
   {
    "z": "Temporalis muscle.el",
@@ -23076,7 +24270,9 @@
    "muscle": "Temporalis muscle",
    "end": "insertion",
    "side": "left",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.er",
@@ -23084,7 +24280,9 @@
    "muscle": "Temporalis muscle",
    "end": "insertion",
    "side": "right",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o1l",
@@ -23092,7 +24290,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o1r",
@@ -23100,7 +24300,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o2l",
@@ -23108,7 +24310,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o2r",
@@ -23116,7 +24320,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o3l",
@@ -23124,7 +24330,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o3r",
@@ -23132,7 +24340,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o4l",
@@ -23140,7 +24350,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "left",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Temporalis muscle.o4r",
@@ -23148,7 +24360,9 @@
    "muscle": "Temporalis muscle",
    "end": "origin",
    "side": "right",
-   "term": "temporalis"
+   "terms": [
+    "temporalis"
+   ]
   },
   {
    "z": "Tensor fasciae latae.ol",
@@ -23156,7 +24370,9 @@
    "muscle": "Tensor fasciae latae",
    "end": "origin",
    "side": "left",
-   "term": "tensor fasciae latae"
+   "terms": [
+    "tensor fasciae latae"
+   ]
   },
   {
    "z": "Tensor fasciae latae.or",
@@ -23164,7 +24380,9 @@
    "muscle": "Tensor fasciae latae",
    "end": "origin",
    "side": "right",
-   "term": "tensor fasciae latae"
+   "terms": [
+    "tensor fasciae latae"
+   ]
   },
   {
    "z": "Teres major muscle.ol",
@@ -23172,7 +24390,9 @@
    "muscle": "Teres major muscle",
    "end": "origin",
    "side": "left",
-   "term": "teres major"
+   "terms": [
+    "teres major"
+   ]
   },
   {
    "z": "Teres major muscle.or",
@@ -23180,7 +24400,9 @@
    "muscle": "Teres major muscle",
    "end": "origin",
    "side": "right",
-   "term": "teres major"
+   "terms": [
+    "teres major"
+   ]
   },
   {
    "z": "Teres minor muscle.el",
@@ -23188,7 +24410,9 @@
    "muscle": "Teres minor muscle",
    "end": "insertion",
    "side": "left",
-   "term": "teres minor"
+   "terms": [
+    "teres minor"
+   ]
   },
   {
    "z": "Teres minor muscle.er",
@@ -23196,7 +24420,9 @@
    "muscle": "Teres minor muscle",
    "end": "insertion",
    "side": "right",
-   "term": "teres minor"
+   "terms": [
+    "teres minor"
+   ]
   },
   {
    "z": "Teres minor muscle.ol",
@@ -23204,7 +24430,9 @@
    "muscle": "Teres minor muscle",
    "end": "origin",
    "side": "left",
-   "term": "teres minor"
+   "terms": [
+    "teres minor"
+   ]
   },
   {
    "z": "Teres minor muscle.or",
@@ -23212,39 +24440,49 @@
    "muscle": "Teres minor muscle",
    "end": "origin",
    "side": "right",
-   "term": "teres minor"
+   "terms": [
+    "teres minor"
+   ]
   },
   {
    "z": "Thyrohyoid muscle.el",
    "id": "ZA6b22f7c2",
    "muscle": "Thyrohyoid muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "thyrohyoid"
+   "terms": [
+    "thyrohyoid"
+   ]
   },
   {
    "z": "Thyrohyoid muscle.er",
    "id": "ZA09475886",
    "muscle": "Thyrohyoid muscle",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "thyrohyoid"
+   "terms": [
+    "thyrohyoid"
+   ]
   },
   {
    "z": "Thyrohyoid muscle.ol",
    "id": "ZAb2e46aa1",
    "muscle": "Thyrohyoid muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "thyrohyoid"
+   "terms": [
+    "thyrohyoid"
+   ]
   },
   {
    "z": "Thyrohyoid muscle.or",
    "id": "ZAa994f1a4",
    "muscle": "Thyrohyoid muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "thyrohyoid"
+   "terms": [
+    "thyrohyoid"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.e1l",
@@ -23252,7 +24490,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.e1r",
@@ -23260,7 +24500,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "insertion",
    "side": "right",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.el",
@@ -23268,7 +24510,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "insertion",
    "side": "left",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.er",
@@ -23276,7 +24520,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "insertion",
    "side": "right",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.ol",
@@ -23284,7 +24530,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "origin",
    "side": "left",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis anterior muscle.or",
@@ -23292,7 +24540,9 @@
    "muscle": "Tibialis anterior muscle",
    "end": "origin",
    "side": "right",
-   "term": "tibialis anterior"
+   "terms": [
+    "tibialis anterior"
+   ]
   },
   {
    "z": "Tibialis posterior muscle.ol",
@@ -23300,7 +24550,9 @@
    "muscle": "Tibialis posterior muscle",
    "end": "origin",
    "side": "left",
-   "term": "tibialis posterior"
+   "terms": [
+    "tibialis posterior"
+   ]
   },
   {
    "z": "Tibialis posterior muscle.or",
@@ -23308,87 +24560,109 @@
    "muscle": "Tibialis posterior muscle",
    "end": "origin",
    "side": "right",
-   "term": "tibialis posterior"
+   "terms": [
+    "tibialis posterior"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e1l",
    "id": "ZA648039ac",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e1r",
    "id": "ZA451e8ac9",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e2l",
    "id": "ZAdbb4d0e9",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e2r",
    "id": "ZAd5f4e1ac",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e3l",
    "id": "ZAc59a606c",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "left",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.e3r",
    "id": "ZAc681d78f",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "insertion",
+   "end": "origin",
    "side": "right",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.ol",
    "id": "ZAc26f4687",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse head of adductor hallucis.or",
    "id": "ZAd070fa29",
    "muscle": "Transverse head of adductor hallucis",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "transverse head of adductor hallucis"
+   "terms": [
+    "transverse head of adductor hallucis"
+   ]
   },
   {
    "z": "Transverse part of trapezius muscle.ol",
    "id": "ZA66656a00",
    "muscle": "Transverse part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "left",
-   "term": "transverse part of trapezius"
+   "terms": [
+    "transverse part of trapezius"
+   ]
   },
   {
    "z": "Transverse part of trapezius muscle.or",
    "id": "ZA47d60ec6",
    "muscle": "Transverse part of trapezius muscle",
-   "end": "origin",
+   "end": "insertion",
    "side": "right",
-   "term": "transverse part of trapezius"
+   "terms": [
+    "transverse part of trapezius"
+   ]
   },
   {
    "z": "Transversus abdominis muscle.ol",
@@ -23396,7 +24670,9 @@
    "muscle": "Transversus abdominis muscle",
    "end": "origin",
    "side": "left",
-   "term": "transversus abdominis"
+   "terms": [
+    "transversus abdominis"
+   ]
   },
   {
    "z": "Transversus abdominis muscle.or",
@@ -23404,7 +24680,9 @@
    "muscle": "Transversus abdominis muscle",
    "end": "origin",
    "side": "right",
-   "term": "transversus abdominis"
+   "terms": [
+    "transversus abdominis"
+   ]
   },
   {
    "z": "Transversus thoracis muscle.o1l",
@@ -23412,7 +24690,9 @@
    "muscle": "Transversus thoracis muscle",
    "end": "origin",
    "side": "left",
-   "term": "transversus thoracis"
+   "terms": [
+    "transversus thoracis"
+   ]
   },
   {
    "z": "Transversus thoracis muscle.o1r",
@@ -23420,7 +24700,9 @@
    "muscle": "Transversus thoracis muscle",
    "end": "origin",
    "side": "right",
-   "term": "transversus thoracis"
+   "terms": [
+    "transversus thoracis"
+   ]
   },
   {
    "z": "Transversus thoracis muscle.ol",
@@ -23428,7 +24710,9 @@
    "muscle": "Transversus thoracis muscle",
    "end": "origin",
    "side": "left",
-   "term": "transversus thoracis"
+   "terms": [
+    "transversus thoracis"
+   ]
   },
   {
    "z": "Transversus thoracis muscle.or",
@@ -23436,49 +24720,83 @@
    "muscle": "Transversus thoracis muscle",
    "end": "origin",
    "side": "right",
-   "term": "transversus thoracis"
+   "terms": [
+    "transversus thoracis"
+   ]
   },
   {
    "z": "Triceps brachii muscle.el",
    "id": "ZA74aa9b1e",
    "muscle": "Triceps brachii muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "long head of triceps brachii",
+    "lateral head of triceps brachii",
+    "medial head of triceps brachii"
+   ]
   },
   {
    "z": "Triceps brachii muscle.er",
    "id": "ZA2e26755d",
    "muscle": "Triceps brachii muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "long head of triceps brachii",
+    "lateral head of triceps brachii",
+    "medial head of triceps brachii"
+   ]
   },
   {
    "z": "Triceps surae muscle.el",
    "id": "ZA49d92d71",
    "muscle": "Triceps surae muscle",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "medial head of gastrocnemius",
+    "lateral head of gastrocnemius",
+    "soleus",
+    "plantaris"
+   ]
   },
   {
    "z": "Triceps surae muscle.er",
    "id": "ZAfdd09639",
    "muscle": "Triceps surae muscle",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "medial head of gastrocnemius",
+    "lateral head of gastrocnemius",
+    "soleus",
+    "plantaris"
+   ]
   },
   {
    "z": "Trochanteric insertion.el",
    "id": "ZAeaaa269f",
    "muscle": "Trochanteric insertion",
    "end": "insertion",
-   "side": "left"
+   "side": "left",
+   "terms": [
+    "gemellus superior",
+    "obturator internus",
+    "gemellus inferior"
+   ]
   },
   {
    "z": "Trochanteric insertion.er",
    "id": "ZAae592437",
    "muscle": "Trochanteric insertion",
    "end": "insertion",
-   "side": "right"
+   "side": "right",
+   "terms": [
+    "gemellus superior",
+    "obturator internus",
+    "gemellus inferior"
+   ]
   },
   {
    "z": "Ulnar head of flexor carpi ulnaris.ol",
@@ -23486,7 +24804,9 @@
    "muscle": "Ulnar head of flexor carpi ulnaris",
    "end": "origin",
    "side": "left",
-   "term": "ulnar head of flexor carpi ulnaris"
+   "terms": [
+    "ulnar head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Ulnar head of flexor carpi ulnaris.or",
@@ -23494,7 +24814,9 @@
    "muscle": "Ulnar head of flexor carpi ulnaris",
    "end": "origin",
    "side": "right",
-   "term": "ulnar head of flexor carpi ulnaris"
+   "terms": [
+    "ulnar head of flexor carpi ulnaris"
+   ]
   },
   {
    "z": "Vastus intermedius muscle.ol",
@@ -23502,7 +24824,9 @@
    "muscle": "Vastus intermedius muscle",
    "end": "origin",
    "side": "left",
-   "term": "vastus intermedius"
+   "terms": [
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Vastus intermedius muscle.or",
@@ -23510,7 +24834,9 @@
    "muscle": "Vastus intermedius muscle",
    "end": "origin",
    "side": "right",
-   "term": "vastus intermedius"
+   "terms": [
+    "vastus intermedius"
+   ]
   },
   {
    "z": "Vastus lateralis muscle.ol",
@@ -23518,7 +24844,9 @@
    "muscle": "Vastus lateralis muscle",
    "end": "origin",
    "side": "left",
-   "term": "vastus lateralis"
+   "terms": [
+    "vastus lateralis"
+   ]
   },
   {
    "z": "Vastus lateralis muscle.or",
@@ -23526,7 +24854,9 @@
    "muscle": "Vastus lateralis muscle",
    "end": "origin",
    "side": "right",
-   "term": "vastus lateralis"
+   "terms": [
+    "vastus lateralis"
+   ]
   },
   {
    "z": "Vastus medialis muscle.ol",
@@ -23534,7 +24864,9 @@
    "muscle": "Vastus medialis muscle",
    "end": "origin",
    "side": "left",
-   "term": "vastus medialis"
+   "terms": [
+    "vastus medialis"
+   ]
   },
   {
    "z": "Vastus medialis muscle.or",
@@ -23542,7 +24874,9 @@
    "muscle": "Vastus medialis muscle",
    "end": "origin",
    "side": "right",
-   "term": "vastus medialis"
+   "terms": [
+    "vastus medialis"
+   ]
   },
   {
    "z": "Zygomaticus major muscle.ol",
@@ -23550,7 +24884,9 @@
    "muscle": "Zygomaticus major muscle",
    "end": "origin",
    "side": "left",
-   "term": "zygomaticus major"
+   "terms": [
+    "zygomaticus major"
+   ]
   },
   {
    "z": "Zygomaticus major muscle.or",
@@ -23558,7 +24894,9 @@
    "muscle": "Zygomaticus major muscle",
    "end": "origin",
    "side": "right",
-   "term": "zygomaticus major"
+   "terms": [
+    "zygomaticus major"
+   ]
   },
   {
    "z": "Zygomaticus minor muscle.ol",
@@ -23566,7 +24904,9 @@
    "muscle": "Zygomaticus minor muscle",
    "end": "origin",
    "side": "left",
-   "term": "zygomaticus minor"
+   "terms": [
+    "zygomaticus minor"
+   ]
   },
   {
    "z": "Zygomaticus minor muscle.or",
@@ -23574,7 +24914,9 @@
    "muscle": "Zygomaticus minor muscle",
    "end": "origin",
    "side": "right",
-   "term": "zygomaticus minor"
+   "terms": [
+    "zygomaticus minor"
+   ]
   }
  ],
  "skipped": {
@@ -24053,6 +25395,10 @@
    "Ventral parts of lateral intertransversarii lumborum muscles.l = lateral lumbar intertransversarius",
    "Ventral parts of lateral intertransversarii lumborum muscles.r = lateral lumbar intertransversarius"
   ],
+  "attachment left out: neither model has the articularis genus itself": [
+   "Articularis genus muscle.ol",
+   "Articularis genus muscle.or"
+  ],
   "left out: orbit (sense organs stay with BodyParts3D)": [
    "Common tendinous ring.l",
    "Common tendinous ring.r"
@@ -24060,6 +25406,14 @@
   "left out: larynx": [
    "Cricopharyngeal ligament.l",
    "Cricopharyngeal ligament.r"
+  ],
+  "attachment left out: on the shaft of the first metacarpal, where neither head of the flexor pollicis brevis attaches": [
+   "Deep head of flexor pollicis brevis.o1l",
+   "Deep head of flexor pollicis brevis.o1r"
+  ],
+  "attachment left out: lies on the wrist capsule and triquetrum, short of the fifth metacarpal; the insertion is worked out instead": [
+   "Extensor carpi ulnaris.el",
+   "Extensor carpi ulnaris.er"
   ],
   "left out: middle ear, next to the non-commercial inner ear model": [
    "Incus.l",
@@ -24074,6 +25428,18 @@
   "left out: nose": [
    "Lateral process of nasal septal cartilage.l",
    "Lateral process of nasal septal cartilage.r"
+  ],
+  "attachment left out: where the long plantar ligament itself attaches, not a muscle": [
+   "Long plantar ligament.o1l",
+   "Long plantar ligament.o1r",
+   "Long plantar ligament.o2l",
+   "Long plantar ligament.o2r",
+   "Long plantar ligament.o3l",
+   "Long plantar ligament.o3r",
+   "Long plantar ligament.o4l",
+   "Long plantar ligament.o4r",
+   "Long plantar ligament.ol",
+   "Long plantar ligament.or"
   ],
   "left out: middle ear": [
    "Malleus.l",
@@ -24091,9 +25457,21 @@
    "Stylopharyngeus muscle.l",
    "Stylopharyngeus muscle.r"
   ],
+  "attachment left out: apex of the patella, where the patellar ligament itself starts": [
+   "Patellar ligament.ol",
+   "Patellar ligament.or"
+  ],
   "left out: larynx (viscera stay with BodyParts3D)": [
    "Quadrangular membrane.l",
    "Quadrangular membrane.r"
+  ],
+  "attachment left out: runs the whole length of the linea alba; the origin on the pubic crest is worked out instead": [
+   "Rectus abdominis muscle.el",
+   "Rectus abdominis muscle.er"
+  ],
+  "attachment left out: the spinalis capitis blends with the semispinalis capitis, and the card leaves it out": [
+   "Spinalis capitis muscle.el",
+   "Spinalis capitis muscle.er"
   ],
   "left out: growth cartilage of the child acetabulum; the model is an adult": [
    "Triradiate cartilage.l",

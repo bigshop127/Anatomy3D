@@ -1,7 +1,7 @@
 import {flushSync} from 'react-dom';
 import {registerAtlasTools} from './agent-tools';
 import {useEffect,useMemo,useRef,useState} from 'react';
-import {Activity,ArrowUpRight,Bookmark,BookmarkPlus,ChevronRight,EyeOff,FlipHorizontal2,Focus,Ghost,Info,Layers3,Link,Pause,PersonStanding,Pin,RotateCcw,RotateCw,Search,SquareStack,Undo2,X} from 'lucide-react';
+import {Activity,ArrowUpRight,Bookmark,BookmarkPlus,ChevronRight,EyeOff,FlipHorizontal2,Focus,Ghost,Info,Layers3,Link,Maximize2,Minimize2,Pause,PersonStanding,Pin,RotateCcw,RotateCw,Search,SquareStack,Undo2,X} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Badge} from '@/components/ui/badge';
 import {Slider} from '@/components/ui/slider';
@@ -16,8 +16,16 @@ import {REGIONS,regionBox,regionLook,type RegionId,type Side} from './regions';
 import {fixSystems} from './system-fixes';
 import muscleLayers from './muscle-layers.json';
 import {decodeSnapshot,encodeSnapshot,loadBookmarks,saveBookmarks,type Bookmark as SavedView,type Snapshot} from './share';
-import {DEFAULT_VISIBLE,SYSTEMS,explanation,hasExplanation,visibilityTest,type Atlas,type Concept,type CameraPose,type SceneState,type SectionAxis,type SystemId,type View} from './anatomy';
+import {DEFAULT_VISIBLE,SYSTEMS,explanation,hasExplanation,visibilityTest,type Atlas,type Concept,type CameraPose,type Part,type SceneState,type SectionAxis,type SystemId,type View} from './anatomy';
+import {termKey} from './names';
+import {cardOf,loadCards,nerveMuscles,nerveTree,type CardIndex,type MuscleCard} from './muscle-cards';
+import {END_NAME,loadAttachments,musclesOn,patchesFor,sideOf,type AttachmentCatalogue,type HostedMuscle} from './attachments';
+import {CardView,HostedView,NerveView,useSections,type MarksProps} from './structure-info';
 const namer=createNamer(nameData as NameData);
+const SIDE_ZH:Record<string,string>={left:'左',right:'右'};
+const MARKS_KEY='anatomy3d.marks';
+/** Showing attachments is a per-device preference, on unless turned off. */
+const loadMarks=()=>{try{return localStorage.getItem(MARKS_KEY)!=='0';}catch{return true;}};
 const SUGGESTED=['heart','brain','vertebral column','scapula','humerus','pelvis','femur','skull','liver','stomach'];
 const VIEWS:{id:View;short:string;name:string}[]=[{id:'three-quarter',short:'斜',name:'斜前方'},{id:'front',short:'前',name:'正面'},{id:'side',short:'側',name:'側面'},{id:'back',short:'後',name:'背面'}];
 type Tool='explode'|'xray'|'section'|'peel';
@@ -36,16 +44,46 @@ export default function Home(){
  const [tool,setTool]=useState<Tool>('explode'),[multi,setMulti]=useState(false),[undo,setUndo]=useState<string[][]>([]);
  const [bookmarks,setBookmarks]=useState<SavedView[]>(loadBookmarks),[bookmarkName,setBookmarkName]=useState(''),[shareNote,setShareNote]=useState(''),[shareUrl,setShareUrl]=useState('');
  const cameraPose=useRef<CameraPose|null>(null),tapPoint=useRef<{id:string;point?:number[]}|null>(null),cameraN=useRef(0);
+ // Muscle cards and attachments load after the model; focus remembers that the selection is a nerve with its muscles.
+ const [cards,setCards]=useState<CardIndex|null>(null),[catalogue,setCatalogue]=useState<AttachmentCatalogue|null>(null),[catalogueFailed,setCatalogueFailed]=useState(false),[marksFailed,setMarksFailed]=useState(false);
+ const [marksOn,setMarksOn]=useState(loadMarks),[focus,setFocus]=useState<{term:string;side:string;ids:string[]}|null>(null),sections=useSections();
+ // On a phone the detail panel can be pulled up to read a long card.
+ const [tall,setTall]=useState(false);
  current.current=state;
  // Panels above the dock follow its real height, which changes with the active tool. The detail sheet lives in a portal, so the value goes on the root element.
  const dock=useRef<HTMLDivElement>(null);
  useEffect(()=>{const d=dock.current;if(!d)return;const observer=new ResizeObserver(()=>document.documentElement.style.setProperty('--dock-h',`${d.offsetHeight}px`));observer.observe(d);return()=>observer.disconnect();},[]);
  useEffect(()=>{const abort=new AbortController();setProgress(0);setError('');setAtlas(null);setChosen(null);setDetails(false);setState({...initial,visible:DEFAULT_VISIBLE});fetch(asset('models/atlas.json'),{signal:abort.signal}).then(r=>{if(!r.ok)throw new Error('人體構造目錄載入失敗。');return r.json();}).then(data=>{const loaded=data as Atlas;fixSystems(loaded);loaded.parts.forEach(p=>{p.label=namer.label(p.name);p.layer=LAYERS[p.id];});loaded.concepts.forEach(c=>{c.label=namer.label(c.name);});setAtlas(loaded);}).catch(e=>{if(e.name!=='AbortError')setError(e.message);});return()=>abort.abort();},[]);
  useEffect(()=>{const key=(e:KeyboardEvent)=>{if(e.key==='/'&&!(e.target instanceof HTMLInputElement)&&!(e.target instanceof HTMLTextAreaElement)){e.preventDefault();setPanel('search');setDetails(false);}};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key);},[]);
+ useEffect(()=>{if(!atlas)return;let live=true;loadCards().then(c=>{if(live)setCards(c);}).catch(()=>{});return()=>{live=false;};},[atlas]);
+ // The attachment catalogue comes with the first selection; a failed load (of it or of the patches) is tried again on the next one.
+ useEffect(()=>{setMarksFailed(false);},[state.selected]);
+ useEffect(()=>{if(!state.selected.length||catalogue)return;let live=true;setCatalogueFailed(false);loadAttachments().then(c=>{if(live)setCatalogue(c);}).catch(()=>{if(live)setCatalogueFailed(true);});return()=>{live=false;};},[state.selected,catalogue]);
  const parts=useMemo(()=>new Map(atlas?.parts.map(p=>[p.id,p])),[atlas]);
  const counts=useMemo(()=>Object.fromEntries(SYSTEMS.map(s=>[s.id,atlas?.parts.filter(p=>p.system===s.id).length??0])),[atlas]);
  const activeSystems=SYSTEMS.filter(s=>counts[s.id]>0);
  const selectedParts=state.selected.map(id=>parts.get(id)).filter(p=>!!p),selected=selectedParts[0],system=SYSTEMS.find(s=>s.id===selected?.system);
+ // The card of the selection when every selected part is a muscle on the same card.
+ const selectionCards=new Set(selectedParts.map(p=>p.system==='muscular'?cardOf(cards,p.name):undefined)),card=selectionCards.size===1?[...selectionCards][0]:undefined;
+ // One side when every selected part is on it; parts from search often come in left and right pairs.
+ const selectionSides=new Set(selectedParts.map(p=>sideOf(p.name))),selectionSide=selectionSides.size===1?[...selectionSides][0]:'';
+ // A nerve selected with all its muscles would cover the skeleton in patches, so it shows none.
+ const marks=useMemo(()=>catalogue&&marksOn&&focus?.ids!==state.selected?patchesFor(catalogue,state.selected.map(id=>parts.get(id)).filter((p):p is Part=>!!p),cards):[],[catalogue,marksOn,focus,state.selected,parts,cards]);
+ const markIds=useMemo(()=>marks.map(p=>p.id),[marks]);
+ // An isolated muscle keeps the bones (and ligaments) its attachments lie on; its own patches show through it. A fascia
+ // would wrap the whole view, so it stays hidden.
+ const companions=useMemo(()=>state.isolate&&marks.length?[...new Set(marks.map(p=>p.host))].filter(id=>parts.get(id)?.system!=='fascia'):[],[state.isolate,marks,parts]);
+ const markThrough=marks.length>0&&selectedParts.some(p=>p.system==='muscular');
+ const hosted=useMemo(()=>{const p=state.selected.length===1?parts.get(state.selected[0]):undefined;return catalogue&&p&&p.system!=='muscular'?musclesOn(catalogue,p.id,cards):[];},[catalogue,state.selected,parts,cards]);
+ const nerveFocus=focus&&focus.ids===state.selected?focus:null;
+ // A selection of nerves (one nerve, or a nerve with its branches from search) lists the muscles of the one supplying most.
+ const nerveTerm=useMemo(()=>{
+  if(focus?.ids===state.selected)return focus.term;
+  const list=state.selected.map(id=>parts.get(id));if(!list.length||list.some(p=>p?.system!=='nervous'))return '';
+  const terms=[...new Set(list.map(p=>termKey(p!.name)))];if(!cards)return terms.length===1?terms[0]:'';
+  const size=(t:string)=>{const m=nerveMuscles(cards,t);return m.direct.length+m.branches.reduce((n,b)=>n+b.cards.length,0);};
+  const best=terms.reduce((a,b)=>size(b)>size(a)?b:a);return size(best)||terms.length===1?best:'';
+ },[focus,state.selected,parts,cards]);
  const visibleCount=useMemo(()=>{if(!atlas)return 0;const shown=visibilityTest(state);return atlas.parts.filter(shown).length;},[atlas,state]);
  const results=useMemo(()=>{
   if(!atlas)return[];const term=query.toLowerCase().trim();
@@ -74,6 +112,47 @@ export default function Home(){
  const clearSelection=()=>{const xray=dropAutoXray();setState(s=>({...s,selected:[],isolate:false,xray:xray(s.xray)}));setDetails(false);};
  const hideSelection=()=>{const xray=dropAutoXray();setUndo(u=>[...u,state.hidden]);setState(s=>({...s,hidden:[...new Set([...s.hidden,...s.selected])],selected:[],isolate:false,xray:xray(s.xray)}));setDetails(false);};
  const undoHide=()=>{const previous=undo.at(-1);if(!previous)return;setUndo(u=>u.slice(0,-1));setState(s=>({...s,hidden:previous}));};
+ const sideOk=(name:string,side:string)=>!side||!sideOf(name)||sideOf(name)===side;
+ const partIds=(test:(p:Part)=>boolean)=>atlas?atlas.parts.filter(test).map(p=>p.id):[];
+ const nameOf=(term:string)=>namer.zh(term)??term;
+ /** Selects parts as one named group; xray as when choosing from search, since the parts spread over the body. A muscle picked
+  * from a bone it attaches to stays isolated if the bone was (keep). */
+ const selectGroup=(ids:string[],concept:Concept,xray=false,keep=false)=>{
+  if(!ids.length)return;if(xray&&!current.current.xray)autoXray.current=true;
+  setChosen(concept);setState(s=>({...s,selected:ids,isolate:keep&&s.isolate,rotate:false,xray:xray?(s.xray||XRAY_DEFAULT):s.xray}));setDetails(true);setPanel(null);
+ };
+ const cardIds=(c:MuscleCard,side:string)=>partIds(p=>p.system==='muscular'&&c.parts.includes(termKey(p.name))&&sideOk(p.name,side));
+ const selectCard=(c:MuscleCard,side:string,keep=false)=>{const ids=cardIds(c,side);selectGroup(ids,{id:`card:${c.id}`,name:c.en,label:(SIDE_ZH[side]??'')+c.zh,elements:ids},false,keep);};
+ /** The nerve (with its branches) and every muscle the cards say it supplies, on one side. */
+ const selectNerve=(term:string,side:string)=>{
+  if(!cards)return;const {direct,branches}=nerveMuscles(cards,term),terms=new Set([...direct,...branches.flatMap(b=>b.cards)].flatMap(c=>c.parts)),tree=nerveTree(term);
+  // Nerves first, so the panel reads as the nerve's.
+  const ids=partIds(p=>sideOk(p.name,side)&&(p.system==='nervous'?tree.has(termKey(p.name)):p.system==='muscular'&&terms.has(termKey(p.name)))).sort((x,y)=>+(parts.get(y)?.system==='nervous')-+(parts.get(x)?.system==='nervous'));
+  if(!ids.length)return;
+  selectGroup(ids,{id:'',name:term,label:`${SIDE_ZH[side]??''}${nameOf(term)}與它支配的肌肉`,elements:ids},true);setFocus({term,side,ids});
+ };
+ const pickHosted=(m:HostedMuscle)=>{const side=m.sides.length===1?m.sides[0]:'';if(m.card){selectCard(m.card,side,true);return;}const ids=partIds(p=>p.system==='muscular'&&termKey(p.name)===m.term&&sideOk(p.name,side));selectGroup(ids,groupOf(ids),false,true);};
+ /** A tapped attachment patch selects its muscle; a patch several muscles share (a common tendon) selects them all. */
+ const selectPatch=(id:string)=>{
+  const patch=catalogue?.patches.find(p=>p.id===id);if(!patch)return;
+  const owners=[...new Set(patch.muscles.map(t=>cards?.byTerm.get(t)))];
+  if(owners.length===1&&owners[0]){selectCard(owners[0],patch.side,true);return;}
+  const ids=partIds(p=>p.system==='muscular'&&patch.muscles.includes(termKey(p.name))&&sideOk(p.name,patch.side));
+  selectGroup(ids,{id:'',name:patch.name,label:`${END_NAME[patch.end]}在這裡的 ${ids.length} 條肌肉`,elements:ids},false,true);
+ };
+ const wholeCard=useMemo(()=>card&&card.parts.length>1?cardIds(card,selectionSide):[],[card,selectionSide,atlas]);
+ const marksNote=(()=>{
+  if(!marksOn)return '';
+  if(catalogueFailed||marksFailed)return '起止點資料載入失敗，連上網路後再選一次。';
+  if(!catalogue)return '正在載入起止點…';
+  if(!marks.length)return hosted.length?'':'模型上沒有標出這條肌肉的起止點（例如它只接在肌腱或筋膜上）。';
+  const ends=new Set(marks.map(p=>p.end)),notes:string[]=[];
+  if(ends.size===1&&!hosted.length)notes.push(`模型上只有${END_NAME[marks[0].end]}的位置。`);
+  if(marks.some(p=>p.source==='computed'))notes.push('有些位置是電腦依肌肉貼著骨頭的範圍推算，僅供參考。');
+  if(!state.xray&&!state.isolate)notes.push('被其他構造擋住時，打開「透視周圍」或「單獨顯示」。');
+  return notes.join('');
+ })();
+ const marksProps:MarksProps={on:marksOn,note:marksNote,onChange:on=>{setMarksOn(on);setMarksFailed(false);try{localStorage.setItem(MARKS_KEY,on?'1':'0');}catch{/* a preference only */}}};
  const showAll=()=>{setUndo(u=>[...u,state.hidden]);setState(s=>({...s,hidden:[]}));};
  const toggle=(id:SystemId)=>{setDetails(false);setState(s=>({...s,selected:[],isolate:false,visible:s.visible.includes(id)?s.visible.filter(x=>x!==id):[...s.visible,id]}));};
  const reset=()=>{setState(s=>({...initial,visible:DEFAULT_VISIBLE,reset:s.reset+1}));setRegion(null);autoXray.current=false;setUndo([]);setChosen(null);setDetails(false);setPanel(null);};
@@ -105,7 +184,7 @@ export default function Home(){
  const sectionAxis=AXES.find(a=>a.id===state.section?.axis),cutting=!!state.section||!!state.region;
  const toolValue=tool==='explode'?`${Math.round(state.explode*100)}`:tool==='xray'?(state.xray?`${Math.round(state.xray*100)}`:'關'):tool==='peel'?`${state.peel}/${DEEPEST}`:state.section?`${Math.round(state.section.position*100)}`:'關';
  return <main className="studio">
-  {atlas&&<AnatomyScene atlas={atlas} state={{...state,inspectorOpen:details&&selectedParts.length>0}} onSelect={choosePart} onCamera={pose=>{cameraPose.current=pose;}} onPinRemove={id=>setState(s=>({...s,pins:s.pins.filter(p=>p.id!==id)}))} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
+  {atlas&&<AnatomyScene atlas={atlas} state={{...state,inspectorOpen:details&&selectedParts.length>0,marks:markIds,markThrough,companions}} onSelect={choosePart} onSelectPatch={selectPatch} onMarksFailed={()=>setMarksFailed(true)} onCamera={pose=>{cameraPose.current=pose;}} onPinRemove={id=>setState(s=>({...s,pins:s.pins.filter(p=>p.id!==id)}))} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
   <div className="vignette"/>
   <header className="identity"><div className="eyebrow"><span className="status-dot"/> 互動解剖圖譜</div><h1>人體解剖<Badge variant="outline" className="edition">3D</Badge></h1><div className="identity-meta">{atlas?atlas.parts.length.toLocaleString():'3,121'} 個部件 <span>·</span> BodyParts3D＋Z-Anatomy</div></header>
   <nav className="top-actions" aria-label="功能面板"><Button variant="ghost" className={panel==='regions'||region?'active':''} onClick={()=>openPanel('regions')} aria-label="選擇部位"><PersonStanding size={18}/><span>{region?regionName:'部位'}</span></Button><Button variant="ghost" className={panel==='bookmarks'?'active':''} onClick={()=>{setShareNote('');setShareUrl('');openPanel('bookmarks');}} aria-label="書籤與分享"><Bookmark size={18}/><span>書籤</span></Button><Button variant="ghost" className={panel==='search'?'active':''} onClick={()=>openPanel('search')} aria-label="搜尋構造"><Search size={18}/><span>找構造</span><kbd>/</kbd></Button><Button variant="ghost" className="icon-button" aria-label="關於這個 App" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}><Info size={18}/></Button></nav>
@@ -140,7 +219,12 @@ export default function Home(){
   <footer className="studio-footer"><span>{state.explode>.8?'拖曳平移':'拖曳旋轉'} <b>·</b> 雙指縮放 <b>·</b> {multi?'點一下加入／移除':'點一下查看'}</span><Button variant="ghost" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}>資料來源與授權 <ArrowUpRight size={12}/></Button></footer>
   {progress<100&&!error&&<div className="loading glass" role="status"><Activity size={18}/><div><strong>正在準備人體模型</strong><span>{progress}% · 載入 {atlas?.parts.length.toLocaleString()??'2,234'} 個部件</span><div className="loading-track"><i style={{width:`${progress}%`}}/></div></div></div>}
   {error&&<div className="loading glass error" role="alert"><p>{error}</p><Button variant="ghost" onClick={()=>location.reload()}>重新載入</Button></div>}
-  <Sheet open={details&&selectedParts.length>0} modal={false} disablePointerDismissal onOpenChange={open=>{if(!open)clearSelection();}}><SheetContent initialFocus={detailTitle} className={`detail-sheet glass ${state.isolate?'is-isolated':''}`} showCloseButton={true}><div className="detail-header"><div className="detail-accent" style={{background:system?.color}}/><div className="eyebrow">{system?.name??'解剖構造'}</div><SheetTitle ref={detailTitle} tabIndex={-1} className="structure-title">{chosen?.label??chosen?.name}</SheetTitle>{chosen&&chosen.id&&chosen.label!==chosen.name&&<p className="structure-en">{chosen.name}{!namer.reviewed(chosen.name)&&<span className="unreviewed" title="中文譯名由程式翻譯，還沒人工校對">未校對</span>}</p>}</div><div className="detail-scroll" key={`${chosen?.id}-${state.isolate}`}><SheetDescription className="structure-description">{chosen&&selected?(chosen.id?explanation(chosen.name,selected.system):'多選模式：在模型上點一下可以加入或移除構造。'):''}</SheetDescription>{chosen&&chosen.id&&!hasExplanation(chosen.name)&&<span className="context-note">系統概述 · 這個構造目前只有所屬系統的說明</span>}<div className="structure-meta"><span>圖譜編號<strong>{chosen?.id||'—'}</strong></span><span>選取部件<strong>{state.selected.length.toLocaleString()}</strong></span></div>{selectedParts.length>1&&<div className="member-list"><h3>包含的構造</h3>{selectedParts.slice(0,50).map(p=><Button variant="ghost" key={p.id} onClick={()=>{setMulti(false);setChosen(groupOf([p.id]));setState(s=>({...s,selected:[p.id],isolate:false}));}}><span>{p.label??p.name}</span><ChevronRight size={14}/></Button>)}{selectedParts.length>50&&<p>另有 {selectedParts.length-50} 個部件。</p>}</div>}<a className="source-link" href="https://lifesciencedb.jp/bp3d/" target="_blank" rel="noreferrer">查看原始解剖資料 <ArrowUpRight size={14}/></a></div><div className="detail-actions"><Button className={`primary-action ${state.isolate?'active':''}`} onClick={()=>setState(s=>({...s,isolate:!s.isolate,explode:0}))}><Focus size={18}/>{state.isolate?'顯示周圍構造':'單獨顯示'}<ChevronRight size={16}/></Button><div className="detail-tools"><Button variant="ghost" aria-pressed={state.xray>0} className={state.xray>0?'active':''} onClick={()=>setXray(state.xray>0?0:lastXray.current)}><Ghost size={16}/>透視周圍</Button><Button variant="ghost" aria-pressed={!!pinned} className={pinned?'active':''} disabled={!chosen?.id} onClick={togglePin}><Pin size={16}/>{pinned?'取消標籤':'釘選標籤'}</Button><Button variant="ghost" onClick={hideSelection}><EyeOff size={16}/>隱藏</Button><Button variant="ghost" onClick={clearSelection}>取消選取</Button></div></div></SheetContent></Sheet>
-  <Sheet open={about} onOpenChange={setAbout}><SheetContent className="about-sheet glass"><div className="eyebrow">資料來源與範圍</div><SheetTitle className="structure-title">人體解剖 3D</SheetTitle><SheetDescription>以 BodyParts3D 成年男性參考模型為基礎、用 Z-Anatomy 補上肌肉、韌帶與周邊神經的互動解剖圖譜。</SheetDescription><div className="about-copy"><p><strong>男性 · BodyParts3D＋Z-Anatomy</strong><br/>{atlas?.parts.length.toLocaleString()??'3,121'} 個獨立網格、{atlas?.concepts.length.toLocaleString()??'4,861'} 個具名構造。骨骼、內臟、血管和大部分肌肉來自 BodyParts3D；它沒有的 {atlas?atlas.parts.filter(p=>p.source==='z-anatomy').length.toLocaleString():'898'} 個構造（闊背肌、腹肌、多裂肌、咀嚼肌、臉部肌、韌帶、關節囊、半月板、滑囊、筋膜、脊髓與周邊神經等）來自 Z-Anatomy，已依這裡的骨頭變形對齊。筋膜預設不顯示，要看請在「系統」打開。</p><p>模型沒有涵蓋所有人體構造或個體差異。一個具名構造可能包含多個部件；每個原始網格只畫一次。</p><p>顏色與系統分類是為了方便瀏覽而設計，幾何已為網頁簡化，說明文字只提供一般學習用的背景。中文譯名由程式翻譯，標示「未校對」的還沒經過人工確認。本 App 為學習用途，不是診斷或手術工具。</p><h3>來源</h3><p>BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.</p><a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html" target="_blank" rel="noreferrer">資料授權 <ArrowUpRight size={14}/></a><a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noreferrer">原始幾何與中繼資料 <ArrowUpRight size={14}/></a><a href="https://academic.oup.com/nar/article/37/suppl_1/D782/1000752" target="_blank" rel="noreferrer">原始論文 <ArrowUpRight size={14}/></a><p>Z-Anatomy - The libre 3D atlas of anatomy（Gauthier Kervyn 等），CC BY-SA 4.0。其中腦神經取自 University of Dundee, CAHID 的 Cranial Nerves and Foramina（CC BY 4.0）。</p><a href="https://www.z-anatomy.com/" target="_blank" rel="noreferrer">Z-Anatomy <ArrowUpRight size={14}/></a><a href="https://github.com/Z-Anatomy/Models-of-human-anatomy" target="_blank" rel="noreferrer">原始模型 <ArrowUpRight size={14}/></a><p>因為含 Z-Anatomy 的改作，整份模型資料以 CC BY-SA 4.0 公開（BodyParts3D 的部分原為 CC BY 4.0），轉用時要標出處並用同一授權。</p><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" target="_blank" rel="noreferrer">CC BY-SA 4.0 授權條款 <ArrowUpRight size={14}/></a><a href="https://github.com/bigshop127/Anatomy3D/blob/main/public/ATTRIBUTION.md" target="_blank" rel="noreferrer">完整出處與改動說明 <ArrowUpRight size={14}/></a><h3>程式</h3><p>改自 human-atlas（MIT 授權）。MIT 只適用程式碼，不包含模型資料。</p><a href="https://github.com/bigshop127/Anatomy3D" target="_blank" rel="noreferrer">原始碼 <ArrowUpRight size={14}/></a><p className="app-version">版本 {__APP_VERSION__}</p></div></SheetContent></Sheet>
+  <Sheet open={details&&selectedParts.length>0} modal={false} disablePointerDismissal onOpenChange={open=>{if(!open)clearSelection();}}><SheetContent initialFocus={detailTitle} className={`detail-sheet glass ${state.isolate?'is-isolated':''} ${tall?'is-tall':''}`} showCloseButton={true}><Button variant="ghost" className="mobile-only sheet-size" onClick={()=>setTall(t=>!t)} aria-label={tall?'縮小面板':'放大面板'} aria-pressed={tall}>{tall?<Minimize2 size={17}/>:<Maximize2 size={17}/>}</Button><div className="detail-header"><div className="detail-accent" style={{background:system?.color}}/><div className="eyebrow">{system?.name??'解剖構造'}</div><SheetTitle ref={detailTitle} tabIndex={-1} className="structure-title">{chosen?.label??chosen?.name}</SheetTitle>{chosen&&chosen.id&&chosen.label!==chosen.name&&<p className="structure-en">{chosen.name}{!chosen.id.startsWith('card:')&&!namer.reviewed(chosen.name)&&<span className="unreviewed" title="中文譯名由程式翻譯，還沒人工校對">未校對</span>}</p>}</div><div className="detail-scroll" key={`${chosen?.id}-${state.isolate}`}>
+   {card?<><SheetDescription className="sr-only">肌肉卡：起點、止點、作用、神經支配與出處。</SheetDescription><CardView card={card} sections={sections} marks={marksProps} onNerve={term=>selectNerve(term,selectionSide)} onWhole={wholeCard.some(id=>!state.selected.includes(id))?()=>selectCard(card,selectionSide):undefined}/></>
+   :<><SheetDescription className="structure-description">{chosen&&selected?(nerveFocus?'這條神經（含分支）和它支配的肌肉已一起選取，周圍改成透視。':chosen.id?explanation(chosen.name,selected.system):'多選模式：在模型上點一下可以加入或移除構造。'):''}</SheetDescription>{chosen&&chosen.id&&!hasExplanation(chosen.name)&&<span className="context-note">系統概述 · 這個構造目前只有所屬系統的說明</span>}</>}
+   {nerveTerm&&cards&&<NerveView cards={cards} term={nerveTerm} nameOf={nameOf} sections={sections} onCard={c=>selectCard(c,nerveFocus?.side??selectionSide)} onNerve={term=>selectNerve(term,nerveFocus?.side??selectionSide)} onSelectAll={nerveFocus?undefined:()=>selectNerve(nerveTerm,selectionSide)}/>}
+   {hosted.length>0&&<HostedView muscles={hosted} nameOf={nameOf} sections={sections} marks={marksProps} onPick={pickHosted}/>}
+   <div className="structure-meta"><span>圖譜編號<strong>{chosen?.id&&!chosen.id.startsWith('card:')?chosen.id:'—'}</strong></span><span>選取部件<strong>{state.selected.length.toLocaleString()}</strong></span></div>{selectedParts.length>1&&!nerveFocus&&<div className="member-list"><h3>包含的構造</h3>{selectedParts.slice(0,50).map(p=><Button variant="ghost" key={p.id} onClick={()=>{setMulti(false);setChosen(groupOf([p.id]));setState(s=>({...s,selected:[p.id],isolate:false}));}}><span>{p.label??p.name}</span><ChevronRight size={14}/></Button>)}{selectedParts.length>50&&<p>另有 {selectedParts.length-50} 個部件。</p>}</div>}<a className="source-link" href="https://lifesciencedb.jp/bp3d/" target="_blank" rel="noreferrer">查看原始解剖資料 <ArrowUpRight size={14}/></a></div><div className="detail-actions"><Button className={`primary-action ${state.isolate?'active':''}`} onClick={()=>setState(s=>({...s,isolate:!s.isolate,explode:0}))}><Focus size={18}/><span className="label-full">{state.isolate?'顯示周圍構造':'單獨顯示'}</span><span className="label-short">{state.isolate?'周圍':'單獨'}</span><ChevronRight size={16}/></Button><div className="detail-tools"><Button variant="ghost" aria-pressed={state.xray>0} className={state.xray>0?'active':''} onClick={()=>setXray(state.xray>0?0:lastXray.current)}><Ghost size={16}/><span className="label-full">透視周圍</span><span className="label-short">透視</span></Button><Button variant="ghost" aria-pressed={!!pinned} className={pinned?'active':''} disabled={!chosen?.id} onClick={togglePin}><Pin size={16}/><span className="label-full">{pinned?'取消標籤':'釘選標籤'}</span><span className="label-short">標籤</span></Button><Button variant="ghost" onClick={hideSelection}><EyeOff size={16}/>隱藏</Button><Button variant="ghost" onClick={clearSelection}><span className="label-full">取消選取</span><span className="label-short">取消</span></Button></div></div></SheetContent></Sheet>
+  <Sheet open={about} onOpenChange={setAbout}><SheetContent className="about-sheet glass"><div className="eyebrow">資料來源與範圍</div><SheetTitle className="structure-title">人體解剖 3D</SheetTitle><SheetDescription>以 BodyParts3D 成年男性參考模型為基礎、用 Z-Anatomy 補上肌肉、韌帶與周邊神經的互動解剖圖譜。</SheetDescription><div className="about-copy"><p><strong>男性 · BodyParts3D＋Z-Anatomy</strong><br/>{atlas?.parts.length.toLocaleString()??'3,121'} 個獨立網格、{atlas?.concepts.length.toLocaleString()??'4,861'} 個具名構造。骨骼、內臟、血管和大部分肌肉來自 BodyParts3D；它沒有的 {atlas?atlas.parts.filter(p=>p.source==='z-anatomy').length.toLocaleString():'898'} 個構造（闊背肌、腹肌、多裂肌、咀嚼肌、臉部肌、韌帶、關節囊、半月板、滑囊、筋膜、脊髓與周邊神經等）來自 Z-Anatomy，已依這裡的骨頭變形對齊。筋膜預設不顯示，要看請在「系統」打開。</p><p>模型沒有涵蓋所有人體構造或個體差異。一個具名構造可能包含多個部件；每個原始網格只畫一次。</p><p>顏色與系統分類是為了方便瀏覽而設計，幾何已為網頁簡化，說明文字只提供一般學習用的背景。中文譯名由程式翻譯，標示「未校對」的還沒經過人工確認。本 App 為學習用途，不是診斷或手術工具。</p><p><strong>肌肉卡與起止點</strong><br/>{cards?cards.cards.length:147} 條物理治療常用肌肉有卡片（起止點、作用、神經支配、血液供應、觸診提示），是自己整理的中文摘要，主要出處是 Neumann《Kinesiology of the Musculoskeletal System》第 3 版；標「未核對」的還沒經過核對。骨頭上紅色是起點、藍色是止點，位置來自 Z-Anatomy，它沒畫的由電腦依肌肉貼著骨頭的範圍推算。</p><h3>來源</h3><p>BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.</p><a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html" target="_blank" rel="noreferrer">資料授權 <ArrowUpRight size={14}/></a><a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html" target="_blank" rel="noreferrer">原始幾何與中繼資料 <ArrowUpRight size={14}/></a><a href="https://academic.oup.com/nar/article/37/suppl_1/D782/1000752" target="_blank" rel="noreferrer">原始論文 <ArrowUpRight size={14}/></a><p>Z-Anatomy - The libre 3D atlas of anatomy（Gauthier Kervyn 等），CC BY-SA 4.0。其中腦神經取自 University of Dundee, CAHID 的 Cranial Nerves and Foramina（CC BY 4.0）。</p><a href="https://www.z-anatomy.com/" target="_blank" rel="noreferrer">Z-Anatomy <ArrowUpRight size={14}/></a><a href="https://github.com/Z-Anatomy/Models-of-human-anatomy" target="_blank" rel="noreferrer">原始模型 <ArrowUpRight size={14}/></a><p>因為含 Z-Anatomy 的改作，整份模型資料以 CC BY-SA 4.0 公開（BodyParts3D 的部分原為 CC BY 4.0），轉用時要標出處並用同一授權。</p><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" target="_blank" rel="noreferrer">CC BY-SA 4.0 授權條款 <ArrowUpRight size={14}/></a><a href="https://github.com/bigshop127/Anatomy3D/blob/main/public/ATTRIBUTION.md" target="_blank" rel="noreferrer">完整出處與改動說明 <ArrowUpRight size={14}/></a><h3>程式</h3><p>改自 human-atlas（MIT 授權）。MIT 只適用程式碼，不包含模型資料。</p><a href="https://github.com/bigshop127/Anatomy3D" target="_blank" rel="noreferrer">原始碼 <ArrowUpRight size={14}/></a><p className="app-version">版本 {__APP_VERSION__}</p></div></SheetContent></Sheet>
  </main>;
 }

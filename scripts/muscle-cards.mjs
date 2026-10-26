@@ -1,8 +1,9 @@
 // Muscle cards, one Markdown page per body region in the owner's notes (outside the repo); the pages are the master copy.
 //   node scripts/muscle-cards.mjs check <dir>   parse every page: format problems, open questions, nerves not in the model, muscles without a card
-//   node scripts/muscle-cards.mjs apply <dir>   copy the checked cards (page 狀態: 已核對, or ✔ after a card's title) into app/muscle-cards.json
+//   node scripts/muscle-cards.mjs apply <dir>   copy every card into app/muscle-cards.json; reviewed marks the checked ones
+//                                               (page 狀態: 已核對, or ✔ after a card's title)
 // A card is "## 中文名 english name" followed by "- **欄位**：內容" lines; nested bullets add lines to the field above.
-// A card whose 你的意見 is not empty is waiting for an answer, so apply holds it back.
+// A card whose 你的意見 is not empty is waiting for an answer, so it counts as not reviewed even on a checked page.
 import {readFile,writeFile,readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 import {termKey} from '../app/names.ts';
@@ -21,6 +22,8 @@ const SEGMENT='[CTLS]\\d{1,2}(?:–[CTLS]?\\d{1,2})?';
 const ROOTS=new RegExp(`^(?:${SEGMENT}(?:、${SEGMENT})*|CN [IVX]+\\d?)$`);
 
 const atlas=await loadAtlas(),names=JSON.parse(await readFile(new URL('app/names.zh-TW.json',root),'utf8'));
+// The English Wikipedia article each card was checked against, which the app links as a source.
+const wiki=JSON.parse(await readFile(new URL('scripts/muscle-card-wiki.json',root),'utf8')).titles;
 const muscleTerms=new Set(atlas.parts.filter(p=>p.system==='muscular').map(p=>termKey(p.name)));
 const nerveByZh=new Map();
 for(const p of atlas.parts)if(p.system==='nervous'){const key=termKey(p.name),zh=names.terms[key];if(zh)nerveByZh.set(zh,key);}
@@ -95,7 +98,9 @@ function parsePage(name,text){
   const card={id:cardId(c.en),zh:c.zh,en:c.en,region:page[0],parts,origin:list('origin'),insertion:list('insertion'),primary:list('primary'),secondary:list('secondary'),
    innervation:nerves,innervationText:list('innervation'),blood:list('blood'),palpation:list('palpation'),sources:list('sources'),notes:list('notes')};
   for(const k of PLANNED)if(list(k).length)card[k]=list(k);
-  out.push({card,checked:c.checked||meta['狀態']===DONE,question:list('question').join(' '),where});
+  const question=list('question').join(' ');card.reviewed=(c.checked||meta['狀態']===DONE)&&!question;
+  if(wiki[card.id])card.wiki=wiki[card.id];
+  out.push({card,question,where});
  }
  return {problems,cards:out,status:meta['狀態']??'',file:name};
 }
@@ -115,13 +120,13 @@ const uncovered=[...muscleTerms].filter(t=>!seenPart.has(t)).sort();
 console.log(pages.map(p=>`${p.file}: ${p.cards.length} 張（${p.status||'沒有狀態'}）`).join('\n'));
 if(questions.length)console.log(`\n待回答（${questions.length}）：\n${questions.map(q=>`${q.where}：${q.question}`).join('\n')}`);
 if(command==='check'){
- console.log(`\n共 ${all.length} 張卡，${all.filter(c=>c.checked&&!c.question).length} 張已核對。`);
+ console.log(`\n共 ${all.length} 張卡，${all.filter(c=>c.card.reviewed).length} 張已核對。`);
  if(unmatched.length)console.log(`\n3D 模型裡沒有的神經（卡片照樣顯示，只是點了不會選到）：\n${unmatched.join('、')}`);
  if(uncovered.length)console.log(`\n還沒有卡片的肌肉（${uncovered.length}）：\n${uncovered.join(', ')}`);
 }
 if(problems.length){console.error(`\n格式問題（${problems.length}）：\n${problems.join('\n')}`);process.exit(1);}
 if(command==='apply'){
- const cards=all.filter(c=>c.checked&&!c.question).map(c=>c.card);
+ const cards=all.map(c=>c.card),reviewed=cards.filter(c=>c.reviewed).length;
  await writeFile(new URL('app/muscle-cards.json',root),JSON.stringify({version:1,cards},null,1)+'\n');
- console.log(`\n已寫入 app/muscle-cards.json：${cards.length} 張已核對的卡（共 ${all.length} 張；有意見待回答的 ${questions.length} 張先不放）。`);
+ console.log(`\n已寫入 app/muscle-cards.json：${cards.length} 張卡，${reviewed} 張已核對、${cards.length-reviewed} 張在 App 標「未核對」（其中有意見待回答的 ${questions.length} 張）。`);
 }
