@@ -1,7 +1,7 @@
 import {useEffect,useRef} from 'react';
 import * as T from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
-import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
+import {roomEnvironment} from './room-environment';
 import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {createExplosionLayout} from './explosion-layout';
@@ -40,7 +40,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   cam.position.set(1.4,1.05,3.6);controls.target.set(0,.85,0);controls.enableDamping=true;controls.dampingFactor=.085;controls.minDistance=.025;controls.maxDistance=40;
   // Wheel and pinch zoom are done below, toward the point under the cursor or fingers; the controls still rotate and pan.
   controls.enableZoom=false;controls.maxPolarAngle=Math.PI*.96;controls.addEventListener('change',()=>{dirty=true;reportCamera();});
-  const pmrem=new T.PMREMGenerator(renderer),room=new RoomEnvironment(),env=pmrem.fromScene(room,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
+  const pmrem=new T.PMREMGenerator(renderer),room=roomEnvironment(),env=pmrem.fromScene(room.scene,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
   scene.add(new T.HemisphereLight(0xffffff,0xa7acb2,1.05));
   const key=new T.DirectionalLight(0xfffaf4,2.3);key.position.set(-2,4,3);scene.add(key);
   const rim=new T.DirectionalLight(0xe9f0ff,1.8);rim.position.set(2,2,-3);scene.add(rim);
@@ -73,7 +73,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   };
   // marksOn: attachment patches of the selected muscles are showing, so those muscles move to the see-through pass.
   const xrayOn={value:0},ghostOpacity={value:.3},marksOn={value:0};
-  const partShader=(shader:T.Shader)=>{
+  const partShader=(shader:T.WebGLProgramParametersWithUniforms)=>{
    shader.uniforms.partState={value:partTexture};shader.uniforms.selectionState={value:selectionTexture};shader.uniforms.stateWidth={value:width};shader.uniforms.xrayOn=xrayOn;shader.uniforms.ghostOpacity=ghostOpacity;shader.uniforms.marksOn=marksOn;
    shader.vertexShader='attribute float partIndex; uniform sampler2D partState; uniform sampler2D selectionState; uniform float stateWidth; varying float partVisible; varying float partSelected;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvec2 stateUv = vec2((partIndex + 0.5) / stateWidth, 0.5); vec4 state = texture2D(partState, stateUv); transformed += state.xyz; partVisible = state.w; partSelected = texture2D(selectionState, stateUv).r;');
@@ -296,9 +296,9 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    // Labels sit to the outside of their anchor; on each side they are pushed apart vertically so they never overlap.
    for(const side of [-1,1]){let floor=-Infinity;placed.filter(p=>p.side===side).sort((a,b)=>a.y-b.y).forEach(p=>{const label=p.node.label,lw=label.offsetWidth,ly=Math.max(p.y,floor+30);floor=ly;const lx=side<0?Math.max(8,p.x-70-lw):Math.min(w-8-lw,p.x+70);label.style.transform=`translate(${lx}px,${ly-13}px)`;const ex=side<0?lx+lw:lx;p.node.line.setAttribute('x1',`${p.x}`);p.node.line.setAttribute('y1',`${p.y}`);p.node.line.setAttribute('x2',`${ex}`);p.node.line.setAttribute('y2',`${ly}`);p.node.dot.setAttribute('cx',`${p.x}`);p.node.dot.setAttribute('cy',`${p.y}`);});}
   };
-  const clock=new T.Clock();let lastExtent=-1;
+  const timer=new T.Timer();let lastExtent=-1;
   const animate=()=>{
-   if(disposed)return;frame=requestAnimationFrame(animate);const dt=Math.min(clock.getDelta(),.05),s=latest.current;
+   if(disposed)return;frame=requestAnimationFrame(animate);timer.update();const dt=Math.min(timer.getDelta(),.05),s=latest.current;
    const changed=lastState?.visible!==s.visible||lastState?.selected!==s.selected||lastState?.isolate!==s.isolate||lastState?.hidden!==s.hidden||lastState?.peel!==s.peel||lastState?.region!==s.region||lastState?.companions!==s.companions;
    const moving=Math.abs(amount-s.explode)>.0001;
    if(moving){amount=T.MathUtils.damp(amount,s.explode,8,dt);dirty=true;}
