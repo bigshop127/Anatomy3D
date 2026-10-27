@@ -68,6 +68,19 @@ npm run layers && npm run members && npm run validate
 
 給 Blender 腳本用的原始幾何：`node scripts/dump-atlas-geometry.mjs` 輸出到 `work/atlas-raw/`（不進版控）。BodyParts3D 原始 OBJ 的轉檔程式是 `scripts/convert-anatomy.py`（v0.7.0 以前的格式，留作來源紀錄）。
 
+### 高精細膝（SPL Knee Atlas）
+
+「部位」→「膝（MRI）」會把全身換成單獨的膝關節模型：哈佛 SPL 的 MRI 膝關節圖譜（左膝，48 個構造，多了關節軟骨、髕下脂肪墊、膝動脈分支），右膝是在 App 裡左右鏡像（`app/models.ts` 的 `mirrorAtlas`、`app/model-decode.ts` 的 `mirrorGeometry`）。範圍只有膝上下約 12 公分。模型在 `public/models/knee/`（約 0.56 MB，打開時才下載），授權是 3D Slicer License、跟其他模型分開（`public/models/knee/LICENSE.md`）。這個模式沒有肌肉卡、起止點、剝層、測驗和書籤。
+
+重建：下載 <https://www.openanatomy.org/atlases/nac/knee-2016-09.zip>（81 MB）解壓到 `work/openanatomy/`（不進版控），然後
+
+```bash
+npm run knee -- work/openanatomy/knee-2016-09     # 加 --ply <資料夾> 會另外輸出每個構造的 PLY 方便檢查
+npm run validate
+```
+
+`scripts/build-knee.mjs` 讀 `scripts/knee-parts.json` 列的模型：RAS 公釐換成 App 座標、平移到全身模型左膝關節的位置、Taubin 平滑去掉 MRI 切片的階梯紋、meshoptimizer 簡化（0.05 mm 以內），用跟全身模型一樣的編碼（`scripts/lib/model-pack.mjs`）。`scripts/validate-knee.mjs` 檢查每個構造都在、表面朝外、位置、鏡像後的右膝和授權檔。
+
 ## 中文名稱
 
 `app/names.zh-TW.json` 是中文譯名表：
@@ -145,7 +158,7 @@ npm run attachments   # 檢查清單：貼片的起止點跟卡片相反？卡�
 
 ## 3D 資料
 
-以 **BodyParts3D 4.0**（成年男性參考模型）為主：2,223 個網格（原始 2,234 個，拿掉 5 個重複的和 6 個被取代的迴旋肌）。BodyParts3D 缺的肌肉、韌帶、關節囊與關節盤、滑囊、腱鞘、筋膜和周邊神經，由 **Z-Anatomy** 補上 898 個構造。合計 3,121 個可點選的部件、約 303 萬個三角面，第一次載入下載約 12.6 MB；起止點貼片 1,741 塊（Z-Anatomy 683＋推算 1,058）另外約 0.8 MB。完整出處與改動說明見 [public/ATTRIBUTION.md](public/ATTRIBUTION.md)。
+以 **BodyParts3D 4.0**（成年男性參考模型）為主：2,223 個網格（原始 2,234 個，拿掉 5 個重複的和 6 個被取代的迴旋肌）。BodyParts3D 缺的肌肉、韌帶、關節囊與關節盤、滑囊、腱鞘、筋膜和周邊神經，由 **Z-Anatomy** 補上 898 個構造。高精細膝另外用 **SPL Knee Atlas**（Richolt、Jakab、Kikinis，哈佛 Surgical Planning Laboratory，2015，3D Slicer License）。合計 3,121 個可點選的部件、約 303 萬個三角面，第一次載入下載約 12.6 MB；起止點貼片 1,741 塊（Z-Anatomy 683＋推算 1,058）另外約 0.8 MB。完整出處與改動說明見 [public/ATTRIBUTION.md](public/ATTRIBUTION.md)。
 
 - BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International.
 - Z-Anatomy - The libre 3D atlas of anatomy (Gauthier Kervyn et al.) - CC BY-SA 4.0. 其中腦神經取自 University of Dundee, CAHID 的 Cranial Nerves and Foramina（CC BY 4.0）。內耳（CC BY-NC-SA）、腎臟（CC BY-NC）和腦沒有拿。
@@ -155,5 +168,6 @@ npm run attachments   # 檢查清單：貼片的起止點跟卡片相反？卡�
 ## 授權
 
 - 程式：MIT（見 [LICENSE](LICENSE)，保留原作者聲明）
-- 3D 資料（`public/models/`）：整體以 **CC BY-SA 4.0** 公開（含 Z-Anatomy 改作的部分，必須同授權；BodyParts3D 部分原為 CC BY 4.0），轉發時要保留出處，見 [public/models/LICENSE.md](public/models/LICENSE.md)
+- 高精細膝（`public/models/knee/`）：3D Slicer License，跟其他模型分開，授權全文與改動說明見 [public/models/knee/LICENSE.md](public/models/knee/LICENSE.md)；只供研究與教學，不用於臨床
+- 其他 3D 資料（`public/models/`）：整體以 **CC BY-SA 4.0** 公開（含 Z-Anatomy 改作的部分，必須同授權；BodyParts3D 部分原為 CC BY 4.0），轉發時要保留出處，見 [public/models/LICENSE.md](public/models/LICENSE.md)
 - 第三方套件依各自授權

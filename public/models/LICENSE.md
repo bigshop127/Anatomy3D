@@ -12,3 +12,6 @@ They are adapted from:
 
 What was taken and how it was changed: `../ATTRIBUTION.md`. The application code is MIT licensed (`LICENSE` in the
 repository root); that license does not cover these files.
+
+The high-detail knee in `knee/` is **not** covered by this license: it comes from the SPL Knee Atlas (Surgical Planning
+Laboratory, Brigham and Women's Hospital) under the 3D Slicer License; see `knee/LICENSE.md`.

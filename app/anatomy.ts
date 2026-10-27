@@ -22,7 +22,8 @@ export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[
 export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;source:string;chunk:number;streams:[number,number,number,number];origin:[number,number,number];vertexCount:number;indexCount:number;bounds:[number[],number[]]}
 export interface Concept {id:string;name:string;label?:string;elements:string[]}
 export interface ModelSource {name:string;license:string;url:string}
-export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;encoding:{format:'meshopt-1';grid:number};sources:Record<string,ModelSource>;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
+export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;
+ /** A model of one side only (the high-detail knee); mirrored when it was flipped to show the other side. */ side?:'left'|'right';mirrored?:boolean;encoding:{format:'meshopt-1';grid:number};sources:Record<string,ModelSource>;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
 export type View = 'three-quarter'|'front'|'back'|'side';
 export type SectionAxis = 'sagittal'|'coronal'|'transverse';
 /** position places the cut along the axis (0 = right/back/bottom, 1 = left/front/top); the lower side is kept unless flip. */

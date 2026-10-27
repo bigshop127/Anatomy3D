@@ -6,7 +6,7 @@ import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {createExplosionLayout} from './explosion-layout';
 import {asset,decodeModelResponse} from './model-download';
-import {decodePart} from './model-decode';
+import {decodePart,mirrorGeometry} from './model-decode';
 import {DoubleTap,PointerTap} from './pointer-tap';
 import {Pinch,targetToDepth,wheelScale,zoomAbout} from './camera-zoom';
 import {END_COLOR,loadAttachments} from './attachments';
@@ -147,7 +147,8 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    const groups=new Map<string,T.BufferGeometry[]>();
    atlas.parts.forEach((p,i)=>{
     if(p.chunk!==ci)return;
-    const {position,normal,index}=decodePart(atlas,p,bytes,MeshoptDecoder),g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(position,3));
+    // A one-sided model shown for the other side (the right knee) is flipped as it is decoded.
+    const decoded=decodePart(atlas,p,bytes,MeshoptDecoder),{position,normal,index}=atlas.mirrored?mirrorGeometry(decoded):decoded,g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(position,3));
     // GPU normalized signed-byte normals keep the complete atlas compact in memory.
     g.setAttribute('normal',new T.BufferAttribute(normal,3,true));g.setIndex(new T.BufferAttribute(index,1));
     g.boundingBox=bounds[i].clone();g.computeBoundingSphere();const pick=new T.Mesh(g,pickMaterial);pick.matrixAutoUpdate=false;pickers[i]=pick;geometries.push(g);

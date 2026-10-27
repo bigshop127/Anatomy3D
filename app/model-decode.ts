@@ -22,3 +22,9 @@ export function decodePart(atlas:{encoding:{grid:number}},part:Pick<Part,'vertex
  decoder.decodeIndexBuffer(new Uint8Array(index.buffer),part.indexCount,4,chunk.subarray(start,start+indexBytes));
  return {position,normal,index};
 }
+/** Flips decoded geometry across the midline (x → −x) in place, reversing each triangle so its front stays outside. */
+export function mirrorGeometry(g:PartGeometry){
+ for(let v=0;v<g.position.length;v+=3){g.position[v]=-g.position[v];g.normal[v]=-Math.max(-127,g.normal[v]);}
+ for(let t=0;t<g.index.length;t+=3){const b=g.index[t+1];g.index[t+1]=g.index[t+2];g.index[t+2]=b;}
+ return g;
+}

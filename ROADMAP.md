@@ -88,7 +88,14 @@ BodyParts3D 4.0 原始資料庫本身就沒有（不是轉檔漏掉）：
   - 修 Z-Anatomy 標錯：顳顎外側韌帶左右標反、幾個沒標左右的構造依位置補上
   - 授權：模型資料整體改 CC BY-SA 4.0（`public/models/LICENSE.md`）；內耳（不可商用）、腎臟（不可商用）、腦不拿；腦神經出自 University of Dundee（CC BY 4.0）
 - [ ] 女性模型（HRA 參考器官 v1.5，CC BY 4.0）
-- [ ] 局部高精細（例如 Open Anatomy 膝關節，授權先確認）
+- [x] 高精細膝（批次 08-3，v0.13.0，2026-10-27）：SPL Knee Atlas（哈佛 SPL，MRI 分割，3D Slicer License）
+  - 授權：可改可散布（含商用），條件是附授權全文（加指定前言）、保留出處、標明修改；只為研究設計、不建議臨床。模型跟其他 CC BY-SA 資料分開放 `public/models/knee/`，`LICENSE.md` 有出處、改動與授權全文；App「資料來源與授權」也有
+  - 使用者定案：做成**獨立的高精細膝**（不併進全身模型）。「部位」→「高精細模型：膝（MRI）」換成這顆膝，右膝是左膝的鏡像（`app/models.ts`、`mirrorGeometry`），「回到全身模型」回到同一側的膝部位
+  - 內容：左膝 48 個構造（骨 4、關節軟骨 4、半月板、十字／側副／髕韌帶、髂脛束、肌腱 6、膝周圍肌肉 14、脛神經與腓總神經、膕動靜脈、膝動脈分支、大小隱靜脈、髕下脂肪墊）；範圍只有膝上下約 12 公分
+  - 建置 `npm run knee`（`scripts/build-knee.mjs`＋`scripts/knee-parts.json`）：RAS 公釐 → App 座標、平移到全身模型的左膝關節、Taubin 平滑（24 輪）去掉 MRI 階梯紋、簡化到 0.05 mm 以內（240 萬 → 18 萬面，下載 0.56 MB）；編碼抽成 `scripts/lib/model-pack.mjs` 跟全身模型共用（全身模型重建逐位元組不變）
+  - 這個模式沒有肌肉卡、起止點、剝層、測驗、書籤與分享；拆開關閉（版面是給全身用的）
+  - 中文名：新增 14 個詞（關節軟骨、髕韌帶、各肌腱、股二頭肌、脛神經肌支），未校對
+  - 檢查 `scripts/validate-knee.mjs`（構造齊全、表面朝外、左膝位置、鏡像右膝、授權檔）；`validate-names` 也涵蓋膝
 - [x] 升級 three.js 0.159 → 0.186.1（批次 08-2，v0.12.0，2026-10-27）；three-mesh-bvh 0.8 → 0.9（腳本用，改走 ESM，不再出 `require("three")` 棄用警告）
   - 程式只改兩處：`onBeforeCompile` 的型別 `T.Shader` 改成 `T.WebGLProgramParametersWithUniforms`；`T.Clock`（r183 起棄用）改 `T.Timer`。透視、剖面、選取顏色用到的 shader chunk（`begin_vertex`、`clipping_planes_fragment`、`color_fragment`、`dithering_fragment`）都還在
   - 打光：r16x 起 three 的 `RoomEnvironment` 一律用強光（舊版沒傳 renderer 時其實很暗），肌肉整片變淡。改用 `app/room-environment.ts`＝r159 那份房間（MIT，照抄），畫面跟舊版一樣；剩下的差別來自新版 PMREM（GGX 取樣），只有反光處亮一點點
