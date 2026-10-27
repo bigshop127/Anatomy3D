@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createNamer,termKey} from '../app/names.ts';
 
-// The body model and the high-detail knee share one dictionary.
-const atlases=await Promise.all(['atlas.json','knee/atlas.json'].map(async f=>JSON.parse(await readFile(new URL(`../public/models/${f}`,import.meta.url)))));
+// The body model, the high-detail knee and the female model share one dictionary.
+const atlases=await Promise.all(['atlas.json','knee/atlas.json','female/atlas.json'].map(async f=>JSON.parse(await readFile(new URL(`../public/models/${f}`,import.meta.url)))));
 const data=JSON.parse(await readFile(new URL('../app/names.zh-TW.json',import.meta.url)));
 const namer=createNamer(data);
 const names=[...new Set(atlases.flatMap(atlas=>[...atlas.parts.map(p=>p.name),...atlas.concepts.map(c=>c.name)]))];

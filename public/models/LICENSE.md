@@ -15,3 +15,8 @@ repository root); that license does not cover these files.
 
 The high-detail knee in `knee/` is **not** covered by this license: it comes from the SPL Knee Atlas (Surgical Planning
 Laboratory, Brigham and Women's Hospital) under the 3D Slicer License; see `knee/LICENSE.md`.
+
+The female model in `female/` (`atlas.json` and the `f-*.bin` chunks) contains no Z-Anatomy material and is distributed under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. It is
+adapted from the **HRA 3D Reference Organ Set for Female v1.5** (Kristen Browne and Heidi Schlehlein, Human Reference Atlas /
+HuBMAP, 2023, https://doi.org/10.48539/HBM352.BTSQ.586), CC BY 4.0; see `../ATTRIBUTION.md`.

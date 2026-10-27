@@ -1,5 +1,5 @@
 import {termKey} from './names';
-export type SystemId = 'skeletal'|'muscular'|'arterial'|'venous'|'nervous'|'digestive'|'respiratory'|'urinary'|'reproductive'|'lymphatic'|'endocrine'|'integumentary'|'connective'|'fascia'|'sensory'|'cardiac';
+export type SystemId = 'skeletal'|'muscular'|'arterial'|'venous'|'nervous'|'digestive'|'respiratory'|'urinary'|'reproductive'|'lymphatic'|'endocrine'|'integumentary'|'connective'|'fascia'|'sensory'|'cardiac'|'pregnancy';
 export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[] = [
  {id:'skeletal',name:'骨骼',color:'#e2d9ba',description:'骨骼構成身體的支架，保護內臟，並提供肌肉附著點。骨內組織也負責儲存礦物質和製造血球。'},
  {id:'muscular',name:'肌肉',color:'#a85b50',description:'骨骼肌收縮時拉動附著點而產生動作。肌肉與肌腱一起帶動關節、維持姿勢，並產生熱量。'},
@@ -13,16 +13,17 @@ export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[
  {id:'urinary',name:'泌尿',color:'#b47961',description:'腎臟過濾血液，調節水分、電解質與酸鹼平衡。尿液經輸尿管流到膀胱，再由尿道排出。'},
  {id:'lymphatic',name:'淋巴',color:'#879f7c',description:'淋巴管把組織中多出的液體送回血液循環；淋巴結等淋巴器官參與免疫監控與反應。'},
  {id:'endocrine',name:'內分泌',color:'#c5a09a',description:'內分泌器官把荷爾蒙釋放到血液中，協調代謝、生長、壓力反應與生殖等功能。'},
- {id:'reproductive',name:'生殖',color:'#bda098',description:'這裡呈現的男性生殖構造負責精子的生成、成熟與輸送，以及性荷爾蒙的分泌。'},
+ {id:'reproductive',name:'生殖',color:'#bda098',description:'生殖器官生成並輸送精子或卵子、分泌性荷爾蒙；女性的子宮是胚胎著床與發育的地方，乳房在產後分泌乳汁。'},
  {id:'integumentary',name:'體表',color:'#ba9b7d',description:'體表提供外觀參考。皮膚系統形成保護屏障，也參與感覺與體溫調節。'},
  {id:'connective',name:'結締組織',color:'#aec3bb',description:'韌帶、關節囊、關節盤、滑囊、腱鞘等結締組織負責支撐、連接與分隔各構造，穩定關節並分散力學負荷。'},
  {id:'fascia',name:'筋膜',color:'#d8d0bd',description:'筋膜與腱膜包覆肌肉、分隔肌群，並把肌肉的力量傳到骨頭。打開後會蓋住下面的肌肉，所以預設不顯示。'},
+ {id:'pregnancy',name:'懷孕（參考）',color:'#b88380',description:'胎盤、臍帶和羊膜是懷孕時才有的構造，負責母體與胎兒之間的物質交換。女性模型裡的是足月胎盤的參考模型，放在腹部前方、跟身體分開，所以預設不顯示。'},
 ];
 /** streams: byte offset of the part in its chunk, then the encoded sizes of its positions, normals and indices (see model-decode.ts). */
 export interface Part {id:string;name:string;label?:string;layer?:number;conceptId:string;system:SystemId;source:string;chunk:number;streams:[number,number,number,number];origin:[number,number,number];vertexCount:number;indexCount:number;bounds:[number[],number[]]}
 export interface Concept {id:string;name:string;label?:string;elements:string[]}
 export interface ModelSource {name:string;license:string;url:string}
-export interface Atlas {version:string;sex?:'male';source?:string;scope?:string;
+export interface Atlas {version:string;sex?:'male'|'female';source?:string;scope?:string;
  /** A model of one side only (the high-detail knee); mirrored when it was flipped to show the other side. */ side?:'left'|'right';mirrored?:boolean;encoding:{format:'meshopt-1';grid:number};sources:Record<string,ModelSource>;parts:Part[];concepts:Concept[];chunks:{url:string;bytes:number;gzip?:string;gzipBytes?:number}[];triangles:number}
 export type View = 'three-quarter'|'front'|'back'|'side';
 export type SectionAxis = 'sagittal'|'coronal'|'transverse';
@@ -58,6 +59,8 @@ export function visibilityTest(s:SceneState){
 }
 /** Fascia is left out: it wraps the muscles and would hide them. */
 export const DEFAULT_VISIBLE:SystemId[] = ['cardiac','sensory','skeletal','muscular','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','connective'];
+/** The female model has almost no muscle, so its skin (drawn faint) is on to show the body's outline. */
+export const defaultVisible=(model:{id:string}):SystemId[]=>model.id==='female'?[...DEFAULT_VISIBLE,'integumentary']:DEFAULT_VISIBLE;
 export const EXPLANATIONS:Record<string,string> = {
  'heart':'位於胸腔的肌肉幫浦。右半邊把血液送到肺，左半邊把血液送往全身。',
  'liver':'位於橫膈右下方的大型器官，負責處理吸收的養分、製造膽汁，並合成許多血液中的蛋白質。',
@@ -68,6 +71,12 @@ export const EXPLANATIONS:Record<string,string> = {
  'urinary bladder':'位於骨盆的肌肉囊袋，儲存由腎臟經輸尿管送來的尿液。',
  'trachea':'連接喉與支氣管的主要氣道，軟骨環讓氣道在呼吸時保持暢通。',
  'diaphragm':'分隔胸腔與腹腔的寬大肌肉。收縮時胸腔容積變大，幫助吸氣。',
+ 'uterus':'位於骨盆、膀胱與直腸之間的肌肉性中空器官。內膜隨月經週期變化，懷孕時讓胚胎著床並發育。',
+ 'ovary':'位於骨盆兩側的生殖腺，含有發育中的卵細胞，並分泌雌激素與黃體素。',
+ 'uterine tube':'從子宮角伸向卵巢的細管，末端的繖抓取排出的卵子，受精通常發生在壺腹。',
+ 'vagina':'連接子宮頸與體外的肌肉性管道，是月經排出與產道的一部分。',
+ 'breast':'乳房由乳腺葉、輸乳管和大量脂肪組成，懸韌帶把它固定在胸壁上；產後乳腺分泌乳汁。',
+ 'placenta':'懷孕時附著在子宮壁上的器官，經臍帶連接胎兒，負責氧氣、養分與代謝廢物的交換。',
 };
 export const hasExplanation=(name:string)=>termKey(name) in EXPLANATIONS;
 export function explanation(name:string,system:SystemId){return EXPLANATIONS[termKey(name)] ?? SYSTEMS.find(s=>s.id===system)?.description ?? '';}

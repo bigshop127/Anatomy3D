@@ -1,6 +1,6 @@
 # Anatomy data attribution
 
-The model files in `models/` (apart from the high-detail knee in `models/knee/`, described at the end) combine two sources. As a whole they are distributed under **CC BY-SA 4.0** (https://creativecommons.org/licenses/by-sa/4.0/), which the Z-Anatomy material requires of adaptations; the BodyParts3D material in them is also available on its own under CC BY 4.0 as described below. See also `models/LICENSE.md`.
+The model files in `models/` (apart from the high-detail knee in `models/knee/` and the female model in `models/female/`, described at the end) combine two sources. As a whole they are distributed under **CC BY-SA 4.0** (https://creativecommons.org/licenses/by-sa/4.0/), which the Z-Anatomy material requires of adaptations; the BodyParts3D material in them is also available on its own under CC BY 4.0 as described below. See also `models/LICENSE.md`.
 
 ## BodyParts3D
 
@@ -42,15 +42,15 @@ MRI-based Atlas of the Knee: Jen Richolt, Marianna Jakab and Ron Kikinis, Surgic
 
 Included: the 48 3D models of the left knee (bones, articular cartilage, menisci, cruciate, collateral and patellar ligaments, tendons, the muscles around the knee, the popliteal and genicular vessels, the saphenous veins, the tibial and common fibular nerves and the infrapatellar fat pad); not the MRI scan or label maps. This is a **modified version**: converted from RAS millimetres to the viewer's metres, moved to the body model's left knee, smoothed (Taubin) to remove the steps of the MRI slices, simplified with meshoptimizer (at most 0.05 mm), normals recomputed, compressed as above, renamed in the BodyParts3D style; the right knee is shown by mirroring it. The list is `scripts/knee-parts.json` in the source repository. Designed for research purposes only; not reviewed or approved by any agency, and not for clinical use.
 
-## Historical assets (not included in the current release)
+## HRA female reference organs (female model, `models/female/`)
 
-Earlier repository revisions included female reference anatomy: Kristen Browne and Heidi Schlehlein, Human Reference Atlas / HuBMAP, *3D Reference Organ Set for Female v1.5* (2023). CC BY 4.0. Geometry adapted for this viewer.
+Kristen Browne and Heidi Schlehlein, Human Reference Atlas / HuBMAP, *3D Reference Organ Set for Female v1.5* (2023). CC BY 4.0. Distributed under **CC BY 4.0, separately from the CC BY-SA 4.0 models above** (it contains no Z-Anatomy material).
 
 - Source DOI: https://doi.org/10.48539/HBM352.BTSQ.586
 - Dataset: https://lod.humanatlas.io/ref-organ/united-female/v1.5
 - Original GLB: https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.5/assets/3d-vh-f-united.glb
 - License: https://creativecommons.org/licenses/by/4.0/
 
-Adaptations: translated native meter/Y-up coordinates onto the stage, coincident vertices welded and source normals averaged, geometry simplified with a 0.2% per-structure relative error bound, and normals quantized. Colors and display systems are curated for this interface. All 888 source meshes are represented, with 1,073 source nodes available as selectable individual or compound concepts.
+Adaptations: translated native meter/Y-up coordinates onto the stage (the spine on the midline and the body centred front to back, as the body model is), coincident vertices welded and source normals averaged, geometry simplified with a 0.2% per-structure relative error bound, positions quantized to 0.05 mm, normals to 8-bit octahedral, and both compressed with meshoptimizer as above. Colors and display systems are curated for this interface (the breast is shown with the reproductive organs; structures the body model also has are put in the same system). All 888 source meshes are represented. Names are rewritten in the BodyParts3D style (the side at the front, generic labels such as "compact bone tissue" or "renal papilla" named after the bone or kidney they belong to), and labels corrected where the source contradicts the geometry: the left and right of the Allen brain parts, the round ligaments of the uterus and the inferior pulmonary veins are the other way round in the source, two veins are labelled as arteries, and the anterior descending coronary artery as a branch of the pulmonary artery. The search groups follow the source hierarchy. Both are in `scripts/female-parts.json` in the source repository (`scripts/build-female.mjs` builds the model from the files human-atlas shipped before it became male-only).
 
-This is a reference assembly with whole-body surface and selected organs, including female reproductive anatomy. Its skeleton and muscle coverage is partial. It is not a complete model of every human structure or a single-person scan. Eight placenta/umbilical structures are classified under Pregnancy reference and hidden by default.
+This is a reference assembly with whole-body surface and selected organs, including female reproductive anatomy. Its skeleton (vertebrae, pelvis, knees) and muscle coverage (extraocular muscles, rectus femoris) is partial. It is not a complete model of every human structure or a single-person scan; it has six lumbar vertebrae, a normal variant. Eight placenta/umbilical structures, a full-term reference placed in front of the abdomen, are classified under Pregnancy reference and hidden by default.

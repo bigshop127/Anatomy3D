@@ -81,6 +81,19 @@ npm run validate
 
 `scripts/build-knee.mjs` 讀 `scripts/knee-parts.json` 列的模型：RAS 公釐換成 App 座標、平移到全身模型左膝關節的位置、Taubin 平滑去掉 MRI 切片的階梯紋、meshoptimizer 簡化（0.05 mm 以內），用跟全身模型一樣的編碼（`scripts/lib/model-pack.mjs`）。`scripts/validate-knee.mjs` 檢查每個構造都在、表面朝外、位置、鏡像後的右膝和授權檔。
 
+### 女性模型（HRA 參考器官）
+
+標題下的「男性｜女性」把全身換成女性模型：美國 HuBMAP 人體參考圖譜（HRA）的女性參考器官 v1.5（888 個構造，CC BY 4.0），以內臟、腦、眼、乳房和女性生殖器官為主，骨骼只有脊椎、骨盆和膝，肌肉只有眼外肌和股直肌。模型在 `public/models/female/`（約 5.8 MB，切換時才下載）。這個模式沒有肌肉卡、起止點、剝層、部位、測驗和書籤；胎盤、臍帶、羊膜是放在腹部前方的足月參考模型，歸在「懷孕（參考）」系統、預設不顯示。
+
+重建：從 git 歷史取出 human-atlas 當年的檔案（`git show 264faee^:public/models/atlas-female.json` 和 `female-0.bin`～`female-9.bin`）放到 `work/female/models/`（不進版控），然後
+
+```bash
+npm run female -- work/female/models     # 加 --list 只列出整理後的名稱、系統和搜尋群組
+npm run validate
+```
+
+`scripts/build-female.mjs` 照 `scripts/female-parts.json` 整理名稱（跟男性模型一樣的英文寫法，譯名表才對得到）、改正左右標反（整個 Allen 腦、子宮圓韌帶、下肺靜脈）、決定系統和搜尋群組，把身體移到跟男性模型同一個中心，用同樣的編碼（`scripts/lib/model-pack.mjs`）。`scripts/validate-female.mjs` 檢查每個構造、左右跟位置一致、置中和出處。
+
 ## 中文名稱
 
 `app/names.zh-TW.json` 是中文譯名表：
@@ -169,5 +182,6 @@ npm run attachments   # 檢查清單：貼片的起止點跟卡片相反？卡�
 
 - 程式：MIT（見 [LICENSE](LICENSE)，保留原作者聲明）
 - 高精細膝（`public/models/knee/`）：3D Slicer License，跟其他模型分開，授權全文與改動說明見 [public/models/knee/LICENSE.md](public/models/knee/LICENSE.md)；只供研究與教學，不用於臨床
+- 女性模型（`public/models/female/`）：HRA 3D 參考器官女性版 v1.5，**CC BY 4.0**（不含 Z-Anatomy，跟其他模型分開），見 [public/models/LICENSE.md](public/models/LICENSE.md)
 - 其他 3D 資料（`public/models/`）：整體以 **CC BY-SA 4.0** 公開（含 Z-Anatomy 改作的部分，必須同授權；BodyParts3D 部分原為 CC BY 4.0），轉發時要保留出處，見 [public/models/LICENSE.md](public/models/LICENSE.md)
 - 第三方套件依各自授權

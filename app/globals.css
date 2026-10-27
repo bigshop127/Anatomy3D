@@ -232,3 +232,7 @@ button.nerve-chip:hover{background:#d6e9e6!important}
  body:has(.quiz-card) .bottom-dock{left:12px;right:324px;width:auto;transform:none;max-width:none;margin:0}
  body:has(.quiz-card) .view-controls{display:none}
 }
+.sex-switch{display:inline-flex;gap:2px;margin-top:12px;padding:3px;border-radius:9px;background:#edf0f2;pointer-events:auto}.sex-switch button{font-size:12px;min-height:30px;padding:0 14px;border-radius:7px;color:#5d6a77;font-weight:500}.sex-switch button.active{background:#fff;color:#233644;box-shadow:0 1px 3px #18253612}
+.model-note{font-size:11px;line-height:1.6;color:#7c8793;margin:6px 4px 10px}.system-row.lacking .system-name{color:#a3acb5;cursor:default}.system-row.lacking .system-count{display:block}
+@media(max-width:767px){.sex-switch{margin-top:8px}.sex-switch button{position:relative;min-height:36px;font-size:13px;padding:0 16px}.sex-switch button::after{content:'';position:absolute;inset:-4px 0}.model-note{font-size:12px}body:has(.sex-switch) .view-controls{top:max(152px,calc(env(safe-area-inset-top) + 134px))}}
+@media(max-height:600px) and (orientation:landscape){.sex-switch{margin-top:6px}.sex-switch button{min-height:34px}}
