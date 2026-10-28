@@ -2,7 +2,7 @@ import {termKey} from './names';
 export type SystemId = 'skeletal'|'muscular'|'arterial'|'venous'|'nervous'|'digestive'|'respiratory'|'urinary'|'reproductive'|'lymphatic'|'endocrine'|'integumentary'|'connective'|'fascia'|'sensory'|'cardiac'|'pregnancy';
 export const SYSTEMS: {id:SystemId;name:string;color:string;description:string}[] = [
  {id:'skeletal',name:'骨骼',color:'#e2d9ba',description:'骨骼構成身體的支架，保護內臟，並提供肌肉附著點。骨內組織也負責儲存礦物質和製造血球。'},
- {id:'muscular',name:'肌肉',color:'#a85b50',description:'骨骼肌收縮時拉動附著點而產生動作。肌肉與肌腱一起帶動關節、維持姿勢，並產生熱量。'},
+ {id:'muscular',name:'肌肉',color:'#a4483d',description:'骨骼肌收縮時拉動附著點而產生動作。肌肉與肌腱一起帶動關節、維持姿勢，並產生熱量。'},
  {id:'cardiac',name:'心臟',color:'#b96760',description:'心臟是有四個腔室的肌肉幫浦，瓣膜讓血液單向流經肺循環與體循環。'},
  {id:'sensory',name:'感覺器官',color:'#b0c8ce',description:'這些構造負責視覺、聽覺、平衡等特殊感覺，由特化組織接收刺激，再交給神經系統傳遞。'},
  {id:'arterial',name:'動脈',color:'#c05245',description:'心臟推動血液循環。動脈把血液從心臟送往全身組織；肺循環的動脈則把血液送到肺。'},

@@ -2,6 +2,8 @@ import {useEffect,useRef} from 'react';
 import * as T from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {roomEnvironment} from './room-environment';
+import {principalAxis} from './fiber-axis';
+import {muscleShader} from './muscle-shader';
 import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {createExplosionLayout} from './explosion-layout';
@@ -50,6 +52,8 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   const innerRing=new T.Mesh(new T.RingGeometry(.55,.551,128),new T.MeshBasicMaterial({color:0xa4aeb8,transparent:true,opacity:.16,side:T.DoubleSide}));innerRing.rotation.x=-Math.PI/2;innerRing.position.y=.001;scene.add(innerRing);
   const width=T.MathUtils.ceilPowerOfTwo(atlas.parts.length),data=new Float32Array(width*4),partTexture=new T.DataTexture(data,width,1,T.RGBAFormat,T.FloatType);partTexture.needsUpdate=true;
   const selectedData=new Uint8Array(width*4),selectionTexture=new T.DataTexture(selectedData,width,1);selectionTexture.needsUpdate=true;
+  // Per muscle: row 0 = fibre direction and a colour seed, row 1 = how far it reaches along that direction (for the pale tendon ends).
+  const fiberData=new Float32Array(width*8),fiberTexture=new T.DataTexture(fiberData,width,2,T.RGBAFormat,T.FloatType);fiberTexture.needsUpdate=true;
   const materials:T.Material[]=[],partMaterials:T.Material[]=[],ghostMeshes:T.Mesh[]=[],geometries:T.BufferGeometry[]=[],pickers:(T.Mesh|undefined)[]=[],centers=atlas.parts.map(p=>new T.Vector3().fromArray(p.bounds[0]).add(new T.Vector3().fromArray(p.bounds[1])).multiplyScalar(.5));
   const offsets:T.Vector3[]=[],bounds=atlas.parts.map(p=>new T.Box3(new T.Vector3().fromArray(p.bounds[0]),new T.Vector3().fromArray(p.bounds[1])));
   const body=atlasBounds(atlas),indexOf=new Map(atlas.parts.map((p,i)=>[p.id,i]));
@@ -90,6 +94,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>\nif (partVisible < 0.5 || (xrayOn > 0.5 && partSelected < 0.5)${through}) discard;`);
     // Back faces only show through a cut, so shading them darker reads as a cross-section.
     shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.42, 0.85, 0.78), partSelected * 0.75);\nif (!gl_FrontFacing) diffuseColor.rgb *= 0.62;');
+    if(system==='muscular')muscleShader(shader,fiberTexture);
    };
    // The shader text differs for muscles, so they need their own compiled program.
    m.customProgramCacheKey=()=>'part:'+(through?'muscular':'other');
@@ -155,6 +160,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     g.setAttribute('normal',new T.BufferAttribute(normal,3,true));g.setIndex(new T.BufferAttribute(index,1));
     g.boundingBox=bounds[i].clone();g.computeBoundingSphere();const pick=new T.Mesh(g,pickMaterial);pick.matrixAutoUpdate=false;pickers[i]=pick;geometries.push(g);
     g.setAttribute('partIndex',new T.BufferAttribute(new Float32Array(p.vertexCount).fill(i),1));
+    if(p.system==='muscular'){const f=principalAxis(position);fiberData.set([f.axis[0],f.axis[1],f.axis[2],(((Math.sin(i*12.9898)*43758.5453)%1)+1)%1],i*4);fiberData.set([f.min,f.max,0,0],width*4+i*4);fiberTexture.needsUpdate=true;}
     const list=groups.get(p.system)??[];list.push(g);groups.set(p.system,list);
    });
    groups.forEach((gs,system)=>{const geometry=mergeGeometries(gs,false);if(!geometry)throw new Error('人體模型組合失敗。');geometries.push(geometry);
