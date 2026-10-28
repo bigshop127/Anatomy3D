@@ -134,7 +134,9 @@ export default function Home(){
   setSettling(true);clearTimeout(settleTimer.current);settleTimer.current=window.setTimeout(()=>setSettling(false),400);
   const ids=multi?(state.selected.includes(id)?state.selected.filter(x=>x!==id):[...state.selected,id]):[id];
   if(!ids.length){clearSelection();return;}
-  setChosen(groupOf(ids));setState(s=>({...s,selected:ids,isolate:false,rotate:false}));setDetails(true);setPanel(null);
+  // Tapping a muscle shows just it and the bones its ends attach to; clearing the selection brings the rest back.
+  const alone=ids.length===1&&p.system==='muscular';
+  setChosen(groupOf(ids));setState(s=>({...s,selected:ids,isolate:alone,rotate:false}));setDetails(true);setPanel(null);
  };
  // X-ray that search switched on goes back off with the selection; read the flag before React runs the updater.
  const dropAutoXray=()=>{const auto=autoXray.current;autoXray.current=false;return (xray:number)=>auto?0:xray;};

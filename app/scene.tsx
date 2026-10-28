@@ -46,10 +46,17 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   // Holding the left and right mouse buttons together pans (the controls only know one button at a time). While both are down
   // the controls sit out, so the left-button rotation that began first stops; letting go of one button hands back to them.
   {
-   let last:{x:number;y:number}|null=null;
+   // Once chorded, the controls stay out until every button is up: their rotation began at the first press, so handing back
+   // mid-drag made the view jump to where the pointer now is.
+   let last:{x:number;y:number}|null=null,chorded=false;
+   const release=()=>{last=null;chorded=false;controls.enabled=true;};
+   renderer.domElement.addEventListener('pointerup',e=>{if(chorded&&e.buttons===0)release();},{signal:abort.signal});
+   renderer.domElement.addEventListener('pointercancel',release,{signal:abort.signal});
    renderer.domElement.addEventListener('pointermove',e=>{
-    if(e.pointerType!=='mouse'||e.buttons!==3){if(last){last=null;controls.enabled=true;}return;}
-    e.stopImmediatePropagation();controls.enabled=false;
+    if(e.pointerType!=='mouse')return;
+    if(chorded&&e.buttons===0){release();return;}
+    if(e.buttons!==3){if(chorded){e.stopImmediatePropagation();last=null;}return;}
+    e.stopImmediatePropagation();controls.enabled=false;chorded=true;
     if(last){
      const perPixel=2*cam.position.distanceTo(controls.target)*Math.tan(T.MathUtils.degToRad(cam.fov/2))/renderer.domElement.clientHeight,move=new T.Vector3().setFromMatrixColumn(cam.matrix,0).multiplyScalar(-(e.clientX-last.x)*perPixel).addScaledVector(new T.Vector3().setFromMatrixColumn(cam.matrix,1),(e.clientY-last.y)*perPixel);
      cam.position.add(move);controls.target.add(move);controls.update();dirty=true;
