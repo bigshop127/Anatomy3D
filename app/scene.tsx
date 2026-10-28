@@ -43,6 +43,20 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
   cam.position.set(1.4,1.05,3.6);controls.target.set(0,.85,0);controls.enableDamping=true;controls.dampingFactor=.085;controls.minDistance=.025;controls.maxDistance=40;
   // Wheel and pinch zoom are done below, toward the point under the cursor or fingers; the controls still rotate and pan.
   controls.enableZoom=false;controls.maxPolarAngle=Math.PI*.96;controls.addEventListener('change',()=>{dirty=true;reportCamera();});
+  // Holding the left and right mouse buttons together pans (the controls only know one button at a time). While both are down
+  // the controls sit out, so the left-button rotation that began first stops; letting go of one button hands back to them.
+  {
+   let last:{x:number;y:number}|null=null;
+   renderer.domElement.addEventListener('pointermove',e=>{
+    if(e.pointerType!=='mouse'||e.buttons!==3){if(last){last=null;controls.enabled=true;}return;}
+    e.stopImmediatePropagation();controls.enabled=false;
+    if(last){
+     const perPixel=2*cam.position.distanceTo(controls.target)*Math.tan(T.MathUtils.degToRad(cam.fov/2))/renderer.domElement.clientHeight,move=new T.Vector3().setFromMatrixColumn(cam.matrix,0).multiplyScalar(-(e.clientX-last.x)*perPixel).addScaledVector(new T.Vector3().setFromMatrixColumn(cam.matrix,1),(e.clientY-last.y)*perPixel);
+     cam.position.add(move);controls.target.add(move);controls.update();dirty=true;
+    }
+    last={x:e.clientX,y:e.clientY};
+   },{capture:true,signal:abort.signal});
+  }
   const pmrem=new T.PMREMGenerator(renderer),room=roomEnvironment(),env=pmrem.fromScene(room.scene,.04);scene.environment=env.texture;room.dispose();pmrem.dispose();
   scene.add(new T.HemisphereLight(0xffffff,0xa7acb2,1.05));
   const key=new T.DirectionalLight(0xfffaf4,2.3);key.position.set(-2,4,3);scene.add(key);
@@ -79,12 +93,12 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    return best;
   };
   // marksOn: attachment patches of the selected muscles are showing, so those muscles move to the see-through pass.
-  const xrayOn={value:0},ghostOpacity={value:.3},marksOn={value:0};
+  const xrayOn={value:0},ghostOpacity={value:.3},marksOn={value:0},dimOthers={value:0};
   const partShader=(shader:T.WebGLProgramParametersWithUniforms)=>{
-   shader.uniforms.partState={value:partTexture};shader.uniforms.selectionState={value:selectionTexture};shader.uniforms.stateWidth={value:width};shader.uniforms.xrayOn=xrayOn;shader.uniforms.ghostOpacity=ghostOpacity;shader.uniforms.marksOn=marksOn;
+   shader.uniforms.partState={value:partTexture};shader.uniforms.selectionState={value:selectionTexture};shader.uniforms.stateWidth={value:width};shader.uniforms.xrayOn=xrayOn;shader.uniforms.ghostOpacity=ghostOpacity;shader.uniforms.marksOn=marksOn;shader.uniforms.dimOthers=dimOthers;
    shader.vertexShader='attribute float partIndex; uniform sampler2D partState; uniform sampler2D selectionState; uniform float stateWidth; varying float partVisible; varying float partSelected;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvec2 stateUv = vec2((partIndex + 0.5) / stateWidth, 0.5); vec4 state = texture2D(partState, stateUv); transformed += state.xyz; partVisible = state.w; partSelected = texture2D(selectionState, stateUv).r;');
-   shader.fragmentShader='uniform float xrayOn; uniform float ghostOpacity; uniform float marksOn; varying float partVisible; varying float partSelected;\n'+shader.fragmentShader;
+   shader.fragmentShader='uniform float xrayOn; uniform float ghostOpacity; uniform float marksOn; uniform float dimOthers; varying float partVisible; varying float partSelected;\n'+shader.fragmentShader;
   };
   const materialFor=(system:string)=>{
    const m=new T.MeshStandardMaterial({color:SYSTEMS.find(s=>s.id===system)?.color??'#aebbb8',metalness:.08,roughness:system==='muscular'?.4:.53,side:T.DoubleSide,transparent:system==='integumentary',opacity:system==='integumentary'?.1:1,depthWrite:system!=='integumentary'});
@@ -94,7 +108,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     // In X-ray mode only the selection is drawn solid; everything else goes to the ghost pass.
     shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>\nif (partVisible < 0.5 || (xrayOn > 0.5 && partSelected < 0.5)${through}) discard;`);
     // Back faces only show through a cut, so shading them darker reads as a cross-section.
-    shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.42, 0.85, 0.78), partSelected * 0.75);\nif (!gl_FrontFacing) diffuseColor.rgb *= 0.62;');
+    shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\nif (dimOthers > 0.5 && partSelected < 0.5) diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.9, 0.86, 0.85), 0.72);\nif (!gl_FrontFacing) diffuseColor.rgb *= 0.62;');
     if(system==='muscular')muscleShader(shader,fiberTexture);
    };
    // The shader text differs for muscles, so they need their own compiled program.
@@ -108,7 +122,6 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    m.onBeforeCompile=shader=>{
     partShader(shader);
     shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>\nif (partVisible < 0.5 || ${drawn}) discard;`);
-    if(muscular)shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.42, 0.85, 0.78), partSelected * 0.75);');
     // Edges stay more opaque than faces seen head-on, so outlines remain readable through the body.
     shader.fragmentShader=shader.fragmentShader.replace('#include <dithering_fragment>',`#include <dithering_fragment>\nfloat facing = abs(dot(normalize(normal), normalize(vViewPosition)));\ngl_FragColor.a = ${muscular?'partSelected > 0.5 ? 0.5 + 0.35 * pow(1.0 - facing, 2.0) : ':''}ghostOpacity * (0.22 + 0.78 * pow(1.0 - facing, 2.0));`);
    };
@@ -319,7 +332,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    if(lastState?.xray!==s.xray||through!==marksOn.value){xrayOn.value=s.xray>0?1:0;ghostOpacity.value=1-s.xray;marksOn.value=through;ghostMeshes.forEach(g=>{g.visible=ghostVisible(g.userData.system);});dirty=true;}
    if(lastState?.pins!==s.pins)dirty=true;
    if(changed||moving||lastExtent<0){
-    const selection=new Set(s.selected),shown=visibilityTest(s);
+    const selection=new Set(s.selected),shown=visibilityTest(s);dimOthers.value=selection.size?1:0;
     const visibleParts=atlas.parts.filter(shown);
     const nextLayoutKey=visibleParts.map(p=>p.id).join(',')+':'+cam.aspect.toFixed(3);
     if(nextLayoutKey!==layoutKey){const layout=createExplosionLayout(visibleParts,cam.aspect);packingWidth=layout.width;packingHeight=layout.height;atlas.parts.forEach((p,i)=>{const cell=layout.cells.get(p.id);offsets[i]=cell?new T.Vector3(cell.x,cell.y+.85,0):centers[i].clone();});layoutKey=nextLayoutKey;if(amount>.05&&!s.isolate)fit(s.view,Math.max(0,(amount-.3)/.7));}

@@ -58,6 +58,14 @@ for k, (item, patch) in enumerate(items):
         before = inside_share(w, near)
         moved = bones.push_out(w, INSIDE, GAP, near)
         report.append({'z': item['z'], 'insideBefore': before, 'insideAfter': inside_share(w, near), 'moved': moved, 'vertices': len(w)})
+    elif item.get('overMuscles') is not None:
+        # A Z-Anatomy muscle that lies over BodyParts3D muscles (the latissimus dorsi): their bellies are a little fatter and
+        # would poke through it, so it is pushed out of them, except those it really goes under.
+        around = muscles.near_except(w.min(0), w.max(0), item['overMuscles'] or '$^', SNAP)
+        share = lambda: round(sum(muscles.containing(pt, around, INSIDE) is not None for pt in w) / len(w), 3)
+        before = share()
+        moved = muscles.push_out_all(w, 0.0002, FASCIA_GAP, around) + bones.push_out(w, INSIDE, GAP, near)
+        report.append({'z': item['z'], 'insideMusclesBefore': before, 'insideMusclesAfter': share(), 'moved': moved, 'vertices': len(w)})
     elif item['system'] == 'fascia':
         around = muscles.near(w.min(0), w.max(0), SNAP)
         share = lambda: round(sum(muscles.containing(pt, around, INSIDE) is not None for pt in w) / len(w), 3)

@@ -253,9 +253,15 @@ class BoneSurfaces:
     Methods take the parts to consider, usually near(...) of the structure at hand, since testing them all for every vertex is slow."""
     def __init__(self, app, system='skeletal'):
         self.items = [(np.array(p['bounds']), app.bvh(p)) for p in app.parts if p['system'] == system]
+        self.names = [p['name'] for p in app.parts if p['system'] == system]
 
     def near(self, lo, hi, pad=0.02):
         return [(b, bvh) for b, bvh in self.items if np.all(b[0] <= hi + pad) and np.all(b[1] >= lo - pad)]
+
+    def near_except(self, lo, hi, skip, pad=0.02):
+        """Like near, but leaves out the parts whose name matches the regular expression skip."""
+        import re
+        return [(b, bvh) for (b, bvh), n in zip(self.items, self.names) if not re.search(skip, n, re.I) and np.all(b[0] <= hi + pad) and np.all(b[1] >= lo - pad)]
 
     def nearest(self, pt, items=None, limit=0.02):
         best = (math.inf, None, None)

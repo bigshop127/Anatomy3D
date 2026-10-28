@@ -105,6 +105,8 @@ const systemOf=(r,base)=>{
 };
 // Soft tissue that can end up inside bone after the warp; export.py pushes it back out.
 const pushOut=system=>system==='connective';
+// Z-Anatomy muscles that lie over BodyParts3D muscles are pushed out of them (the value is the muscles they go under instead).
+const OVER_MUSCLES=[[/latissimus dorsi/i,'trapezius']];
 
 // A few one-sided structures carry no side in their name, and a few carry the wrong one (Z-Anatomy's lateral temporomandibular
 // ligaments); a structure that lies wholly on one side takes that side (the patient's left is +x).
@@ -130,7 +132,7 @@ for(const r of candidates){
  if(same){skip(`already in the atlas`,`${r.name} = ${same}`);continue;}
  const system=systemOf(r,base),placed=sideOf(r)||side;
  if(placed!==side)sides.push(`${r.name}: ${side||'no side'} in Z-Anatomy, lies on the ${placed}`);
- parts.push({z:r.name,id:idOf('Z',r.name),name:appName(base,placed,system==='muscular'),system,...(pushOut(system)?{pushOut:true}:{})});
+ parts.push({z:r.name,id:idOf('Z',r.name),name:appName(base,placed,system==='muscular'),system,...(pushOut(system)?{pushOut:true}:{}),...(system==='muscular'&&OVER_MUSCLES.some(([re])=>re.test(base))?{overMuscles:OVER_MUSCLES.find(([re])=>re.test(base))[1]}:{})});
  if(r.present)review.push(`${r.name} → ${parts.at(-1).name}: shape matches ${r.counterparts.slice(0,2).map(c=>c[0]).join(', ')}`);
 }
 // Attachment patches name their muscle the Z-Anatomy way; terms are the atlas muscles (lowercase, without the side) a patch

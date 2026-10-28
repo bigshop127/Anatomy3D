@@ -2887,6 +2887,7 @@
    "id": "Z9f9ffda6",
    "name": "Left latissimus dorsi",
    "system": "muscular",
+   "overMuscles": "trapezius",
    "concept": "Z:left-latissimus-dorsi"
   },
   {
@@ -2894,6 +2895,7 @@
    "id": "Zbc7dbad5",
    "name": "Right latissimus dorsi",
    "system": "muscular",
+   "overMuscles": "trapezius",
    "concept": "Z:right-latissimus-dorsi"
   },
   {
