@@ -4,6 +4,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {roomEnvironment} from './room-environment';
 import {principalAxis} from './fiber-axis';
 import {muscleShader} from './muscle-shader';
+const RING_X=1.5,RING_Z=1;
 import {mergeGeometries} from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import {MeshoptDecoder} from 'meshoptimizer/decoder';
 import {createExplosionLayout} from './explosion-layout';
@@ -30,7 +31,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
  const host=useRef<HTMLDivElement>(null),latest=useRef(state),select=useRef(onSelect),camera=useRef(onCamera),removePin=useRef(onPinRemove),selectPatch=useRef(onSelectPatch),marksFailed=useRef(onMarksFailed);
  latest.current=state;select.current=onSelect;camera.current=onCamera;removePin.current=onPinRemove;selectPatch.current=onSelectPatch;marksFailed.current=onMarksFailed;
  useEffect(()=>{
-  const el=host.current!;let disposed=false,frame=0,dirty=true,ready=false,lastView='',lastReset=-1,lastFocus='',layoutKey='',amount=0,lastCameraN=-1,lastFrameN=-1;
+  const el=host.current!;let disposed=false,frame=0,dirty=true,ready=false,lastView='',lastReset=-1,lastFocus='',layoutKey='',amount=0,lastCameraN=-1,lastFrameN=-1,lastZoomN=-1;
   let lastState:SceneState|null=null;
   const abort=new AbortController();
   let renderer:T.WebGLRenderer;
@@ -86,7 +87,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
    shader.fragmentShader='uniform float xrayOn; uniform float ghostOpacity; uniform float marksOn; varying float partVisible; varying float partSelected;\n'+shader.fragmentShader;
   };
   const materialFor=(system:string)=>{
-   const m=new T.MeshStandardMaterial({color:SYSTEMS.find(s=>s.id===system)?.color??'#aebbb8',metalness:.08,roughness:.53,side:T.DoubleSide,transparent:system==='integumentary',opacity:system==='integumentary'?.1:1,depthWrite:system!=='integumentary'});
+   const m=new T.MeshStandardMaterial({color:SYSTEMS.find(s=>s.id===system)?.color??'#aebbb8',metalness:.08,roughness:system==='muscular'?.4:.53,side:T.DoubleSide,transparent:system==='integumentary',opacity:system==='integumentary'?.1:1,depthWrite:system!=='integumentary'});
    const through=system==='muscular'?' || (marksOn > 0.5 && partSelected > 0.5)':'';
    m.onBeforeCompile=shader=>{
     partShader(shader);
@@ -324,8 +325,9 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     if(nextLayoutKey!==layoutKey){const layout=createExplosionLayout(visibleParts,cam.aspect);packingWidth=layout.width;packingHeight=layout.height;atlas.parts.forEach((p,i)=>{const cell=layout.cells.get(p.id);offsets[i]=cell?new T.Vector3(cell.x,cell.y+.85,0):centers[i].clone();});layoutKey=nextLayoutKey;if(amount>.05&&!s.isolate)fit(s.view,Math.max(0,(amount-.3)/.7));}
     atlas.parts.forEach((p,i)=>{
      const c=centers[i],destination=offsets[i];let dx=0,dy=0,dz=0;
-     if(amount<=.45){const t=amount/.45,angle=angleOf.get(p.system)??0;dx=Math.sin(angle)*t*.48;dy=(c.y-.85)*t*.28;dz=Math.cos(angle)*t*.48;}
-     else {const t=(amount-.45)/.55,angle=angleOf.get(p.system)??0;dx=T.MathUtils.lerp(Math.sin(angle)*.48,destination.x-c.x,t);dy=T.MathUtils.lerp((c.y-.85)*.28,destination.y-c.y,t);dz=T.MathUtils.lerp(Math.cos(angle)*.48,-c.z,t);}
+     // The ring is wide enough that neighbouring systems (about half a metre across) do not sit on top of each other.
+     if(amount<=.45){const t=amount/.45,angle=angleOf.get(p.system)??0;dx=Math.sin(angle)*t*RING_X;dy=(c.y-.85)*t*.28;dz=Math.cos(angle)*t*RING_Z;}
+     else {const t=(amount-.45)/.55,angle=angleOf.get(p.system)??0;dx=T.MathUtils.lerp(Math.sin(angle)*RING_X,destination.x-c.x,t);dy=T.MathUtils.lerp((c.y-.85)*.28,destination.y-c.y,t);dz=T.MathUtils.lerp(Math.cos(angle)*RING_Z,-c.z,t);}
      const selected=selection.has(p.id);data.set([dx,dy,dz,shown(p)?1:0],i*4);selectedData[i*4]=selected?255:0;
      markerPositions.set(data[i*4+3]>.5?[c.x+dx,c.y+dy,c.z+dz]:[10000,10000,10000],i*3);const mesh=pickers[i];if(mesh){mesh.position.set(dx,dy,dz);mesh.updateMatrix();mesh.updateMatrixWorld(true);}
     });partTexture.needsUpdate=true;selectionTexture.needsUpdate=true;markerGeometry.attributes.position.needsUpdate=true;lastExtent=amount;dirty=true;
@@ -343,6 +345,7 @@ export default function AnatomyScene({atlas,state,onSelect,onProgress,onError,on
     else if(lastFocus){cam.clearViewOffset();fit(s.view,amount);}
     lastFocus=focusKey;
    }
+   if(s.zoom&&s.zoom.n!==lastZoomN){lastZoomN=s.zoom.n;flight=null;const away=cam.position.clone().sub(controls.target);if(away.lengthSq()>0){cam.position.copy(controls.target).add(away.setLength(s.zoom.distance));controls.update();dirty=true;}}
    if(s.camera&&s.camera.n!==lastCameraN){lastCameraN=s.camera.n;flight=null;cam.clearViewOffset();cam.position.fromArray(s.camera.pose.position);controls.target.fromArray(s.camera.pose.target);controls.update();dirty=true;}
    if(s.frame&&s.frame.n!==lastFrameN){lastFrameN=s.frame.n;flyToBox(new T.Box3(new T.Vector3().fromArray(s.frame.box[0]),new T.Vector3().fromArray(s.frame.box[1])),s.frame.look?new T.Vector3().fromArray(s.frame.look):cam.position.clone().sub(controls.target));}
    if(flight){

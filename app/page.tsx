@@ -46,6 +46,10 @@ const XRAY_DEFAULT=.7;
 type Panel='layers'|'search'|'regions'|'bookmarks'|'quiz';
 const initial:SceneState={explode:0,visible:defaultVisible(BODY),selected:[],isolate:false,view:'three-quarter',rotate:false,reset:0,hidden:[],xray:0,section:null,region:null,peel:0,pins:[]};
 const sliderValue=(v:number|readonly number[])=>Array.isArray(v)?v[0]:v as number;
+// The zoom slider is logarithmic in camera distance (left = far, right = close); 100% is the usual 4 m view.
+const ZOOM_NEAR=.05,ZOOM_FAR=10,ZOOM_HOME=4;
+const zoomToDistance=(v:number)=>ZOOM_FAR*Math.pow(ZOOM_NEAR/ZOOM_FAR,v/100);
+const distanceToZoom=(d:number)=>Math.min(100,Math.max(0,Math.log(d/ZOOM_FAR)/Math.log(ZOOM_NEAR/ZOOM_FAR)*100));
 export default function Home(){
  const detailTitle=useRef<HTMLHeadingElement>(null),autoXray=useRef(false),lastXray=useRef(XRAY_DEFAULT),current=useRef(initial);
  const [atlas,setAtlas]=useState<Atlas|null>(null),[state,setState]=useState(initial),[progress,setProgress]=useState(0),[error,setError]=useState(''),[panel,setPanel]=useState<Panel|null>(null),[details,setDetails]=useState(false),[about,setAbout]=useState(false),[query,setQuery]=useState(''),[chosen,setChosen]=useState<Concept|null>(null);
@@ -57,6 +61,7 @@ export default function Home(){
  const [tool,setTool]=useState<Tool>('explode'),[multi,setMulti]=useState(false),[undo,setUndo]=useState<string[][]>([]);
  const [bookmarks,setBookmarks]=useState<SavedView[]>(loadBookmarks),[bookmarkName,setBookmarkName]=useState(''),[shareNote,setShareNote]=useState(''),[shareUrl,setShareUrl]=useState('');
  const cameraPose=useRef<CameraPose|null>(null),tapPoint=useRef<{id:string;point?:number[]}|null>(null),cameraN=useRef(0);
+ const [zoomValue,setZoomValue]=useState(distanceToZoom(ZOOM_HOME)),zoomN=useRef(0),zoomTouched=useRef(0);
  // Muscle cards and attachments load after the model; focus remembers that the selection is a nerve with its muscles.
  const [cards,setCards]=useState<CardIndex|null>(null),[catalogue,setCatalogue]=useState<AttachmentCatalogue|null>(null),[catalogueFailed,setCatalogueFailed]=useState(false),[marksFailed,setMarksFailed]=useState(false);
  const [marksOn,setMarksOn]=useState(loadMarks),[focus,setFocus]=useState<{term:string;side:string;ids:string[]}|null>(null),sections=useSections();
@@ -237,7 +242,7 @@ export default function Home(){
  const sectionAxis=AXES.find(a=>a.id===state.section?.axis),cutting=!!state.section||!!state.region||model.id==='knee';
  const toolValue=tool==='explode'?`${Math.round(state.explode*100)}`:tool==='xray'?(state.xray?`${Math.round(state.xray*100)}`:'關'):tool==='peel'?`${state.peel}/${DEEPEST}`:state.section?`${Math.round(state.section.position*100)}`:'關';
  return <main className="studio">
-  {atlas&&<AnatomyScene atlas={atlas} state={{...state,region:state.region??modelRegion,inspectorOpen:details&&selectedParts.length>0&&!quiz.running,marks:markIds,markThrough,companions,hideNames:quiz.asking}} onSelect={choosePart} onSelectPatch={selectPatch} onMarksFailed={()=>setMarksFailed(true)} onCamera={pose=>{cameraPose.current=pose;}} onPinRemove={id=>setState(s=>({...s,pins:s.pins.filter(p=>p.id!==id)}))} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
+  {atlas&&<AnatomyScene atlas={atlas} state={{...state,region:state.region??modelRegion,inspectorOpen:details&&selectedParts.length>0&&!quiz.running,marks:markIds,markThrough,companions,hideNames:quiz.asking}} onSelect={choosePart} onSelectPatch={selectPatch} onMarksFailed={()=>setMarksFailed(true)} onCamera={pose=>{cameraPose.current=pose;if(Date.now()-zoomTouched.current>800)setZoomValue(distanceToZoom(Math.hypot(pose.position[0]-pose.target[0],pose.position[1]-pose.target[1],pose.position[2]-pose.target[2])));}} onPinRemove={id=>setState(s=>({...s,pins:s.pins.filter(p=>p.id!==id)}))} onProgress={n=>{setProgress(n);if(n===100)setError('');}} onError={setError}/>}
   <div className="vignette"/>
   <header className="identity"><div className="eyebrow"><span className="status-dot"/> 互動解剖圖譜</div><h1>人體解剖<Badge variant="outline" className="edition">3D</Badge></h1><div className="identity-meta">{atlas?atlas.parts.length.toLocaleString():PART_COUNT[model.id]} 個部件 <span>·</span> {bodyModel?'BodyParts3D＋Z-Anatomy':female?'HRA 參考器官':'SPL Knee Atlas（MRI）'}</div>{model.id!=='knee'&&!quiz.running&&<div className="sex-switch" role="group" aria-label="男性或女性模型">{([[BODY,'男性'],[FEMALE,'女性']] as [Model,string][]).map(([m,name])=><button key={m.id} type="button" aria-pressed={model.id===m.id} className={model.id===m.id?'active':''} onClick={()=>chooseSex(m)}>{name}</button>)}</div>}</header>
   {!quiz.running&&<nav className="top-actions" aria-label="功能面板">{!female&&<Button variant="ghost" className={panel==='regions'||region||!bodyModel?'active':''} onClick={()=>openPanel('regions')} aria-label="選擇部位"><PersonStanding size={18}/><span>{kneeName||(region?regionName:'部位')}</span></Button>}{bodyModel&&<Button variant="ghost" className={panel==='bookmarks'?'active':''} onClick={()=>{setShareNote('');setShareUrl('');openPanel('bookmarks');}} aria-label="書籤與分享"><Bookmark size={18}/><span>書籤</span></Button>}<Button variant="ghost" className={panel==='search'?'active':''} onClick={()=>openPanel('search')} aria-label="搜尋構造"><Search size={18}/><span>找構造</span><kbd>/</kbd></Button>{bodyModel&&<Button variant="ghost" className={panel==='quiz'?'active':''} onClick={()=>openPanel('quiz')} aria-label="測驗"><GraduationCap size={18}/><span>測驗</span></Button>}<Button variant="ghost" className="icon-button about-button" aria-label="關於這個 App" onClick={()=>{setDetails(false);setPanel(null);setAbout(true);}}><Info size={18}/></Button></nav>}
@@ -271,6 +276,11 @@ export default function Home(){
     {tool==='section'&&<><div className="section-axes" role="group" aria-label="切面方向"><button type="button" aria-pressed={!state.section} className={!state.section?'active':''} onClick={()=>setSection(null)}>關</button>{AXES.map(a=><button key={a.id} type="button" aria-pressed={state.section?.axis===a.id} className={state.section?.axis===a.id?'active':''} onClick={()=>setSection(a.id)}>{a.name}</button>)}<button type="button" className="flip" disabled={!state.section} title="保留另一側" aria-label="保留另一側" onClick={()=>setState(s=>s.section?{...s,section:{...s.section,flip:!s.section.flip}}:s)}><FlipHorizontal2 size={15}/>換邊</button></div>
      {state.section&&sectionAxis&&<><Slider aria-label="切面位置" min={0} max={100} step={1} value={[state.section.position*100]} onValueChange={v=>{const n=sliderValue(v);setState(s=>s.section?{...s,section:{...s.section,position:n/100}}:s);}}/><div className="slider-endpoints"><span>{sectionAxis.ends[0]}</span><span>保留{state.section.flip?sectionAxis.ends[1]:sectionAxis.ends[0]}</span><span>{sectionAxis.ends[1]}</span></div></>}</>}
     {tool==='peel'&&<><Slider aria-label='肌肉剝層' min={0} max={DEEPEST} step={1} value={[state.peel]} onValueChange={v=>setState(s=>({...s,peel:sliderValue(v)}))}/><div className="slider-endpoints"><span>淺層</span><span>{PEEL_TEXT[state.peel]??`去掉到第 ${state.peel} 層`}</span><span>深層</span></div></>}
+   </div>
+   <div className="zoom-control">
+    <div className="zoom-head"><span>縮放</span><output className="tool-value">{Math.round(ZOOM_HOME/zoomToDistance(zoomValue)*100)}<span>%</span></output></div>
+    <Slider aria-label="畫面縮放" min={0} max={100} step={.5} value={[zoomValue]} onValueChange={v=>{const n=sliderValue(v);zoomTouched.current=Date.now();setZoomValue(n);setState(s=>({...s,zoom:{distance:zoomToDistance(n),n:++zoomN.current}}));}}/>
+    <div className="slider-endpoints"><span>縮小</span><span>放大</span></div>
    </div>
   </div>
   {quiz.running&&<QuizCard quiz={quiz} onSettings={()=>{quiz.exit();setPanel('quiz');}}/>}

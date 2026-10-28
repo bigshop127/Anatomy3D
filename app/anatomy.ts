@@ -40,6 +40,7 @@ export interface SceneState {inspectorOpen?:boolean;explode:number;visible:Syste
   * lists its parts instead and shows them whole; its box only frames the camera. */ region:{box:Box;look:number[];parts?:ReadonlySet<string>}|null;
  /** Number of muscle layers peeled away from the surface. */ peel:number;
  pins:Pin[];camera?:{pose:CameraPose;n:number};
+ /** Dolly the camera to this distance from its target (the zoom slider); n counts requests. */ zoom?:{distance:number;n:number};
  /** Muscle attachment patches to draw (ids from attachments.json); markThrough draws the selected muscles see-through so the
   * patches under them show. */ marks?:string[];markThrough?:boolean;
  /** Parts shown along with an isolated selection: the bones its attachment patches lie on. */ companions?:string[];
